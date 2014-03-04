@@ -4,3 +4,4 @@
 
 -rw-r--r--  1 odroid odroid  306 Feb 12 15:30 wpa_supplicant.conf
 
+bla bla test123
