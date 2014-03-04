@@ -1,0 +1,12 @@
+{
+	"id": "100",
+	"enabled": 0,
+	"creator": "pat",
+	"comment": "Created from EPG query",
+	"channel": "RTL HH SH",
+	"contenttype": 0,
+	"title": "The Blacklist",
+	"approx_time": 0,
+	"weekdays": "1,2,3,4,5,6,7",
+	"pri": "normal"
+}

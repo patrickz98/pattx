@@ -1,0 +1,12 @@
+{
+	"id": "4",
+	"enabled": 1,
+	"creator": "pat",
+	"comment": "Created from EPG query",
+	"channel": "SAT.1",
+	"contenttype": 0,
+	"title": "Crossing Lines",
+	"approx_time": 0,
+	"weekdays": "1,2,3,4,5,6,7",
+	"pri": "normal"
+}
