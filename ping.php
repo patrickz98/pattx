@@ -1,20 +1,21 @@
 #!/usr/bin/php
 <?php
 
-
-$ip = "192.168.0.1";
-
-$online=exec("ping $ip -n 1");
-
-if($online=="Zeitueberschreitung der Anforderung");
+while(true)
 {
-print "$ip ist offline";
+
+$ip = "192.168.0.19";
+
+$online = exec("ping $ip -c 1 |grep received");
+
+if($online == "1 packets transmitted, 1 received, 0% packet loss, time 0ms");
+	{
+	echo "$ip ist online \n";
+	}
+	else
+	{
+        echo "$ip ist off \n";
+        }
+
 }
-if($online!=="Zeitueberschreitung der Anforderung");
-{
-print "$ip ist online";
-}
-
-
-
 ?>
