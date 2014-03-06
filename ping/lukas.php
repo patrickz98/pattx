@@ -1,19 +1,10 @@
 #!/usr/bin/php
 <?php
 
-$a = 0;
-
-while($a < 254)
+while(true)
 {
 
-$a++;
-
-#if ($a == 254);
-#    {
-#    $a = 1;
-#    }
-
-$ip = "192.168.0.$a";
+$ip = "192.168.0.4";
 
 $online = exec("ping $ip -c 1 |grep received");
 
@@ -23,25 +14,25 @@ $date = date("d-m-Y");
 
 if ($online == "1 packets transmitted, 1 received, 0% packet loss, time 0ms")
 	{
-	echo "$ip ist online \n";
+	#echo "$ip ist online \n";
 
-        $inhalt = "$ip ist online um $time";
-        $handle = fopen ("on/$date.txt", "a");
+        $inhalt = "Lukas ist online am $date um $time";
+        $handle = fopen ("on/lukas.txt", "a");
         fwrite ($handle," ".$inhalt."\r\n");
         fclose ($handle);
 
 	}
 else
 	{
-        echo "$ip ist nicht online \n";
+        #echo "$ip ist nicht online \n";
 
-	$inhalt = "$ip ist offline um $time";
-        $handle = fopen ("off/$date.txt", "a");
+	$inhalt = "Lukas ist offline am $date um $time";
+        $handle = fopen ("off/lukas.txt", "a");
         fwrite ($handle," ".$inhalt."\r\n");
         fclose ($handle);
 
 	}
 
-#sleep(60);
+sleep(600);
 }
 ?>
