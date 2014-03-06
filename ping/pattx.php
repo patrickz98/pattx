@@ -1,6 +1,8 @@
 #!/usr/bin/php
 <?php
 
+$cd = exct
+
 $a = 0;
 while(true)
 {

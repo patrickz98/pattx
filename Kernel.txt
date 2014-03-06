@@ -1,0 +1,35 @@
+
+
+sudo apt-get install build-essential libqt4-dev git libncurses5-dev
+
+
+git clone --depth 1 https://github.com/torvalds/linux
+
+
+cd linux
+
+
+make oldconfig
+# cp /boot/config... .config
+
+
+make menuconfig
+
+
+make-kpkg clean
+
+
+export CONCURRENCY_LEVEL=4
+
+#Cors +1
+
+
+fakeroot make-kpkg --append-to-version "-customkernel" --revision "1" --initrd kernel_image kernel_headers
+
+cd ..
+
+sudo dpkg -i linux-headers linux-image
+
+sync 
+
+sudo reboot

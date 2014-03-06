@@ -1,0 +1,61 @@
+
+sudo nano /etc/apt/sources.list
+
+sudo cp /etc/apt/sources.list Core/
+
+sudo apt-get update
+
+sudo apt-get upgrade 
+sudo apt-get dist-upgrade
+
+dpkg --audit
+dpkg --get-selections | grep hold
+
+aptitude
+
+#make g =
+# ! No packages are scheduled to be installed, removed or upgraded
+
+nano /etc/apt/sources.list 
+
+deb http://mirrors.kernel.org/debian/ wheezy main
+deb-src http://mirrors.kernel.org/debian/ wheezy main
+ 
+deb http://security.debian.org/ wheezy/updates main
+deb-src http://security.debian.org/ wheezy/updates main
+ 
+# wheezy-updates, previously known as 'volatile'
+deb http://mirrors.kernel.org/debian/ wheezy-updates main
+deb-src http://mirrors.kernel.org/debian/ wheezy-updates main
+
+sudo apt-get update
+
+sudo apt-get upgrade
+
+sudo apt-get dist-upgrade
+# eventuell als root 
+
+aptitude update
+
+aptitude full-upgrade
+
+sync
+
+sudo reboot 
+
+##########################
+
+wen sudo nicht geht 
+
+sudo nano /etc/sudoers
+
++
+
+Defaults    env_reset
+Defaults    secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+
+
+
+
+
+
