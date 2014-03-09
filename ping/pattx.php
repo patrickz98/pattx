@@ -1,9 +1,8 @@
 #!/usr/bin/php
 <?php
 
-$cd = exct
-
 $a = 0;
+
 while(true)
 {
 	while($a < 254)
@@ -24,7 +23,7 @@ while(true)
 			#echo "$ip ist online \n";
 
 		        $inhalt = "$ip ist online um $time";
-		        $handle = fopen ("on/$date.txt", "a");
+		        $handle = fopen ("/home/odroid/ips/$date.txt", "a");
 		        fwrite ($handle," ".$inhalt."\r\n");
 		        fclose ($handle);
 
@@ -34,13 +33,11 @@ while(true)
 		        #echo "$ip ist nicht online \n";
 
 			$inhalt = "$ip ist offline um $time";
-		        $handle = fopen ("off/$date.txt", "a");
+		        $handle = fopen ("/home/odroid/ips/$date.txt", "a");
 		        fwrite ($handle," ".$inhalt."\r\n");
 		        fclose ($handle);
 
 			}
-
-
 	}
 
 $a = 0;
