@@ -1,0 +1,30 @@
+all: packages git config compile
+
+packages:
+	sudo apt-get update
+	sudo apt-get install \
+		build-essential \
+		libqt4-dev \
+		git \
+		libncurses5-dev \
+		kernel-package \
+
+git:
+	git clone --depth 1 https://github.com/torvalds/linux linux; \
+
+config:  
+	cd linux; \
+	yes"" |make oldconfig; \
+	make menuconfig; \
+	make-kpkg clean; \
+	export CONCURRENCY_LEVEL=5; \
+
+compile: config 
+	cd linux; \
+	fakeroot make-kpkg \
+		--append-to-version "-customkernel" \
+		--revision "1" \
+		--initrd kernel_image kernel_headers; \
+install: compile
+	sudo dpkg -i linux-headers linux-image; \
+	sync; \
