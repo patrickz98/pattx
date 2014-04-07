@@ -1,0 +1,245 @@
+Crypto:
+
+	#dd if=/dev/zero bs=1M count=100 of=mycryptofile
+
+	sudo modprobe cryptoloop && lsmod | grep cryptoloop
+
+	sudo modinfo /lib/modules/`uname -r`/kernel/crypto/* | grep 					description
+
+	sudo losetup -e aes /dev/loop0  cryptodata
+
+	#sudo mkfs.ext4 /dev/loop0
+
+	#sudo mkdir /mnt/cryptoloop
+
+	sudo mount -t ext4 /dev/loop0 /mnt/cryptoloop/
+
+	sudo umount /mnt/cryptoloop
+
+	sudo losetup -d /dev/loop0
+
+
+------------------------------------------------------------------------------------------
+Fotos wiederherstellen 
+
+sudo photorec /d /home/pi/test /dev/sdb1
+
+------------------------------------------------------------------------------------------
+Cam (http://www.forum-raspberrypi.de/Thread-tutorial-%C3%BCberwachungscamera-webcam-server-installieren)
+
+sudo nano /etc/default/motion 
+
+/etc/motion/motion.conf 
+
+sudo /etc/init.d/motion start
+
+------------------------------------------------------------------------------------------
+sudo nmap -sP 192.168.0.0/24
+
+php -f tvstart.php &
+
+http://pat:blabla@192.168.0.190:9981/stream/channelid/33
+
+
+http://www.spiegel.de/netzwelt/gadgets/projekt-fuer-den-raspberry-pi-so-basteln-sie-sich-einen-w-lan-drucker-a-921851.html
+
+talk xbian@localhost pts/2
+
+
+sudo mkfs.ntfs /dev/sdb1
+
+
+df -h ###festplatenspeicher
+
+watch 'tail -n 20 /var/log/apache2/patrickz.no-ip.org-access.log'
+
+
+GIT
+
+git pull (update)
+
+git push
+
+git commit -a
+
+gphoto2 –capture-image-and-download -F 3 -I 10.
+
+
+tvheadend -C &
+
+git clone https://github.com/tvheadend/tvheadend.git
+
+./configure
+
+make
+
+sudo make install
+
+sudo update-rc.d filename defaults 
+sudo update-rc.d -f mysql defaults remove
+
+rm -rf
+
+which tvheadend (testen ob funktionirt)
+
+sudo nano /etc/fstab #####festplatte 
+
+ls -al /dev/disk/ angeschlossende geräte 
+
+ffmpeg -r 0.3 -f image2 -i img%d.jpg -r 25 -b 512k -s vga output.avi
+
+ffmpeg -f image2 -i img%d.jpg output.mpg
+
+UUID=B4D8DAAED8DA6E5C                    /media/iVideo   ntfs    rw
+
+
+
+http://www.southampton.ac.uk/~sjc/raspberrypi/pi_supercomputer_southampton_web.pdf
+
+
+sudo mount -a
+
+sudo mkdir /media/iTunes
+
+ping patrickz.local
+
+sudo service mysql start
+
+ps -ax | less #####prossese
+
+sudo nano /etc/samba/smb.conf
+
+sudo service samba restart
+
+sudo raspi-config
+
+eject  /dev/sr0  (auswerfen)
+lsdvd  /dev/sr0
+
+odroid ALL=(ALL) NOPASSWD: ALL
+
+
+sudo fdisk /dev/sdb
+
+sudo resize2fs /dev/sdb2
+
+sudo e2fsck -f /dev/sdb2
+
+
+
+
+#!/bin/sh
+#/usr/bin/mplayer -dvd-device /dev/sr0 dvdnav://$1 -dumpstream -dumpfile ./ripped_$1.vob
+/usr/local/bin/mplayer -dvd-device /dev/sr0 dvdnav://$1 -dumpstream -dumpfile ./ripped_$1.vob
+
+
+ffmpeg -i Hannibal-13-Minnesota.flv -s 640x480 -r 30000/1001 -b 2M -bt 4M -vcodec mpeg4 -ac 2 -ar 48000 -ab 192k -strict experimental Hannibal-13-Minnesota-ip.mp4
+
+
+
+usermod -a -G groupName userName
+
+
+sudo mount -t cifs -o username=pi,password=jabba123 //192.168.0.198/iTunes /mnt/Raspberry/
+
+
+
+
+
+[www]
+        path = /var/www
+        public = yes
+        writable = yes
+        comment = Dezi's Testserver
+        printable = no
+        guest ok = yes
+
+
+ffmpeg -i input.wav -f mp2 output.mp3
+
+
+ffmpeg -i INPUT -s 640x480 -r 30000/1001 -b 200k -bt 240k -vcodec mpeg4 -vpre ipod640 -acodec libfaac -ac 2 -ar 48000 -ab 192k output.mp4
+
+sudo ntpdate -u ntp.ubuntu.com 
+
+
+sudo apt-get install libncurses5-dev
+
+
+sudo apt-get install libavahi-client-dev libavahi-client3 libcurl4-openssl-dev
+
+sudo apt-get install libssl-dev
+
+
+alias ll='ls -alh'
+alias psg='ps -eaf | grep -v grep | grep'
+alias df='df -h'
+
+
+network={
+ssid="Family-Airport"
+scan_ssid=1
+proto=RSN
+key_mgmt=WPA-PSK
+pairwise=CCMP TKIP
+group=CCMP TKIP
+psk="jimmy-hendrix"
+}
+network={
+ssid="Patrick"
+scan_ssid=1
+proto=RSN
+key_mgmt=WPA-PSK
+pairwise=CCMP
+group=TKIP
+psk="4patrick"
+}
+
+
+sudo modprobe -r gspca_kinect 
+sudo modprobe -r gspca_main
+
+
+
+git clone https://github.com/dezi/raspi.git; \
+git clone -b "release/3.4" https://github.com/tvheadend/tvheadend.git; \
+
+
+http://www.os-smart-tv.net/ebooks/smart-tv.4.epub
+
+
+tar xvf [ARCHIVNAME].tar
+auspacken 
+
+tar cvf [ARCHIVNAME].tar [VERZEICHNIS1] [VERZEICHNIS2] [DATEI1] [DATEI2]
+einpacken 
+
+tar cvzf mame0152.tgz mame0152
+einpaken +
+
+tar xvzf
+auspaken +
+
+sudo dpkg -i linux-headers linux-image
+
+odroid ALL=(ALL) NOPASSWD: ALL
+
+sudo dpkg-reconfigure tzdata
+
+
+
+deb http://ftp.debian.org/debian testing main contrib non-free
+
+
+
+
+
+
+
+
+
+
+
+
+
+
