@@ -1,9 +1,10 @@
 
 
-sudo apt-get install build-essential libqt4-dev git libncurses5-dev
+sudo apt-get install build-essential libqt4-dev git libncurses5-dev kernel-package
 
+cd Core
 
-git clone --depth 1 https://github.com/torvalds/linux
+git clone --depth 1 https://github.com/torvalds/linux linux
 
 
 cd linux
@@ -15,11 +16,12 @@ make oldconfig
 
 make menuconfig
 
+	Device Drivers -> Block Devices -> Cryptoloop 
 
 make-kpkg clean
 
 
-export CONCURRENCY_LEVEL=4
+export CONCURRENCY_LEVEL=5
 
 #Cors +1
 
