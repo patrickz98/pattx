@@ -1,12 +1,23 @@
+#!/usr/bin/php
 <?php
 
 exec("find /media/iVideo/Videos/Series-1/ -name '*.vob' -size +750000k |grep -E .vob > /var/www/xxx.txt");
+exec("rm /var/www/jobs/*");
 $i = 1;
 $zeilen = exec("cat /var/www/xxx.txt |wc -l");
 
+
+$done = exec("curl http://odroid-u4.local/done.txt| grep media > done-1.txt");
+
+exec("cat done.txt > done-cache.txt");
+exec("sed '/^\s*$/d' done-cache.txt > done-master.txt");
+exec("rm done-1.txt done-cache.txt");
+exec("mv done-master.txt /var/www/");
+
+
 while($i < $zeilen)
 {
-	$txt = file('xxx.txt');
+	$txt = file('/var/www/xxx.txt');
 	exec("touch /var/www/jobs/$i.txt");
 	echo $txt[$i];
 
@@ -16,6 +27,7 @@ while($i < $zeilen)
         fclose ($handle);
 
 	$i++;
+
 }
 
 
