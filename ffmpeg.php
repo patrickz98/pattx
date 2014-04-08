@@ -1,30 +1,22 @@
+#!/usr/bin/php
 <?php
 
-exec("find Series-1/ -name '*.vob' -size +750000k |grep -E .vob > xxx.txt");
-$i = 1;
-$b = 1;
-$zeilen = exec("cat xxx.txt |wc -l");
+$id = "http://odroid-u3.local";
+$jobs = "/jobs/";
+$a = 1;
+$b = ".txt";
+$c = exec("curl '$id'/xxx.txt| wc -l");
+$ziel = "cache/";
+$out = "out";
+$format = ".mp4";
 
-while($i < $zeilen)
+while($a < $c)
 {
-	$txt = file('xxx.txt');
-	//echo $txt[$i];
+	$dat = exec("curl $id$jobs$a$b| grep media");
+//	echo "$dat\n";
 
-	//$done = fopen("done.txt", "w+")
-	$done = file('done.txt');
-	$donezeilen = exec("cat done.txt |wc -l");
-
-	while($b > $donezeilen)
-		if ($done[$b] == $txt[$i])
-			{
-			echo "+++++++++++++++++++++++++++++++++++";
-			$i++;
-			}
-	echo $txt[$i];
-	echo "ffmpeg\n";
-	$i++;
+	echo "ffmpeg -i $id$dat $ziel$out$a$format\n";
+	$a++;
 }
-
-
 
 ?>
