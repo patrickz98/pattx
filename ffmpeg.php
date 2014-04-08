@@ -12,7 +12,7 @@ $ziel = "cache/";
 $out = "out";
 $format = ".mp4";
 
-exec("curl '$id'/done.txt| grep media > done.txt");
+exec("curl '$id'/done-master.txt| grep media > done.txt");
 $done = file("done.txt");
 $donewc = exec("cat done.txt| wc -l");
 
