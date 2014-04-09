@@ -14,7 +14,7 @@ $format = ".mp4";
 
 exec("curl '$id'/done-master.txt| grep media > finish.txt");
 $done = file("finish.txt");
-$donewc = exec("cat finish.txt"| wc -l");
+$donewc = exec("cat finish.txt| wc -l");
 
 
 while($a < $c)
@@ -34,8 +34,8 @@ while($a < $c)
 	}
 
 
-	echo "ffmpeg -i $id$dat $ziel$out$a$format\n";
-	//exec("ffmpeg -i $id$dat $ziel$out$a$format");
+	//echo "ffmpeg -i $id$dat $ziel$out$a$format\n";
+	exec("ffmpeg -i $id$dat $ziel$out$a$format");
 
 	$inhalt = "$dat";
         $handle = fopen ("done.txt", "a");
