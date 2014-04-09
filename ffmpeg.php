@@ -12,9 +12,9 @@ $ziel = "cache/";
 $out = "out";
 $format = ".mp4";
 
-exec("curl '$id'/done-master.txt| grep media > done.txt");
-$done = file("done.txt");
-$donewc = exec("cat done.txt| wc -l");
+exec("curl '$id'/done-master.txt| grep media > finish.txt");
+$done = file("finish.txt");
+$donewc = exec("cat finish.txt"| wc -l");
 
 
 while($a < $c)
@@ -36,6 +36,13 @@ while($a < $c)
 
 	echo "ffmpeg -i $id$dat $ziel$out$a$format\n";
 	//exec("ffmpeg -i $id$dat $ziel$out$a$format");
+
+	$inhalt = "$dat";
+        $handle = fopen ("done.txt", "a");
+        fwrite ($handle," ".$inhalt."\r\n");
+        fclose ($handle);
+	exec("sed '/^\s*$/d' done.txt > done.txt");
+
 	$a++;
 }
 
