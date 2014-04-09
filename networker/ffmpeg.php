@@ -1,7 +1,6 @@
 #!/usr/bin/php
 <?php
 
-
 $id = "http://odroid-u3.local";
 $jobs = "/jobs/";
 $a = 1;
@@ -24,7 +23,7 @@ while($a < $c)
 
 	while($d < $donewc)
 	{
-		if($done[$d] = $dat)
+		if($done[$d] == $dat)
 		{
 			echo $done[$d];
 			$a++;
@@ -34,14 +33,14 @@ while($a < $c)
 	}
 
 
-	//echo "ffmpeg -i $id$dat $ziel$out$a$format\n";
-	exec("ffmpeg -i $id$dat $ziel$out$a$format");
+	echo "ffmpeg -i $id$dat $ziel$out$a$format\n";
+	//exec("ffmpeg -i $id$dat $ziel$out$a$format");
 
 	$inhalt = "$dat";
         $handle = fopen ("done.txt", "a");
-        fwrite ($handle," ".$inhalt."\r\n");
+        fwrite ($handle,"".$inhalt."\r\n");
         fclose ($handle);
-	exec("sed '/^\s*$/d' done.txt > done.txt");
+	//exec("sed '/^\s*$/d' done.txt > done.txt");
 
 	$a++;
 }
