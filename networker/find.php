@@ -1,12 +1,23 @@
 #!/usr/bin/php
 <?php
 
+//media/iVideo/Videos/Movies-1/Quentin-Tarantino/
+
 include 'find.conf';
+
 exec("find $id -name '*.vob' -size +750000k |grep -E .vob > /var/www/xxx.txt");
 exec("rm /var/www/jobs/*");
-$i = 1;
+$i = 0;
 $zeilen = exec("cat /var/www/xxx.txt |wc -l");
 
+//$a = explode ('/', $id);
+//$b = explode ('/', $a);
+//$c = explode ('/', $b);
+//$d = explode ('/', $c);
+//$e = explode ('/', $d);
+//$name = explode ('/', $a);
+
+//echo "$a[5]";
 
 $done = exec("curl http://odroid-u4.local/done.txt| grep media > done-1.txt");
 

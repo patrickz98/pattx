@@ -3,7 +3,7 @@
 
 $id = "http://odroid-u3.local";
 $jobs = "/jobs/";
-$a = 1;
+$a = 0;
 $b = ".txt";
 $c = exec("curl '$id'/xxx.txt| wc -l");
 $d = 0;
