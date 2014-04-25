@@ -1,8 +1,8 @@
 #!/bin/sh
 
 ISPUSER=root
-ISPWORKDIR=/home/pi
-ISPWORKPUB=$ISPWORKDIR/php
+ISPWORKDIR=/home/odroid/Core
+ISPWORKPUB=$ISPWORKDIR/pattx
 ISPTASKCLIENT=initscript.php
 PHPBIN=`which php`
 
@@ -33,7 +33,7 @@ test -f $ISPWORKPUB/$ISPTASKCLIENT  || exit 0
 
 case "$1" in
 	start)
-		log_daemon_msg "Starting Patrickz daemons"
+		log_daemon_msg "Starting Noip daemons"
 		
 		install -o $ISPUSER -m 755 -d $LOGDIR
 		install -o $ISPUSER -m 755 -d $PIDDIR
@@ -48,7 +48,7 @@ case "$1" in
 		log_end_msg 0
 		;;
 	stop)
-		log_daemon_msg "Stopping Patrickz daemons"
+		log_daemon_msg "Stopping Noip daemons"
 
 		log_progress_msg "$ISPTASKCLIENT"
 		
@@ -72,7 +72,7 @@ case "$1" in
 		$0 start
 		;;
 	*)
-		echo "Usage: /etc/init.d/ispwork {start|stop|restart}"
+		echo "Usage: /etc/init.d/noip {start|stop|restart}"
 		exit 1
 		;;
 esac
