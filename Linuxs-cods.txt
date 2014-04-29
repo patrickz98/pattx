@@ -1,6 +1,6 @@
 Crypto:
 
-	#dd if=/dev/zero bs=1M count=100 of=mycryptofile
+	#dd if=/dev/zero bs=1M count=50 of=cryptodata
 
 	sudo modprobe cryptoloop && lsmod | grep cryptoloop
 
@@ -90,7 +90,7 @@ ffmpeg -r 0.3 -f image2 -i img%d.jpg -r 25 -b 512k -s vga output.avi
 
 ffmpeg -f image2 -i img%d.jpg output.mpg
 
-UUID=B4D8DAAED8DA6E5C                    /media/iVideo   ntfs    rw
+UUID=00048CF5048CEECA                   /media/iVideo   ntfs    rw
 
 
 
@@ -230,8 +230,9 @@ sudo dpkg-reconfigure tzdata
 
 deb http://ftp.debian.org/debian testing main contrib non-free
 
+python -m py_compile script.py
 
-
+sudo apt-get install usbutils wireless-tools
 
 
 

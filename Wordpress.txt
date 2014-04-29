@@ -10,14 +10,14 @@ MySQL Server
 PHP
 
 sudo apt-get install php5-mysql php5-curl php5-gd
-sudo apt-get install php5-idn php-pear php5-imagick php5-imap php5-mcrypt php5-memcache
+sudo apt-get install php5-intl php-pear php5-imagick php5-imap php5-mcrypt php5-memcache
 sudo apt-get install php5-ming php5-ps php5-pspell php5-recode php5-snmp php5-sqlite
 sudo apt-get install php5-tidy php5-xmlrpc php5-xsl
 
 
-wget http://de.wordpress.org/wordpress-3.8.1-de_DE.zip 
+wget http://de.wordpress.org/wordpress-3.9-de_DE.zip
 
-unzip wordpress-3.8.1-de_DE.zip
+unzip wordpress-3.9-de_DE.zip
 
 mv wordpress/* /var/www	
 
@@ -27,14 +27,14 @@ Dan Apache Konfigurieren
 
 #######################
 cd mods-enabled
-ln -s ../mods-available/rewrite.load 
+sudo ln -s ../mods-available/rewrite.load 
 muss noch iergendwo hin
 #######################
 
 
 cd /etc/apache2/sites-available/
 
-sudo nano /etc/apache2/sites-available/default
+sudo nano /etc/apache2/sites-available/000-default.conf
 
 Einfügen
 
@@ -88,7 +88,7 @@ Einfügen
         RewriteRule ^(.*)$ - [F,L]
 
         <Directory /var/www>
-                Options -Indexes FollowSymLinks -Includes -MultiViews
+                Options Indexes FollowSymLinks Includes MultiViews
                 AllowOverride FileInfo
                 Order allow,deny
                 allow from all
@@ -159,29 +159,6 @@ sudo nano /etc/apache2/sites-available/default
 
 
 http://www.laub-home.de/wiki/Installation_Wordpress_unter_Debian_Linux
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
