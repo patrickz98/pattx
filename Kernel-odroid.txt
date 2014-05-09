@@ -1,6 +1,6 @@
 
 
-sudo apt-get install build-essential dkms bc
+sudo apt-get install build-essential dkms bc libncurses5-dev
 
 git clone --depth 1 https://github.com/hardkernel/linux.git -b odroid-3.8.y odroid-3.8.y
 
