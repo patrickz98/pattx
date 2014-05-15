@@ -62,7 +62,7 @@ git push
 
 git commit -a
 
-gphoto2 –capture-image-and-download -F 3 -I 10.
+gphoto2 ï¿½capture-image-and-download -F 3 -I 10.
 
 
 tvheadend -C &
@@ -84,7 +84,7 @@ which tvheadend (testen ob funktionirt)
 
 sudo nano /etc/fstab #####festplatte 
 
-ls -al /dev/disk/ angeschlossende geräte 
+ls -al /dev/disk/ angeschlossende gerï¿½te 
 
 ffmpeg -r 0.3 -f image2 -i img%d.jpg -r 25 -b 512k -s vga output.avi
 
@@ -235,7 +235,7 @@ python -m py_compile script.py
 sudo apt-get install usbutils wireless-tools
 
 
-
+du -a -c -h
 
 
 
