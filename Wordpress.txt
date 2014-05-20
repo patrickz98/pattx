@@ -21,22 +21,18 @@ unzip wordpress-3.9-de_DE.zip
 
 mv wordpress/* /var/www	
 
-chown -R www-data.www-data /var/www 	(dan pi zur www-data.gruppe hinzufügen)
+sudo chown -R www-data.www-data /var/www 	(ggf. dan pi zur www-data.gruppe hinzufï¿½gen)
 
 Dan Apache Konfigurieren 
 
-#######################
-cd mods-enabled
+cd /etc/apache2/mods-enabled
 sudo ln -s ../mods-available/rewrite.load 
-muss noch iergendwo hin
-#######################
-
 
 cd /etc/apache2/sites-available/
 
 sudo nano /etc/apache2/sites-available/000-default.conf
 
-Einfügen
+Einfï¿½gen
 
 <VirtualHost *:80>
         ServerAdmin webmaster@patrickz.no-ip.org
@@ -75,7 +71,7 @@ Einfügen
         RewriteCond %{QUERY_STRING} (\<|%3C).*script.*(\>|%3E) [NC,OR]
         RewriteCond %{QUERY_STRING} mosConfig_[a-zA-Z_]{1,21}(=|%3D) [NC,OR]
         RewriteCond %{QUERY_STRING} base64_encode.*\(.*\) [NC,OR]
-        RewriteCond %{QUERY_STRING} ^.*(\[|\]|\(|\)|<|>|ê|"|;|\?|\*|=$).* [NC,OR]
+        RewriteCond %{QUERY_STRING} ^.*(\[|\]|\(|\)|<|>|ï¿½|"|;|\?|\*|=$).* [NC,OR]
         RewriteCond %{QUERY_STRING} ^.*(&#x22;|&#x27;|&#x3C;|&#x3E;|&#x5C;|&#x7B;|&#x7C;).* [NC,OR]
         RewriteCond %{QUERY_STRING} ^.*(%24&x).* [NC,OR]
         RewriteCond %{QUERY_STRING} ^.*(%0|%A|%B|%C|%D|%E|%F|127\.0).* [NC,OR]
@@ -132,7 +128,7 @@ CREATE USER 'wpuser'@'localhost' IDENTIFIED BY 'hallo6';
 grant all on wordpressdb.* to wpuser@localhost;
 
 
-nachdem einstellen !!!im browser!!! eingefügt:
+nachdem einstellen !!!im browser!!! eingefï¿½gt:
 
 cd /etc/apache2/sites-available/
 
@@ -144,7 +140,7 @@ sudo nano /etc/apache2/sites-available/default
 	        deny from all
 	</FilesMatch>
 
-	in ändern
+	in ï¿½ndern
 
 	<FilesMatch "(\.htaccess|\.htpasswd|wp-config\.php|install\.php|liesmich\.html|readme\.html)">
                 order allow,deny
