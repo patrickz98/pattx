@@ -1,41 +1,58 @@
-#!/usr/bin/python
-
 import mechanize
 import cookielib
 
+my_file = open("out-r.txt", "r+")
+my_file1 = my_file.readlines()
+passwords = open("passwords.txt", "a")
+user = 'patrick.zierahn'
+passwd = 'blabla123'
 
-# Browser
-br = mechanize.Browser()
+def check(user, passwd):
 
-# Cookie Jar
-cj = cookielib.LWPCookieJar()
-br.set_cookiejar(cj)
+	# Browser
+	br = mechanize.Browser()
 
-# Browser options
-br.set_handle_equiv(True)
-br.set_handle_gzip(True)
-br.set_handle_redirect(True)
-br.set_handle_referer(True)
-br.set_handle_robots(False)
+	# Cookie Jar
+	cj = cookielib.LWPCookieJar()
+	br.set_cookiejar(cj)
 
-# Follows refresh 0 but not hangs on refresh > 0
-br.set_handle_refresh(mechanize._http.HTTPRefreshProcessor(), max_time=1)
+	# Browser options
+	br.set_handle_equiv(True)
+	br.set_handle_gzip(True)
+	br.set_handle_redirect(True)
+	br.set_handle_referer(True)
+	br.set_handle_robots(False)
 
-#Opens the site to be navigated
-br.open('https://goethe-schule-harburg.de/idesk/')
+	# Follows refresh 0 but not hangs on refresh > 0
+	br.set_handle_refresh(mechanize._http.HTTPRefreshProcessor(), max_time=1)
 
-# Select the second (index one) form
-br.select_form(nr=0)
+	#Opens the site to be navigated
+	br.open('https://goethe-schule-harburg.de/idesk/')
 
-# User credentials
-br.form['login_act'] = 'patrick.zierahn'
-br.form['login_pwd'] = 'blabla123'
+	# Select the second (index one) form
+	br.select_form(nr=0)
+	
+	# User credentials
+	br.form['login_act'] = user
+	br.form['login_pwd'] = passwd
 
-# Login
-a = br.submit()
-b = a.read()
+	# Login
+	a = br.submit()
+	b = a.readlines()
+	
+	return len(b)
+	#return len(b)
 
-#r= br.open('https://goethe-schule-harburg.de/idesk/infodisplay/index.php?id=5')
-#html = r.read()
+"""
+print check(user, passwd)
+print len(my_file1) - 1
+"""
+if check(user, passwd) == len(my_file1) - 1:
+	print "Juhuu"
+	#passwords.write(str(user) + "\n")
+	#passwords.write(str(passwd) + "\n")
+else:
+	print "Oh"
 
-print b
+my_file.close()
+passwords.close()
