@@ -101,7 +101,7 @@ for a in lst:
 										passwords.write(str(user) + "\n")
 										passwords.write(str(passwd) + "\n")
 			
-"""
+"""*
 print check(user, passwd)
 print len(my_file1) - 1
 
