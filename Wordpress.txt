@@ -128,6 +128,12 @@ CREATE USER 'wpuser'@'localhost' IDENTIFIED BY 'hallo6';
 #GRANT ALL PRIVILEGES ON wordpressdb. * TO 'wpuser'@'hallo6';
 grant all on wordpressdb.* to wpuser@localhost;
 
+#MySql
+
+select host, user, password from mysql.user;
+SHOW DATABASES;
+DROP DATABASE db_name;
+DROP USER wpuser@'localhost';
 
 nachdem einstellen !!!im browser!!! eingef�gt:
 
