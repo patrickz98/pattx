@@ -15,7 +15,7 @@ sudo apt-get install php5-ming php5-ps php5-pspell php5-recode php5-snmp php5-sq
 sudo apt-get install php5-tidy php5-xmlrpc php5-xsl
 
 
-wget http://de.wordpress.org/wordpress-3.9.1-de_DE.zip
+wget de.wordpress.org/latest-de_DE.zip
 
 unzip wordpress-3.9.1-de_DE.zip
 
