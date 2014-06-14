@@ -20,6 +20,7 @@ wget de.wordpress.org/latest-de_DE.zip
 unzip latest-de_DE.zip
 
 sudo cp wordpress/* /var/www	
+sudo cp -r wordpress/* /var/www
 
 sudo chown -R www-data.www-data /var/www 	(ggf. dan pi zur www-data.gruppe hinzuf�gen)
 
