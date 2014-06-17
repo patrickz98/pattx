@@ -1,22 +1,26 @@
 
 
-sudo apt-get install build-essential libqt4-dev git libncurses5-dev kernel-package
-
 cd Core
 
 git clone --depth 1 https://github.com/torvalds/linux linux
 
-
 cd linux
 
-
 make oldconfig
-# cp /boot/config... .config
-
 
 make menuconfig
 
 	Device Drivers -> Block Devices -> Cryptoloop 
+
+make -j5
+
+sudo make modules_install
+
+sudo make install
+
+
+-----------ALT---------------------------------------------------
+sudo apt-get install build-essential libqt4-dev git libncurses5-dev kernel-package
 
 make-kpkg clean
 
@@ -35,3 +39,4 @@ sudo dpkg -i linux-headers linux-image
 sync 
 
 sudo reboot
+-------------------------------------------------------------------
