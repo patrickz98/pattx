@@ -237,7 +237,24 @@ sudo apt-get install usbutils wireless-tools
 
 du -a -c -h
 
+ffmpeg -i infile.MP4 -ss 2 -acodec copy -vcodec copy -t 4 outfile.mp4
 
+Hier werden 4 Sekunden ab Sekunde 3 kopiert.
+
+disable desktop
+
+sudo nano /etc/X11/default-display-manager
+	
+	#/usr/sbin/gdm3
+	/bin/true
+	
+SSH
+
+	cd ~/.ssh
+	ssh-keygen -t rsa -C "your_email@example.com"
+	
+
+	
 
 
 
