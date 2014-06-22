@@ -2,8 +2,9 @@ import subprocess
 import sys
 
 slaves = 2
-file = "../thrones-4x03-copy.ts"
-#file = "test.ts"
+#file = "../thrones-4x03-copy.ts"
+file = "test.ts"
+#file = "../Recordings/Jerry-Cotton/Jerry-Cotton.mkv"
 
 #Video length
 def getLength(file):
@@ -23,14 +24,27 @@ def getLength(file):
 #Video cutter
 def cut(file):
 	length = getLength(file)
-	h = int(length[:2]) * 60
+	h = int(length[:2])
 	m = length[3:(len(length) - 6)]
 	s = length[6:]
-	print int(h) / slaves
-	print int(m) / slaves
-	print float(s) / slaves
-
-#	ffmpeg -i test.ts -acodec copy -vcodec copy -scodec copy -ss 00:00:00 -t 00:10:23.06 cut.ts	
+	seconds = (int(h) * 60  + int(m)) * 60 + float(s)
+	
+	print "seconds in video: " + str(seconds)
+	#print seconds / slaves
+	
+	a = 0
+	b = 0
+	while (slaves >= a):
+		c = seconds / slaves
+		b = b + c
+		d = b - c
+		print ("cut from %d to %d" % (d, b))
+		a = a + 1
+				
+#	ffcutter = subprocess.Popen(["ffmpeg -i test.ts -acodec copy -vcodec copy -scodec copy cut.ts"],
+#		stdout = subprocess.PIPE, stderr = subprocess.STDOUT).stdout.readlines().stderr
+#bla = ffcutter.stdout.readlines()
+#ffmpeg -i test.ts -acodec copy -vcodec copy -scodec copy -ss 00:00:00 -t 00:10:23.06 cut.ts	
 
 #ssh command transfer
 def ssh(COMMAND):
