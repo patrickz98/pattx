@@ -1,5 +1,6 @@
 import subprocess
 import sys
+import os
 
 slaves = 2
 #file = "../thrones-4x03-copy.ts"
@@ -40,10 +41,11 @@ def cut(file):
 		d = b - c
 		print ("cut from %d to %d" % (d, b))
 		a = a + 1
-				
-#	ffcutter = subprocess.Popen(["ffmpeg -i test.ts -acodec copy -vcodec copy -scodec copy cut.ts"],
-#		stdout = subprocess.PIPE, stderr = subprocess.STDOUT).stdout.readlines().stderr
-#bla = ffcutter.stdout.readlines()
+		
+		out = "out-" + str(a) + ".ts"
+		os.popen("ffmpeg -i %s -acodec copy -vcodec copy -scodec copy -ss %s -t %s %s 1>/dev/null 2>/dev/null" % (str(file), str(d), str(b), out)).readlines()
+
+#ffmpeg -i "concat:out-1.ts|out-2.ts|out-3.ts" -vcodec copy -acodec copy  end.ts
 #ffmpeg -i test.ts -acodec copy -vcodec copy -scodec copy -ss 00:00:00 -t 00:10:23.06 cut.ts	
 
 #ssh command transfer
