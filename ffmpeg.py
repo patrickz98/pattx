@@ -1,7 +1,9 @@
 import subprocess
 import sys
 
-slave = 2
+slaves = 2
+file = "../thrones-4x03-copy.ts"
+#file = "test.ts"
 
 #Video length
 def getLength(file):
@@ -18,6 +20,18 @@ def getLength(file):
 	else:
 		print "video error"
 	
+#Video cutter
+def cut(file):
+	length = getLength(file)
+	h = int(length[:2]) * 60
+	m = length[3:(len(length) - 6)]
+	s = length[6:]
+	print int(h) / slaves
+	print int(m) / slaves
+	print float(s) / slaves
+
+#	ffmpeg -i test.ts -acodec copy -vcodec copy -scodec copy -ss 00:00:00 -t 00:10:23.06 cut.ts	
+
 #ssh command transfer
 def ssh(COMMAND):
 	HOST="odroid-u4.local"
@@ -35,8 +49,9 @@ def ssh(COMMAND):
 	else:
 	    return  str(result)[2:-4]
 
+
 #print ssh("uname -a")
 #print ssh("uptime")
 #print ssh("uptime")
-print getLength("test.ts")
-
+print getLength(file)
+cut(file)
