@@ -123,6 +123,7 @@ def make():
 						finish += [b]
 						
 		if (len(finish) == slaves):
+			print "build video this can take a few minutes....."
 			build = ' '.join(finish)
 			#os.popen('ffmpeg -i "%s" -vcodec copy -acodec copy %s%s 1>/dev/null 2>/dev/null' % (bulid, endname, endformat)).readlines()
 			os.popen('mencoder -oac pcm -ovc copy -o %s%s %s 1>/dev/null 2>/dev/null' % (endname, endformat, build)).readlines()
