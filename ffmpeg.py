@@ -5,7 +5,7 @@ import os
 import time
 
 pwd = os.getcwd()
-hosts = ["odroid@odroid-u4.local", "patty@debian.local", "odroid@odroid-x2.local", "patty@debian.local"]
+hosts = ["odroid@odroid-u4.local", "patty@debian.local", "odroid@odroid-x2.local"]
 slaves = len(hosts)
 localhost = "odroid-u3.local"
 localhostuser = "odroid"
@@ -13,7 +13,7 @@ wwwdirec = "/var/www/odroid/"
 
 #file = "thrones-4x04.ts"
 #file = "test.ts"
-#file = "cat.ts"
+#file = "loriot.mp4"
 file = "see.ts"
 
 name = file[:file.find(".")]
@@ -61,6 +61,7 @@ def getvideoparts(file):
 		#print videoparts[out]
 		a = a + 1
 
+hostlist = {}
 #ssh command transfer
 def sshmain():
 	a = 0
@@ -68,6 +69,7 @@ def sshmain():
 		if ping(h) == 0:
 			part = endname + "-part-%s" % str(a)
 			print "host " + h + " calculating " + part
+			hostlist.update({h:part})
 			ssh(h, part)
 			a += 1
 		elif ping(h) == 1:
@@ -90,7 +92,6 @@ def ssh(HOST, part):
 		   localhostuser,localhost, pwd, out, 
 		   out)
 	
-	#ssh odroid@%s touch %s%s-done &&\   localhost, pwd, out,
 	subprocess.Popen(["ssh", "%s" % HOST, COMMAND],
 	                       shell=False,
 	                       stdout=subprocess.PIPE,
@@ -98,13 +99,12 @@ def ssh(HOST, part):
 
 #Creat symlinks
 def symlink(file):
-	print "make symlink from %s to %s%s" % (file, wwwdirec, file)
 	os.popen('rm %s%s' % (wwwdirec, file)).readlines()
+	print "make symlink from %s to %s%s" % (file, wwwdirec, file)
 	os.popen('ln -s %s/%s %s%s' % ( pwd, file, wwwdirec, file)).readlines()
 	
 #link the videos 
-def build():
-	bulid = "concat:"
+def make():
 	finish = []
 	while(True):
 		objects = os.popen('ls').readlines()
@@ -122,24 +122,28 @@ def build():
 					else:
 						finish += [b]
 						
-		
 		if (len(finish) == slaves):
-			for i in finish:
-				bulid += i + "|"
-			os.popen('ffmpeg -i "%s" -vcodec copy -acodec copy %s%s 1>/dev/null 2>/dev/null' % (bulid, name, endformat)).readlines()
-			clean()
+			build = ' '.join(finish)
+			#os.popen('ffmpeg -i "%s" -vcodec copy -acodec copy %s%s 1>/dev/null 2>/dev/null' % (bulid, endname, endformat)).readlines()
+			os.popen('mencoder -oac pcm -ovc copy -o %s%s %s 1>/dev/null 2>/dev/null' % (endname, endformat, build)).readlines()
 			break
 		else:
+			print "Wait of hosts - " + time.strftime("%H:%M:%S")
 			
-			print "Wait of hosts"
-			print str(time.clock())
-			time.sleep(35)
-		
+			for a in hostlist:
+				for b in finish:
+					if hostlist[a] == b:
+						print "%s has finish" % a
+					else:
+						print "wait of %s" % a
+			
+			time.sleep(15)	
+
 def clean():
 	print "cleaning system....." 
 	os.popen('rm %s%s' % (wwwdirec, file)).readlines()
-	os.popen('rm %s-part-*%s' % (name, endformat)).readlines()
-	os.popen('rm %s-part-*%s-done' % (name, endformat)).readlines()
+	os.popen('rm %s-part-*%s' % (endname, endformat)).readlines()
+	os.popen('rm %s-part-*%s-done' % (endname, endformat)).readlines()
 
 def ping(h):
 	host = h[h.find("@") + 1:]
@@ -161,7 +165,7 @@ def main():
 	getvideoparts(file)
 	symlink(file)
 	sshmain()
-	print "build"
-	build()
+	make()
+	#clean()
 
 main()
