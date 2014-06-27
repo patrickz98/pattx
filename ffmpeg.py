@@ -4,15 +4,20 @@ import sys
 import os
 import time
 
-start = time.clock()
 pwd = os.getcwd()
-hosts = ["odroid@odroid-u4.local", "patty@debian.local", "odroid@odroid-x2.local"]
+hosts = ["odroid@odroid-u4.local", "patty@debian.local", "odroid@odroid-x2.local", "patty@debian.local"]
 slaves = len(hosts)
+localhost = "odroid-u3.local"
+wwwdirec = "/var/www/odroid/"
 
-#file = "thrones-4x04.ts"
+file = "thrones-4x04.ts"
 #file = "test.ts"
-#file = "../Recordings/Jerry-Cotton/Jerry-Cotton.mkv"
-file = "see.ts"
+#file = "cat.ts"
+#file = "see.ts"
+
+name = file[:file.find(".")]
+formart = file[file.find("."):]
+endformat = ".mp4"
 
 #Video length
 def getLength(file):
@@ -48,29 +53,32 @@ def getvideoparts(file):
 		d = b - c
 		print ("cut from %d to %d" % (d, b))
 		
-		out = "part-" + str(a)
+		out = name + "-" + str(a)
 		videoparts.update({out:[int(d),int(b)]})
 		#print out
 		#print videoparts[out]
 		a = a + 1
 
 #ssh command transfer
-def sshhead():
+def sshmain():
 	a = 0
 	for h in hosts:
-		part = "part-%s" % str(a)
-		print "host " + h + " calculating " + part
-		ssh(h, part)
-		a += 1
-
+		if ping(h) == 0:
+			part = name + "-%s" % str(a)
+			print "host " + h + " calculating " + part
+			ssh(h, part)
+			a += 1
+		elif ping(h) == 1:
+			print "host %s is not available" % h
+			
 buildparts = []
 def ssh(HOST, part):
 	part1 = videoparts[part][0]
 	part2 = videoparts[part][1]
-	out = part + ".mp4"
+	out = part + endformat
 	buildparts.append(out)
 	
-	COMMAND = "nohup ffmpeg -i http://odroid-u3.local/%s -ss %d -t %d %s 1>/dev/null 2>/dev/null && scp ~/%s odroid@odroid-u3.local:%s 1>/dev/null 2>/dev/null && rm ~/%s" % (file, part1, part2, out, out, pwd, out)
+	COMMAND = "nohup ffmpeg -i http://%s/%s -ss %d -t %d %s 1>/dev/null 2>/dev/null && scp ~/%s odroid@%s:%s 1>/dev/null 2>/dev/null && rm ~/%s" % (localhost, file, part1, part2, out, out, localhost, pwd, out)
 	subprocess.Popen(["ssh", "%s" % HOST, COMMAND],
 	                       shell=False,
 	                       stdout=subprocess.PIPE,
@@ -78,9 +86,9 @@ def ssh(HOST, part):
 
 #Creat symlinks
 def symlink(file):
-	print "make symlink from %s to /var/www/odroid/%s" % (file, file)
-	os.popen('rm /var/www/odroid/%s' % file).readlines()
-	os.popen('ln -s %s/%s /var/www/odroid/%s' % ( pwd, file, file)).readlines()
+	print "make symlink from %s to %s%s" % (file, wwwdirec, file)
+	os.popen('rm %s%s' % (wwwdirec, file)).readlines()
+	os.popen('ln -s %s/%s %s%s' % ( pwd, file, wwwdirec, file)).readlines()
 	
 #link the videos 
 def build():
@@ -106,18 +114,40 @@ def build():
 		if (len(finish) == slaves):
 			for i in finish:
 				bulid += i + "|"
-			os.popen('ffmpeg -i "%s" -vcodec copy -acodec copy end.mp4 1>/dev/null 2>/dev/null' % (bulid)).readlines()
+			os.popen('ffmpeg -i "%s" -vcodec copy -acodec copy %s%s 1>/dev/null 2>/dev/null' % (bulid, name, endformat)).readlines()
+			clean()
 			break
 		else:
+			
 			print "Wait of hosts"
+			print str(time.clock())
 			time.sleep(35)
 		
+def clean():
+	os.popen('rm %s%s' % (wwwdirec, file)).readlines()
+	os.popen('rm %s-*%s' % (name, endformat)).readlines()
 
-end = time.clock()
-print getLength(file)
-getvideoparts(file)
-symlink(file)
-sshhead()
-print "build"
-build()
-print "time which are need to build = " + (time-strat - time-end)
+def ping(h):
+	host = h[h.find("@") + 1:]
+	#response = os.system("ping -c 1 " + host)
+	response = subprocess.call("ping -c 1 %s" % host,
+        shell=True,
+        stdout=open('/dev/null', 'w'),
+        stderr=subprocess.STDOUT)
+	
+	if response == 0:
+		#print host, 'is up!'
+		return 0
+	else:
+		#print host, 'is down!'
+		return 1
+
+def main():
+	print getLength(file)
+	getvideoparts(file)
+	symlink(file)
+	sshmain()
+	print "build"
+	build()
+
+main()
