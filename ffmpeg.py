@@ -129,15 +129,16 @@ def make():
 			break
 		else:
 			print "Wait of hosts - " + time.strftime("%H:%M:%S")
-			
+			"""
 			for a in hostlist:
 				for b in finish:
+					
 					if hostlist[a] == b:
 						print "%s has finish" % a
 					else:
 						print "wait of %s" % a
-			
-			time.sleep(15)	
+			"""		
+			time.sleep(2)	
 
 def clean():
 	print "cleaning system....." 
@@ -166,6 +167,6 @@ def main():
 	symlink(file)
 	sshmain()
 	make()
-	#clean()
+	clean()
 
 main()
