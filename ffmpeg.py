@@ -8,15 +8,17 @@ pwd = os.getcwd()
 hosts = ["odroid@odroid-u4.local", "patty@debian.local", "odroid@odroid-x2.local", "patty@debian.local"]
 slaves = len(hosts)
 localhost = "odroid-u3.local"
+localhostuser = "odroid"
 wwwdirec = "/var/www/odroid/"
 
-file = "thrones-4x04.ts"
+#file = "thrones-4x04.ts"
 #file = "test.ts"
 #file = "cat.ts"
-#file = "see.ts"
+file = "see.ts"
 
 name = file[:file.find(".")]
 formart = file[file.find("."):]
+endname = "see"
 endformat = ".mp4"
 
 #Video length
@@ -53,7 +55,7 @@ def getvideoparts(file):
 		d = b - c
 		print ("cut from %d to %d" % (d, b))
 		
-		out = name + "-" + str(a)
+		out = endname + "-" + str(a)
 		videoparts.update({out:[int(d),int(b)]})
 		#print out
 		#print videoparts[out]
@@ -64,12 +66,13 @@ def sshmain():
 	a = 0
 	for h in hosts:
 		if ping(h) == 0:
-			part = name + "-%s" % str(a)
+			part = endname + "-%s" % str(a)
 			print "host " + h + " calculating " + part
 			ssh(h, part)
 			a += 1
 		elif ping(h) == 1:
 			print "host %s is not available" % h
+			hosts.remove(h)
 			
 buildparts = []
 def ssh(HOST, part):
@@ -78,7 +81,16 @@ def ssh(HOST, part):
 	out = part + endformat
 	buildparts.append(out)
 	
-	COMMAND = "nohup ffmpeg -i http://%s/%s -ss %d -t %d %s 1>/dev/null 2>/dev/null && scp ~/%s odroid@%s:%s 1>/dev/null 2>/dev/null && rm ~/%s" % (localhost, file, part1, part2, out, out, localhost, pwd, out)
+	COMMAND = "nohup ffmpeg -i http://%s/%s -ss %d -t %d %s 1>/dev/null 2>/dev/null &&\
+		scp ~/%s %s@%s:%s 1>/dev/null 2>/dev/null &&\
+		ssh %s@%s touch %s/%s-done &&\
+		rm ~/%s"\
+		% (localhost, file, part1, part2, out, 
+		   out, localhostuser, localhost, pwd, 
+		   localhostuser,localhost, pwd, out, 
+		   out)
+	
+	#ssh odroid@%s touch %s%s-done &&\   localhost, pwd, out,
 	subprocess.Popen(["ssh", "%s" % HOST, COMMAND],
 	                       shell=False,
 	                       stdout=subprocess.PIPE,
@@ -98,7 +110,7 @@ def build():
 		objects = os.popen('ls').readlines()
 		for a in objects:
 			for b in buildparts:
-				if a[:-1] == b:
+				if a[:-1] == b + "-done":
 					print a[:-1] + " is received"
 					
 					if finish:
@@ -124,8 +136,10 @@ def build():
 			time.sleep(35)
 		
 def clean():
+	print "cleaning system....." 
 	os.popen('rm %s%s' % (wwwdirec, file)).readlines()
 	os.popen('rm %s-*%s' % (name, endformat)).readlines()
+	os.popen('rm %s-*%s-done' % (name, endformat)).readlines()
 
 def ping(h):
 	host = h[h.find("@") + 1:]
