@@ -55,7 +55,7 @@ def getvideoparts(file):
 		d = b - c
 		print ("cut from %d to %d" % (d, b))
 		
-		out = endname + "-" + str(a)
+		out = endname + "-part-" + str(a)
 		videoparts.update({out:[int(d),int(b)]})
 		#print out
 		#print videoparts[out]
@@ -66,7 +66,7 @@ def sshmain():
 	a = 0
 	for h in hosts:
 		if ping(h) == 0:
-			part = endname + "-%s" % str(a)
+			part = endname + "-part-%s" % str(a)
 			print "host " + h + " calculating " + part
 			ssh(h, part)
 			a += 1
@@ -138,8 +138,8 @@ def build():
 def clean():
 	print "cleaning system....." 
 	os.popen('rm %s%s' % (wwwdirec, file)).readlines()
-	os.popen('rm %s-*%s' % (name, endformat)).readlines()
-	os.popen('rm %s-*%s-done' % (name, endformat)).readlines()
+	os.popen('rm %s-part-*%s' % (name, endformat)).readlines()
+	os.popen('rm %s-part-*%s-done' % (name, endformat)).readlines()
 
 def ping(h):
 	host = h[h.find("@") + 1:]
