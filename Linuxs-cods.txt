@@ -256,3 +256,5 @@ SSH
 
 	
 open /System/Library/CoreServices/Finder.app
+
+sudo apachectl start
