@@ -258,3 +258,6 @@ SSH
 open /System/Library/CoreServices/Finder.app
 
 sudo apachectl start
+
+sudo launchctl load -w /System/Library/LaunchDaemons/ntalk.plist
+
