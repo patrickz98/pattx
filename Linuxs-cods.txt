@@ -62,6 +62,8 @@ git push
 
 git commit -a
 
+
+killall PTPCamera
 gphoto2 �capture-image-and-download -F 3 -I 10.
 
 
