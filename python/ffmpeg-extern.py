@@ -6,7 +6,7 @@ import time
 #import signal
 
 pwd = os.getcwd()
-hosts = ["odroid@odroid-u4.local", "patty@debian.local", "odroid@odroid-x2.local"]
+hosts = ["odroid@odroid-u4.local", "odroid@odroid-x2.local"]
 slaves = len(hosts)
 localhost = "odroid-u3.local"
 localhostuser = "odroid"
@@ -30,19 +30,6 @@ name = file[:file.find(".")]
 formart = file[file.find("."):]
 endname = ofile[:ofile.find(".")]
 endformat = ofile[ofile.find("."):]
-
-"""
-#file = "thrones-4x04.ts"
-#file = "test.ts"
-#file = "loriot.mp4"
-#file = "see.ts"
-#file = "rollings.m4a"
-
-name = file[:file.find(".")]
-formart = file[file.find("."):]
-endname = name
-endformat = ".mp4"
-"""
 
 #Video length
 def getLength(file):
@@ -135,7 +122,7 @@ def make():
 			for b in buildparts:
 				if a[:-1] == b + "-done":
 					print a[:-1] + " is received"
-					
+
 					if finish:
 						if b in finish:
 							print "%s is in finish" % b
@@ -144,24 +131,35 @@ def make():
 							finish += [b]
 					else:
 						finish += [b]
-						
+					
 		if (len(finish) == slaves):
 			print "build video this can take a few minutes....."
-			build = ' '.join(sorted(finish))
-			#os.popen('ffmpeg -i "%s" -vcodec copy -acodec copy %s%s 1>/dev/null 2>/dev/null' % (bulid, endname, endformat)).readlines()
-			os.popen('mencoder -oac pcm -ovc copy -o %s%s %s 1>/dev/null 2>/dev/null' % (endname, endformat, build)).readlines()
+			finish2 = []
+			
+			for a in finish:
+				if "0" in a:
+					print "allo"
+					finish2 += ["-add " + a]
+				else:
+					print "hallo"
+					finish2 += ["-cat " + a]
+
+			build = ' '.join(sorted(finish2))
+			print 
+			print build + " " + endname + endformat
+			print 
+			os.popen('MP4Box %s %s%s' % (build, endname, endformat)).readlines()
 			break
 		else:
 			print "Wait of hosts - " + time.strftime("%H:%M:%S")
-			"""
-			for a in hostlist:
-				for b in finish:
+#			for a in hostlist:
+#				for b in finish:
 					
-					if hostlist[a] == b:
-						print "%s has finish" % a
-					else:
-						print "wait of %s" % a
-			"""		
+#					if hostlist[a] == b:
+#						print "%s has finish" % a
+#					else:
+#						print "wait of %s" % a
+
 			time.sleep(2)	
 
 def clean():
@@ -184,7 +182,7 @@ def ping(h):
 	else:
 		#print host, 'is down!'
 		return 1
-"""
+"""*
 #strg+c
 def signal_handler(signal, frame):
         print('You pressed Ctrl+C!')
