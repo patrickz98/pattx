@@ -18,23 +18,27 @@ input.remove(input[0])
 file = ""
 ofile = ""
 
+#function for analyze the imput -i and -o 
 for i in input:
 	if i == "-i":
-		#print input[input.index(i) + 1]
 		file += input[input.index(i) + 1]
 	elif i == "-o":
-		#print input[input.index(i) + 1]
 		ofile += input[input.index(i) + 1]
 
+#name extraction
 name = file[:file.find(".")]
 formart = file[file.find("."):]
 endname = ofile[:ofile.find(".")]
 endformat = ofile[ofile.find("."):]
 
-#Video length
+#video length
 def getLength(file):
+	if len(hosts) == 0:
+		print "no hosts is online"
+		exit()
+
 	result = subprocess.Popen(["ffprobe", file], 
-		stdout = subprocess.PIPE, stderr = subprocess.STDOUT)
+			 stdout = subprocess.PIPE, stderr = subprocess.STDOUT)
 	length = str([x for x in result.stdout.readlines() if "Duration" in x])
 	
 	cut1 = length.find(": ") + 2
@@ -45,14 +49,17 @@ def getLength(file):
 		return length
 	else:
 		print "video error"
-	
+		exit()
+
 #Video cutter
 videoparts = {}
 def getvideoparts(file):
 	length = getLength(file)
+	
 	h = int(length[:2])
 	m = length[3:(len(length) - 6)]
 	s = length[6:]
+	
 	seconds = (int(h) * 60  + int(m)) * 60 + float(s)
 	
 	print "seconds in video: " + str(seconds)
@@ -67,24 +74,19 @@ def getvideoparts(file):
 		
 		out = endname + "-part-" + str(a)
 		videoparts.update({out:[int(d),int(b)]})
-		#print out
-		#print videoparts[out]
+
 		a = a + 1
 
-hostlist = {}
 #ssh command transfer
+hostlist = {}
 def sshmain():
 	a = 0
 	for h in hosts:
-		if ping(h) == 0:
-			part = endname + "-part-%s" % str(a)
-			print "host " + h + " calculating " + part
-			hostlist.update({h:part})
-			ssh(h, part)
-			a += 1
-		elif ping(h) == 1:
-			print "host %s is not available" % h
-			hosts.remove(h)
+		part = endname + "-part-%s" % str(a)
+		print "host " + h + " calculating " + part
+		hostlist.update({h:part})
+		ssh(h, part)
+		a += 1
 			
 buildparts = []
 def ssh(HOST, part):
@@ -107,14 +109,14 @@ def ssh(HOST, part):
 	                       stdout=subprocess.PIPE,
 	                       stderr=subprocess.PIPE)
 
-#Creat symlinks
+#creat symlinks
 def symlink(file):
 	os.popen('rm %s%s' % (wwwdirec, file)).readlines()
 	print "make symlink from %s to %s%s" % (file, wwwdirec, file)
 	os.popen('ln -s %s/%s %s%s' % ( pwd, file, wwwdirec, file)).readlines()
 	
 #link the videos 
-def make():
+def linkVideos():
 	finish = []
 	while(True):
 		objects = os.popen('ls').readlines()
@@ -133,7 +135,7 @@ def make():
 						finish += [b]
 					
 		if (len(finish) == slaves):
-			print "build video this can take a few minutes....."
+			print "build video..............."
 			finish2 = []
 			
 			for a in finish:
@@ -168,20 +170,28 @@ def clean():
 	os.popen('rm %s-part-*%s' % (endname, endformat)).readlines()
 	os.popen('rm %s-part-*%s-done' % (endname, endformat)).readlines()
 
-def ping(h):
-	host = h[h.find("@") + 1:]
-	#response = os.system("ping -c 1 " + host)
-	response = subprocess.call("ping -c 1 %s" % host,
-        shell=True,
-        stdout=open('/dev/null', 'w'),
-        stderr=subprocess.STDOUT)
-	
-	if response == 0:
-		#print host, 'is up!'
-		return 0
-	else:
-		#print host, 'is down!'
-		return 1
+down = []
+def ping():
+	print "ping all hosts in list"
+	for h in hosts:
+		host = h[h.find("@") + 1:]
+		#response = os.system("ping -c 1 " + host)
+		response = subprocess.call("ping -c 1 %s" % host,
+    			   shell=True,
+    			   stdout=open('/dev/null', 'w'),
+    			   stderr=subprocess.STDOUT)
+		
+		if response == 0:
+			print host, 'is up!'
+		else:
+			print host, 'is down!'
+			down.append(h)
+		
+	for x in down:hosts.remove(x)
+		
+	if len(hosts) == 0:
+		print "no hosts online"
+		exit()
 """*
 #strg+c
 def signal_handler(signal, frame):
@@ -190,11 +200,12 @@ def signal_handler(signal, frame):
 signal.signal(signal.SIGINT, signal_handler)
 """
 def main():
+	ping()
 	print getLength(file)
 	getvideoparts(file)
 	symlink(file)
 	sshmain()
-	make()
+	linkVideos()
 	clean()
 
 main()
