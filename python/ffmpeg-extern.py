@@ -3,10 +3,12 @@ import subprocess
 import sys
 import os
 import time
-#import signal
 
 pwd = os.getcwd()
-hosts = ["odroid@odroid-u4.local", "odroid@odroid-x2.local"]
+hosts = ["odroid@odroid-u4.local", 
+		 "odroid@odroid-x2.local", 
+		 "patrick@patrick-macbook.local", 
+		 "patty@debian.local"]
 slaves = len(hosts)
 localhost = "odroid-u3.local"
 localhostuser = "odroid"
@@ -19,11 +21,15 @@ file = ""
 ofile = ""
 
 #function for analyze the imput -i and -o 
-for i in input:
-	if i == "-i":
-		file += input[input.index(i) + 1]
-	elif i == "-o":
-		ofile += input[input.index(i) + 1]
+if "-i" in input and "-o" in input:
+	for i in input:
+		if i == "-i":
+			file += input[input.index(i) + 1]
+		elif i == "-o":
+			ofile += input[input.index(i) + 1]
+else:
+	print "input error: please use ffmpeg-extern -i input-video -o endvideo.mp4"
+	exit()
 
 #name extraction
 name = file[:file.find(".")]
@@ -147,9 +153,6 @@ def linkVideos():
 					finish2 += ["-cat " + a]
 
 			build = ' '.join(sorted(finish2))
-			print 
-			print build + " " + endname + endformat
-			print 
 			os.popen('MP4Box %s %s%s' % (build, endname, endformat)).readlines()
 			break
 		else:
