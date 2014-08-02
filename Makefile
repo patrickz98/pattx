@@ -1,4 +1,4 @@
-mod:
+garrysmod:
 
 	cd /Users/patrick/Library/Application\ Support/Steam/SteamApps/common/GarrysMod/garrysmod/addons; \
 	git clone https://github.com/RafaelDeJongh/cap.git; \
@@ -7,7 +7,7 @@ mod:
 	git clone https://github.com/RafaelDeJongh/cap_fonts; \
 	git clone https://github.com/SnakeSVx/spacebuild.git; \
 
-update:
+garrysmod-update:
 
 	cd /Users/patrick/Library/Application\ Support/Steam/SteamApps/common/GarrysMod/garrysmod/addons; \
 	cd cap; git pull; cd ..; \
