@@ -16,3 +16,6 @@ garrysmod-update:
 	cd cap_fonts; git pull; cd ..; \
 	cd spacebuild; git pull; cd ..; \
 
+wp-backup:
+
+	sh wordpress/wp-backup.sh
