@@ -1,3 +1,7 @@
+openssl rsa -in ~/.ssh/id_rsa -outform pem > id_rsa.pem
+openssl rsa -in ~/.ssh/id_rsa -pubout -outform pem > id_rsa.pub.pem
+
+
 Using Public and Private keys
 
 In this section we will show how to encrypt and decrypt files using public and private keys. First we need to generate private and public keys. This can simply be done by:
@@ -39,3 +43,31 @@ $ cat new_encrypt.txt
 Welcome to LinuxCareer.com
 
 The above syntax is quite intuitive. As you can see we have decrypted a file encrypt.dat to its original form and save it as new_encrypt.txt. You can for example combine this syntax with encrypting directories example above to create automated encrypted backup script.
+
+
+#######################################################################
+
+openssl genrsa -out key.pem 2048
+openssl rsa -in key.pem -out key-public.pem -outform PEM -pubout
+
+Then, at each backup:
+
+    Generate long random passphrase, save in file
+        echo -n "Tl4R6dnvWXiDeXr1LtpCNkyLG1" > key.txt
+
+    encrypt file with passphase
+        openssl enc -aes-256-cbc -pass file:key.txt < UNENCRYPTED_FILE > encrypted.dat
+
+    encrypt passphrase with public key
+        openssl rsautl -encrypt -pubin -inkey key-public.pem < key.txt > enc.key.txt
+
+Then save encrypted.dat AND enc.key.txt where desired.
+
+To decrypt:
+
+    Decrypt encrypted passphrase with private key
+        openssl rsautl -decrypt -inkey key.pem < enc.key.txt > key.txt
+
+    Decrypt file
+        openssl enc -aes-256-cbc -d -pass file:key.txt < encrypted.dat > UNENCRYPTED_FILE
+
