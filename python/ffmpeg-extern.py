@@ -5,10 +5,7 @@ import os
 import time
 
 pwd = os.getcwd()
-hosts = ["odroid@odroid-u4.local", 
-		 "odroid@odroid-x2.local", 
-		 "patrick@patrick-macbook.local", 
-		 "patty@debian.local"]
+hosts = ["patrick@patrick-macbook.local"]
 slaves = len(hosts)
 localhost = "odroid-u3.local"
 localhostuser = "odroid"
@@ -72,7 +69,7 @@ def getvideoparts(file):
 	
 	a = 0
 	b = 0
-	while (slaves >= a):
+	while (slaves > a):
 		c = seconds / slaves
 		b = b + c
 		d = b - c
@@ -100,11 +97,13 @@ def ssh(HOST, part):
 	part2 = videoparts[part][1]
 	out = part + endformat
 	buildparts.append(out)
+
+	print "host = " +  HOST + " part = " +  part
 	
-	COMMAND = "nohup ffmpeg -i http://%s/%s -ss %d -t %d %s 1>/dev/null 2>/dev/null &&\
+	COMMAND = "nohup /usr/local/bin/ffmpeg -i http://%s/%s -ss %d -t %d %s 1>/dev/null 2>/dev/null &&\
 		scp ~/%s %s@%s:%s 1>/dev/null 2>/dev/null &&\
 		ssh %s@%s touch %s/%s-done &&\
-		rm ~/%s"\
+		rm ~/%s &" \
 		% (localhost, file, part1, part2, out, 
 		   out, localhostuser, localhost, pwd, 
 		   localhostuser,localhost, pwd, out, 
@@ -146,10 +145,8 @@ def linkVideos():
 			
 			for a in finish:
 				if "0" in a:
-					print "allo"
 					finish2 += ["-add " + a]
 				else:
-					print "hallo"
 					finish2 += ["-cat " + a]
 
 			build = ' '.join(sorted(finish2))
