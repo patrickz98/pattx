@@ -1,15 +1,15 @@
 #!/usr/bin/python
+
 import subprocess
 import sys
 import os
 import time
 
 pwd = os.getcwd()
-hosts = ["patrick@patrick-macbook.local"]
-slaves = len(hosts)
-localhost = "odroid-u3.local"
-localhostuser = "odroid"
-wwwdirec = "/var/www/odroid/"
+hosts = ["patty@debian.local", "odroid@odroid-u3.local"]
+localhost = "patrick-macbook.local"
+localhostuser = "patrick"
+wwwdirec = "/Library/WebServer/Documents/"
 
 input = sys.argv
 input.remove(input[0])
@@ -69,8 +69,8 @@ def getvideoparts(file):
 	
 	a = 0
 	b = 0
-	while (slaves > a):
-		c = seconds / slaves
+	while (len(hosts) > a):
+		c = seconds / len(hosts)
 		b = b + c
 		d = b - c
 		print ("cut from %d to %d" % (d, b))
@@ -139,7 +139,7 @@ def linkVideos():
 					else:
 						finish += [b]
 					
-		if (len(finish) == slaves):
+		if (len(finish) == len(hosts)):
 			print "build video..............."
 			finish2 = []
 			
