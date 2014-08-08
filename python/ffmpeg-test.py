@@ -1,8 +1,9 @@
 #!/usr/bin/python
+import socket
 
-var = ["odroid@odroid-u4.local",
-         "odroid@odroid-x2.local",
-         "patrick@patrick-macbook.local",
-         "patty@debian.local"]
+host_name = socket.gethostname()
 
-print var
+host_ip = socket.gethostbyname(host_name)
+
+print host_ip
+print host_name

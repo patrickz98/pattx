@@ -4,6 +4,7 @@ import subprocess
 import sys
 import os
 import time
+import signal
 
 pwd = os.getcwd()
 hosts = ["patty@debian.local", "odroid@odroid-u3.local"]
@@ -99,7 +100,9 @@ def ssh(HOST, part):
 	buildparts.append(out)
 
 	print "host = " +  HOST + " part = " +  part
-	
+
+
+	#echo $! > pid	
 	COMMAND = "nohup /usr/local/bin/ffmpeg -i http://%s/%s -ss %d -t %d %s 1>/dev/null 2>/dev/null &&\
 		scp ~/%s %s@%s:%s 1>/dev/null 2>/dev/null &&\
 		ssh %s@%s touch %s/%s-done &&\
@@ -196,8 +199,9 @@ def ping():
 #strg+c
 def signal_handler(signal, frame):
         print('You pressed Ctrl+C!')
-        sys.exit(0)
-signal.signal(signal.SIGINT, signal_handler)
+
+        exit()
+signal(signal.SIGINT, signal_handler)
 """
 def main():
 	ping()

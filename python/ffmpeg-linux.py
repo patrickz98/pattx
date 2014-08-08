@@ -3,12 +3,14 @@ import subprocess
 import sys
 import os
 import time
+import socket
+
+hosts = ["odroid@odroid-u3.local"]
+wwwdirec = "/var/www/odroid/"
 
 pwd = os.getcwd()
-hosts = ["odroid@odroid-u3.local"]
-localhost = "odroid-u3.local"
-localhostuser = "odroid"
-wwwdirec = "/var/www/odroid/"
+localhost = socket.gethostname()
+localhostuser = os.getusername()
 
 input = sys.argv
 input.remove(input[0])
