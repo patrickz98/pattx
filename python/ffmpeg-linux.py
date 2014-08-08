@@ -5,7 +5,7 @@ import os
 import time
 
 pwd = os.getcwd()
-hosts = ["patrick@odroid-u3.local"]
+hosts = ["odroid@odroid-u3.local"]
 localhost = "odroid-u3.local"
 localhostuser = "odroid"
 wwwdirec = "/var/www/odroid/"
@@ -151,10 +151,10 @@ def linkVideos():
 			break
 		else:
 			print "Wait of hosts - " + time.strftime("%H:%M:%S")
-			for a in hostlist:
-				for b in finish:
-					if hostlist[a] == b:
-						print "%s has finish" % a
+#			for a in hostlist:
+#				for b in finish:
+#					if hostlist[a] == b:
+#						print "%s has finish" % a
 
 			time.sleep(2)	
 
