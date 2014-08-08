@@ -5,7 +5,7 @@ import os
 import time
 
 pwd = os.getcwd()
-hosts = ["patrick@patrick-macbook.local"]
+hosts = ["patrick@odroid-u3.local"]
 localhost = "odroid-u3.local"
 localhostuser = "odroid"
 wwwdirec = "/var/www/odroid/"
@@ -35,12 +35,9 @@ endformat = ofile[ofile.find("."):]
 
 #video length
 def getLength(file):
-	if len(hosts) == 0:
-		print "no hosts is online"
-		exit()
-
 	result = subprocess.Popen(["ffprobe", file], 
 			 stdout = subprocess.PIPE, stderr = subprocess.STDOUT)
+	
 	length = str([x for x in result.stdout.readlines() if "Duration" in x])
 	
 	cut1 = length.find(": ") + 2
@@ -100,13 +97,13 @@ def ssh(HOST, part):
 	print "host = " +  HOST + " part = " +  part
 	
 	COMMAND = "nohup /usr/local/bin/ffmpeg -i http://%s/%s -ss %d -t %d %s 1>/dev/null 2>/dev/null &&\
-		scp ~/%s %s@%s:%s 1>/dev/null 2>/dev/null &&\
-		ssh %s@%s touch %s/%s-done &&\
-		rm ~/%s &" \
-		% (localhost, file, part1, part2, out, 
-		   out, localhostuser, localhost, pwd, 
-		   localhostuser,localhost, pwd, out, 
-		   out)
+		   scp ~/%s %s@%s:%s 1>/dev/null 2>/dev/null &&\
+		   ssh %s@%s touch %s/%s-done &&\
+		   rm ~/%s &" \
+		   % (localhost, file, part1, part2, out, 
+		      out, localhostuser, localhost, pwd, 
+		      localhostuser,localhost, pwd, out, 
+		      out)
 	
 	subprocess.Popen(["ssh", "%s" % HOST, COMMAND],
 	                       shell=False,
@@ -136,6 +133,7 @@ def linkVideos():
 							print "add %s to finish" % b
 							finish += [b]
 					else:
+						print "add %s to finish" % b
 						finish += [b]
 					
 		if (len(finish) == len(hosts)):
@@ -153,13 +151,10 @@ def linkVideos():
 			break
 		else:
 			print "Wait of hosts - " + time.strftime("%H:%M:%S")
-#			for a in hostlist:
-#				for b in finish:
-					
-#					if hostlist[a] == b:
-#						print "%s has finish" % a
-#					else:
-#						print "wait of %s" % a
+			for a in hostlist:
+				for b in finish:
+					if hostlist[a] == b:
+						print "%s has finish" % a
 
 			time.sleep(2)	
 
@@ -169,9 +164,9 @@ def clean():
 	os.popen('rm %s-part-*%s' % (endname, endformat)).readlines()
 	os.popen('rm %s-part-*%s-done' % (endname, endformat)).readlines()
 
-down = []
 def ping():
 	print "ping all hosts in list"
+	down = []
 	for h in hosts:
 		host = h[h.find("@") + 1:]
 		#response = os.system("ping -c 1 " + host)
