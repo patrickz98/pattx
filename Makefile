@@ -18,7 +18,8 @@ garrysmod-update:
 
 wp-backup:
 
-	sh wordpress/wp-backup.sh
+	cd wordpress; \
+	sh wp-backup.sh; \
 
 tv-backup:
 	
