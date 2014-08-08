@@ -19,3 +19,9 @@ garrysmod-update:
 wp-backup:
 
 	sh wordpress/wp-backup.sh
+
+tv-backup:
+	
+	sh tvheadend/tv-backup.sh
+
+backup: wp-backup tv-backup
