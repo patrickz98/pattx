@@ -4,10 +4,12 @@ import sys
 import os
 import time
 import socket
+import datetime
 
 hosts = ["odroid@odroid-u3.local", "patrick@patrick-macbook.local"]
 wwwdirec = "/Library/WebServer/Documents/"
 
+startTime = datetime.now()
 pwd = os.getcwd()
 localhost = socket.gethostname()
 #localhostuser = os.getusername()
@@ -153,6 +155,7 @@ def linkVideos():
 			os.popen('MP4Box %s %s%s' % (build, endname, endformat)).readlines()
 #			mencoder -oac copy -ovc copy -idx -o end.mkv 1.mkv 2.mkv
 			break
+			print "Time which are needed = " + (datetime.now()-startTime)
 		else:
 			print "Wait of hosts - " + time.strftime("%H:%M:%S")
 #			for a in hostlist:
@@ -204,6 +207,6 @@ def main():
 	symlink(file)
 	sshmain()
 	linkVideos()
-#	clean()
+	clean()
 
 main()
