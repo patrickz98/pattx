@@ -204,6 +204,6 @@ def main():
 	symlink(file)
 	sshmain()
 	linkVideos()
-#	clean()
+	clean()
 
 main()

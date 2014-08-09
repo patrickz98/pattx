@@ -9,7 +9,7 @@ hosts = ["odroid@odroid-u3.local", "patrick@patrick-macbook.local"]
 wwwdirec = "/var/www/odroid/"
 
 pwd = os.getcwd()
-localhost = socket.gethostname()
+localhost = socket.gethostname() + ".local"
 #localhostuser = os.getusername()
 localhostuser = os.getlogin()
 
@@ -204,6 +204,6 @@ def main():
 	symlink(file)
 	sshmain()
 	linkVideos()
-#	clean()
+	clean()
 
 main()
