@@ -26,3 +26,9 @@ tv-backup:
 	sh tvheadend/tv-backup.sh
 
 backup: wp-backup tv-backup
+
+ports-update:
+
+	sudo port -v selfupdate
+	sudo port upgrade outdated
+	sudo port uninstall inactive

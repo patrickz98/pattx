@@ -1,16 +1,17 @@
 #!/usr/bin/python
-
 import subprocess
 import sys
 import os
 import time
-import signal
+import socket
+
+hosts = ["odroid@odroid-u3.local", "patrick@patrick-macbook.local"]
+wwwdirec = "/Library/WebServer/Documents/"
 
 pwd = os.getcwd()
-hosts = ["patty@debian.local", "odroid@odroid-u3.local"]
-localhost = "patrick-macbook.local"
-localhostuser = "patrick"
-wwwdirec = "/Library/WebServer/Documents/"
+localhost = socket.gethostname()
+#localhostuser = os.getusername()
+localhostuser = os.getlogin()
 
 input = sys.argv
 input.remove(input[0])
@@ -37,12 +38,9 @@ endformat = ofile[ofile.find("."):]
 
 #video length
 def getLength(file):
-	if len(hosts) == 0:
-		print "no hosts is online"
-		exit()
-
 	result = subprocess.Popen(["ffprobe", file], 
 			 stdout = subprocess.PIPE, stderr = subprocess.STDOUT)
+	
 	length = str([x for x in result.stdout.readlines() if "Duration" in x])
 	
 	cut1 = length.find(": ") + 2
@@ -100,17 +98,15 @@ def ssh(HOST, part):
 	buildparts.append(out)
 
 	print "host = " +  HOST + " part = " +  part
-
-
-	#echo $! > pid	
+	
 	COMMAND = "nohup /usr/local/bin/ffmpeg -i http://%s/%s -ss %d -t %d %s 1>/dev/null 2>/dev/null &&\
-		scp ~/%s %s@%s:%s 1>/dev/null 2>/dev/null &&\
-		ssh %s@%s touch %s/%s-done &&\
-		rm ~/%s &" \
-		% (localhost, file, part1, part2, out, 
-		   out, localhostuser, localhost, pwd, 
-		   localhostuser,localhost, pwd, out, 
-		   out)
+		   scp ~/%s %s@%s:%s 1>/dev/null 2>/dev/null &&\
+		   ssh %s@%s touch %s/%s-done &&\
+		   rm ~/%s &" \
+		   % (localhost, file, part1, part2, out, 
+		      out, localhostuser, localhost, pwd, 
+		      localhostuser,localhost, pwd, out, 
+		      out)
 	
 	subprocess.Popen(["ssh", "%s" % HOST, COMMAND],
 	                       shell=False,
@@ -140,6 +136,7 @@ def linkVideos():
 							print "add %s to finish" % b
 							finish += [b]
 					else:
+						print "add %s to finish" % b
 						finish += [b]
 					
 		if (len(finish) == len(hosts)):
@@ -154,16 +151,14 @@ def linkVideos():
 
 			build = ' '.join(sorted(finish2))
 			os.popen('MP4Box %s %s%s' % (build, endname, endformat)).readlines()
+#			mencoder -oac copy -ovc copy -idx -o end.mkv 1.mkv 2.mkv
 			break
 		else:
 			print "Wait of hosts - " + time.strftime("%H:%M:%S")
 #			for a in hostlist:
 #				for b in finish:
-					
 #					if hostlist[a] == b:
 #						print "%s has finish" % a
-#					else:
-#						print "wait of %s" % a
 
 			time.sleep(2)	
 
@@ -173,9 +168,9 @@ def clean():
 	os.popen('rm %s-part-*%s' % (endname, endformat)).readlines()
 	os.popen('rm %s-part-*%s-done' % (endname, endformat)).readlines()
 
-down = []
 def ping():
 	print "ping all hosts in list"
+	down = []
 	for h in hosts:
 		host = h[h.find("@") + 1:]
 		#response = os.system("ping -c 1 " + host)
@@ -199,9 +194,8 @@ def ping():
 #strg+c
 def signal_handler(signal, frame):
         print('You pressed Ctrl+C!')
-
-        exit()
-signal(signal.SIGINT, signal_handler)
+        sys.exit(0)
+signal.signal(signal.SIGINT, signal_handler)
 """
 def main():
 	ping()
@@ -210,6 +204,6 @@ def main():
 	symlink(file)
 	sshmain()
 	linkVideos()
-	clean()
+#	clean()
 
 main()

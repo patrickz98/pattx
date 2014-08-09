@@ -5,12 +5,13 @@ import os
 import time
 import socket
 
-hosts = ["odroid@odroid-u3.local"]
+hosts = ["odroid@odroid-u3.local", "patrick@patrick-macbook.local"]
 wwwdirec = "/var/www/odroid/"
 
 pwd = os.getcwd()
 localhost = socket.gethostname()
-localhostuser = os.getusername()
+#localhostuser = os.getusername()
+localhostuser = os.getlogin()
 
 input = sys.argv
 input.remove(input[0])
@@ -150,6 +151,7 @@ def linkVideos():
 
 			build = ' '.join(sorted(finish2))
 			os.popen('MP4Box %s %s%s' % (build, endname, endformat)).readlines()
+#			mencoder -oac copy -ovc copy -idx -o end.mkv 1.mkv 2.mkv
 			break
 		else:
 			print "Wait of hosts - " + time.strftime("%H:%M:%S")
@@ -202,6 +204,6 @@ def main():
 	symlink(file)
 	sshmain()
 	linkVideos()
-	clean()
+#	clean()
 
 main()
