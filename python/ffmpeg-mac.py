@@ -4,16 +4,17 @@ import sys
 import os
 import time
 import socket
-import datetime
 
-hosts = ["odroid@odroid-u3.local", "patrick@patrick-macbook.local"]
+hosts = ["odroid@odroid-u3.local", 
+	 "patrick@patrick-macbook.local"]
+
 wwwdirec = "/Library/WebServer/Documents/"
 
-startTime = datetime.now()
 pwd = os.getcwd()
-localhost = socket.gethostname()
-#localhostuser = os.getusername()
-localhostuser = os.getlogin()
+localhostuser = os.getlogin() #user
+localhost = socket.gethostname() #hostname
+
+#localhost = socket.gethostbyname(socket.gethostname()) #ip
 
 input = sys.argv
 input.remove(input[0])
@@ -87,7 +88,6 @@ def sshmain():
 	a = 0
 	for h in hosts:
 		part = endname + "-part-%s" % str(a)
-		print "host " + h + " calculating " + part
 		hostlist.update({h:part})
 		ssh(h, part)
 		a += 1
@@ -99,7 +99,7 @@ def ssh(HOST, part):
 	out = part + endformat
 	buildparts.append(out)
 
-	print "host = " +  HOST + " part = " +  part
+	print HOST + "make part = " +  part
 	
 	COMMAND = "nohup /usr/local/bin/ffmpeg -i http://%s/%s -ss %d -t %d %s 1>/dev/null 2>/dev/null &&\
 		   scp ~/%s %s@%s:%s 1>/dev/null 2>/dev/null &&\
@@ -133,12 +133,10 @@ def linkVideos():
 
 					if finish:
 						if b in finish:
-							print "%s is in finish" % b
+							pass
 						else:
-							print "add %s to finish" % b
 							finish += [b]
 					else:
-						print "add %s to finish" % b
 						finish += [b]
 					
 		if (len(finish) == len(hosts)):
@@ -155,7 +153,6 @@ def linkVideos():
 			os.popen('MP4Box %s %s%s' % (build, endname, endformat)).readlines()
 #			mencoder -oac copy -ovc copy -idx -o end.mkv 1.mkv 2.mkv
 			break
-			print "Time which are needed = " + (datetime.now()-startTime)
 		else:
 			print "Wait of hosts - " + time.strftime("%H:%M:%S")
 #			for a in hostlist:
@@ -202,7 +199,6 @@ signal.signal(signal.SIGINT, signal_handler)
 """
 def main():
 	ping()
-	print getLength(file)
 	getvideoparts(file)
 	symlink(file)
 	sshmain()
