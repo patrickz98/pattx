@@ -5,8 +5,12 @@ import os
 import time
 import socket
 
-hosts = ["odroid@odroid-u3.local", 
-	 "patrick@patrick-macbook.local"]
+hosts = ["odroid@odroid-u3.local",
+         "patrick@patrick-macbook.local",
+         "odroid@odroid-x2.local",
+         "odroid@odroid-u4.local",
+         "patty@debian.local",
+         "patty@debian-virtual.local"]
 
 wwwdirec = "/Library/WebServer/Documents/"
 
