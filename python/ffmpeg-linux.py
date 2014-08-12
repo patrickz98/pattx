@@ -5,12 +5,16 @@ import os
 import time
 import socket
 
-hosts = ["odroid@odroid-u3.local", "patrick@patrick-macbook.local"]
+hosts = ["odroid@odroid-u3.local", 
+	 "patrick@patrick-macbook.local"]
+
 wwwdirec = "/var/www/odroid/"
 
 pwd = os.getcwd()
-localhostuser = os.getlogin()
-localhost = socket.gethostname() + ".local"
+localhostuser = os.getlogin() #user
+localhost = socket.gethostname() + ".local" #hostname
+
+#localhost = socket.gethostbyname(socket.gethostname()) #ip
 
 input = sys.argv
 input.remove(input[0])
@@ -95,7 +99,7 @@ def ssh(HOST, part):
 	out = part + endformat
 	buildparts.append(out)
 
-	print HOST + "make part = " +  part
+	print HOST + " make part = " +  part
 	
 	COMMAND = "nohup /usr/local/bin/ffmpeg -i http://%s/%s -ss %d -t %d %s 1>/dev/null 2>/dev/null &&\
 		   scp ~/%s %s@%s:%s 1>/dev/null 2>/dev/null &&\

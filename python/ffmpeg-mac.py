@@ -99,7 +99,7 @@ def ssh(HOST, part):
 	out = part + endformat
 	buildparts.append(out)
 
-	print HOST + "make part = " +  part
+	print HOST + " make part = " +  part
 	
 	COMMAND = "nohup /usr/local/bin/ffmpeg -i http://%s/%s -ss %d -t %d %s 1>/dev/null 2>/dev/null &&\
 		   scp ~/%s %s@%s:%s 1>/dev/null 2>/dev/null &&\
