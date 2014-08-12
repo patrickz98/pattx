@@ -6,19 +6,20 @@ import time
 import socket
 
 hosts = ["odroid@odroid-u3.local", 
-	 "patrick@patrick-macbook.local",
-	 "odroid@odroid-x2.local",
-	 "odroid@odroid-u4.local",
-	 "patty@debian.local",
-	 "patty@debian-virtual.local"]
+	 "odroid@odroid-u3.local"]
 
+#linux
 wwwdirec = "/var/www/odroid/"
+localhost = socket.gethostname() + ".local" #hostname
+
+#OSX !sudo apachectl start
+#wwwdirec = "/Library/WebServer/Documents/"
+#localhost = socket.gethostname()
+#localhost = socket.gethostbyname(socket.gethostname()) #ip
 
 pwd = os.getcwd()
 localhostuser = os.getlogin() #user
-localhost = socket.gethostname() + ".local" #hostname
 
-#localhost = socket.gethostbyname(socket.gethostname()) #ip
 
 input = sys.argv
 input.remove(input[0])
@@ -147,16 +148,20 @@ def linkVideos():
 			print "build video..............."
 			finish2 = []
 			
-			for a in finish:
-				if "0" in a:
-					finish2 += ["-add " + a]
-				else:
-					finish2 += ["-cat " + a]
+			if endformat == ".mp4" or endformat == ".mov" or endformat == ".m4a":
+				for a in finish:
+					if "0" in a:
+						finish2 += ["-add " + a]
+					else:
+						finish2 += ["-cat " + a]
 
-			build = ' '.join(sorted(finish2))
-			os.popen('MP4Box %s %s%s' % (build, endname, endformat)).readlines()
-#			mencoder -oac copy -ovc copy -idx -o end.mkv 1.mkv 2.mkv
-			break
+				build = ' '.join(sorted(finish2))
+				os.popen('MP4Box %s %s%s' % (build, endname, endformat)).readlines()
+				break
+			else:
+				finish = ' '.join(sorted(finish))
+				os.popen('mencoder -oac copy -ovc copy -idx -o %s%s %s' % (endname, endformat, finish)).readlines()
+				break
 		else:
 			print "Wait of hosts - " + time.strftime("%H:%M:%S")
 #			for a in hostlist:
