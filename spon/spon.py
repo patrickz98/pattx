@@ -27,11 +27,7 @@ for t in title:
 #		print t
 		schlagzeilen.write(t + "\n")
 		write.append(t)
-	else:
-#		print "remove"
-		title.remove(t)
 
-#z = b.split()
 
 txt.close()
 os.popen("rm spon.txt").readlines()
