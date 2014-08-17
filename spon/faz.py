@@ -9,7 +9,8 @@ txt = open("faz.txt", "r").readlines()
 for a in txt:
 	if '<a title=' in a:
 		find = re.search('<a title=\"(.*?)\"', a)
-		schlagzeilen.write(find.group(1) + "\n")
+		if len(find.group(1)) > 15 and not "FAZ.NET-Comic-Roman" in find.group(1):
+			schlagzeilen.write(find.group(1) + "\n")
 
 
 schlagzeilen.close()

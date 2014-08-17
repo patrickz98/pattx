@@ -8,8 +8,11 @@ os.popen("python spon.py").readlines()
 os.popen("python zeit.py").readlines()
 os.popen("python welt.py").readlines()
 os.popen("python stern.py").readlines()
+os.popen("python faz.py").readlines()
 
 text = ["news-spon.txt", "news-welt.txt", "news-zeit.txt", "news-stern.txt"]
+
+most = open("woerter-der-woche.txt", "w+")
 
 def find(word):
 	for txt in text:
@@ -43,10 +46,11 @@ for txt in text:
 		b = b
 		for c in b.split():
 			if c not in bad:
-				if find(c) > 2:
+				if find(c) >= 2:
 #					print c + ":  " + str(find(c))
 					list.update({c:find(c)})
 
 for l in list:
 	if list[l] > 6:
-		print str(l) + ": " + str(list[l])
+		print l + ": " + str(list[l])
+		most.write(l + ": " + str(list[l]) + "\n")
