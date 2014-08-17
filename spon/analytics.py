@@ -7,8 +7,9 @@ import re
 os.popen("python spon.py").readlines()
 os.popen("python zeit.py").readlines()
 os.popen("python welt.py").readlines()
+os.popen("python stern.py").readlines()
 
-text = ["news-spon.txt", "news-welt.txt", "news-zeit.txt"]
+text = ["news-spon.txt", "news-welt.txt", "news-zeit.txt", "news-stern.txt"]
 
 def find(word):
 	for txt in text:
@@ -32,7 +33,7 @@ bad = ["um", "an", "von", "in", "den",
        "nun", "sind", "ins", "nun", "auch", "+++", "+++:",
        "nicht", "noch", "ohne", "seit", "letzte", "neu", 
        "Diese", "diese", "Auf", "Wo", "Sie", "immer", "einer",
-       "Neue", "of"]
+       "Neue", "of", "m"]
 
 list = {}
 for txt in text:
@@ -47,4 +48,5 @@ for txt in text:
 					list.update({c:find(c)})
 
 for l in list:
-	print str(l) + ": " + str(list[l])
+	if list[l] > 6:
+		print str(l) + ": " + str(list[l])
