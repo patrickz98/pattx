@@ -32,4 +32,4 @@ for t in title:
 txt.close()
 os.popen("rm spon.txt").readlines()
 schlagzeilen.close()
-os.popen("python regex.py").readlines()
+os.popen("python regex-spon.py").readlines()

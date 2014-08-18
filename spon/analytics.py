@@ -20,9 +20,16 @@ def find(word):
 		count = 0
 		for a in tx:
 			if word in a:
-#				print a[:-1]
 				count = count + 1
 		return count
+
+def title(word):
+        for txt in text:
+                tx = open(txt, "r").readlines()
+                for a in tx:
+                        if word in a:
+                               print txt[5:-4] + "= " + a[:-1]
+
 
 bad = ["um", "an", "von", "in", "den", 
        "im", "die", "mit", "bei", "sich", 
@@ -36,21 +43,24 @@ bad = ["um", "an", "von", "in", "den",
        "nun", "sind", "ins", "nun", "auch", "+++", "+++:",
        "nicht", "noch", "ohne", "seit", "letzte", "neu", 
        "Diese", "diese", "Auf", "Wo", "Sie", "immer", "einer",
-       "Neue", "of", "m"]
+       "Neue", "of", "m", "Aus", "nach"]
 
-list = {}
-for txt in text:
-	tx = open(txt, "r").readlines()
+def words():
+	list = {}
+	for txt in text:
+		tx = open(txt, "r").readlines()
         
-	for b in tx:
-		b = b
-		for c in b.split():
-			if c not in bad:
-				if find(c) >= 2:
-#					print c + ":  " + str(find(c))
-					list.update({c:find(c)})
+		for b in tx:
+			b = b
+			for c in b.split():
+				if c not in bad:
+					if find(c) >= 2:
+#						print c + ":  " + str(find(c))
+						list.update({c:find(c)})
 
-for l in list:
-	if list[l] > 6:
-		print l + ": " + str(list[l])
-		most.write(l + ": " + str(list[l]) + "\n")
+	for l in list:
+		if list[l] > 6:
+			print l + ": " + str(list[l])
+			most.write(l + ": " + str(list[l]) + "\n")
+#words()
+title("Irak")

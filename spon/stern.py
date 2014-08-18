@@ -7,10 +7,12 @@ os.popen("curl http://www.stern.de/news/ 1>stern.txt 2>/dev/null").readlines
 txt = open("stern.txt", "r").readlines()
 
 for a in txt:
-	if '<span class="head">' in a:
-		find = re.search('<span class="head">(.*?)</span>', a)
-		schlagzeilen.write(find.group(1) + "\n")
+	if 'title=\"' in a and '<a href=' in a:
+		find = re.search('title=\"(.*?)\">', a)
+		if len(find.group(1)) > 18 and len(find.group(1)) < 110:
+			schlagzeilen.write(find.group(1) + "\n")
 
 
 schlagzeilen.close()
 os.popen("rm stern.txt").readlines()
+os.popen("python regex-stern.py").readlines()
