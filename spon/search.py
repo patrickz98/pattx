@@ -3,14 +3,17 @@
 # -*- coding: utf-8 -*-
 import os
 import re
+import regex
+import spon, zeit, welt, stern, faz
 
-os.popen("python spon.py").readlines()
-os.popen("python zeit.py").readlines()
-os.popen("python welt.py").readlines()
-os.popen("python stern.py").readlines()
-os.popen("python faz.py").readlines()
 
-os.popen("python regex-uni.py").readlines()
+spon.spon()
+zeit.zeit()
+welt.welt()
+stern.stern()
+faz.faz()
+regex.main()
+
 text = ["news-spon.txt", "news-welt.txt", "news-zeit.txt", "news-stern.txt"]
 
 def title(word):

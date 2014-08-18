@@ -20,9 +20,9 @@ for w in news:
 	if "&quot;" in b: b = re.sub(r"&quot;", '"', b)
 	if "\\xa0" in b: b = re.sub(r"\\xa0", " ", b)
 	if "\\xd6" in b: b = re.sub(r"\\xd6", "Ö", b)
-
+	if "\\xdc" in b: b = re.sub(r"\\xdc", "Ü", b)
+	
 	bla.append(b)
-
 	file.write(b)
 
 

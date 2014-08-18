@@ -23,10 +23,10 @@ def uni(txt):
 		file.write(b)
 #		file.close()
 
-files = os.popen("ls").readlines()
-for txt in files:
-	txt = txt[:-1]
-	if "news-" in txt:
-		print "decoding: ", txt
-		uni(txt)
+def main():
+	files = os.popen("ls").readlines()
+	for txt in files:
+		txt = txt[:-1]
+		if "news-" in txt:
+			uni(txt)
 
