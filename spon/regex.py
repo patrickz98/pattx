@@ -10,7 +10,8 @@ def uni(txt):
 	news2.close()
 
 	file = open(txt, "w+")
-
+	bla = []
+	
 	for w in news:
 		b = w
 		if "Ä" in b: b = re.sub(r"Ä", "Ae", b)
@@ -20,8 +21,10 @@ def uni(txt):
 		if "Ü" in b: b = re.sub(r"Ü", "Ue", b)
 		if "ü" in b: b = re.sub(r"ü", "ue", b)
 
-		file.write(b)
-#		file.close()
+		if b not in bla:
+			bla.append(b)
+			file.write(b)
+#			file.close()
 
 def main():
 	files = os.popen("ls").readlines()
