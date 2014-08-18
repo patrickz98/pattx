@@ -24,9 +24,9 @@ for w in news:
 	if "&quot;" in b: b = re.sub(r"&quot;", '"', b)
 
 
-
-	bla.append(b)
-	file.write(b)
+	if b not in bla:
+		bla.append(b)
+		file.write(b)
 
 
 file.close()

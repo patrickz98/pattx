@@ -41,8 +41,9 @@ bad = ["um", "an", "von", "in", "den",
        "nicht", "noch", "ohne", "seit", "letzte", "neu", 
        "Diese", "diese", "Auf", "Wo", "Sie", "immer", "einer",
        "Neue", "of", "m", "Aus", "nach", "fuer", "ueber", "T",
-       "UeBERSICHT", "unter", "per", "cu", "das", "1", "will", "wie"]
-
+       "UeBERSICHT", "unter", "per", "cu", "das", "1", "will", 
+       "man", "wie", "zwei", "alle", "hol", "eins", "Wie", "Nach",
+       "weiter"]
 
 def words():
 	list = {}
@@ -52,7 +53,7 @@ def words():
 		for b in tx:
 			b = b
 			for c in b.split():
-				if c not in bad:
+				if str(c) not in bad:
 					if find(c) >= 2:
 						if ":" in c: c = c[:-1]
 #						print c + ":  " + str(find(c))
