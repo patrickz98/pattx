@@ -8,8 +8,9 @@ os.popen("python spon.py").readlines()
 os.popen("python zeit.py").readlines()
 os.popen("python welt.py").readlines()
 os.popen("python stern.py").readlines()
-#os.popen("python faz.py").readlines()
+os.popen("python faz.py").readlines()
 
+os.popen("python regex-uni.py").readlines()
 text = ["news-spon.txt", "news-welt.txt", "news-zeit.txt", "news-stern.txt"]
 
 def title(word):
