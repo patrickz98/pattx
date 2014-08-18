@@ -17,5 +17,5 @@ bad = ["um", "an", "von", "in", "den",
        "man", "wie", "zwei", "alle", "hol", "eins", "Wie", "Nach",
        "weiter", "Vor", "weg", "Was", "De", "Un", "mein", "Deutschland:",
        "Internet:", "gar", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "Sport",
-       "nie", "lag"]
-
+       "nie", "lag", " ", "hat", "18", "hat", "mehr", "Mehr", "soll", "All", "durch",
+       "kommt", "wegen", "dir"]
