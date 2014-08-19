@@ -1,10 +1,10 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-bad = ["um", "an", "von", "in", "den",
+bad = ["um", "an", "von", "in", "den", "haelt",
        "im", "die", "mit", "bei", "sich",
-       "des", "Die", "der", "ab", "am",
-       "-", "und", "auf", "zum", "Der",
+       "des", "Die", "der", "ab", "am", "legt",
+       "-", "und", "auf", "zum", "Der", "Woche",
        "vor", ":", "ist", "zum", "eine", "zu", "aus",
        "ein", "er", "ich", "so", "es", "ter", "zur",
        "Ja", "in", "Ab", "Im", "dem", "ja", "wer", "du", "ein",
@@ -23,7 +23,8 @@ bad = ["um", "an", "von", "in", "den",
        "US", "An", "sein", "&", "Zu", "da", "sie", "uns", "mit", "Mit", "kann", 
        "mit", "New", "dies", "geht", "Auto", "neue", "aufs", "oder", "Bei", "zurueck", 
        "echte", "Wind", "werde", "Tage", "C", "je", "2014", "2015", "14", 
-       "reist", "werden", "Meter", "meist", "Wenn", "habe", "Groß", "wieder", "stand"]
+       "reist", "werden", "Meter", "meist", "Wenn", "habe", "Groß", "wieder", "stand",
+       "Jahr", "heim", "weit", "deutsche", "Frau", "Zeit", "Familie", "Liebe", "Welt"]
 
 exception = ["EU", "Eu", "USA", "US", "BND", "IS", "Tod", "CIA", "NSA", "ARD", "ZDF",
-	    "Uni", "UNI", "UNO"]
+	    "Uni", "UNI", "UNO", "CDU", "CSU", "SPD", "AFD", "FDP", "Uno", "BMW"]

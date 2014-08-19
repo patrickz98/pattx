@@ -24,7 +24,9 @@ def uni(txt):
 		if b not in bla:
 			bla.append(b)
 			file.write(b)
-#			file.close()
+		
+	file.close()
+
 
 def main():
 	files = os.popen("ls").readlines()
@@ -32,4 +34,3 @@ def main():
 		txt = txt[:-1]
 		if "news-" in txt:
 			uni(txt)
-
