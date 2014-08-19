@@ -18,7 +18,7 @@ faz.faz()
 ntv.ntv()
 regex.main()
 
-text = ["news-spon.txt", "news-welt.txt", "news-zeit.txt", "news-stern.txt"]
+text = ["news-spon.txt", "news-welt.txt", "news-zeit.txt", "news-stern.txt", "news-faz.txt", "news-ntv.txt"]
 
 #most = open("woerter-der-woche.txt", "w+")
 
@@ -31,8 +31,6 @@ def find(word):
 				count = count + 1
 	return count
 
-
-
 def words():
 	list = {}
 	bad = blacklist.bad
@@ -40,14 +38,14 @@ def words():
 		tx = open(txt, "r").readlines()
         
 		for b in tx:
-			b = b
 			for c in b.split():
-				if str(c) not in bad:
-					if find(c) >= 2:
-						if ":" in c: c = c[:-1]
+				if ":" in c: c = c[:-1]
+				if str(c) not in bad and c != "" and len(str(c)) > 3 or str(c) in blacklist.exception:
+					if find(c) > 6:
 						list.update({c:find(c)})
 
-#	list = OrderedDict(sorted(list.items(), key=lambda x:x[1]))
+
+	list = OrderedDict(sorted(list.items(), key=lambda x:x[1]))
 	for l in list:
 		if list[l] > 6 and l not in bad:
 			print l + ": " + str(list[l])

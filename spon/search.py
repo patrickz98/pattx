@@ -17,6 +17,16 @@ regex.main()
 
 text = ["news-spon.txt", "news-welt.txt", "news-zeit.txt", "news-stern.txt", "news-faz.txt", "news-ntv.txt"]
 
+def count(word):
+        count = 0
+        for txt in text:
+                tx = open(txt, "r").readlines()
+                for a in tx:
+                        if word in a:
+                                count = count + 1
+        return count
+
+
 def title(word):
         for txt in text:
                 tx = open(txt, "r").readlines()
@@ -26,4 +36,5 @@ def title(word):
 
 
 search = raw_input("Suche: ")
+print "Artikel mit " + search + ": " + str(count(search))
 title(search)

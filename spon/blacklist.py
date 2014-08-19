@@ -15,10 +15,14 @@ bad = ["um", "an", "von", "in", "den",
        "Diese", "diese", "Auf", "Wo", "Sie", "immer", "einer",
        "Neue", "of", "m", "Aus", "nach", "fuer", "ueber", "T",
        "UeBERSICHT", "unter", "per", "cu", "das", "will",
-       "man", "wie", "zwei", "alle", "hol", "eins", "Wie", "Nach",
-       "weiter", "Vor", "weg", "Was", "De", "Un", "mein", "Deutschland:",
+       "man", "wie", "Zwei","zwei", "alle", "hol", "eins", "Wie", "Nach",
+       "weiter", "Vor", "weg", "Was", "De", "Un", "mein", "Deutschland",
        "Internet:", "gar", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "Sport",
        "nie", "lag", " ", "hat", "18", "hat", "mehr", "Mehr", "soll", "All", "durch",
-       "kommt", "wegen", "dir", "20", "is", "Fußball", "gut", "it"]
+       "kommt", "wegen", "dir", "20", "is", "Fußball", "gut", "it", "No", "no", "gegen",
+       "US", "An", "sein", "&", "Zu", "da", "sie", "uns", "mit", "Mit", "kann", 
+       "mit", "New", "dies", "geht", "Auto", "neue", "aufs", "oder", "Bei", "zurueck", 
+       "echte", "Wind", "werde", "Tage", "C", "je", "2014", "2015", "14", 
+       "reist", "werden"]
 
-exception = ["EU", "Eu", "USA", "US", "BND"]
+exception = ["EU", "Eu", "USA", "US", "BND", "IS", "Tod", "CIA", "NSA"]
