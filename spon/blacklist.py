@@ -1,16 +1,16 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-bad = ["um", "an", "von", "in", "den", "haelt", "sicher",
-       "im", "die", "mit", "bei", "sich", "offen", "Leute",
-       "des", "Die", "der", "ab", "am", "legt", "laenger",
-       "-", "und", "auf", "zum", "Der", "Woche", "Jahren",
-       "vor", ":", "ist", "zum", "eine", "zu", "aus", "muss"
+bad = ["um", "an", "von", "in", "den", "haelt", "sicher", "tritt",
+       "im", "die", "mit", "bei", "sich", "offen", "Leute", "Fuenf",
+       "des", "Die", "der", "ab", "am", "legt", "laenger", "zeigt",
+       "-", "und", "auf", "zum", "Der", "Woche", "Jahren", "kein",
+       "vor", ":", "ist", "zum", "eine", "zu", "aus", "muss", "oben"
        "ein", "er", "ich", "so", "es", "ter", "zur", "laesst",
        "Ja", "in", "Ab", "Im", "dem", "ja", "wer", "du", "ein",
-       "er", "war", "Er", "tun", "als", "hin", "los", "In",
+       "er", "war", "Er", "tun", "als", "hin", "los", "In", "drei",
        "Ein", "wird", "So", "La", "wir", "Eine", "Das", "Wir",
-       "nun", "sind", "ins", "nun", "auch", "+++", "+++:",
+       "nun", "sind", "ins", "nun", "auch", "+++", "+++:", "einen",
        "nicht", "noch", "ohne", "seit", "letzte", "neu", "Drei",
        "Diese", "diese", "Auf", "Wo", "Sie", "immer", "einer",
        "Neue", "of", "m", "Aus", "nach", "fuer", "ueber", "T",
