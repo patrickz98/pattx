@@ -1,17 +1,17 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-bad = ["um", "an", "von", "in", "den", "haelt",
-       "im", "die", "mit", "bei", "sich",
-       "des", "Die", "der", "ab", "am", "legt",
-       "-", "und", "auf", "zum", "Der", "Woche",
-       "vor", ":", "ist", "zum", "eine", "zu", "aus",
-       "ein", "er", "ich", "so", "es", "ter", "zur",
+bad = ["um", "an", "von", "in", "den", "haelt", "sicher",
+       "im", "die", "mit", "bei", "sich", "offen", "Leute",
+       "des", "Die", "der", "ab", "am", "legt", "laenger",
+       "-", "und", "auf", "zum", "Der", "Woche", "Jahren",
+       "vor", ":", "ist", "zum", "eine", "zu", "aus", "muss"
+       "ein", "er", "ich", "so", "es", "ter", "zur", "laesst",
        "Ja", "in", "Ab", "Im", "dem", "ja", "wer", "du", "ein",
        "er", "war", "Er", "tun", "als", "hin", "los", "In",
        "Ein", "wird", "So", "La", "wir", "Eine", "Das", "Wir",
        "nun", "sind", "ins", "nun", "auch", "+++", "+++:",
-       "nicht", "noch", "ohne", "seit", "letzte", "neu",
+       "nicht", "noch", "ohne", "seit", "letzte", "neu", "Drei",
        "Diese", "diese", "Auf", "Wo", "Sie", "immer", "einer",
        "Neue", "of", "m", "Aus", "nach", "fuer", "ueber", "T",
        "UeBERSICHT", "unter", "per", "cu", "das", "will", "Ueber",
@@ -22,7 +22,7 @@ bad = ["um", "an", "von", "in", "den", "haelt",
        "kommt", "wegen", "dir", "20", "is", "Fußball", "gut", "it", "No", "no", "gegen",
        "US", "An", "sein", "&", "Zu", "da", "sie", "uns", "mit", "Mit", "kann", 
        "mit", "New", "dies", "geht", "Auto", "neue", "aufs", "oder", "Bei", "zurueck", 
-       "echte", "Wind", "werde", "Tage", "C", "je", "2014", "2015", "14", 
+       "echte", "Wind", "werde", "Tage", "C", "je", "2014","14",
        "reist", "werden", "Meter", "meist", "Wenn", "habe", "Groß", "wieder", "stand",
        "Jahr", "heim", "weit", "deutsche", "Frau", "Zeit", "Familie", "Liebe", "Welt"]
 
