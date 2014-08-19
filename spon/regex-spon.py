@@ -9,7 +9,6 @@ news2.close()
 
 file = open("news-spon.txt", "w+")
 
-bla = []
 for w in news:
 	b = w
 	if "\\xfc" in b: b = re.sub(r"\\xfc", "ü", b)
@@ -22,7 +21,6 @@ for w in news:
 	if "\\xd6" in b: b = re.sub(r"\\xd6", "Ö", b)
 	if "\\xdc" in b: b = re.sub(r"\\xdc", "Ü", b)
 	
-	bla.append(b)
 	file.write(b)
 
 

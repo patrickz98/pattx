@@ -1,4 +1,5 @@
 #!/usr/bin/python
+# -*- coding: utf-8 -*-
 
 bad = ["um", "an", "von", "in", "den",
        "im", "die", "mit", "bei", "sich",
@@ -18,4 +19,6 @@ bad = ["um", "an", "von", "in", "den",
        "weiter", "Vor", "weg", "Was", "De", "Un", "mein", "Deutschland:",
        "Internet:", "gar", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "Sport",
        "nie", "lag", " ", "hat", "18", "hat", "mehr", "Mehr", "soll", "All", "durch",
-       "kommt", "wegen", "dir"]
+       "kommt", "wegen", "dir", "20", "is", "Fußball", "gut", "it"]
+
+exception = ["EU", "Eu", "USA", "US", "BND"]

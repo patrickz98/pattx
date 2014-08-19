@@ -4,18 +4,18 @@
 import os
 import re
 import regex
-import spon, zeit, welt, stern #faz, ntv
+import spon, zeit, welt, stern, faz, ntv
 
 
 spon.spon()
 zeit.zeit()
 welt.welt()
 stern.stern()
-#faz.faz()
-#ntv-ntv()
+faz.faz()
+ntv.ntv()
 regex.main()
 
-text = ["news-spon.txt", "news-welt.txt", "news-zeit.txt", "news-stern.txt"]
+text = ["news-spon.txt", "news-welt.txt", "news-zeit.txt", "news-stern.txt", "news-faz.txt", "news-ntv.txt"]
 
 def title(word):
         for txt in text:

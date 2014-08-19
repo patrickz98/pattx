@@ -3,6 +3,8 @@
 # -*- coding: utf-8 -*-
 import os
 import re
+from collections import OrderedDict
+
 import regex
 import blacklist
 import spon, zeit, welt, stern, faz, ntv
@@ -12,8 +14,8 @@ spon.spon()
 zeit.zeit()
 welt.welt()
 stern.stern()
-#faz.faz()
-#ntv.ntv()
+faz.faz()
+ntv.ntv()
 regex.main()
 
 text = ["news-spon.txt", "news-welt.txt", "news-zeit.txt", "news-stern.txt"]
@@ -30,10 +32,10 @@ def find(word):
 	return count
 
 
-bad = blacklist.bad
 
 def words():
 	list = {}
+	bad = blacklist.bad
 	for txt in text:
 		tx = open(txt, "r").readlines()
         
@@ -44,6 +46,8 @@ def words():
 					if find(c) >= 2:
 						if ":" in c: c = c[:-1]
 						list.update({c:find(c)})
+
+#	list = OrderedDict(sorted(list.items(), key=lambda x:x[1]))
 	for l in list:
 		if list[l] > 6 and l not in bad:
 			print l + ": " + str(list[l])
