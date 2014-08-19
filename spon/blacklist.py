@@ -14,7 +14,7 @@ bad = ["um", "an", "von", "in", "den",
        "nicht", "noch", "ohne", "seit", "letzte", "neu",
        "Diese", "diese", "Auf", "Wo", "Sie", "immer", "einer",
        "Neue", "of", "m", "Aus", "nach", "fuer", "ueber", "T",
-       "UeBERSICHT", "unter", "per", "cu", "das", "will",
+       "UeBERSICHT", "unter", "per", "cu", "das", "will", "Ueber",
        "man", "wie", "Zwei","zwei", "alle", "hol", "eins", "Wie", "Nach",
        "weiter", "Vor", "weg", "Was", "De", "Un", "mein", "Deutschland",
        "Internet:", "gar", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "Sport",
@@ -23,6 +23,7 @@ bad = ["um", "an", "von", "in", "den",
        "US", "An", "sein", "&", "Zu", "da", "sie", "uns", "mit", "Mit", "kann", 
        "mit", "New", "dies", "geht", "Auto", "neue", "aufs", "oder", "Bei", "zurueck", 
        "echte", "Wind", "werde", "Tage", "C", "je", "2014", "2015", "14", 
-       "reist", "werden"]
+       "reist", "werden", "Meter", "meist", "Wenn", "habe", "Groß", "wieder", "stand"]
 
-exception = ["EU", "Eu", "USA", "US", "BND", "IS", "Tod", "CIA", "NSA"]
+exception = ["EU", "Eu", "USA", "US", "BND", "IS", "Tod", "CIA", "NSA", "ARD", "ZDF",
+	    "Uni", "UNI", "UNO"]
