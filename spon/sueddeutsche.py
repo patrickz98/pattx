@@ -5,20 +5,16 @@ import re
 def sueddeutsche():
 	schlagzeilen = open("news-sueddeutsche.txt", "w+")
 	os.popen("curl http://www.sueddeutsche.de/ 1>sueddeutsche.txt 2>/dev/null").readlines
-	txt = open("sueddeutsche.txt", "r").readlines()
+	txt = open("sueddeutsche.txt", "r").read()
 
-	last = ""
-	for a in txt:
-		if "<em>" in a and "</em>" in a:
-			find = re.search("<em>(.*?)</em>", a)
-#			print find.group(1)[6:-7]
-			if last != find.group(1):
-				schlagzeilen.write(find.group(1) + "\n")
-				last = find.group(1) + "\n"
+	find = re.findall("<strong>(.*?)</strong>.*?<em>(.*?)</em>", txt)
+
+	for a in find:
+		schlagzeilen.write(str(a) + "\n")
 
 	#txt.close()
 	schlagzeilen.close()
 
-	os.popen("rm sueddeutsche.txt").readlines()
+#	os.popen("rm sueddeutsche.txt").readlines()
 
 sueddeutsche()
