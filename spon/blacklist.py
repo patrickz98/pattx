@@ -3,8 +3,8 @@
 
 bad = ["um", "an", "von", "in", "den", "haelt", "sicher", "tritt", "essen",
        "im", "die", "mit", "bei", "sich", "offen", "Leute", "Fuenf", "echt",
-       "des", "Die", "der", "ab", "am", "legt", "laenger", "zeigt", "lang",
-       "-", "und", "auf", "zum", "Der", "Woche", "Jahren", "kein", "euch",
+       "des", "Die", "der", "ab", "am", "legt", "laenger", "zeigt", "lang", "gibt",
+       "-", "und", "auf", "zum", "Der", "Woche", "Jahren", "kein", "euch", "Kein",
        "vor", ":", "ist", "zum", "eine", "zu", "aus", "muss", "oben", "haben",
        "ein", "er", "ich", "so", "es", "ter", "zur", "laesst", "startet", "Video",
        "Ja", "in", "Ab", "Im", "dem", "ja", "wer", "du", "ein", "unter", "here",
