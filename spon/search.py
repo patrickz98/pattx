@@ -4,7 +4,7 @@
 import os
 import re
 import regex
-import spon, zeit, welt, stern, faz, ntv, tagesspiegel
+import spon, zeit, welt, stern, faz, ntv, tagesspiegel, sueddeutsche
 
 
 spon.spon()
@@ -14,9 +14,12 @@ stern.stern()
 faz.faz()
 ntv.ntv()
 tagesspiegel.tagesspiegel()
+sueddeutsche.sueddeutsche()
 regex.main()
 
-text = ["news-spon.txt", "news-welt.txt", "news-zeit.txt", "news-stern.txt", "news-faz.txt", "news-ntv.txt", "news-tagesspiegel.txt"]
+text = ["news-spon.txt", "news-welt.txt", "news-zeit.txt", 
+	"news-stern.txt", "news-faz.txt", "news-ntv.txt", 
+	"news-tagesspiegel.txt", "news-sueddeutsche.txt"]
 
 def count(word):
         count = 0

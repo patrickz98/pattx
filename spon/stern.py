@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import os
 import re
+import regexhtml
 
 def stern():
 	schlagzeilen = open("news-stern.txt", "w+")
@@ -18,4 +19,4 @@ def stern():
 					
 	schlagzeilen.close()
 	os.popen("rm stern.txt").readlines()
-	os.popen("python regex-stern.py").readlines()
+	regexhtml.main("news-stern.txt")

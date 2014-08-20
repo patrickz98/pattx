@@ -1,13 +1,13 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-bad = ["um", "an", "von", "in", "den", "haelt", "sicher", "tritt",
+bad = ["um", "an", "von", "in", "den", "haelt", "sicher", "tritt", "essen",
        "im", "die", "mit", "bei", "sich", "offen", "Leute", "Fuenf",
-       "des", "Die", "der", "ab", "am", "legt", "laenger", "zeigt",
+       "des", "Die", "der", "ab", "am", "legt", "laenger", "zeigt", "lang",
        "-", "und", "auf", "zum", "Der", "Woche", "Jahren", "kein", "euch",
        "vor", ":", "ist", "zum", "eine", "zu", "aus", "muss", "oben", "haben",
        "ein", "er", "ich", "so", "es", "ter", "zur", "laesst", "startet",
-       "Ja", "in", "Ab", "Im", "dem", "ja", "wer", "du", "ein", "unter",
+       "Ja", "in", "Ab", "Im", "dem", "ja", "wer", "du", "ein", "unter", "here",
        "er", "war", "Er", "tun", "als", "hin", "los", "In", "drei", "gehen",
        "Ein", "wird", "So", "La", "wir", "Eine", "Das", "Wir", "allen", "Geri",
        "nun", "sind", "ins", "nun", "auch", "+++", "+++:", "einen", "fahren",
@@ -24,7 +24,8 @@ bad = ["um", "an", "von", "in", "den", "haelt", "sicher", "tritt",
        "mit", "New", "dies", "geht", "Auto", "neue", "aufs", "oder", "Bei", "zurueck", 
        "echte", "Wind", "werde", "Tage", "C", "je", "2014","14",
        "reist", "werden", "Meter", "meist", "Wenn", "habe", "Groß", "wieder", "stand",
-       "Jahr", "heim", "weit", "deutsche", "Frau", "Zeit", "Familie", "Liebe", "Welt"]
+       "Jahr", "heim", "weit", "deutsche", "Frau", "Zeit", "Familie", "Liebe", "Welt",
+       "Berlin", "Deutsche"]
 
 exception = ["EU", "Eu", "USA", "US", "BND", "IS", "Tod", "CIA", "NSA", "ARD", "ZDF",
-	    "Uni", "UNI", "UNO", "CDU", "CSU", "SPD", "AFD", "FDP", "Uno", "BMW"]
+	    "Uni", "UNI", "UNO", "CDU", "CSU", "SPD", "AFD", "FDP", "Uno", "BMW", "PKK"]

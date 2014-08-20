@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import os
 import re
+import regexhtml
 
 def sueddeutsche():
 	schlagzeilen = open("news-sueddeutsche.txt", "w+")
@@ -16,12 +17,10 @@ def sueddeutsche():
 		bla.append(a[1])
 
 	for b in find2:
-		if b not in bla and len(b) > 15 and "SZ" not in b and "Bundesliga" not in b and "Kalender" not in b:
+		if b not in bla and len(b) > 15 and "SZ" not in b and "Bundesliga" not in b and "Kalender" not in b and "ueddeutsche" not in b:
 			schlagzeilen.write(str(b) + "\n")
 
-	#txt.close()
 	schlagzeilen.close()
-
 	os.popen("rm sueddeutsche.txt").readlines()
+	regexhtml.main("news-sueddeutsche.txt")
 
-sueddeutsche()
