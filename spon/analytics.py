@@ -3,6 +3,7 @@
 # -*- coding: utf-8 -*-
 import os
 import re
+import time
 from collections import OrderedDict
 
 import regex
@@ -24,7 +25,6 @@ text = ["news-spon.txt", "news-welt.txt", "news-zeit.txt",
 	"news-stern.txt", "news-faz.txt", "news-ntv.txt", 
 	"news-tagesspiegel.txt", "news-sueddeutsche.txt"]
 
-#most = open("woerter-der-woche.txt", "w+")
 
 def find(word):
 	count = 0
@@ -35,6 +35,7 @@ def find(word):
 				count = count + 1
 	return count
 
+result = []
 def words():
 	list = {}
 	bad = blacklist.bad
@@ -53,5 +54,13 @@ def words():
 	for l in list:
 		if list[l] > 6 and l not in bad:
 			print l + ": " + str(list[l])
-#			most.write(l + ": " + str(list[l]) + "\n")
+			result.append(l + ": " + str(list[l]))
+
+def list():
+	os.popen("mkdir -p words").readlines()
+	most = open("./words/" + time.strftime("%d.%m.%Y-%H.%M.%S") + ".data", "w+")
+	for a in result:
+		most.write(a + "\n")
+
 words()
+list()

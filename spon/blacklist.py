@@ -2,11 +2,11 @@
 # -*- coding: utf-8 -*-
 
 bad = ["um", "an", "von", "in", "den", "haelt", "sicher", "tritt", "essen",
-       "im", "die", "mit", "bei", "sich", "offen", "Leute", "Fuenf",
+       "im", "die", "mit", "bei", "sich", "offen", "Leute", "Fuenf", "echt",
        "des", "Die", "der", "ab", "am", "legt", "laenger", "zeigt", "lang",
        "-", "und", "auf", "zum", "Der", "Woche", "Jahren", "kein", "euch",
        "vor", ":", "ist", "zum", "eine", "zu", "aus", "muss", "oben", "haben",
-       "ein", "er", "ich", "so", "es", "ter", "zur", "laesst", "startet",
+       "ein", "er", "ich", "so", "es", "ter", "zur", "laesst", "startet", "Video",
        "Ja", "in", "Ab", "Im", "dem", "ja", "wer", "du", "ein", "unter", "here",
        "er", "war", "Er", "tun", "als", "hin", "los", "In", "drei", "gehen",
        "Ein", "wird", "So", "La", "wir", "Eine", "Das", "Wir", "allen", "Geri",
@@ -25,7 +25,8 @@ bad = ["um", "an", "von", "in", "den", "haelt", "sicher", "tritt", "essen",
        "echte", "Wind", "werde", "Tage", "C", "je", "2014","14",
        "reist", "werden", "Meter", "meist", "Wenn", "habe", "Groß", "wieder", "stand",
        "Jahr", "heim", "weit", "deutsche", "Frau", "Zeit", "Familie", "Liebe", "Welt",
-       "Berlin", "Deutsche"]
+       "beim", "Erst", "Komm", "eines", "ihre",
+       "Berlin", "Deutsche", "Bund"]
 
 exception = ["EU", "Eu", "USA", "US", "BND", "IS", "Tod", "CIA", "NSA", "ARD", "ZDF",
 	    "Uni", "UNI", "UNO", "CDU", "CSU", "SPD", "AFD", "FDP", "Uno", "BMW", "PKK"]
