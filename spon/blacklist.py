@@ -25,7 +25,7 @@ bad = ["um", "an", "von", "in", "den", "haelt", "sicher", "tritt", "essen",
        "echte", "Wind", "werde", "Tage", "C", "je", "2014","14",
        "reist", "werden", "Meter", "meist", "Wenn", "habe", "Groß", "wieder", "stand",
        "Jahr", "heim", "weit", "deutsche", "Frau", "Zeit", "Familie", "Liebe", "Welt",
-       "beim", "Erst", "Komm", "eines", "ihre",
+       "beim", "Erst", "Komm", "eines", "ihre", "Haus", "\"Ich", "Mann", "kommen",
        "Berlin", "Deutsche", "Bund"]
 
 exception = ["EU", "Eu", "USA", "US", "BND", "IS", "Tod", "CIA", "NSA", "ARD", "ZDF",
