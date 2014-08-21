@@ -58,7 +58,7 @@ def words():
 
 def list():
 	os.popen("mkdir -p words").readlines()
-	most = open("./words/" + time.strftime("%d.%m.%Y-%H.%M.%S") + ".data", "w+")
+	most = open("./words/" + time.strftime("%Y.%m.%d-%H.%M.%S") + ".data", "w+")
 	for a in result:
 		most.write(a + "\n")
 

@@ -11,7 +11,7 @@ for b in file:
 	name = b[:b.find(":")]
 	zahl = b[b.find(":") + 2:-1]
 
-	files = ["./words/21.08.2014-15.13.56.data"]
+	files = ["./words/2014.21.08-17.53.22.data"]
 	for c in files:
 		c = c
 		findf = open(c, "r").readlines()
@@ -23,11 +23,11 @@ for b in file:
 			zahl2 = d[d.find(":") + 2:-1]
 
 			if name == typ2 and zahl2 > lastzahl:
-				print b[:-1] + " " + a[8:-5]
+
+				print b[:-1] + " date: " + a[8:-5]
 				print d[:-1] + " date: " + c[8:-5]
 
-#				lasttyp = typ2
-#                      		lastzahl = zahl2
 			elif name == typ2 and zahl2 < lastzahl:
-				print b[:-1] + " " + a[8:-5]
+
+				print b[:-1] + " date: " + a[8:-5]
 				print d[:-1] + " date: " + c[8:-5]
