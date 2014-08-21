@@ -22,10 +22,11 @@ bad = ["um", "an", "von", "in", "den", "haelt", "sicher", "tritt", "essen",
        "kommt", "wegen", "dir", "20", "is", "Fußball", "gut", "it", "No", "no", "gegen",
        "US", "An", "sein", "&", "Zu", "da", "sie", "uns", "mit", "Mit", "kann", 
        "mit", "New", "dies", "geht", "Auto", "neue", "aufs", "oder", "Bei", "zurueck", 
-       "echte", "Wind", "werde", "Tage", "C", "je", "2014","14",
-       "reist", "werden", "Meter", "meist", "Wenn", "habe", "Groß", "wieder", "stand",
+       "echte", "Wind", "werde", "Tage", "C", "je", "2014","14", "reist", "werden", 
+       "Meter", "meist", "Wenn", "habe", "Groß", "wieder", "stand",
        "Jahr", "heim", "weit", "deutsche", "Frau", "Zeit", "Familie", "Liebe", "Welt",
        "beim", "Erst", "Komm", "eines", "ihre", "Haus", "\"Ich", "Mann", "kommen",
+       "teil", "Fuß", "teilt", "eure", "hart",
        "Berlin", "Deutsche", "Bund"]
 
 exception = ["EU", "Eu", "USA", "US", "BND", "IS", "Tod", "CIA", "NSA", "ARD", "ZDF",
