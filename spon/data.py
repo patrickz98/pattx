@@ -8,9 +8,9 @@ nown = []
 for a in files:
 	a = a[:-1]
 	file = open(a, "r")
-	print
-	print a[8:-5]
-	print
+#	print
+#	print a[8:-5]
+#	print
 
 	for b in file:
 		name = b[:b.find(":")]
@@ -37,5 +37,5 @@ for a in files:
 
 						print b[:-1] + " date: " + a[8:-5]
 						print d[:-1] + " date: " + c[8:-5]
-						lastzahl = zahl2
+						lastzahl = zahl2	
 		nown.append(name)
