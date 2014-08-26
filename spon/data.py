@@ -27,15 +27,16 @@ for a in files:
 					name2 = d[:d.find(":")]
 					zahl2 = d[d.find(":") + 2:-1]
 
-					if name == name2 and zahl2 > lastzahl:
+#					if name == name2 and zahl2 > lastzahl:
+					if name == name2:
 
 						print b[:-1] + " date: " + a[8:-5]
 						print d[:-1] + " date: " + c[8:-5]
-						lastzahl = zahl2
+#						lastzahl = zahl2
 
-					elif name == name2 and zahl2 < lastzahl:
+#					elif name == name2 and zahl2 < lastzahl:
 
-						print b[:-1] + " date: " + a[8:-5]
-						print d[:-1] + " date: " + c[8:-5]
-						lastzahl = zahl2	
+#						print b[:-1] + " date: " + a[8:-5]
+#						print d[:-1] + " date: " + c[8:-5]
+#						lastzahl = zahl2	
 		nown.append(name)
