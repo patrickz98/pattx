@@ -4,16 +4,26 @@ class list
 {
 	public static void main(String[] args)
 	{
-		ArrayList<String> liste1 = new ArrayList<String>();
-    	liste1.add("ABC");
-    	liste1.add("Nachbar");
-    	liste1.add("Transfer");
-    	liste1.add("Oma");
-    	liste1.add("Niemand");
+		ArrayList<String> liste = new ArrayList<String>();
 		
-		for(String a: liste1)
+		liste.add("bla");
+		liste.add("huhuh");
+		
+		for(String a: args)
 		{
-			System.out.println(a);
+			liste.add(a);
 		}
+
+		
+		System.out.println(liste.size());
+		
+		liste.remove("Nachbar");
+//		liste.set(3, "Marmelade");
+		
+		if( liste.contains("bla") )
+		{
+			System.out.println(liste);
+		}
+//		System.out.println(liste.get(2));
 	}  
 }
