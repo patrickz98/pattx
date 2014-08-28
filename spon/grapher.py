@@ -1,5 +1,6 @@
 #!/usr/bin/python
 import re
+import os
 
 def main(word, text):
 	dataori = open(text, "r").readlines()
@@ -63,11 +64,12 @@ def main(word, text):
 			
 	print numbers
 
-text = open("xxx.txt", "r").readlines()
+os.popen("python data.py > data-raw.txt").readlines()
+text = open("data-raw.txt", "r").readlines()
 words = []
 for line in text:
 	if not line[:line.index(":")] in words:
 		words.append(line[:line.index(":")])
 
 for w in words:
-	main(w, "xxx.txt")
+	main(w, "data-raw.txt")

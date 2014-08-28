@@ -22,8 +22,8 @@ sueddeutsche.sueddeutsche()
 regex.main()
 
 text = ["news-spon.txt", "news-welt.txt", "news-zeit.txt", 
-	"news-stern.txt", "news-faz.txt", "news-ntv.txt", 
-	"news-tagesspiegel.txt", "news-sueddeutsche.txt"]
+	    "news-stern.txt", "news-faz.txt", "news-ntv.txt", 
+	    "news-tagesspiegel.txt", "news-sueddeutsche.txt"]
 
 
 def find(word):
@@ -58,7 +58,10 @@ def words():
 
 def list():
 	os.popen("mkdir -p words").readlines()
-	most = open("./words/" + time.strftime("%Y.%m.%d-%H.%M.%S") + ".data", "w+")
+
+#	most = open("./words/" + time.strftime("%Y.%m.%d-%H.%M.%S") + ".data", "w+")
+	most = open("./words/" + time.strftime("%Y.%m.%d") + ".data", "w+")
+
 	for a in result:
 		most.write(a + "\n")
 
