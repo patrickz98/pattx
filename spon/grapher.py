@@ -63,6 +63,19 @@ def main(word, text):
 			numbers += str(" %d" % number)
 			
 	print numbers
+	print
+	date(word, "data-raw.txt")
+	print
+
+def date(word, text):
+	data = open(text, "r").readlines()
+	nown = []
+
+	for txt in data:
+		line = txt[:txt.index(":")]
+		if line == word and txt[:-1] not in nown:
+			print txt[:-1]
+			nown.append(txt[:-1])
 
 os.popen("python data.py > data-raw.txt").readlines()
 text = open("data-raw.txt", "r").readlines()
@@ -73,3 +86,4 @@ for line in text:
 
 for w in words:
 	main(w, "data-raw.txt")
+	
