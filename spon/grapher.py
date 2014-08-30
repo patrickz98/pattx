@@ -33,7 +33,7 @@ def main(word, text):
 
 			if find != False:
 				for posi in find:
-					if " ! " in line:
+					if " ! " in line or 6 >= len(''.join(line)):
 						line.append(" " * len(lastline[3:]))
 						line.append("   " * 1)
 						line.append(" ! ")
@@ -53,7 +53,7 @@ def main(word, text):
 
 			if find != False:			
 				for posi in find:
-					if " ! " in line:
+					if " ! " in line or 6 >= len(''.join(line)):
 						line.append(" " * len(lastline[3:]))
 						line.append("   " * 1)
 						line.append(" ! ")
