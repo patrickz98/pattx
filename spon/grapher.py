@@ -34,12 +34,11 @@ def main(word, text):
 			if find != False:
 				for posi in find:
 					if " ! " in line or 6 >= len(''.join(line)):
-						line.append(" " * len(lastline[3:]))
-						line.append("   " * 1)
+						line.append(" " * (len(lastline[3:]) - len(''.join(line)[3:]) ) )
 						line.append(" ! ")
 						lastline = ''.join(line)
 					else:
-						line.append("   " * posi)
+						line.append("   " * 1)
 						line.append(" ! ")
 						lastline = ''.join(line)
 
@@ -54,12 +53,11 @@ def main(word, text):
 			if find != False:			
 				for posi in find:
 					if " ! " in line or 6 >= len(''.join(line)):
-						line.append(" " * len(lastline[3:]))
-						line.append("   " * 1)
+						line.append(" " * (len(lastline[3:]) - len(line[3:])))
 						line.append(" ! ")
 						lastline = ''.join(line)
 					else:
-						line.append("   " * posi)
+						line.append("   " * 1)
 						line.append(" ! ")
 						lastline = ''.join(line)
 
