@@ -4,15 +4,8 @@ import os
 
 def main(word, text):
 	dataori = open(text, "r").readlines()
-
-#	words = []
-#	for word in dataori:
-#		word = word[:word.index(":")]
-#		if word not in words: 
-#			words.append(word)
-		
-#	print words
 	
+	besetzt = []
 	data = []
 	for z in dataori:
 		if z not in data and not z == '\n' and z[:z.index(":")] == word:
@@ -37,26 +30,38 @@ def main(word, text):
 		if len(str(b)) == 1:
 			
 			line.append("0" + str(b) + "|")
-			
+
 			if find != False:
 				for posi in find:
-					line.append("   " * posi)
-					line.append(" ! ")
-			
+					if " ! " in line:
+						line.append("   " * 1)
+						line.append(" ! ")
+					else:
+						line.append("   " * posi)
+						line.append(" ! ")
+#					besetzt.append(len(''.join(line)))
+#					print "besetzt ", besetzt
+
 		else:
 			
 			line.append(str(b) + "|")
 
 			if find != False:			
 				for posi in find:
-					line.append("   " * posi)
-					line.append(" ! ")
-		
+					if " ! " in line:
+						line.append("   " * 1)
+						line.append(" ! ")
+					else:
+						line.append("   " * posi)
+						line.append(" ! ")
+#					besetzt.append(len(''.join(line)))
+#					print "besetzt ", besetzt
+					
 		print ''.join(line)
 	
-	print "  +" + "---" * len(size) * 3
+	print "  +" + "---" * len(size) * 2
 	numbers = "   "
-	for number in range(1, len(size) * 3):
+	for number in range(1, len(size) * 2):
 		if len(str(number)) == 1:
 			numbers += str(" %d " % number)
 		else:
