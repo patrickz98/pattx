@@ -5,7 +5,7 @@ import os
 def main(word, text):
 	dataori = open(text, "r").readlines()
 	
-	besetzt = []
+	lastline = ""
 	data = []
 	for z in dataori:
 		if z not in data and not z == '\n' and z[:z.index(":")] == word:
@@ -34,11 +34,16 @@ def main(word, text):
 			if find != False:
 				for posi in find:
 					if " ! " in line:
+						line.append(" " * len(lastline[3:]))
 						line.append("   " * 1)
 						line.append(" ! ")
+						lastline = ''.join(line)
 					else:
 						line.append("   " * posi)
 						line.append(" ! ")
+						lastline = ''.join(line)
+
+						
 #					besetzt.append(len(''.join(line)))
 #					print "besetzt ", besetzt
 
@@ -49,11 +54,15 @@ def main(word, text):
 			if find != False:			
 				for posi in find:
 					if " ! " in line:
+						line.append(" " * len(lastline[3:]))
 						line.append("   " * 1)
 						line.append(" ! ")
+						lastline = ''.join(line)
 					else:
 						line.append("   " * posi)
 						line.append(" ! ")
+						lastline = ''.join(line)
+
 #					besetzt.append(len(''.join(line)))
 #					print "besetzt ", besetzt
 					
