@@ -42,18 +42,14 @@ def main(word, text):
 						line.append(" ! ")
 						lastline = ''.join(line)
 
-						
-#					besetzt.append(len(''.join(line)))
-#					print "besetzt ", besetzt
-
 		else:
-			
+
 			line.append(str(b) + "|")
 
 			if find != False:			
 				for posi in find:
 					if " ! " in line or 6 >= len(''.join(line)):
-						line.append(" " * (len(lastline[3:]) - len(line[3:])))
+						line.append(" " * (len(lastline[3:]) - len(''.join(line)[3:]) ) )
 						line.append(" ! ")
 						lastline = ''.join(line)
 					else:
@@ -61,9 +57,6 @@ def main(word, text):
 						line.append(" ! ")
 						lastline = ''.join(line)
 
-#					besetzt.append(len(''.join(line)))
-#					print "besetzt ", besetzt
-					
 		print ''.join(line)
 	
 	print "  +" + "---" * len(size) * 2
