@@ -59,9 +59,9 @@ def main(word, text):
 
 		print ''.join(line)
 	
-	print "  +" + "---" * len(size) * 2
+	print "  +" + "---" * (len(size) + 3)
 	numbers = "   "
-	for number in range(1, len(size) * 2):
+	for number in range(1, (len(size) + 3)):
 		if len(str(number)) == 1:
 			numbers += str(" %d " % number)
 		else:
