@@ -5,7 +5,8 @@ import os
 def main(word, text):
 	dataori = open(text, "r").readlines()
 	
-	lastline = ""
+	count = 0
+	lastposi = 0
 	data = []
 	for z in dataori:
 		if z not in data and not z == '\n' and z[:z.index(":")] == word:
@@ -33,35 +34,48 @@ def main(word, text):
 
 			if find != False:
 				for posi in find:
-					if " ! " in line or 6 >= len(''.join(line)):
-#						line.append(" " * (len(lastline[3:]) - len(''.join(line)[3:]) ) )
+#					if " ! " in line or 6 >= len(''.join(line)):
+					if line.count(" ! ") >= 2:
+						line.append("   " * (posi - count - 1))
 						line.append(" ! ")
-						lastline = ''.join(line)
+						count += 1
+					elif " ! " in line:
+						line.append("   " * count)
+						line.append(" ! ")
+						count += 1
+						
 					else:
-						line.append("   " * (posi + 1))
+						line.append("   " * posi)
 						line.append(" ! ")
-						lastline = ''.join(line)
+						count += 1
+
 
 		else:
-
+			
 			line.append(str(b) + "|")
 
 			if find != False:			
 				for posi in find:
-					if " ! " in line or 6 >= len(''.join(line)):
-#						line.append(" " * (len(lastline[3:]) - len(''.join(line)[3:]) ) )
+#					if " ! " in line or 6 >= len(''.join(line)):
+					if line.count(" ! ") >= 2:
+						line.append("   " * (posi - count - 1))
 						line.append(" ! ")
-						lastline = ''.join(line)
+						count += 1
+					elif " ! " in line:
+						line.append("   " * count)
+						line.append(" ! ")
+						count += 1
+						
 					else:
-						line.append("   " * (posi + 1))
+						line.append("   " * posi)
 						line.append(" ! ")
-						lastline = ''.join(line)
+						count += 1
 
 		print ''.join(line)
 	
-	print "  +" + "---" * (len(size) + 3)
+	print "  +" + "---" * len(size) * 2
 	numbers = "   "
-	for number in range(1, (len(size) + 3)):
+	for number in range(1, len(size) * 2):
 		if len(str(number)) == 1:
 			numbers += str(" %d " % number)
 		else:
