@@ -44,6 +44,7 @@ def check(user, passwd):
 	b = a.readlines()
 	
 	return len(b)
+	br.cloes
 
 for a in lst:
 	if check(user, a) == len(my_file1) - 1:
