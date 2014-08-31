@@ -1,0 +1,16 @@
+<!doctype html public '-//W3C//DTD HTML 4.01 Frameset//EN'>
+<html>
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+<title>IServ goethe-schule-harburg.de</title>
+<link rel='SHORTCUT ICON' href='img/iserv.ico'>
+<link rel='stylesheet' type='text/css' href='14.04.29-1/format.css'>
+<link rel='alternate' type='application/rss+xml' title='IServ' href='news/feed.php' />
+</head>
+
+<frameset cols='240,*' frameborder='1' bordercolor='#ece9d8'>
+<frame src='misc/sidebar.php' name='sidebar'>
+<frame src='idesk/' name='output'>
+</frameset>
+</html>
+
