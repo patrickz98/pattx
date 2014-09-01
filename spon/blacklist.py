@@ -20,7 +20,7 @@ bad = ["um", "an", "von", "in", "den", "haelt", "sicher", "tritt", "essen",
        "Internet:", "gar", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "Sport",
        "nie", "lag", " ", "hat", "18", "hat", "mehr", "Mehr", "soll", "All", "durch",
        "kommt", "zurueck", "halt", "erst", "acht", "aller", "raus", "Keine", 
-       "beste",
+       "beste", "Ukraine-", "geben", "geben", "machen", "Tuer", "fest",
        "wegen", "dir", "20", "is", "Fußball", "gut", "it", "No", "no", "gegen",
        "US", "An", "sein", "&", "Zu", "da", "sie", "uns", "mit", "Mit", "kann", 
        "mit", "New", "dies", "geht", "Auto", "neue", "aufs", "oder", "Bei", 
@@ -32,4 +32,4 @@ bad = ["um", "an", "von", "in", "den", "haelt", "sicher", "tritt", "essen",
        "Berlin", "Deutsche", "Bund"]
 
 exception = ["EU", "Eu", "USA", "US", "BND", "IS", "Tod", "CIA", "NSA", "ARD", "ZDF",
-	    "Uni", "UNI", "UNO", "CDU", "CSU", "SPD", "AFD", "FDP", "Uno", "BMW", "PKK"]
+	    "Uni", "UNI", "UNO", "CDU", "CSU", "SPD", "AFD", "Afd", "FDP", "Uno", "BMW", "PKK"]
