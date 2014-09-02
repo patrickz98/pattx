@@ -16,9 +16,6 @@ def main(word, text):
 		find = re.findall(".*: (.*?) date:", a)
 		size.append(int(''.join(find)))
 
-	print "marker####"
-	print size
-	
 	if len(size) >= 2:
 		print word
 		sizesort = sorted(size)
