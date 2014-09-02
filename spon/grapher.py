@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import re
 import os
+import time
 
 def main(word, text):
 	dataori = open(text, "r").readlines()
@@ -64,6 +65,10 @@ def date(word, text):
 os.popen("python data.py > data-raw.txt").readlines()
 text = open("data-raw.txt", "r").readlines()
 words = []
+
+print time.strftime("%H:%M %d.%m.%Y")
+print 
+
 for line in text:
 	if not line[:line.index(":")] in words:
 		words.append(line[:line.index(":")])

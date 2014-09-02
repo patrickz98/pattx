@@ -65,5 +65,7 @@ def list():
 	for a in result:
 		most.write(a + "\n")
 
+print time.strftime("%H:%M %d.%m.%Y")
+print 
 words()
 list()
