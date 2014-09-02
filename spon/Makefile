@@ -1,4 +1,5 @@
 all:
+	scp patrick@patrick-macbook.local:~/github/patrickzyolo/spon/words/* .
 	python analytics.py > aktuell.txt
 	python grapher.py > statistik.txt
 
