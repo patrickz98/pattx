@@ -1,5 +1,4 @@
 all:
-	scp patrick@patrick-macbook.local:~/github/patrickzyolo/spon/words/* .
 	python analytics.py > aktuell.txt
 	python grapher.py > statistik.txt
 
@@ -15,3 +14,7 @@ web: all
 
 nohup:
 	nohup sudo python web.py 1>/dev/null 2>/dev/null &
+
+words:
+	scp patrick@patrick-macbook.local:~/github/patrickzyolo/spon/words/* .
+
