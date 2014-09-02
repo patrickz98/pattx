@@ -53,12 +53,14 @@ def main(word, text):
 def date(word, text):
 	data = open(text, "r").readlines()
 	nown = []
+	count = 1
 
 	for txt in data:
 		line = txt[:txt.index(":")]
 		if line == word and txt[:-1] not in nown:
-			print txt[:-1]
+			print str(count) + ": " + txt[:-1]
 			nown.append(txt[:-1])
+			count = count + 1
 
 os.popen("python data.py > data-raw.txt").readlines()
 text = open("data-raw.txt", "r").readlines()
