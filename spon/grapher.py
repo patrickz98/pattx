@@ -16,39 +16,41 @@ def main(word, text):
 		find = re.findall(".*: (.*?) date:", a)
 		size.append(int(''.join(find)))
 
-	name = data[0][:data[0].index(":")]
-	print name
+	print "marker####"
+	print size
 	
-	sizesort = sorted(size)
-	lines = {}
+	if len(size) >= 2:
+		print word
+		sizesort = sorted(size)
+		lines = {}
 
-	for b in range(1, int(sizesort[len(sizesort) - 1]) + 1):
-		if len(str(b)) == 1:
-			lines.update({b:"0" + str(b) + "|"})
-		else:
-			lines.update({b:str(b) + "|"})
+		for b in range(1, int(sizesort[len(sizesort) - 1]) + 1):
+			if len(str(b)) == 1:
+				lines.update({b:"0" + str(b) + "|"})
+			else:
+				lines.update({b:str(b) + "|"})
 	
-	for c in size:
-		lines.update({c:''.join(lines[c]) + " ! "})
-		for d in range(1, int(sizesort[len(sizesort) - 1]) + 1):
-			if d != c:
-				lines.update({d:''.join(lines[d]) + "   "})
+		for c in size:
+			lines.update({c:''.join(lines[c]) + " ! "})
+			for d in range(1, int(sizesort[len(sizesort) - 1]) + 1):
+				if d != c:
+					lines.update({d:''.join(lines[d]) + "   "})
 		
-	for y in reversed(sorted(lines.keys())):
-		print lines[y]
+		for y in reversed(sorted(lines.keys())):
+			print lines[y]
 
-	print "  +" + "---" * (len(size) + 4)
-	numbers = "   "
-	for number in range(1, (len(size) + 4)):
-		if len(str(number)) == 1:
-			numbers += str(" %d " % number)
-		else:
-			numbers += str(" %d" % number)
+		print "  +" + "---" * (len(size) + 4)
+		numbers = "   "
+		for number in range(1, (len(size) + 4)):
+			if len(str(number)) == 1:
+				numbers += str(" %d " % number)
+			else:
+				numbers += str(" %d" % number)
 			
-	print numbers
-	print
-	date(word, "data-raw.txt")
-	print
+		print numbers
+		print
+		date(word, "data-raw.txt")
+		print
 
 def date(word, text):
 	data = open(text, "r").readlines()
