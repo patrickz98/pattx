@@ -31,15 +31,15 @@ def main(word, text):
 	for c in size:
 		lines.update({c:''.join(lines[c]) + " ! "})
 		for d in range(1, int(sizesort[len(sizesort) - 1]) + 1):
-			if d != c or size.count(c) >= 2:
-				lines.update({d:''.join(lines[d]) + "  "})
+			if d != c:
+				lines.update({d:''.join(lines[d]) + "   "})
 		
 	for y in reversed(sorted(lines.keys())):
 		print lines[y]
 
-	print "  +" + "---" * len(size) * 2
+	print "  +" + "---" * (len(size) + 4)
 	numbers = "   "
-	for number in range(1, len(size) * 2):
+	for number in range(1, (len(size) + 4)):
 		if len(str(number)) == 1:
 			numbers += str(" %d " % number)
 		else:
