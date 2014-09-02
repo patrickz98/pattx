@@ -1,14 +1,20 @@
 #!/usr/bin/python
 import os
 import re
+from urllib2 import Request, urlopen, URLError
 
 def zeit():
 	schlagzeilen = open("news-zeit.txt", "w+")
-	os.popen("curl http://www.zeit.de/news/index 1>zeit.txt 2>/dev/null").readlines
-	txt = open("zeit.txt", "r").readlines()
+	request = Request('http://www.zeit.de/news/index')
+
+	try:
+		response = urlopen(request)
+		html = response.readlines()
+	except URLError, e:
+	    print 'Error:', e
 
 	last = ""
-	for a in txt:
+	for a in html:
 		if "<span>" in a and "<strong>" in a:
 			find = re.search("<strong>(.*?)</strong> <span>(.*?)</span>", a)
 #			print find.group(1)[6:-7]
@@ -16,7 +22,4 @@ def zeit():
 				schlagzeilen.write(find.group(1) + ": " + find.group(2) + "\n")
 				last = find.group(1) + ": " + find.group(2) + "\n"
 
-	#txt.close()
 	schlagzeilen.close()
-
-	os.popen("rm zeit.txt").readlines()

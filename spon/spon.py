@@ -1,12 +1,18 @@
 #!/usr/bin/python
 import os
+from urllib2 import Request, urlopen, URLError
 
 def spon():
 	schlagzeilen = open("news-spon.txt", "w+")
-	os.popen("curl http://www.spiegel.de/schlagzeilen/ 1>spon.txt 2>/dev/null").readlines
-	txt = open("spon.txt", "r")
+	request = Request('http://www.spiegel.de/schlagzeilen/')
 
-	raw = str([x for x in txt.readlines() if "title=" in x])
+	try:
+		response = urlopen(request)
+		html = response.readlines()
+	except URLError, e:
+	    print 'Error:', e
+
+	raw = str([x for x in html if "title=" in x])
 
 	tit = raw
 	title = []
@@ -30,7 +36,5 @@ def spon():
 			write.append(t)
 
 
-	txt.close()
-	os.popen("rm spon.txt").readlines()
 	schlagzeilen.close()
 	os.popen("python regex-spon.py").readlines()

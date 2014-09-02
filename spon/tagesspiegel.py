@@ -1,13 +1,19 @@
 #!/usr/bin/python
 import os
 import re
+from urllib2 import Request, urlopen, URLError
 
 def tagesspiegel():
 	schlagzeilen = open("news-tagesspiegel.txt", "w+")
-	os.popen("curl http://www.tagesspiegel.de/schlagzeilen/ 1>tagesspiegel.txt 2>/dev/null").readlines
-	txt = open("tagesspiegel.txt", "r").read()
+	request = Request('http://www.tagesspiegel.de/schlagzeilen/')
 
-	find = re.findall('<a title=\"(.*?)\"', txt)
+	try:
+		response = urlopen(request)
+		html = response.read()
+	except URLError, e:
+	    print 'Error:', e
+
+	find = re.findall('<a title=\"(.*?)\"', html)
 	bla = []
 
 	for i in find:
@@ -16,5 +22,4 @@ def tagesspiegel():
 			bla.append(i)
 
 	schlagzeilen.close()
-	os.popen("rm tagesspiegel.txt").readlines()
 

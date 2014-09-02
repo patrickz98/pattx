@@ -2,14 +2,20 @@
 import os
 import re
 import regexhtml
+from urllib2 import Request, urlopen, URLError
 
 def sueddeutsche():
 	schlagzeilen = open("news-sueddeutsche.txt", "w+")
-	os.popen("curl http://www.sueddeutsche.de/ 1>sueddeutsche.txt 2>/dev/null").readlines
-	txt = open("sueddeutsche.txt", "r").read()
+	request = Request('http://www.sueddeutsche.de/')
 
-	find = re.findall(".*<strong>(.*?)</strong>.*?<em>(.*?)</em>.*", txt)
-	find2 = re.findall(".*?<em>(.*?)</em>.*", txt)
+	try:
+		response = urlopen(request)
+		html = response.read()
+	except URLError, e:
+	    print 'Error:', e
+
+	find = re.findall(".*<strong>(.*?)</strong>.*?<em>(.*?)</em>.*", html)
+	find2 = re.findall(".*?<em>(.*?)</em>.*", html)
 
 	bla = []
 	for a in find:
@@ -21,6 +27,5 @@ def sueddeutsche():
 			schlagzeilen.write(str(b) + "\n")
 
 	schlagzeilen.close()
-	os.popen("rm sueddeutsche.txt").readlines()
 	regexhtml.main("news-sueddeutsche.txt")
 
