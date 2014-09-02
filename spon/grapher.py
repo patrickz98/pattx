@@ -6,7 +6,6 @@ def main(word, text):
 	dataori = open(text, "r").readlines()
 	
 	count = 0
-	lastposi = 0
 	data = []
 	for z in dataori:
 		if z not in data and not z == '\n' and z[:z.index(":")] == word:
@@ -18,61 +17,26 @@ def main(word, text):
 		size.append(int(''.join(find)))
 
 	name = data[0][:data[0].index(":")]
-
 	print name
-	sizesort = sorted(size)
-	for b in reversed(range(1, int(sizesort[len(sizesort) - 1]) + 1)):
-		line = []
-		if b in size:
-			find = [i for i in range(len(size)) if size[i] == b]
-		else:
-			find = False
-		
-		if len(str(b)) == 1:
-			
-			line.append("0" + str(b) + "|")
-
-			if find != False:
-				for posi in find:
-#					if " ! " in line or 6 >= len(''.join(line)):
-					if line.count(" ! ") >= 2:
-						line.append("   " * (posi - count - 1))
-						line.append(" ! ")
-						count += 1
-					elif " ! " in line:
-						line.append("   " * count)
-						line.append(" ! ")
-						count += 1
-						
-					else:
-						line.append("   " * posi)
-						line.append(" ! ")
-						count += 1
-
-
-		else:
-			
-			line.append(str(b) + "|")
-
-			if find != False:			
-				for posi in find:
-#					if " ! " in line or 6 >= len(''.join(line)):
-					if line.count(" ! ") >= 2:
-						line.append("   " * (posi - count - 1))
-						line.append(" ! ")
-						count += 1
-					elif " ! " in line:
-						line.append("   " * count)
-						line.append(" ! ")
-						count += 1
-						
-					else:
-						line.append("   " * posi)
-						line.append(" ! ")
-						count += 1
-
-		print ''.join(line)
 	
+	sizesort = sorted(size)
+	lines = {}
+
+	for b in range(1, int(sizesort[len(sizesort) - 1]) + 1):
+		if len(str(b)) == 1:
+			lines.update({b:"0" + str(b) + "|"})
+		else:
+			lines.update({b:str(b) + "|"})
+	
+	for c in size:
+		lines.update({c:''.join(lines[c]) + " ! "})
+		for d in range(1, int(sizesort[len(sizesort) - 1]) + 1):
+#			if d != c:
+			lines.update({d:''.join(lines[d]) + "  "})
+		
+	for y in reversed(sorted(lines.keys())):
+		print lines[y]
+
 	print "  +" + "---" * len(size) * 2
 	numbers = "   "
 	for number in range(1, len(size) * 2):
