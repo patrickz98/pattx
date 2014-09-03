@@ -29,7 +29,7 @@ bad = ["um", "an", "von", "in", "den", "haelt", "sicher", "tritt", "essen",
        "Jahr", "heim", "weit", "deutsche", "Frau", "Zeit", "Familie", "Liebe",
        "beim", "Erst", "Komm", "eines", "ihre", "Haus", "\"Ich", "Mann", "kommen",
        "teil", "Fuß", "teilt", "eure", "hart", "Welt",
-       "Berlin", "Deutsche", "Bund"]
+       "Berlin", "Deutsche", "Bund", "viel"]
 
 exception = ["EU", "Eu", "USA", "US", "BND", "IS", "Tod", "CIA", "NSA", "ARD", "ZDF",
 	    "Uni", "UNI", "UNO", "CDU", "CSU", "SPD", "AFD", "Afd", "FDP", "Uno", "BMW", "PKK"]
