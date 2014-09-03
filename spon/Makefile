@@ -1,3 +1,5 @@
+uname = `uname`	
+
 all:
 	python analytics.py > aktuell.txt
 	python grapher.py > statistik.txt
@@ -16,5 +18,9 @@ nohup:
 	nohup sudo python web.py 1>/dev/null 2>/dev/null &
 
 words:
-	scp patrick@patrick-macbook.local:~/github/patrickzyolo/spon/words/* .
-
+#	scp patrick@patrick-macbook.local:~/github/patrickzyolo/spon/words/* .
+	if [ "$(uname)" == "Darwin" ]; then \
+		scp odroid@odroid-u3.local:~/Core/pattx/spon/words/* words/; \
+	else \
+		scp patrick@patrick-macbook.local:~/github/patrickzyolo/spon/words/* words/; \
+	fi; \
