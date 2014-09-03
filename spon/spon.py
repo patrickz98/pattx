@@ -2,6 +2,8 @@
 import os
 from urllib2 import Request, urlopen, URLError
 
+import regexspon
+
 def spon():
 	schlagzeilen = open("news-spon.txt", "w+")
 	request = Request('http://www.spiegel.de/schlagzeilen/')
@@ -31,10 +33,9 @@ def spon():
 	write = []
 	for t in title:
 		if len(t) >= 8 and not 'Anzeige' in t and not 'nav-channel-name' in t and not 'SPIEGEL ONLINE' in t:
-#			print t
 			schlagzeilen.write(t + "\n")
 			write.append(t)
 
 
 	schlagzeilen.close()
-	os.popen("python regex-spon.py").readlines()
+	regexspon.main()

@@ -1,19 +1,26 @@
 #!/usr/bin/python
 import os
 import re
+from urllib2 import Request, urlopen, URLError
+
+import regexntv
 
 def ntv():
 	schlagzeilen = open("news-ntv.txt", "w+")
-	os.popen("curl http://www.n-tv.de/ 1>ntv.txt 2>/dev/null").readlines
-	txt = open("ntv.txt", "r").readlines()
+	request = Request('http://www.n-tv.de/')
+
+	try:
+		response = urlopen(request)
+		html = response.readlines()
+	except URLError, e:
+	    print 'Error:', e
 
 	safe = ""
-	for a in txt:
+	for a in html:
 		if "<span class=\"" in a and "</span>" in a:
 			find = re.search('<span class=.*?>(.*?)</span>', a)
 			schlagzeilen.write(find.group(1) + "\n")
 
 
 	schlagzeilen.close()
-	os.popen("rm ntv.txt").readlines()
-	os.popen("python regex-ntv.py").readlines()
+	regexntv.main()

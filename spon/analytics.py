@@ -51,6 +51,10 @@ def words():
 
 
 	list = OrderedDict(sorted(list.items(), key=lambda x:x[1]))
+	
+	print time.strftime("%H:%M %d.%m.%Y")
+	print 
+	
 	for l in list:
 		if list[l] > 6 and l not in bad:
 			print l + ": " + str(list[l])
@@ -65,7 +69,5 @@ def list():
 	for a in result:
 		most.write(a + "\n")
 
-print time.strftime("%H:%M %d.%m.%Y")
-print 
 words()
 list()

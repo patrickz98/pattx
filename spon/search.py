@@ -18,8 +18,8 @@ sueddeutsche.sueddeutsche()
 regex.main()
 
 text = ["news-spon.txt", "news-welt.txt", "news-zeit.txt", 
-	"news-stern.txt", "news-faz.txt", "news-ntv.txt", 
-	"news-tagesspiegel.txt", "news-sueddeutsche.txt"]
+		"news-stern.txt", "news-faz.txt", "news-ntv.txt", 
+		"news-tagesspiegel.txt", "news-sueddeutsche.txt"]
 
 def count(word):
         count = 0
