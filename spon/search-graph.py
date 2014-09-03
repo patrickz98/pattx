@@ -44,4 +44,7 @@ def title(word):
 search = raw_input("Suche: ")
 print "Artikel mit " + search + ": " + str(count(search))
 print
+grapher2.graph(search, "data-raw.txt")
+print "Schlagzeilen:"
+print
 title(search)
