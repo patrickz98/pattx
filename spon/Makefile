@@ -18,7 +18,6 @@ nohup:
 	nohup sudo python web.py 1>/dev/null 2>/dev/null &
 
 words:
-#	scp patrick@patrick-macbook.local:~/github/patrickzyolo/spon/words/* .
 	if [ "$(uname)" == "Darwin" ]; then \
 		scp odroid@odroid-u3.local:~/Core/pattx/spon/words/* words/; \
 	else \

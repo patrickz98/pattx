@@ -3,6 +3,8 @@
 # -*- coding: utf-8 -*-
 import os
 import re
+
+import grapher2
 import regex
 import spon, zeit, welt, stern, faz, ntv, tagesspiegel, sueddeutsche
 
@@ -41,4 +43,8 @@ def title(word):
 
 search = raw_input("Suche: ")
 print "Artikel mit " + search + ": " + str(count(search))
+print
+grapher2.graph(search, "data-raw.txt")
+print "Schlagzeilen:"
+print
 title(search)
