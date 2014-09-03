@@ -1,10 +1,9 @@
-
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 import os
 import re
 
-import grapher2
+import arpigrapher
 import regex
 import spon, zeit, welt, stern, faz, ntv, tagesspiegel, sueddeutsche
 
