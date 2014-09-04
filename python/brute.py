@@ -7,7 +7,6 @@ passwords = open("passwords.txt", "a")
 lst = "abcdefghijklmnopqrstuvwxyz1234567890"
 
 user = 'patrick.zierahn'
-#passwd = 'blabla123'
 
 
 def check(user, passwd):
