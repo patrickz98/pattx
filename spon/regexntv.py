@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 import re
 import encodings
-import os
 
 def main():
 	news2 = open("news-ntv.txt", "r")
