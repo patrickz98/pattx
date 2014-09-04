@@ -55,7 +55,7 @@ def words():
 	print time.strftime("%H:%M %d.%m.%Y")
 	print 
 	
-	for l in list:
+	for l in reversed(list):
 		if list[l] > 6 and l not in bad:
 			print l + ": " + str(list[l])
 			result.append(l + ": " + str(list[l]))
