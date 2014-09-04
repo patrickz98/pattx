@@ -7,7 +7,11 @@ def login(passwd):
 	cj = cookielib.CookieJar()
 	opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cj))
 
+<<<<<<< HEAD
 	#opener.addheaders = [('User-agent', 'RedditTesting')]
+=======
+user = 'patrick.zierahn'
+>>>>>>> 936721cbf630412177cad00a81ee385dd1e5ac75
 
 	urllib2.install_opener(opener)
 
