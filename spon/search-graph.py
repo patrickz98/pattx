@@ -43,7 +43,7 @@ def title(word):
 search = raw_input("Suche: ")
 print "Artikel mit " + search + ": " + str(count(search))
 print
-grapher2.graph(search, "data-raw.txt")
+arpigrapher.graph(search)
 print "Schlagzeilen:"
 print
 title(search)

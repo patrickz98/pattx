@@ -1,11 +1,11 @@
 #!/usr/bin/python
 import re
-import os
 import time
 
+import data
+
 def graph(word, text):
-	dataori = open(text, "r").readlines()
-	
+	dataori = text	
 	count = 0
 	data = []
 	for z in dataori:
@@ -47,11 +47,11 @@ def graph(word, text):
 			
 		print numbers
 		print
-		date(word, "data-raw.txt")
+		date(word, text)
 		print
 
 def date(word, text):
-	data = open(text, "r").readlines()
+	data = text
 	nown = []
 	count = 1
 
@@ -63,8 +63,7 @@ def date(word, text):
 			count = count + 1
 
 def main():
-	os.popen("python data.py > data-raw.txt").readlines()
-	text = open("data-raw.txt", "r").readlines()
+	text = data.main()
 	words = []
 
 	print time.strftime("%H:%M %d.%m.%Y")
@@ -75,5 +74,5 @@ def main():
 			words.append(line[:line.index(":")])
 
 	for w in words:
-		graph(w, "data-raw.txt")
+		graph(w, text)
 main()
