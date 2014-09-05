@@ -1,22 +1,22 @@
 #!/usr/bin/python
-import os
 import re
-
+from urllib2 import Request, urlopen, URLError
 
 def spon():
-	schlagzeilen = open("xxx.txt", "w+")
-	os.popen("curl http://www.spiegel.de/schlagzeilen/ 1>spon.txt 2>/dev/null").readlines
-	txt = open("spon.txt", "r").readlines()
+	schlagzeilen = open("news-spon.txt", "w+")
+	request = Request('http://www.spiegel.de/schlagzeilen/')
 
-	for a in txt:
-		if "title=" in a:
-#			a = re.comile()
-			find = re.search('title=\"(.*?)\"', a, re.UNICODE)
-#			if re.search("\S", find.group(1)) is not None: print find.group(1)
-			schlagzeilen.write(find.group(1) + "\n")
+	try:
+		response = urlopen(request)
+		html = response.read()
+	except URLError, e:
+	    print 'Error:', e
 
+	find = re.findall('title="(.*?)\">', html)
+
+	for i in find:
+			schlagzeilen.write(i + "\n")
 
 	schlagzeilen.close()
-#	os.popen("rm welt.txt").readlines()
 
 spon()

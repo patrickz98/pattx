@@ -1,5 +1,4 @@
 #!/usr/bin/python
-import os
 import re
 from urllib2 import Request, urlopen, URLError
 
@@ -9,17 +8,13 @@ def zeit():
 
 	try:
 		response = urlopen(request)
-		html = response.readlines()
+		html = response.read()
 	except URLError, e:
 	    print 'Error:', e
 
-	last = ""
-	for a in html:
-		if "<span>" in a and "<strong>" in a:
-			find = re.search("<strong>(.*?)</strong> <span>(.*?)</span>", a)
-#			print find.group(1)[6:-7]
-			if last != find.group(1) + ": " + find.group(2) + "\n":
-				schlagzeilen.write(find.group(1) + ": " + find.group(2) + "\n")
-				last = find.group(1) + ": " + find.group(2) + "\n"
+	find = re.findall("<strong>(.*?)</strong> <span>(.*?)</span>", html)
+
+	for i in find:
+			schlagzeilen.write(i[0] + ": " + i[1] + "\n")
 
 	schlagzeilen.close()
