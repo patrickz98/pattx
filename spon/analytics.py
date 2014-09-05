@@ -12,7 +12,7 @@ import spon, zeit, welt, stern, faz, ntv, tagesspiegel, sueddeutsche
 
 
 spon.spon()
-#zeit.zeit()
+zeit.zeit()
 welt.welt()
 stern.stern()
 faz.faz()
