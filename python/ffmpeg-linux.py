@@ -5,8 +5,7 @@ import os
 import time
 import socket
 
-hosts = ["odroid@odroid-u3.local", 
-	 "odroid@odroid-u3.local"]
+hosts = ["patty@debian.local"]
 
 #linux
 wwwdirec = "/var/www/odroid/"

