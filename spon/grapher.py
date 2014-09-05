@@ -57,9 +57,9 @@ def date(word, text):
 
 	for txt in data:
 		line = txt[:txt.index(":")]
-		if line == word and txt[:-1] not in nown:
-			print str(count) + ": " + txt[:-1]
-			nown.append(txt[:-1])
+		if line == word and txt not in nown:
+			print str(count) + ": " + txt
+			nown.append(txt)
 			count = count + 1
 
 def main():
