@@ -76,6 +76,10 @@ def rawdata():
 	schlagzeilen = open(dir + "news-" + time.strftime("%Y.%m.%d")+ ".txt", "w+")
 	
 	for txt in text:
+		schlagzeilen.write("\n")
+		schlagzeilen.write("##########  " + txt[5:-4] + "  ##########" + "\n")
+		schlagzeilen.write("\n")
+
 		schlagzeilen.write(open(txt, "r").read())
 	
 	schlagzeilen.close()
