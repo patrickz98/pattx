@@ -18,10 +18,10 @@ def clean(txt):
 
 
 def main():
-	files = os.popen("ls words").readlines()
+	dir = "./words/"
+	files = os.listdir(dir)
 	for txt in files:
-		txt = txt[:-1]
 		if ".data" in txt:
-			clean("words/" + txt)
+			clean(dir + txt)
 
 main()
