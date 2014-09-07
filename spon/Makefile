@@ -13,8 +13,13 @@ clean:
 
 web: all
 	sudo cp statistik.txt aktuell.txt /var/www/patrickz/
+	sudo cp statistik.txt aktuell.txt /var/www/odroid/
+
 	sudo chown www-data:www-data /var/www/patrickz/statistik.txt
 	sudo chown www-data:www-data /var/www/patrickz/aktuell.txt
+
+	sudo chown www-data:www-data /var/www/odroid/statistik.txt
+	sudo chown www-data:www-data /var/www/odroid/aktuell.txt
 
 nohup:
 	nohup sudo python web.py 1>/dev/null 2>/dev/null &

@@ -1,5 +1,4 @@
 #!/usr/bin/python
-import os
 import re
 from urllib2 import Request, urlopen, URLError
 

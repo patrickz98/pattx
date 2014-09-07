@@ -3,12 +3,14 @@ import os
 
 def main():
 	dir = "./words"
-	files = sorted(os.popen("ls %s/*" % dir).readlines())
+#	files = sorted(os.popen("ls %s/*" % dir).readlines())
+	files = sorted(os.listdir(dir))
+
 	nown = []
 	raw = []
 	for a in files:
+		a = dir + "/" + a
 		if ".data" in a:
-			a = a[:-1]
 			file = open(a, "r")
 
 			for b in file:
@@ -18,7 +20,7 @@ def main():
 				if name not in nown:
 
 					for c in files:
-						c = c[:-1]
+						c = dir + "/" + c
 						findf = open(c, "r").readlines()
 						lastzahl = zahl
 

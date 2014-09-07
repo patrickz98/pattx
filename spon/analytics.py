@@ -60,14 +60,26 @@ def words():
 			print l + ": " + str(list[l])
 			result.append(l + ": " + str(list[l]))
 
+dir = "./words/"
 def list():
-	os.popen("mkdir -p words").readlines()
+	os.popen("mkdir -p %s" % dir).readlines()
 
-#	most = open("./words/" + time.strftime("%Y.%m.%d-%H.%M.%S") + ".data", "w+")
-	most = open("./words/" + time.strftime("%Y.%m.%d") + ".data", "w+")
+#	most = open(dir + time.strftime("%Y.%m.%d-%H.%M.%S") + ".data", "w+")
+	most = open(dir + time.strftime("%Y.%m.%d") + ".data", "w+")
 
 	for a in result:
 		most.write(a + "\n")
+	
+	most.close()
+
+def rawdata():
+	schlagzeilen = open(dir + "news-" + time.strftime("%Y.%m.%d")+ ".txt", "w+")
+	
+	for txt in text:
+		schlagzeilen.write(open(txt, "r").read())
+	
+	schlagzeilen.close()
 
 words()
 list()
+rawdata()
