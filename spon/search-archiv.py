@@ -3,6 +3,7 @@
 import os
 import re
 
+from conf import *
 import arpigrapher
 import regex
 import spon, zeit, welt, stern, faz, ntv, tagesspiegel, sueddeutsche
@@ -22,6 +23,9 @@ text = ["news-spon.txt", "news-welt.txt", "news-zeit.txt",
 		"news-stern.txt", "news-faz.txt", "news-ntv.txt", 
 		"news-tagesspiegel.txt", "news-sueddeutsche.txt"]
 
+archiv = sorted(os.listdir(dir))
+archiv = [x for x in archiv if "news-" in x]
+	
 def count(word):
         count = 0
         for txt in text:
@@ -38,7 +42,6 @@ def title(word):
                 for a in tx:
                         if word in a:
                                print a[:-1] + (" (%s)" % txt[5:-4])
-
 
 search = raw_input("Suche: ")
 print "Artikel mit " + search + ": " + str(count(search))

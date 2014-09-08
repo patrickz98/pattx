@@ -13,7 +13,8 @@ def clean(txt):
 		bad = blacklist.bad
 		if b not in bad:
 			file.write(w)
-		
+		else:
+			print "clean:", b, "in", txt
 	file.close()
 
 
