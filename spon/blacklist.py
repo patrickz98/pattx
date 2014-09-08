@@ -28,8 +28,12 @@ bad = ["um", "an", "von", "in", "den", "haelt", "sicher", "tritt", "essen",
        "Meter", "meist", "Wenn", "habe", "Groß", "wieder", "stand", "große",
        "Jahr", "heim", "weit", "deutsche", "Frau", "Zeit", "Familie", "Liebe",
        "beim", "Erst", "Komm", "eines", "ihre", "Haus", "\"Ich", "Mann", "kommen",
-       "teil", "Fuß", "teilt", "eure", "hart", "Welt",
+       "teil", "Fuß", "teilt", "eure", "hart", "Welt", "Fuss", "mach", "eben",
+       "neuen", "Hand", "Warum", "Alle", "lange", "seine", "koennte", "gemein",
+       "zweites", "alten", "sucht", "\"Die", "vier", "fuenf", "voll", "andere",
+       "einem",
        "Berlin", "Deutsche", "Bund", "viel"]
 
 exception = ["EU", "Eu", "USA", "US", "BND", "IS", "Tod", "CIA", "NSA", "ARD", "ZDF",
-	    "Uni", "UNI", "UNO", "CDU", "CSU", "SPD", "AFD", "Afd", "FDP", "Uno", "BMW", "PKK"]
+	   		 "Uni", "UNI", "UNO", "CDU", "CSU", "SPD", "AFD", "Afd", "FDP", "Uno", "BMW",
+	   		 "PKK"]
