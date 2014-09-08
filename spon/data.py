@@ -8,12 +8,14 @@ def main():
 
 	nown = []
 	raw = []
+
+	clean = []
 	for txt in files:
 		if ".data" in txt:
-			pass
-		else:
-			files.remove(txt)
-	
+			clean.append(txt)
+
+	files = clean
+	print files	
 	for a in files:
 		a = dir + "/" + a
 		file = open(a, "r")
