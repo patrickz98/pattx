@@ -3,19 +3,12 @@ import os
 
 def main():
 	dir = "./words"
-#	files = sorted(os.popen("ls %s/*" % dir).readlines())
 	files = sorted(os.listdir(dir))
+	files = [x for x in files if ".data" in x]
 
 	nown = []
 	raw = []
 
-	clean = []
-	for txt in files:
-		if ".data" in txt:
-			clean.append(txt)
-
-	files = clean
-	print files	
 	for a in files:
 		a = dir + "/" + a
 		file = open(a, "r")
