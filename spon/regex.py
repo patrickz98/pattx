@@ -30,8 +30,7 @@ def uni(txt):
 
 
 def main():
-	files = os.popen("ls").readlines()
+	files = os.listdir(".")
 	for txt in files:
-		txt = txt[:-1]
 		if "news-" in txt:
 			uni(txt)

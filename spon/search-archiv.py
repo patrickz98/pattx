@@ -3,7 +3,7 @@
 import os
 import re
 
-from conf import *
+import conf
 import arpigrapher
 import regex
 import spon, zeit, welt, stern, faz, ntv, tagesspiegel, sueddeutsche
@@ -23,7 +23,7 @@ text = ["news-spon.txt", "news-welt.txt", "news-zeit.txt",
 		"news-stern.txt", "news-faz.txt", "news-ntv.txt", 
 		"news-tagesspiegel.txt", "news-sueddeutsche.txt"]
 
-archiv = sorted(os.listdir(dir))
+archiv = sorted(os.listdir(conf.dir))
 archiv = [x for x in archiv if "news-" in x]
 	
 def count(word):

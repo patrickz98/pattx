@@ -31,7 +31,8 @@ bad = ["um", "an", "von", "in", "den", "haelt", "sicher", "tritt", "essen",
        "teil", "Fuß", "teilt", "eure", "hart", "Welt", "Fuss", "mach", "eben",
        "neuen", "Hand", "Warum", "Alle", "lange", "seine", "koennte", "gemein",
        "zweites", "alten", "sucht", "\"Die", "vier", "fuenf", "voll", "andere",
-       "einem", "muessen", "Klaus", "statt",
+       "einem", "muessen", "Klaus", "statt", "Will", "fort", "fort", "gleich",
+       "wollen", "aber", "neuer", "Ende", "muessen", "bringt", "statt", "setzt",
        "Berlin", "Deutsche", "Bund", "viel"]
 
 exception = ["EU", "Eu", "USA", "US", "BND", "IS", "Tod", "CIA", "NSA", "ARD", "ZDF",

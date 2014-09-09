@@ -38,7 +38,7 @@ def graph(word, text):
 			print "<div>" + lines[y] + "</div>"
 
 		print "<div>" + "&nbsp;&nbsp;+" + "---" * (len(size) + 4) + "</div>"
-		numbers = "   "
+		numbers = "&nbsp;&nbsp;&nbsp;"
 		for number in range(1, (len(size) + 4)):
 			if len(str(number)) == 1:
 				numbers += str("&nbsp;%d&nbsp;" % number)
@@ -66,8 +66,8 @@ def main():
 	words = []
 
 	print "<!DOCTYPE html>"
+	print "<html>"
 	print "<div>" + time.strftime("%H:%M %d.%m.%Y") + "</div>"
-	print 
 
 	for line in text:
 		if not line[:line.index(":")] in words:
@@ -75,4 +75,5 @@ def main():
 
 	for w in words:
 		graph(w, text)
+	print "</html>"
 main()

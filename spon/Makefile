@@ -3,6 +3,7 @@ uname = `uname`
 all:
 	python analytics.py > aktuell.txt
 	python grapher.py > statistik.txt
+	python grapher-html.py > statistik.html
 
 clean:
 	rm news-*
@@ -12,14 +13,17 @@ clean:
 	rm aktuell.txt
 
 web: all
-	sudo cp statistik.txt aktuell.txt /var/www/patrickz/
-	sudo cp statistik.txt aktuell.txt /var/www/odroid/
+	sudo cp statistik.txt aktuell.txt statistik.html /var/www/patrickz/
+	sudo cp statistik.txt aktuell.txt statistik.html /var/www/odroid/
 
 	sudo chown www-data:www-data /var/www/patrickz/statistik.txt
 	sudo chown www-data:www-data /var/www/patrickz/aktuell.txt
 
 	sudo chown www-data:www-data /var/www/odroid/statistik.txt
 	sudo chown www-data:www-data /var/www/odroid/aktuell.txt
+	
+	sudo chown www-data:www-data /var/www/patrickz/statistik.html
+	sudo chown www-data:www-data /var/www/odroid/statistik.html
 
 nohup:
 	nohup sudo python web.py 1>/dev/null 2>/dev/null &
