@@ -63,7 +63,11 @@ def words():
 			result.append(l + ": " + str(list[l]))
 
 def data():
-	os.popen("mkdir -p %s" % dir).readlines()
+#	os.popen("mkdir -p %s" % dir).readlines()
+	try:
+		os.mkdir(dir)
+	except OSError:
+		pass
 	most = open(dir + time.strftime("%Y.%m.%d") + ".data", "w+")
 
 	for a in result:

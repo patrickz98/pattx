@@ -37,7 +37,7 @@ def graph(word, text):
 		for y in reversed(sorted(lines.keys())):
 			print "<div>" + lines[y] + "</div>"
 
-		print "<div>" + "&nbsp;&nbsp;+" + "---" * (len(size) + 4) + "</div>"
+		print "<div>" + "&nbsp;&nbsp;&nbsp;+" + "---" * (len(size) + 4) + "</div>"
 		numbers = "&nbsp;&nbsp;&nbsp;"
 		for number in range(1, (len(size) + 4)):
 			if len(str(number)) == 1:
@@ -57,7 +57,7 @@ def date(word, text):
 	for txt in data:
 		line = txt[:txt.index(":")]
 		if line == word and txt not in nown:
-			print "<div>" + str(count) + "&nbsp;:&nbsp;" + txt + "</div>"
+			print "<div>" + str(count) + ":&nbsp;" + txt + "</div>"
 			nown.append(txt)
 			count = count + 1
 
