@@ -18,7 +18,7 @@ def graph(word, text):
 		size.append(int(''.join(find)))
 
 	if len(size) >= 2:
-		print "<h1>" + word + "</h1>"
+		print word
 		sizesort = sorted(size)
 		lines = {}
 
@@ -29,25 +29,26 @@ def graph(word, text):
 				lines.update({b:str(b) + "|"})
 	
 		for c in size:
-			lines.update({c:''.join(lines[c]) + "&nbsp;!&nbsp;"})
+			lines.update({c:''.join(lines[c]) + " ! "})
 			for d in range(1, int(sizesort[len(sizesort) - 1]) + 1):
 				if d != c:
-					lines.update({d:''.join(lines[d]) + "&nbsp;&nbsp;&nbsp;"})
+					lines.update({d:''.join(lines[d]) + "   "})
 		
 		for y in reversed(sorted(lines.keys())):
-			print "<div>" + lines[y] + "</div>"
+			print lines[y]
 
-		print "<div>" + "&nbsp;&nbsp;+" + "---" * (len(size) + 4) + "</div>"
+		print " +" + "---" * (len(size) + 4)
 		numbers = "   "
 		for number in range(1, (len(size) + 4)):
 			if len(str(number)) == 1:
-				numbers += str("&nbsp;%d&nbsp;" % number)
+				numbers += str(" %d " % number)
 			else:
-				numbers += str("&nbsp;%d" % number)
+				numbers += str(" %d" % number)
 			
-		print "<div>" + numbers + "</div>"
-		print "<div>" + "&nbsp;" + "</div>"
+		print numbers
+		print
 		date(word, text)
+		print 
 
 def date(word, text):
 	data = text
@@ -57,7 +58,7 @@ def date(word, text):
 	for txt in data:
 		line = txt[:txt.index(":")]
 		if line == word and txt not in nown:
-			print "<div>" + str(count) + ":&nbsp;" + txt + "</div>"
+			print str(count) + ": " + txt
 			nown.append(txt)
 			count = count + 1
 
@@ -65,8 +66,7 @@ def main():
 	text = data.main()
 	words = []
 
-	print "<!DOCTYPE html>"
-	print "<div>" + time.strftime("%H:%M %d.%m.%Y") + "</div>"
+	print time.strftime("%H:%M %d.%m.%Y")
 	print 
 
 	for line in text:

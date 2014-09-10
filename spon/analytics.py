@@ -21,6 +21,8 @@ tagesspiegel.tagesspiegel()
 sueddeutsche.sueddeutsche()
 regex.main()
 
+dir = "./words/"
+
 text = ["news-spon.txt", "news-welt.txt", "news-zeit.txt", 
 	    "news-stern.txt", "news-faz.txt", "news-ntv.txt", 
 	    "news-tagesspiegel.txt", "news-sueddeutsche.txt"]
@@ -60,11 +62,8 @@ def words():
 			print l + ": " + str(list[l])
 			result.append(l + ": " + str(list[l]))
 
-dir = "./words/"
-def list():
+def data():
 	os.popen("mkdir -p %s" % dir).readlines()
-
-#	most = open(dir + time.strftime("%Y.%m.%d-%H.%M.%S") + ".data", "w+")
 	most = open(dir + time.strftime("%Y.%m.%d") + ".data", "w+")
 
 	for a in result:
@@ -82,5 +81,5 @@ def rawdata():
 	schlagzeilen.close()
 
 words()
-list()
+data()
 rawdata()
