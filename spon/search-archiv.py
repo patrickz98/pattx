@@ -56,6 +56,7 @@ arpigrapher.graph(search)
 print "Schlagzeilen:"
 print
 title(search)
+print
 print "Archiv:"
 print
 archiv(search)
