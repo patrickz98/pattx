@@ -6,6 +6,7 @@ import re
 import time
 from collections import OrderedDict
 
+import conf 
 import regex
 import blacklist
 import spon, zeit, welt, stern, faz, ntv, tagesspiegel, sueddeutsche
@@ -21,11 +22,8 @@ tagesspiegel.tagesspiegel()
 sueddeutsche.sueddeutsche()
 regex.main()
 
-dir = "./words/"
-
-text = ["news-spon.txt", "news-welt.txt", "news-zeit.txt", 
-	    "news-stern.txt", "news-faz.txt", "news-ntv.txt", 
-	    "news-tagesspiegel.txt", "news-sueddeutsche.txt"]
+dir = conf.dir
+text = conf.text
 
 
 def find(word):

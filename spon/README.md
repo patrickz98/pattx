@@ -8,3 +8,6 @@ Todo
 * windows compatibly
 
 * clear code
+	--> grapher-html
+	--> regexntv
+	

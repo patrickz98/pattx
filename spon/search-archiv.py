@@ -19,9 +19,8 @@ tagesspiegel.tagesspiegel()
 sueddeutsche.sueddeutsche()
 regex.main()
 
-text = ["news-spon.txt", "news-welt.txt", "news-zeit.txt", 
-		"news-stern.txt", "news-faz.txt", "news-ntv.txt", 
-		"news-tagesspiegel.txt", "news-sueddeutsche.txt"]
+dir = conf.dir 
+text = conf.text
 	
 def count(word):
         count = 0
@@ -41,7 +40,7 @@ def title(word):
                                print a[:-1] + (" (%s)" % txt[5:-4])
 
 def archiv(word):
-	archiv = sorted(os.listdir(conf.dir))
+	archiv = sorted(os.listdir(dir))
 	archiv = [conf.dir + x for x in archiv if "news-" in x]
 	for txt in archiv:
 		tx = open(txt, "r").readlines()
@@ -53,6 +52,7 @@ search = raw_input("Suche: ")
 print "Artikel mit " + search + ": " + str(count(search))
 print
 arpigrapher.graph(search)
+print
 print "Schlagzeilen:"
 print
 title(search)

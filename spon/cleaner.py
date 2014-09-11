@@ -1,6 +1,8 @@
 #!/usr/bin/python
 import os
+
 import blacklist
+import conf
 
 def clean(txt):
 	news2 = open(txt, "r")
@@ -19,7 +21,7 @@ def clean(txt):
 
 
 def main():
-	dir = "./words/"
+	dir = conf.dir
 	files = os.listdir(dir)
 	for txt in files:
 		if ".data" in txt:

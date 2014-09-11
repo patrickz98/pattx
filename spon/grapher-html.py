@@ -66,6 +66,9 @@ def main():
 	words = []
 
 	print "<!DOCTYPE html>"
+	print "<head>"
+	print "<title>News</title>"
+	print "</head>"
 	print "<html>"
 	print "<div>" + time.strftime("%H:%M %d.%m.%Y") + "</div>"
 
