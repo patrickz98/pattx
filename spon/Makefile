@@ -29,8 +29,8 @@ nohup:
 	nohup sudo python web.py 1>/dev/null 2>/dev/null &
 
 words:
-	if [ "$(uname)" == "Darwin" ]; then \
+	ifeq ("$(uname)" == "Darwin"); then \
 		scp odroid@odroid-u3.local:~/Core/pattx/spon/words/* words/; \
 	else \
 		scp patrick@patrick-macbook.local:~/github/patrickzyolo/spon/words/* words/; \
-	fi; \
+	endif; \
