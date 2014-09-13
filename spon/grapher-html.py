@@ -27,7 +27,7 @@ def graph(word, text):
 
 		print '		<script>'
 		print '			var randomScalingFactor = function(){ return Math.round(Math.random()*100)};'
-		print '			var lineChartData = {'
+		print '			var %sData = {' % word
 		print '				labels : %s,' % (''.join(str(range(1, len(size)))))
 		print '				datasets : ['
 		print '					{'
@@ -45,7 +45,7 @@ def graph(word, text):
 		print ''
 		print '			window.onload = function(){'
 		print '				var ctx = document.getElementById("canvas").getContext("2d");'
-		print '				window.myLine = new Chart(ctx).Line(lineChartData, {'
+		print '				window.myLine = new Chart(ctx).Line(%sData, {' % word
 		print '				responsive: true'
 		print '				});'
 		print '			}'
