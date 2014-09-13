@@ -10,11 +10,17 @@ def graph(word, text):
 	for z in dataori:
 		if z not in data and not z == '\n' and z[:z.index(":")] == word:
 			data.append(z)
+	
 	size = []
 	for a in data:
 		find = re.findall(".*: (.*?) date:", a)
 		size.append(int(''.join(find)))
 
+	dates = []
+	for date in data:
+		find = re.findall(".*: .*? date:(.*?)", date)
+		dates.append(int(''.join(find)))
+		
 	if len(size) >= 2:
 		print "		<h1>" + word + "</h1>"
 	
@@ -27,7 +33,7 @@ def graph(word, text):
 		print '		<script>'
 		print '			var randomScalingFactor = function(){ return Math.round(Math.random()*100)};'
 		print '			var lineChartData = {'
-		print '				labels : ["January","February","March","April","May","June","July"],'
+		print '				labels : [%s],' % % ''.join(str(dates))
 		print '				datasets : ['
 		print '					{'
 		print '						label: "%s",' % word
@@ -72,7 +78,7 @@ def main():
 	print '<html>'
 	print '	<head>'
 	print '		<title>Line Chart</title>'
-	print '		<script src="../Chart.js"></script>'
+	print '		<script src="./Chart.js"></script>'
 	print '</head>'
 	print '<body>'
 	print '		<div>' + time.strftime('%H:%M %d.%m.%Y') + '</div>'
@@ -82,9 +88,9 @@ def main():
 		if not line[:line.index(":")] in words:
 			words.append(line[:line.index(":")])
 
-#	for w in words:
-#		graph(w, text)
-	graph("Merkel", text)
+	for w in words:
+		graph(w, text)
+
 	print "</body>"
 	print "</html>"
 main()
