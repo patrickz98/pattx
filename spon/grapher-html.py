@@ -28,7 +28,7 @@ def graph(word, text):
 		print '		<script>'
 		print '			var randomScalingFactor = function(){ return Math.round(Math.random()*100)};'
 		print '			var lineChartData = {'
-		print '				labels : [%s],' % (''.join(str(range(1, len(size)))))
+		print '				labels : %s,' % (''.join(str(range(1, len(size)))))
 		print '				datasets : ['
 		print '					{'
 		print '						label: "%s",' % word
@@ -38,7 +38,7 @@ def graph(word, text):
 		print '						pointStrokeColor : "#fff",'
 		print '						pointHighlightFill : "#fff",'
 		print '						pointHighlightStroke : "rgba(151,187,205,1)",'
-		print '						data : [%s]' % ''.join(str(size))
+		print '						data : %s' % ''.join(str(size))
 		print '					}'
 		print '				]'
 		print '			}'
