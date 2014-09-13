@@ -19,7 +19,7 @@ def graph(word, text):
 	dates = []
 	for date in data:
 		find = re.findall(".*: .* date:(.*?)", date)
-		dates.append(int(''.join(find)))
+		dates.append(int(''.join(str(find))))
 		
 	if len(size) >= 2:
 		print "		<h1>" + word + "</h1>"
