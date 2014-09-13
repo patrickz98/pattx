@@ -6,7 +6,6 @@ import data
 
 def graph(word, text):
 	dataori = text	
-	count = 0
 	data = []
 	for z in dataori:
 		if z not in data and not z == '\n' and z[:z.index(":")] == word:
@@ -19,34 +18,33 @@ def graph(word, text):
 
 	if len(size) >= 2:
 		print "<h1>" + word + "</h1>"
-		sizesort = sorted(size)
-		lines = {}
 
-		for b in range(1, int(sizesort[len(sizesort) - 1]) + 1):
-			if len(str(b)) == 1:
-				lines.update({b:"0" + str(b) + "|"})
-			else:
-				lines.update({b:str(b) + "|"})
-	
-		for c in size:
-			lines.update({c:''.join(lines[c]) + "&nbsp;!&nbsp;"})
-			for d in range(1, int(sizesort[len(sizesort) - 1]) + 1):
-				if d != c:
-					lines.update({d:''.join(lines[d]) + "&nbsp;&nbsp;&nbsp;"})
-		
-		for y in reversed(sorted(lines.keys())):
-			print "<div>" + lines[y] + "</div>"
+		print '		<script>'
+		print '			var randomScalingFactor = function(){ return Math.round(Math.random()*100)};'
+		print '			var lineChartData = {'
+		print '				labels : ["January","February","March","April","May","June","July"],'
+		print '				datasets : ['
+		print '					{'
+		print '						label: "My Second dataset",'
+		print '						fillColor : "rgba(151,187,205,0.2)",'
+		print '						strokeColor : "rgba(151,187,205,1)",'
+		print '						pointColor : "rgba(151,187,205,1)",'
+		print '						pointStrokeColor : "#fff",'
+		print '						pointHighlightFill : "#fff",'
+		print '						pointHighlightStroke : "rgba(151,187,205,1)",'
+		print '						data : [%s]' % size
+		print '					}'
+		print '				]'
+		print '			}'
+		print ''
+		print '			window.onload = function(){'
+		print '				var ctx = document.getElementById("canvas").getContext("2d");'
+		print '				window.myLine = new Chart(ctx).Line(lineChartData, {'
+		print '				responsive: true'
+		print '				});'
+		print '			}'
+		print '		</script>'	
 
-		print "<div>" + "&nbsp;&nbsp;&nbsp;+" + "---" * (len(size) + 4) + "</div>"
-		numbers = "&nbsp;&nbsp;&nbsp;"
-		for number in range(1, (len(size) + 4)):
-			if len(str(number)) == 1:
-				numbers += str("&nbsp;%d&nbsp;" % number)
-			else:
-				numbers += str("&nbsp;%d" % number)
-			
-		print "<div>" + numbers + "</div>"
-		print "<div>" + "&nbsp;" + "</div>"
 		date(word, text)
 
 def date(word, text):
@@ -65,12 +63,20 @@ def main():
 	text = data.main()
 	words = []
 
-	print "<!DOCTYPE html>"
-	print "<head>"
-	print "<title>News</title>"
-	print "</head>"
-	print "<html>"
-	print "<div>" + time.strftime("%H:%M %d.%m.%Y") + "</div>"
+	print '<!doctype html>'
+	print '<html>'
+	print '	<head>'
+	print '		<title>Line Chart</title>'
+	print '		<script src="../Chart.js"></script>'
+	print '</head>'
+	print '<body>'
+	print '		<div>' + time.strftime('%H:%M %d.%m.%Y') + '</div>'
+	print '		<div style="width:30%">'
+	print '			<div>'
+	print '				<canvas id="canvas" height="450" width="600"></canvas>'
+	print '			</div>'
+	print '		</div>'
+
 
 	for line in text:
 		if not line[:line.index(":")] in words:
@@ -78,5 +84,6 @@ def main():
 
 	for w in words:
 		graph(w, text)
+	print "</body>"
 	print "</html>"
 main()
