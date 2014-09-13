@@ -16,7 +16,7 @@ def graph(word, text):
 		size.append(int(''.join(find)))
 
 	if len(size) >= 2:
-		print "<h1>" + word + "</h1>"
+		print "		<h1>" + word + "</h1>"
 	
 		print '		<div style="width:30%">'
 		print '			<div>'
@@ -37,7 +37,7 @@ def graph(word, text):
 		print '						pointStrokeColor : "#fff",'
 		print '						pointHighlightFill : "#fff",'
 		print '						pointHighlightStroke : "rgba(151,187,205,1)",'
-		print '						data : [%s]' % [x for x in size]
+		print '						data : [%s]' % ''.join(str(size))
 		print '					}'
 		print '				]'
 		print '			}'
