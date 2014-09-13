@@ -18,7 +18,7 @@ def graph(word, text):
 
 	dates = []
 	for date in data:
-		find = re.findall(".*: .*? date:(.*?)", date)
+		find = re.findall(".*: .* date:(.*?)", date)
 		dates.append(int(''.join(find)))
 		
 	if len(size) >= 2:
