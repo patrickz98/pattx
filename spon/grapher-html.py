@@ -16,11 +16,6 @@ def graph(word, text):
 		find = re.findall(".*: (.*?) date:", a)
 		size.append(int(''.join(find)))
 
-	dates = []
-	for date in data:
-		find = re.findall(".*: .* date:(.*?)", date)
-		dates.append(int(''.join(str(find))))
-		
 	if len(size) >= 2:
 		print "		<h1>" + word + "</h1>"
 	
@@ -33,7 +28,7 @@ def graph(word, text):
 		print '		<script>'
 		print '			var randomScalingFactor = function(){ return Math.round(Math.random()*100)};'
 		print '			var lineChartData = {'
-		print '				labels : [%s],' % ''.join(str(dates))
+		print '				labels : [%s],' % (''.join(str(range(len(size)))))
 		print '				datasets : ['
 		print '					{'
 		print '						label: "%s",' % word
