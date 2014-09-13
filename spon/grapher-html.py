@@ -10,7 +10,6 @@ def graph(word, text):
 	for z in dataori:
 		if z not in data and not z == '\n' and z[:z.index(":")] == word:
 			data.append(z)
-
 	size = []
 	for a in data:
 		find = re.findall(".*: (.*?) date:", a)
@@ -18,6 +17,12 @@ def graph(word, text):
 
 	if len(size) >= 2:
 		print "<h1>" + word + "</h1>"
+	
+		print '		<div style="width:30%">'
+		print '			<div>'
+		print '				<canvas id="canvas" height="450" width="600"></canvas>'
+		print '			</div>'
+		print '		</div>'
 
 		print '		<script>'
 		print '			var randomScalingFactor = function(){ return Math.round(Math.random()*100)};'
@@ -25,14 +30,14 @@ def graph(word, text):
 		print '				labels : ["January","February","March","April","May","June","July"],'
 		print '				datasets : ['
 		print '					{'
-		print '						label: "My Second dataset",'
+		print '						label: "%s",' % word
 		print '						fillColor : "rgba(151,187,205,0.2)",'
 		print '						strokeColor : "rgba(151,187,205,1)",'
 		print '						pointColor : "rgba(151,187,205,1)",'
 		print '						pointStrokeColor : "#fff",'
 		print '						pointHighlightFill : "#fff",'
 		print '						pointHighlightStroke : "rgba(151,187,205,1)",'
-		print '						data : [%s]' % size
+		print '						data : [%s]' % [x for x in size]
 		print '					}'
 		print '				]'
 		print '			}'
@@ -55,7 +60,7 @@ def date(word, text):
 	for txt in data:
 		line = txt[:txt.index(":")]
 		if line == word and txt not in nown:
-			print "<div>" + str(count) + ":&nbsp;" + txt + "</div>"
+			print "		<div>" + str(count) + ":" + txt + "</div>"
 			nown.append(txt)
 			count = count + 1
 
@@ -71,19 +76,15 @@ def main():
 	print '</head>'
 	print '<body>'
 	print '		<div>' + time.strftime('%H:%M %d.%m.%Y') + '</div>'
-	print '		<div style="width:30%">'
-	print '			<div>'
-	print '				<canvas id="canvas" height="450" width="600"></canvas>'
-	print '			</div>'
-	print '		</div>'
 
 
 	for line in text:
 		if not line[:line.index(":")] in words:
 			words.append(line[:line.index(":")])
 
-	for w in words:
-		graph(w, text)
+#	for w in words:
+#		graph(w, text)
+	graph("Merkel", text)
 	print "</body>"
 	print "</html>"
 main()
