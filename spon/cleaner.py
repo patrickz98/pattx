@@ -16,7 +16,7 @@ def clean(txt):
 		if b not in bad:
 			file.write(w)
 		else:
-			print "clean:", b, "in", txt
+			print "clean:", b, "-->", txt
 	file.close()
 
 
