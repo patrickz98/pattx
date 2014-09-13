@@ -21,14 +21,14 @@ def graph(word, text):
 	
 		print '		<div style="width:30%">'
 		print '			<div>'
-		print '				<canvas id="canvas" height="450" width="600"></canvas>'
+		print '				<canvas id="%s" height="450" width="600"></canvas>' % word
 		print '			</div>'
 		print '		</div>'
 
 		print '		<script>'
 		print '			var randomScalingFactor = function(){ return Math.round(Math.random()*100)};'
 		print '			var lineChartData = {'
-		print '				labels : [%s],' % (''.join(str(range(len(size)))))
+		print '				labels : [%s],' % (''.join(str(range(1, len(size)))))
 		print '				datasets : ['
 		print '					{'
 		print '						label: "%s",' % word
