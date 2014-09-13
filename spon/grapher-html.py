@@ -21,7 +21,7 @@ def graph(word, text):
 	
 		print '		<div style="width:30%">'
 		print '			<div>'
-		print '				<canvas id="%s" height="450" width="600"></canvas>' % word
+		print '				<canvas id="canvas" height="450" width="600"></canvas>'
 		print '			</div>'
 		print '		</div>'
 
