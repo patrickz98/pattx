@@ -83,9 +83,10 @@ def main():
 		if not line[:line.index(":")] in words:
 			words.append(line[:line.index(":")])
 
-	for w in words:
-		graph(w, text)
+#	for w in words:
+#		graph(w, text)
 
+	graph("Merkel", text)
 	print "</body>"
 	print "</html>"
 main()
