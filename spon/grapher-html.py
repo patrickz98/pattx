@@ -33,7 +33,7 @@ def graph(word, text):
 		print '		<script>'
 		print '			var randomScalingFactor = function(){ return Math.round(Math.random()*100)};'
 		print '			var lineChartData = {'
-		print '				labels : [%s],' % % ''.join(str(dates))
+		print '				labels : [%s],' % ''.join(str(dates))
 		print '				datasets : ['
 		print '					{'
 		print '						label: "%s",' % word
