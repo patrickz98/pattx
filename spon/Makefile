@@ -34,3 +34,9 @@ words:
 	else \
 		scp patrick@patrick-macbook.local:~/github/patrickzyolo/spon/words/* words/; \
 	endif; \
+
+lib:
+	git clone https://github.com/nnnick/Chart.js.git
+	cd Chart.js; git pull
+	sudo cp Chart.js/Chart.js /var/www/patrickz/
+	sudo cp Chart.js/Chart.js /var/www/odroid/
