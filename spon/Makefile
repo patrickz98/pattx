@@ -34,9 +34,19 @@ mac:
 lib:
 	git clone https://github.com/nnnick/Chart.js.git
 	cd Chart.js; git pull
+	
 	sudo cp Chart.js/Chart.js /var/www/patrickz/
 	sudo cp Chart.js/Chart.js /var/www/odroid/
 	
+	sudo chown www-data:www-data /var/www/patrickz/Chart.js
+	sudo chown www-data:www-data /var/www/odroid/Chart.js
+
+	sudo cp news.ico /var/www/patrickz/
+	sudo cp news.ico /var/www/odroid/
+	
+	sudo chown www-data:www-data /var/www/patrickz/news.ico
+	sudo chown www-data:www-data /var/www/odroid/news.ico
+
 backup:
 	tar cvzf words.gz words/
 	zip words.zip words/*
