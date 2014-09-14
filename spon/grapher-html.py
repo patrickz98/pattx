@@ -19,55 +19,58 @@ def graph(word, text):
 	if len(size) >= 2:
 		print "		<h1>" + word + "</h1>"
 	
-		print '		<div style="width:30%">'
+		print '		<div style="width:60%">'
 		print '			<div>'
-		print '				<canvas id="canvas" height="450" width="600"></canvas>'
+		print '				<canvas id="%s" height="450" width="600"></canvas>' % word
 		print '			</div>'
 		print '		</div>'
 
-		print '		<script>'
-		print '			var randomScalingFactor = function(){ return Math.round(Math.random()*100)};'
-		print '			var %sData = {' % word
-		print '				labels : %s,' % (''.join(str(range(1, len(size)))))
-		print '				datasets : ['
-		print '					{'
-		print '						label: "%s",' % word
-		print '						fillColor : "rgba(151,187,205,0.2)",'
-		print '						strokeColor : "rgba(151,187,205,1)",'
-		print '						pointColor : "rgba(151,187,205,1)",'
-		print '						pointStrokeColor : "#fff",'
-		print '						pointHighlightFill : "#fff",'
-		print '						pointHighlightStroke : "rgba(151,187,205,1)",'
-		print '						data : %s' % ''.join(str(size))
-		print '					}'
-		print '				]'
-		print '			}'
-		print ''
-		print '			window.onload = function(){'
-		print '				var ctx = document.getElementById("canvas").getContext("2d");'
-		print '				window.myLine = new Chart(ctx).Line(%sData, {' % word
-		print '				responsive: true'
-		print '				});'
-		print '			}'
-		print '		</script>'	
+		javascript.append( '			var randomScalingFactor = function(){ return Math.round(Math.random()*100)};')
+		javascript.append( '			var lineChartData%s = {' % word )
+		javascript.append( '				labels : %s,' % (date(word, text)) )
+		javascript.append( '				datasets : [' )
+		javascript.append( '					{' )
+		javascript.append( '						label: "%s",' % word )
+		javascript.append( '						fillColor : "rgba(151,187,205,0.2)",' )
+		javascript.append( '						strokeColor : "rgba(151,187,205,1)",' )
+		javascript.append( '						pointColor : "rgba(151,187,205,1)",' )
+		javascript.append( '						pointStrokeColor : "#fff",' )
+		javascript.append( '						pointHighlightFill : "#fff",' )
+		javascript.append( '						pointHighlightStroke : "rgba(151,187,205,1)",' )
+		javascript.append( '						data : %s' % ''.join(str(size)) )
+		javascript.append( '					}' )
+		javascript.append( '				]' )
+		javascript.append( '			}' )
+		javascript.append( '' )
 
-		date(word, text)
+		javaconf.append( '				var ctx%s = document.getElementById("%s").getContext("2d");' % (word, word) )
+		javaconf.append( '				window.myLine%s = new Chart(ctx%s).Line(lineChartData%s, {' % (word, word, word) )
+		javaconf.append( '				responsive: true });' )
+		
 
 def date(word, text):
 	data = text
 	nown = []
-	count = 1
+	end = []
 
 	for txt in data:
 		line = txt[:txt.index(":")]
 		if line == word and txt not in nown:
-			print "		<div>" + str(count) + ":" + txt + "</div>"
+			end.append(txt[-10:])
 			nown.append(txt)
-			count = count + 1
+	
+	return end
+
+javascript = ['		<script>']
+javaconf = []
 
 def main():
 	text = data.main()
 	words = []
+	
+	for line in text:
+		if not line[:line.index(":")] in words:
+			words.append(line[:line.index(":")])
 
 	print '<!doctype html>'
 	print '<html>'
@@ -78,15 +81,24 @@ def main():
 	print '<body>'
 	print '		<div>' + time.strftime('%H:%M %d.%m.%Y') + '</div>'
 
-
-	for line in text:
-		if not line[:line.index(":")] in words:
-			words.append(line[:line.index(":")])
+	words = ["Merkel", "Obama", "Ukraine", "Staat", 
+			 "Russland", "Kiew", "Europa", "Krise", 
+			 "Kurden", "Polizei", "Kampf"]
 
 	for w in words:
 		graph(w, text)
 
-#	graph("Merkel", text)
+	javascript.append( '			window.onload = function(){' )
+	
+	for conf in javaconf:
+		javascript.append(conf)
+	
+	javascript.append( '			}' )
+	javascript.append( '		</script>' )	
+
+	for java in javascript:
+		print java
+	
 	print "</body>"
 	print "</html>"
 main()
