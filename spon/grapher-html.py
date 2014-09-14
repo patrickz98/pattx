@@ -84,9 +84,9 @@ def main():
 	html.write('		<div>' + time.strftime('%H:%M %d.%m.%Y') + '</div>\n')
 
 	words = ["IS", "Obama", "Ukraine", 
-			 "Staat", "Russland", "Kiew", 
+			 "Russland", "Kiew", 
 			 "Europa", "Krise", "Merkel",
-			 "Kurden", "Polizei", "Kampf"]
+			 "Kurden", "Kampf"]
 
 	for w in words:
 		graph(w, text)
