@@ -77,6 +77,7 @@ def main():
 	html.write('<html>\n')
 	html.write('	<head>\n')
 	html.write('		<title>News Monitor</title>\n')
+	html.write('		<link rel="icon" type="image/x-icon" href="news.ico" />\n')
 	html.write('		<script src="./Chart.js"></script>\n')
 	html.write('</head>\n')
 	html.write('<body>\n')
