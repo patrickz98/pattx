@@ -46,6 +46,12 @@ lib:
 	
 	sudo chown www-data:www-data /var/www/patrickz/news.ico
 	sudo chown www-data:www-data /var/www/odroid/news.ico
+	
+	sudo cp news.png /var/www/patrickz/
+	sudo cp news.png /var/www/odroid/
+	
+	sudo chown www-data:www-data /var/www/patrickz/news.png
+	sudo chown www-data:www-data /var/www/odroid/news.png
 
 backup:
 	tar cvzf words.gz words/
