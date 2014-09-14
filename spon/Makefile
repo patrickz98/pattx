@@ -39,4 +39,4 @@ lib:
 	
 backup:
 	tar cvzf words.gz words/
-	zip words.zip words/
+	zip words.zip words/*
