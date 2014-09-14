@@ -3,23 +3,23 @@ uname = `uname`
 all:
 	python analytics.py > aktuell.txt
 	python grapher.py > statistik.txt
-	python grapher-html.py > statistik.html
+	python grapher-html.py
 
 clean:
 	rm news-*
 	rm *.pyc
-	rm data-raw.txt
 	rm statistik.txt
 	rm aktuell.txt
+	rm statistik.html
 
 web: all
 	sudo cp statistik.txt aktuell.txt statistik.html /var/www/patrickz/
 	sudo cp statistik.txt aktuell.txt statistik.html /var/www/odroid/
 
 	sudo chown www-data:www-data /var/www/patrickz/statistik.txt
-	sudo chown www-data:www-data /var/www/patrickz/aktuell.txt
-
 	sudo chown www-data:www-data /var/www/odroid/statistik.txt
+
+	sudo chown www-data:www-data /var/www/patrickz/aktuell.txt
 	sudo chown www-data:www-data /var/www/odroid/aktuell.txt
 	
 	sudo chown www-data:www-data /var/www/patrickz/statistik.html

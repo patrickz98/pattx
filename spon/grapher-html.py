@@ -4,6 +4,10 @@ import time
 
 import data
 
+html = open("statistik.html", "w")
+javascript = ['		<script>']
+javaconf = []
+
 def graph(word, text):
 	dataori = text	
 	data = []
@@ -17,13 +21,14 @@ def graph(word, text):
 		size.append(int(''.join(find)))
 
 	if len(size) >= 2:
-		print "		<h1>" + word + "</h1>"
 	
-		print '		<div style="width:60%">'
-		print '			<div>'
-		print '				<canvas id="%s" height="450" width="600"></canvas>' % word
-		print '			</div>'
-		print '		</div>'
+		html.write('		<h1>' + word + '</h1>\n')
+		html.write('		<div style="width:60%">\n')
+		html.write('			<div>\n')
+		html.write('				<canvas id="%s" height="450" width="600"></canvas>\n' % word)
+		html.write('			</div>\n')
+		html.write('		</div>\n')
+		html.write('\n')
 
 		javascript.append( '			var randomScalingFactor = function(){ return Math.round(Math.random()*100)};')
 		javascript.append( '			var lineChartData%s = {' % word )
@@ -49,20 +54,16 @@ def graph(word, text):
 		
 
 def date(word, text):
-	data = text
 	nown = []
 	end = []
 
-	for txt in data:
+	for txt in text:
 		line = txt[:txt.index(":")]
 		if line == word and txt not in nown:
 			end.append(txt[-10:])
 			nown.append(txt)
 	
 	return end
-
-javascript = ['		<script>']
-javaconf = []
 
 def main():
 	text = data.main()
@@ -72,23 +73,24 @@ def main():
 		if not line[:line.index(":")] in words:
 			words.append(line[:line.index(":")])
 
-	print '<!doctype html>'
-	print '<html>'
-	print '	<head>'
-	print '		<title>Line Chart</title>'
-	print '		<script src="./Chart.js"></script>'
-	print '</head>'
-	print '<body>'
-	print '		<div>' + time.strftime('%H:%M %d.%m.%Y') + '</div>'
+	html.write('<!doctype html>\n')
+	html.write('<html>\n')
+	html.write('	<head>\n')
+	html.write('		<title>News Monitor</title>\n')
+	html.write('		<script src="./Chart.js"></script>\n')
+	html.write('</head>\n')
+	html.write('<body>\n')
+	html.write('\n')
+	html.write('		<div>' + time.strftime('%H:%M %d.%m.%Y') + '</div>\n')
 
-	words = ["Merkel", "Obama", "Ukraine", "Staat", 
-			 "Russland", "Kiew", "Europa", "Krise", 
-			 "Kurden", "Polizei", "Kampf"]
+	words = ["Merkel", "Obama", "Ukraine", "Staat"]
+#			 "Russland", "Kiew", "Europa", "Krise", 
+#			 "Kurden", "Polizei", "Kampf"]
 
 	for w in words:
 		graph(w, text)
 
-	javascript.append( '			window.onload = function(){' )
+	javascript.append( '			window.onload = function(){')
 	
 	for conf in javaconf:
 		javascript.append(conf)
@@ -97,8 +99,9 @@ def main():
 	javascript.append( '		</script>' )	
 
 	for java in javascript:
-		print java
+		html.write(java + '\n')
 	
-	print "</body>"
-	print "</html>"
+	html.write("</body>\n")
+	html.write("</html>\n")
+
 main()
