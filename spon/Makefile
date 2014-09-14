@@ -28,15 +28,15 @@ web: all
 nohup:
 	nohup sudo python web.py 1>/dev/null 2>/dev/null &
 
-words:
-	ifeq ("$(uname)" == "Darwin"); then \
-		scp odroid@odroid-u3.local:~/Core/pattx/spon/words/* words/; \
-	else \
-		scp patrick@patrick-macbook.local:~/github/patrickzyolo/spon/words/* words/; \
-	endif; \
+mac:
+	scp odroid@odroid-u3.local:~/Core/pattx/spon/words/* words/; \
 
 lib:
 	git clone https://github.com/nnnick/Chart.js.git
 	cd Chart.js; git pull
 	sudo cp Chart.js/Chart.js /var/www/patrickz/
 	sudo cp Chart.js/Chart.js /var/www/odroid/
+	
+backup:
+	tar cvzf words.gz words/
+	zip words.zip words/
