@@ -31,7 +31,7 @@ web: all
 	sudo chown www-data:www-data /var/www/odroid/aktuell.html
 
 nohup:
-	nohup sudo python web.py 1>/dev/null 2>/dev/null &
+	sudo nohup python web.py 1>/dev/null 2>/dev/null &
 
 mac:
 	scp odroid@odroid-u3.local:~/Core/pattx/spon/words/* words/; \
