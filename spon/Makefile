@@ -61,3 +61,6 @@ lib:
 backup:
 	tar cvzf words.gz words/
 	zip words.zip words/*
+
+chown:
+	sudo chown odroid:odroid words/*
