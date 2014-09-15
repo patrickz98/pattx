@@ -54,6 +54,10 @@ def graph(word, text):
 		javaconf.append( '				var ctx%s = document.getElementById("%s").getContext("2d");' % (word, word) )
 		javaconf.append( '				window.myLine%s = new Chart(ctx%s).Line(lineChartData%s, {' % (word, word, word) )
 		javaconf.append( '				responsive: true });' )
+	
+	else:
+	
+		return False
 		
 def date(word, text):
 	nown = []
@@ -86,13 +90,13 @@ def main():
 	html.write('\n')
 	html.write('		<div>' + time.strftime('%H:%M %d.%m.%Y') + '</div>\n')
 	html.write('		<input type=button \
-						onClick="parent.location=\'aktuell.txt\'" \
+						onClick="parent.location=\'aktuell.html\'" \
 						value=\'Aktuell\' style="height:50px; width:100px">')
 
 
 #	words.append("IS", "Ukraine", "Russland", "Merkel")
 
-	for w in words[:10]:
+	for w in words[:15]:
 		graph(w, text)
 
 	javascript.append( '			window.onload = function(){')
