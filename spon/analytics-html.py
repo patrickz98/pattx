@@ -65,7 +65,7 @@ def words():
 	
 	for l in list:
 		if list[l] >= 8 and l not in bad:
-			html.write(('<p style="font-size:%dpx;">' % int(list[l] + 5)) + l + ': ' + str(list[l]) + '</p>\n')
+			html.write(('<p style="font-size:%dpx;">' % int(list[l] + 10)) + l + ': ' + str(list[l]) + '</p>\n')
 	
 	list = OrderedDict(sorted(list.items(), key=lambda x:x[1]))
 	
