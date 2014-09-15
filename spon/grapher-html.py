@@ -92,7 +92,7 @@ def main():
 
 #	words.append("IS", "Ukraine", "Russland", "Merkel")
 
-	for w in words:
+	for w in words[:10]:
 		graph(w, text)
 
 	javascript.append( '			window.onload = function(){')
