@@ -7,7 +7,7 @@ import conf
 
 dir = conf.dir
 
-html = open("statistik.html", "w")
+html = open("statistik-all.html", "w")
 javascript = ['		<script>']
 javaconf = []
 
@@ -96,7 +96,7 @@ def main():
 
 #	words.append("IS", "Ukraine", "Russland", "Merkel")
 
-	for w in words[:20]:
+	for w in words:
 		graph(w, text)
 
 	javascript.append( '			window.onload = function(){')
