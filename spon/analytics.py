@@ -1,4 +1,3 @@
-
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 import os
@@ -61,7 +60,6 @@ def words():
 			result.append(l + ": " + str(list[l]))
 
 def data():
-#	os.popen("mkdir -p %s" % dir).readlines()
 	try:
 		os.mkdir(dir)
 	except OSError:

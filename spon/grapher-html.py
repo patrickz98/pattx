@@ -3,6 +3,9 @@ import re
 import time
 
 import data
+import conf
+
+dir = conf.dir
 
 html = open("statistik.html", "w")
 javascript = ['		<script>']
@@ -20,10 +23,10 @@ def graph(word, text):
 		find = re.findall(".*: (.*?) date:", a)
 		size.append(int(''.join(find)))
 
-	if len(size) >= 2:
+	if len(size) >= 5:
 	
 		html.write('		<h1>' + word + '</h1>\n')
-		html.write('		<div style="width:60%">\n')
+		html.write('		<div style="width:70%">\n')
 		html.write('			<div>\n')
 		html.write('				<canvas id="%s" height="450" width="600"></canvas>\n' % word)
 		html.write('			</div>\n')
@@ -52,7 +55,6 @@ def graph(word, text):
 		javaconf.append( '				window.myLine%s = new Chart(ctx%s).Line(lineChartData%s, {' % (word, word, word) )
 		javaconf.append( '				responsive: true });' )
 		
-
 def date(word, text):
 	nown = []
 	end = []
@@ -69,10 +71,9 @@ def main():
 	text = data.main()
 	words = []
 	
-	for line in text:
-		if not line[:line.index(":")] in words:
-			words.append(line[:line.index(":")])
-
+	for wo in open(dir + time.strftime("%Y.%m.%d") + ".data", "r").readlines():
+		words.append(wo[:wo.index(":")])
+	
 	html.write('<!doctype html>\n')
 	html.write('<html>\n')
 	html.write('	<head>\n')
@@ -84,11 +85,12 @@ def main():
 	html.write('<body>\n')
 	html.write('\n')
 	html.write('		<div>' + time.strftime('%H:%M %d.%m.%Y') + '</div>\n')
+	html.write('		<input type=button \
+						onClick="parent.location=\'aktuell.txt\'" \
+						value=\'Aktuell\' style="height:50px; width:100px">')
 
-	words = ["IS", "Obama", "Ukraine", 
-			 "Russland", "Kiew", 
-			 "Europa", "Krise", "Merkel",
-			 "Kurden", "Kampf"]
+
+#	words.append("IS", "Ukraine", "Russland", "Merkel")
 
 	for w in words:
 		graph(w, text)
