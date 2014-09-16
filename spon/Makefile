@@ -38,11 +38,11 @@ nohup:
 	sudo nohup python web.py 1>/dev/null 2>/dev/null &
 
 mac:
-	scp odroid@odroid-u3.local:~/Core/pattx/spon/words/* words/; \
+	curl "https://raw.githubusercontent.com/nnnick/Chart.js/master/Chart.js" 1> Chart.js 2>/dev/null
+	scp odroid@odroid-u3.local:~/Core/pattx/spon/words/* words/
 
 lib:
-	git clone https://github.com/nnnick/Chart.js.git
-	cd Chart.js; git pull
+	wget https://raw.githubusercontent.com/nnnick/Chart.js/master/Chart.js
 	
 	sudo cp Chart.js/Chart.js /var/www/patrickz/
 	sudo cp Chart.js/Chart.js /var/www/odroid/

@@ -52,7 +52,7 @@ def words():
 	html.write('<!doctype html>\n')
 	html.write('<html>\n')
 	html.write('	<head>\n')
-	html.write('		<title>News Monitor</title>\n')
+	html.write('		<title>Monitor</title>\n')
 	html.write('		<link rel="icon" type="image/x-icon" href="news.ico" />\n')
 	html.write('		<link rel="apple-touch-icon" href="news.png"/>')
 	html.write('</head>\n')
@@ -65,7 +65,7 @@ def words():
 	
 	for l in list:
 		if list[l] >= 8 and l not in bad:
-			html.write(('<p style="font-size:%dpx;">' % int(list[l] + 10)) + l + ': ' + str(list[l]) + '</p>\n')
+			html.write(('<p style="font-size:%dpx;">' % int(list[l] + 15)) + l + ': ' + str(list[l]) + '</p>\n')
 	
 	list = OrderedDict(sorted(list.items(), key=lambda x:x[1]))
 	
