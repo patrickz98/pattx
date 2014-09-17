@@ -90,7 +90,7 @@ def main():
 	html.write('		<div>' + time.strftime('%H:%M %d.%m.%Y') + '</div>\n')
 	html.write('		<input type=button \
 						onClick="parent.location=\'aktuell.html\'" \
-						value=\'Aktuell\' style="height:25px; width:75px">')
+						value=\'Aktuell\' style="height:30px; width:80px">')
 
 
 #	words.append("IS", "Ukraine", "Russland", "Merkel")
