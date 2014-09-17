@@ -60,6 +60,12 @@ def words():
 	html.write('\n')
 	html.write('		<h1>' 'Monitor: ' + time.strftime('%H:%M %d.%m.%Y') + '</h1>\n')
 	html.write('\n')
+	html.write('		<input type=button \
+						onClick="parent.location=\'statistik.html\'" \
+						value=\'Graphs\' style="height:25px; width:75px">')
+	html.write('		<input type=button \
+						onClick="parent.location=\'statistik-all.html\'" \
+						value=\'Graphs-all\' style="height:25px; width:75px">')
 	html.write('<p style="font-size:50px;"></p>')
 	 
 	
