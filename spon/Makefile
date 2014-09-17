@@ -13,6 +13,7 @@ clean:
 	rm statistik.txt
 	rm aktuell.txt
 	rm statistik.html
+	rm statistik-all.html
 	rm aktuell.html
 
 web: all

@@ -12,9 +12,8 @@ javascript = ['		<script>']
 javaconf = []
 
 def graph(word, text):
-	dataori = text	
 	data = []
-	for z in dataori:
+	for z in text:
 		if z not in data and not z == '\n' and z[:z.index(":")] == word:
 			data.append(z)
 	
@@ -81,7 +80,7 @@ def main():
 	html.write('<!doctype html>\n')
 	html.write('<html>\n')
 	html.write('	<head>\n')
-	html.write('		<title>News Monitor</title>\n')
+	html.write('		<title>Monitor</title>\n')
 	html.write('		<link rel="icon" type="image/x-icon" href="news.ico" />\n')
 	html.write('		<link rel="apple-touch-icon" href="news.png"/>')
 	html.write('		<script src="./Chart.js"></script>\n')

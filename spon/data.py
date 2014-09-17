@@ -34,4 +34,10 @@ def main():
 							raw.append(d[:-1] + " date: " + c[8:-5])
 
 		nown.append(name)
+		
+		for word in raw:
+			if raw.count(word) > 1 and not word == '\n':
+				raw.remove(word)
+
+		
 		return raw

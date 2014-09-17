@@ -12,9 +12,8 @@ javascript = ['		<script>']
 javaconf = []
 
 def graph(word, text):
-	dataori = text	
 	data = []
-	for z in dataori:
+	for z in text:
 		if z not in data and not z == '\n' and z[:z.index(":")] == word:
 			data.append(z)
 	
