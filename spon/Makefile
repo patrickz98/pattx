@@ -79,3 +79,4 @@ backup:
 
 chown:
 	sudo chown odroid:odroid words/*
+	sudo chown odroid:odroid html/*

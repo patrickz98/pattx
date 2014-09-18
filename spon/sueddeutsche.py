@@ -28,4 +28,3 @@ def sueddeutsche():
 
 	schlagzeilen.close()
 	regexhtml.main("news-sueddeutsche.txt")
-
