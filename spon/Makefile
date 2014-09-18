@@ -15,11 +15,21 @@ clean:
 	rm statistik.html
 	rm statistik-all.html
 	rm aktuell.html
+	rm -rf html
 
 web: all
 	sudo cp statistik.txt aktuell.txt statistik.html statistik-all.html aktuell.html /var/www/patrickz/
 	sudo cp statistik.txt aktuell.txt statistik.html statistik-all.html aktuell.html /var/www/odroid/
 
+	sudo cp -r html /var/www/patrickz/
+	sudo cp -r html /var/www/odroid/
+	
+	sudo chown www-data:www-data /var/www/patrickz/html/
+	sudo chown www-data:www-data /var/www/odroid/html/
+	
+	sudo chown www-data:www-data /var/www/patrickz/html/*
+	sudo chown www-data:www-data /var/www/odroid/html/*
+	
 	sudo chown www-data:www-data /var/www/patrickz/statistik.txt
 	sudo chown www-data:www-data /var/www/odroid/statistik.txt
 

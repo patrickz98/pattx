@@ -8,6 +8,7 @@ from collections import OrderedDict
 import conf 
 import regex
 import blacklist
+import arpisearch
 import spon, zeit, welt, stern, faz, ntv, tagesspiegel, sueddeutsche
 
 
@@ -81,9 +82,12 @@ def words():
 		if list[l] >= 8 and l not in bad:
 #			html.write(('<p style="font-size:%dpx;">' % int(list[l] * 3 - (list[l] % 2))) + l + ': ' + str(list[l]) + '</p>\n')
 			html.write(('<p style="font-size:%dpx;"> ' % int(list[l] * 3 - (list[l] % 2))) + \
-						('<a href="./%s.html">' % str(l)) + str(l) + ': ' + str(list[l]) + \
+						('<a href="./html/%s.html">' % str(l)) + str(l) + ': ' + str(list[l]) + \
 						'</a></p>\n')
-	
+			
+			### Html Generierung ####
+			arpisearch.main(str(l))
+			
 	list = OrderedDict(sorted(list.items(), key=lambda x:x[1]))
 	
 	for l in reversed(list):
