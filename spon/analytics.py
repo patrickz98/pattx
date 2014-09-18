@@ -16,9 +16,9 @@ zeit.zeit()
 welt.welt()
 stern.stern()
 faz.faz()
-ntv.ntv()
+#ntv.ntv()
 tagesspiegel.tagesspiegel()
-sueddeutsche.sueddeutsche()
+#sueddeutsche.sueddeutsche()
 regex.main()
 
 dir = conf.dir

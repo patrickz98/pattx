@@ -25,7 +25,7 @@ def graph(word, text):
 	if len(size) >= 5:
 	
 		html.write('		<h1>' + word + '</h1>\n')
-		html.write('		<div style="width:70%">\n')
+		html.write('		<div style="width:90%">\n')
 		html.write('			<div>\n')
 		html.write('				<canvas id="%s" height="450" width="600"></canvas>\n' % word)
 		html.write('			</div>\n')
