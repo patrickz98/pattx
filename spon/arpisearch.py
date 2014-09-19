@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 import os
-import re
+import time
 
 import conf
 import arpigrapher
@@ -42,7 +42,7 @@ def title(word, html):
 
 def archiv(word, html):
 	archiv = sorted(os.listdir(dir))
-	archiv = [conf.dir + x for x in archiv if "news-" in x]
+	archiv = [conf.dir + x for x in archiv if "news-" in x and not time.strftime("%Y.%m.%d") in x]
 	for txt in archiv:
 		tx = open(txt, "r").readlines()
 		for a in tx:

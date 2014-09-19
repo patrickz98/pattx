@@ -72,7 +72,7 @@ def data():
 	most.close()
 
 def rawdata():
-	schlagzeilen = open(dir + "news-" + time.strftime("%Y.%m.%d")+ ".txt", "w+")
+	schlagzeilen = open(dir + "news-" + time.strftime("%Y.%m.%d") + ".txt", "w+")
 
 	for txt in text:
 		for lines in open(txt, "r").readlines():
