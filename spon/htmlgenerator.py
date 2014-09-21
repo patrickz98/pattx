@@ -137,11 +137,11 @@ def main(search):
 		
 		graph(search, text, html)
 		
-		html.write("<p>" +  "Schlagzeilen Heute:" + "</p>\n")
+		html.write("<h3>" +  "Schlagzeilen Heute:" + "</h3>\n")
 		html.write("<p></p>\n")
 		title(search, html)
 		html.write("<p></p>\n")
-		html.write("<p>" +  "Archiv:" + "</p>\n")
+		html.write("<h3>" +  "Archiv:" + "</h3>\n")
 		html.write("<p></p>\n")
 		archiv(search, html)
 		
