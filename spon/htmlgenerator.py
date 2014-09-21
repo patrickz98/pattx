@@ -111,7 +111,7 @@ def main(search):
 		html.write('<!doctype html>\n')
 		html.write('<html>\n')
 		html.write('	<head>\n')
-		html.write('		<title>Monitor</title>\n')
+		html.write('		<title>%s</title>\n' % search)
 		html.write('		<link rel="icon" type="image/x-icon" href="news.ico" />\n')
 		html.write('		<link rel="apple-touch-icon" href="news.png"/>')
 		html.write('		<script src="../Chart.js"></script>\n')
