@@ -8,7 +8,7 @@ from collections import OrderedDict
 import conf 
 import regex
 import blacklist
-import arpisearch
+import htmlgenerator
 import spon, zeit, welt, stern, faz, ntv, tagesspiegel, sueddeutsche
 
 
@@ -86,7 +86,7 @@ def words():
 						'</a></p>\n')
 			
 			### Html Generierung ####
-			arpisearch.main(str(l))
+			htmlgenerator.main(str(l))
 			
 	list = OrderedDict(sorted(list.items(), key=lambda x:x[1]))
 	
