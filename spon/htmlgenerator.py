@@ -6,20 +6,7 @@ import re
 
 import conf
 import data
-import arpigrapher
 import regex
-import spon, zeit, welt, stern, faz, ntv, tagesspiegel, sueddeutsche
-
-
-spon.spon()
-zeit.zeit()
-welt.welt()
-stern.stern()
-faz.faz()
-ntv.ntv()
-tagesspiegel.tagesspiegel()
-sueddeutsche.sueddeutsche()
-regex.main()
 
 dir = conf.dir 
 text = conf.text
