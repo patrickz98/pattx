@@ -84,8 +84,8 @@ def main():
 	html.write('		<link rel="icon" type="image/x-icon" href="news.ico" />\n')
 	html.write('		<link rel="apple-touch-icon" href="news.png"/>')
 	html.write('		<script src="./Chart.js"></script>\n')
-	html.write('</head>\n')
-	html.write('<body>\n')
+	html.write('	</head>\n')
+	html.write('	<body>\n')
 	html.write('\n')
 	html.write('		<div>' + time.strftime('%H:%M %d.%m.%Y') + '</div>\n')
 	html.write('		<input type=button \
