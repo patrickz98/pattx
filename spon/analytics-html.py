@@ -37,7 +37,7 @@ def find(word):
 	return count
 
 result = []
-def words():
+def main():
 	list = {}
 	bad = blacklist.bad
 	for txt in text:
@@ -58,36 +58,42 @@ def words():
 	html.write('		<link rel="apple-touch-icon" href="news.png"/>')
 	html.write('\n')
 	html.write('		<style type="text/css">' )
-	html.write('			a:link { text-decoration:none; font-weight:bold; color:#000000; }' )
-	html.write('			a:visited { text-decoration:none; font-weight:bold; color:#0063b0; }' )
+	html.write('			a:link { text-decoration:none; font-weight:bold; color:#000000; }')
+	html.write('			a:visited { text-decoration:none; font-weight:bold; color:#0063b0; }')
 #	html.write('			a:hover { text-decoration:none; font-weight:bold; background-color:#69bfff; }' )
 #	html.write('			a:active { text-decoration:none; font-weight:bold; background-color:#69bfff; }' )
 #	html.write('			a:focus { text-decoration:none; font-weight:bold; background-color:#69bfff; }' )
 	html.write('		</style>')
-	html.write('</head>\n')
-	html.write('<body>\n')
+	html.write('	</head>\n')
+	html.write('	<body>\n')
 	html.write('\n')
 	html.write('		<h1>' 'Monitor: ' + time.strftime('%H:%M %d.%m.%Y') + '</h1>\n')
 	html.write('\n')
-	html.write('		<input type=button \
-						onClick="parent.location=\'statistik.html\'" \
-						value=\'Graphs\' style="height:30px; width:80px">')
-	html.write('		<input type=button \
-						onClick="parent.location=\'statistik-all.html\'" \
-						value=\'Graphs-all\' style="height:30px; width:80px">')
-	html.write('<p style="font-size:50px;"></p>')
+	### Buttons to graph sites ###
+	html.write('		<input type=button \n')
+	html.write('			onClick="parent.location=\'statistik.html\'"\n')
+	html.write('			value=\'Graphs\'\n')
+	html.write('			style="height:25px; width:75px">\n')
+	html.write('		<input type=button \n')
+	html.write('			onClick="parent.location=\'statistik-all.html\'"\n')
+	html.write('			value=\'Graphs-all\'\n')
+	html.write('			style="height:25px; width:75px">\n')
+	
+	html.write('		<p style="font-size:50px;"></p>\n')
 	 
 	
 	for l in list:
 		if list[l] >= 8 and l not in bad:
-#			html.write(('<p style="font-size:%dpx;">' % int(list[l] * 3 - (list[l] % 2))) + l + ': ' + str(list[l]) + '</p>\n')
-			html.write(('<p style="font-size:%dpx;"> ' % int(list[l] * 3 - (list[l] % 2))) + \
+			html.write(('		<p style="font-size:%dpx;"> ' % int(list[l] * 3 - (list[l] % 2))) + \
 						('<a href="./html/%s.html">' % str(l)) + str(l) + ': ' + str(list[l]) + \
 						'</a></p>\n')
 			
 			### Html Generierung ####
 			htmlgenerator.main(str(l))
-			
+	
+	html.write('	</body>\n')
+	html.write('</html>\n')
+
 	list = OrderedDict(sorted(list.items(), key=lambda x:x[1]))
 	
 	for l in reversed(list):
@@ -114,5 +120,5 @@ def data():
 	
 	schlagzeilen.close()
 
-words()
+main()
 data()
