@@ -38,6 +38,7 @@ bad = ["um", "an", "von", "in", "den", "haelt", "sicher", "tritt", "essen",
        "sehen", "gehe", "eher", "sieht", "\"Das", "jede", "denken", "stark",
        "Drei-", "komme", "jetzt", "bitte", "lassen", "rund", "stellt", "Frank",
        "doch", "nimmt", "Viel", "sechs", "Vier", "sagt", "Konflikte", "lass",
+       "Erste", "Voll", "reich", "rote", "renn", "ringt", "einig",
        "Deutsche", "Bund"]
 
 exception = ["EU", "Eu", "USA", "US", "BND", "IS", "Tod", "CIA", "NSA", "ARD", "ZDF",
