@@ -75,7 +75,7 @@ def graph(word, text, html):
 
 	if len(size) >= 5:
 	
-		html.write('		<div style="width:90%">\n')
+		html.write('		<div style="width:60%">\n')
 		html.write('			<div>\n')
 		html.write('				<canvas id="%s" height="450" width="600"></canvas>\n' % word)
 		html.write('			</div>\n')

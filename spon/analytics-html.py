@@ -93,6 +93,7 @@ def main():
 	
 	html.write('	</body>\n')
 	html.write('</html>\n')
+	html.close()
 
 	list = OrderedDict(sorted(list.items(), key=lambda x:x[1]))
 	

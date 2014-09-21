@@ -111,5 +111,6 @@ def main():
 	
 	html.write("</body>\n")
 	html.write("</html>\n")
+	html.close()
 
 main()
