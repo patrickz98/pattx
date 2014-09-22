@@ -105,6 +105,9 @@ def main(search):
 		except OSError:
 			pass
 		
+		while '"' in search:
+			search.remove('"')
+		
 		text = data.main()
 		html = open(htmldir + search + ".html", "w+")
 		

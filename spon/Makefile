@@ -17,7 +17,7 @@ clean:
 	rm aktuell.html
 	rm -rf html
 
-web: all
+web: chown all
 	sudo cp statistik.txt aktuell.txt statistik.html statistik-all.html aktuell.html /var/www/patrickz/
 	sudo cp statistik.txt aktuell.txt statistik.html statistik-all.html aktuell.html /var/www/odroid/
 
