@@ -34,6 +34,15 @@ sudo nano /etc/default/motion
 sudo /etc/init.d/motion start
 
 ------------------------------------------------------------------------------------------
+mounten von img partion
+
+sudo sfdick -d odroid.img
+
+echo $((266240 * 512)) $((59733761 * 512)
+
+mount -o loop,offset=136314880,sizelimit=30583685632 odroid-u3.img-neu /mnt  
+
+------------------------------------------------------------------------------------------
 sudo nmap -sP 192.168.0.0/24
 
 php -f tvstart.php &
