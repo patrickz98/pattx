@@ -80,3 +80,22 @@ backup:
 chown:
 	sudo chown odroid:odroid words/*
 	sudo chown odroid:odroid html/*
+
+webclean:
+	sudo rm -rf /var/www/patrick/statistik.txt
+	sudo rm -rf /var/www/odroid/statistik.txt
+	
+	sudo rm -rf /var/www/patrick/aktuell.txt
+	sudo rm -rf /var/www/odroid/aktuell.txt
+
+	sudo rm -rf /var/www/patrick/statistik.html
+	sudo rm -rf /var/www/odroid/statistik.html
+	
+	sudo rm -rf /var/www/patrick/statistik-all.html
+	sudo rm -rf /var/www/odroid/statistik-all.html
+	
+	sudo rm -rf /var/www/patrick/aktuell.html
+	sudo rm -rf /var/www/odroid/aktuell.html
+	
+	sudo rm -rf /var/www/patrick/html
+	sudo rm -rf /var/www/odroid/html

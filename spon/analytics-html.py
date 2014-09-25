@@ -82,14 +82,18 @@ def main():
 	html.write('		<p style="font-size:50px;"></p>\n')
 	 
 	
-	for l in list:
-		if list[l] >= 8 and l not in bad:
-			html.write(('		<p style="font-size:%dpx;"> ' % int(list[l] * 3 - (list[l] % 2))) + \
-						('<a href="./html/%s.html">' % str(l)) + str(l) + ': ' + str(list[l]) + \
+	for word in list:
+		if list[word] >= 8 and word not in bad:
+			
+			while '"' in word:
+				word = word.replace('"','')
+			
+			html.write(('		<p style="font-size:%dpx;"> ' % int(list[word] * 3 - (list[word] % 2))) + \
+						('<a href="./html/%s.html">' % str(word)) + str(word) + ': ' + str(list[word]) + \
 						'</a></p>\n')
 			
 			### Html Generierung ####
-			htmlgenerator.main(str(l))
+			htmlgenerator.main(str(word))
 	
 	html.write('	</body>\n')
 	html.write('</html>\n')
@@ -122,4 +126,3 @@ def data():
 	schlagzeilen.close()
 
 main()
-data()
