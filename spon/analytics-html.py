@@ -55,20 +55,21 @@ def main():
 	html.write('	<head>\n')
 	html.write('		<title>Monitor</title>\n')
 	html.write('		<link rel="icon" type="image/x-icon" href="news.ico" />\n')
-	html.write('		<link rel="apple-touch-icon" href="news.png"/>')
+	html.write('		<link rel="apple-touch-icon" href="news.png"/>\n')
 	html.write('\n')
-	html.write('		<style type="text/css">' )
-	html.write('			a:link { text-decoration:none; font-weight:bold; color:#000000; }')
-	html.write('			a:visited { text-decoration:none; font-weight:bold; color:#0063b0; }')
+	html.write('		<style type="text/css">\n' )
+	html.write('			a:link { text-decoration:none; font-weight:bold; color:#000000; }\n')
+	html.write('			a:visited { text-decoration:none; font-weight:bold; color:#0063b0; }\n')
 #	html.write('			a:hover { text-decoration:none; font-weight:bold; background-color:#69bfff; }' )
 #	html.write('			a:active { text-decoration:none; font-weight:bold; background-color:#69bfff; }' )
 #	html.write('			a:focus { text-decoration:none; font-weight:bold; background-color:#69bfff; }' )
-	html.write('		</style>')
+	html.write('		</style>\n')
 	html.write('	</head>\n')
 	html.write('	<body>\n')
 	html.write('\n')
 	html.write('		<h1>' 'Monitor: ' + time.strftime('%H:%M %d.%m.%Y') + '</h1>\n')
 	html.write('\n')
+	
 	### Buttons to graph sites ###
 	html.write('		<input type=button \n')
 	html.write('			onClick="parent.location=\'statistik.html\'"\n')
@@ -88,7 +89,7 @@ def main():
 			while '"' in word:
 				word = word.replace('"','')
 			
-			html.write(('		<p style="font-size:%dpx;"> ' % int(list[word] * 3 - (list[word] % 2))) + \
+			html.write(('		<p style="font-size:%dpx;"> ' % int(list[word] * 4 - (list[word] % 2))) + \
 						('<a href="./html/%s.html">' % str(word)) + str(word) + ': ' + str(list[word]) + \
 						'</a></p>\n')
 			
