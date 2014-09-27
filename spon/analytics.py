@@ -23,7 +23,7 @@ regex.main()
 
 dir = conf.dir
 text = conf.text
-
+bad = blacklist.bad
 
 def find(word):
 	count = 0
@@ -34,10 +34,9 @@ def find(word):
 				count = count + 1
 	return count
 
-result = []
+list = {}
 def words():
-	list = {}
-	bad = blacklist.bad
+	global list
 	for txt in text:
 		tx = open(txt, "r").readlines()
         
@@ -54,10 +53,6 @@ def words():
 	print time.strftime("%H:%M %d.%m.%Y")
 	print 
 	
-	for l in reversed(list):
-		if list[l] > 6 and l not in bad:
-			print l + ": " + str(list[l])
-			result.append(l + ": " + str(list[l]))
 
 def data():
 	try:
@@ -66,9 +61,11 @@ def data():
 		pass
 	most = open(dir + time.strftime("%Y.%m.%d") + ".data", "w+")
 
-	for a in result:
-		most.write(a + "\n")
-	
+	for l in reversed(list):
+		if list[l] > 6 and l not in bad:
+			print l + ": " + str(list[l])
+			most.write(l + ": " + str(list[l]) + '\n')
+
 	most.close()
 
 def rawdata():
