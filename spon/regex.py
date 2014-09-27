@@ -21,6 +21,8 @@ def uni(txt):
 		if "Ü" in b: b = re.sub(r"Ü", "Ue", b)
 		if "ü" in b: b = re.sub(r"ü", "ue", b)
 		if "ß" in b: b = re.sub(r"ß", "ss", b)
+		if "\"" in b: b = re.sub(r"\"", "", b)
+		if "'" in b: b = re.sub(r"'", "'", b)
 
 		if b not in bla:
 			bla.append(b)

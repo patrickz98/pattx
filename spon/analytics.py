@@ -5,6 +5,7 @@ import re
 import time
 from collections import OrderedDict
 
+import mysql
 import conf 
 import regex
 import blacklist
@@ -35,6 +36,7 @@ def find(word):
 	return count
 
 list = {}
+list2 = {}
 def words():
 	global list
 	for txt in text:
@@ -46,6 +48,7 @@ def words():
 				if str(c) not in bad and c != "" and len(str(c)) > 3 or str(c) in blacklist.exception:
 					if find(c) > 6:
 						list.update({c:find(c)})
+						list2.update({c:find(c)})
 
 
 	list = OrderedDict(sorted(list.items(), key=lambda x:x[1]))
@@ -53,6 +56,9 @@ def words():
 	print time.strftime("%H:%M %d.%m.%Y")
 	print 
 	
+ 	for l in reversed(list):
+ 		if list[l] > 6 and l not in bad:
+ 			print l + ": " + str(list[l])
 
 def data():
 	try:
@@ -62,8 +68,7 @@ def data():
 	most = open(dir + time.strftime("%Y.%m.%d") + ".data", "w+")
 
 	for l in reversed(list):
-		if list[l] > 6 and l not in bad:
-			print l + ": " + str(list[l])
+		if list[l] > 6 and l not in bad and l != "":
 			most.write(l + ": " + str(list[l]) + '\n')
 
 	most.close()
@@ -80,3 +85,4 @@ def rawdata():
 words()
 data()
 rawdata()
+mysql.main(list2)
