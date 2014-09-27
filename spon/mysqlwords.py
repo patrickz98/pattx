@@ -14,32 +14,33 @@ def main():
 	con = mdb.connect('odroid-u3.local', 'monitor', 'test123', 'monitor')
 
 	for txt in os.listdir(dir):
-		if "news-" in txt:
+		if ".data" in txt:
 			text = open(dir + txt, "r")
 		
-			txt = txt[:-4]
+			txt = txt[:-5]
 			while '.' in txt:
 				txt = txt.replace('.','')
 		
 			while '-' in txt:
 				txt = txt.replace('-','')
 		
-				
+			print txt
+
 			with con:
 		
 				cur = con.cursor()
-    			cur.execute("DROP TABLE IF EXISTS %s" % txt)
-    			cur.execute("CREATE TABLE %s(Headlines VARCHAR(200), Newspaper VARCHAR(20))" % txt)
+    			cur.execute("DROP TABLE IF EXISTS data%s" % txt)
+    			cur.execute("CREATE TABLE data%s(Word VARCHAR(200), Cluster VARCHAR(20))" % txt)
     
     			for news in text:
     				if '\'' in news:
 						news = news.replace('\'','')
 			
-				news = re.findall("(.*?)\((.*?)\)", news)
+				news = re.findall("(.*?):(.*)", news)
 			
-				print news[0][0], "(" + news[0][1] + ")"
+				print news[0][0], news[0][1]
     		
-    				cur.execute("INSERT INTO %s(Headlines, Newspaper) VALUES('%s', '%s')" % \
+    				cur.execute("INSERT INTO data%s(Word, Cluster) VALUES('%s', '%s')" % \
     					(txt, news[0][0], news[0][1]))
 
 				con.commit()	
