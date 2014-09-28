@@ -23,7 +23,9 @@ def main():
 		if "\\xdc" in b: b = re.sub(r"\\xdc", "Ü", b)
 		if "\\xc4" in b: b = re.sub(r"\\xc4", "Ä", b)
 		if "&amp;" in b: b = re.sub(r"&amp;", "&", b)
-
+		
+		if "ç" in b: b = re.sub(r"ç", "c", b)
+		
 		if "\\xe9" in b: b = re.sub(r"\\xe9", "e", b)
 		if "\\xf3" in b: b = re.sub(r"\\xf3", "o", b)
 		if "\\xe7" in b: b = re.sub(r"\\xe7", "c", b)
