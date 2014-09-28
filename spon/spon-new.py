@@ -11,6 +11,7 @@ def spon():
 	try:
 		response = urlopen(request)
 		html = response.read()
+		html = unicode(html.decode('UTF8'))
 	except URLError, e:
 	    print 'Error:', e
 	
@@ -18,13 +19,9 @@ def spon():
 	find = re.findall('title="(.*?)\">', html)
 			
 	for i in find:
-		print i.decode('latin1')
-#  		if not "Newsletter" in i:
-#  			try:
-#  				i = i.encode('latin1')
-#  				schlagzeilen.write(i + "\n")
-#  			except:
-# 				pass
+  		if not "Newsletter" in i and not "Anzeige" in i:
+  			print i
+ 			schlagzeilen.write(i + "\n")
 
 	schlagzeilen.close()
 spon()
