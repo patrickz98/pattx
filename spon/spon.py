@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import os
 from urllib2 import Request, urlopen, URLError
+import re
 
 import regexspon
 
@@ -39,3 +40,4 @@ def spon():
 
 	schlagzeilen.close()
 	regexspon.main()
+spon()

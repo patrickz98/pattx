@@ -14,17 +14,19 @@ def sueddeutsche():
 	except URLError, e:
 	    print 'Error:', e
 
-	find = re.findall(".*<strong>(.*?)</strong>.*?<em>(.*?)</em>.*", html)
-	find2 = re.findall(".*?<em>(.*?)</em>.*", html)
+	find = re.findall("<a href=\"(.*?)\".*?<strong>(.*?)</strong>.*?<em>(.*?)</em>.*", html)
+	find2 = re.findall("<a href=\"(.*?)\".*?<em>(.*?)</em>.*", html)
 
 	bla = []
 	for a in find:
-		schlagzeilen.write(str(a[0]) + ": " + str(a[1]) + "\n")
-		bla.append(a[1])
+		#print a[0] links
+		schlagzeilen.write(str(a[1]) + ": " + str(a[2]) + "\n")
+		bla.append(a[2])
 
 	for b in find2:
-		if b not in bla and len(b) > 15 and "SZ" not in b and "Bundesliga" not in b and "Kalender" not in b and "ueddeutsche" not in b:
-			schlagzeilen.write(str(b) + "\n")
+		#print b[1] links
+		if b[1] not in bla and len(b[1]) > 10 and "SZ" not in b[1] and "Bundesliga" not in b[1] and "Kalender" not in b[1] and "ueddeutsche" not in b[1]:
+			schlagzeilen.write(str(b[1]) + "\n")
 
 	schlagzeilen.close()
 	regexhtml.main("news-sueddeutsche.txt")

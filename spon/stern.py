@@ -11,18 +11,18 @@ def stern():
 
 	try:
 		response = urlopen(request)
-		html = response.readlines()
+		html = response.read()
 	except URLError, e:
 	    print 'Error:', e
 	
 	last = ""	
-	for a in html:
-		if 'title=\"' in a and '<a href=' in a:
-			find = re.search('title=\"(.*?)\">', a)
-			if len(find.group(1)) > 18 and len(find.group(1)) < 110:
-				if last != find.group(1):
-					schlagzeilen.write(find.group(1) + "\n")
-					last = find.group(1)
+	find = re.findall('<a href=\"(.*?)\".*?title=\"(.*?)\">', html)
+	for a in find:
+		if len(a[1]) > 18 and len(a[1]) < 110:
+				#print a[0] links
+ 				if last != a[1]:
+ 					schlagzeilen.write(a[1] + "\n")
+ 					last = a[1]
 					
 	schlagzeilen.close()
 	regexhtml.main("news-stern.txt")

@@ -15,8 +15,10 @@ def welt():
 
 	for a in html:
 		if "<h4>" in a and "<span>" in a:
-			find = re.search("<span>(.*?)</span>(.*?)</a>", a)
-			schlagzeilen.write(find.group(1) + " " + find.group(2) + "\n")
+			find = re.search(".*?<a href=\"(.*?)\".*?<span>(.*?)</span>(.*?)</a>", a)
+			#print find.group(1) links
+			schlagzeilen.write(find.group(2) + " " + find.group(3) + "\n")
 
 
 	schlagzeilen.close()
+welt()

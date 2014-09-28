@@ -37,7 +37,7 @@ def main():
 			
 				news = re.findall("(.*?)\((.*?)\)", news)
 			
-				print news[0][0], "(" + news[0][1] + ")"
+				print txt, "-->", news[0][0], "(" + news[0][1] + ")"
     		
     				cur.execute("INSERT INTO %s(Headlines, Newspaper) VALUES('%s', '%s')" % \
     					(txt, news[0][0], news[0][1]))

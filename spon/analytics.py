@@ -72,17 +72,20 @@ def data():
 			most.write(l + ": " + str(list[l]) + '\n')
 
 	most.close()
-
+	mysql.main(list)
+	
 def rawdata():
 	schlagzeilen = open(dir + "news-" + time.strftime("%Y.%m.%d") + ".txt", "w+")
 
+	data = {}
 	for txt in text:
 		for lines in open(txt, "r").readlines():
 			schlagzeilen.write(lines[:-1] + " (" + txt[5:-4] + ")" + "\n")
+			data.update({lines[:-1]:txt[5:-4]})
 	
 	schlagzeilen.close()
+	mysql.raw(data)
 
 words()
 data()
 rawdata()
-mysql.main(list2)

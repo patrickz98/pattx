@@ -12,9 +12,10 @@ def zeit():
 	except URLError, e:
 	    print 'Error:', e
 
-	find = re.findall("<strong>(.*?)</strong> <span>(.*?)</span>", html)
+	find = re.findall("<a href=\"(.*?)\".*?<strong>(.*?)</strong> <span>(.*?)</span>", html)
 
 	for i in find:
-			schlagzeilen.write(i[0] + ": " + i[1] + "\n")
+			#print i[0] link
+			schlagzeilen.write(i[1] + ": " + i[2] + "\n")
 
 	schlagzeilen.close()
