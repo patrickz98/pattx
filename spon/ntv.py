@@ -11,16 +11,16 @@ def ntv():
 
 	try:
 		response = urlopen(request)
-		html = response.readlines()
+		html = response.read()
 	except URLError, e:
 	    print 'Error:', e
 
-	safe = ""
-	for a in html:
-		if "<span class=\"" in a and "</span>" in a:
-			find = re.search('<span class=.*?>(.*?)</span>', a)
-			schlagzeilen.write(find.group(1) + "\n")
+	find = re.findall('.*?<a href="(.*?)" title="(.*?)">', html)
+
+	for i in find:
+		if not "=" in i[1] and not "\"" in i[1]:
+			#if not "=" in i[0]: print i[0]
+			schlagzeilen.write(i[1] + "\n")
 
 
 	schlagzeilen.close()
-	regexntv.main()

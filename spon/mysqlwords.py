@@ -11,7 +11,7 @@ import conf
 
 dir = conf.dir
 def main():
-	con = mdb.connect('odroid-u3.local', 'monitor', 'test123', 'monitor')
+	con = conf.con
 
 	for txt in os.listdir(dir):
 		if ".data" in txt:

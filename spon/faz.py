@@ -8,15 +8,20 @@ def faz():
 
 	try:
 		response = urlopen(request)
-		html = response.readlines()
+		html = response.read()
 	except URLError, e:
 	    print 'Error:', e
 
-	for a in html:
-		if '<a title=' in a:
-			find = re.search('<a title=\"(.*?)\"', a)
-			if len(find.group(1)) > 15 and not "FAZ.NET-Comic-Roman" in find.group(1):
-				schlagzeilen.write(find.group(1) + "\n")
+	find = re.findall('<a title=\"(.*?)\" href=\"(.*?)\"', html)
+	for i in find:
+		if len(i[0]) > 15 and not "FAZ.NET-Comic-Roman" in i[0] and not "=" in i[0]:
+# 			if "http://" in i[1]: 
+# 				print i[1] 
+# 			else: 
+# 				print "http://www.faz.net/" + i[1]
+
+			schlagzeilen.write(i[0] + "\n")
 
 
 	schlagzeilen.close()
+faz()

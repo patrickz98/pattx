@@ -5,9 +5,10 @@ import MySQLdb as mdb
 import sys
 import time
 import re
+import conf
 
 def main(data):
-	con = mdb.connect('odroid-u3.local', 'monitor', 'test123', 'monitor')
+	con = conf.con
 
 	with con:
     
