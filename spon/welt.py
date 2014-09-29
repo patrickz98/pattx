@@ -9,16 +9,14 @@ def welt():
 
 	try:
 		response = urlopen(request)
-		html = response.readlines()
+		html = response.read()
 	except URLError, e:
 	    print 'Error:', e
 
-	for a in html:
-		if "<h4>" in a and "<span>" in a:
-			find = re.search(".*?<a href=\"(.*?)\".*?<span>(.*?)</span>(.*?)</a>", a)
-			#print find.group(1) links
-			schlagzeilen.write(find.group(2) + " " + find.group(3) + "\n")
+	find = re.findall(".*?<a href=\"(.*?)\".*?<span>(.*?)</span>(.*?)</a>", html)
+	for i in find:
+		#print i
+		schlagzeilen.write(i[1] + " " + i[2] + "\n")
 
 
 	schlagzeilen.close()
-welt()

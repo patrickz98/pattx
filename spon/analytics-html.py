@@ -89,7 +89,7 @@ def main():
 			while '"' in word:
 				word = word.replace('"','')
 			
-			html.write(('		<p style="font-size:%dpx;"> ' % int(list[word] * 4 - (list[word] % 2))) + \
+			html.write(('		<p style="font-size:%dpx;"> ' % int(list[word] * 5)) + \
 						('<a href="./html/%s.html">' % str(word)) + str(word) + ': ' + str(list[word]) + \
 						'</a></p>\n')
 			

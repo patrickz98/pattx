@@ -17,7 +17,7 @@ def tagesspiegel():
 	bla = []
 
 	for i in find:
-		if len(i) > 15 and i not in bla and "Tagesspiegel" not in i and "Mediadaten" not in i and "Sie haben Mut zur Uni" not in i:
+		if len(i[0]) > 15 and i[0] not in bla and "Tagesspiegel" not in i[0] and "Mediadaten" not in i[0] and "Sie haben Mut zur Uni" not in i[0]:
 			#print "http://www.tagesspiegel.de/" + i[1] link
 			schlagzeilen.write(i[0] + "\n")
 			bla.append(i[0])
