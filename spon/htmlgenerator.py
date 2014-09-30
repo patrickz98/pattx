@@ -60,7 +60,7 @@ def graph(word, text, html):
 		find = re.findall(".*: (.*?) date:", a)
 		size.append(int(''.join(find)))
 
-	if len(size) >= 5:
+	if len(size) >= 3:
 	
 		html.write('		<div style="width:60%">\n')
 		html.write('			<div>\n')

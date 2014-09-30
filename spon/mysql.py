@@ -31,7 +31,7 @@ def raw(data):
     
 	    cur = con.cursor()
 	    cur.execute("DROP TABLE IF EXISTS news%s" % str(time.strftime("%Y%m%d")))
-	    cur.execute("CREATE TABLE news%s(Headlines VARCHAR(200), Newspaper VARCHAR(20))" % str(time.strftime("%Y%m%d")))
+	    cur.execute("CREATE TABLE news%s(Headlines VARCHAR(200), Newspaper VARCHAR(20), link VARCHAR(200))" % str(time.strftime("%Y%m%d")))
 	        	
     	for news in data:
 	    	cur.execute("INSERT INTO news%s(Headlines, Newspaper) VALUES('%s', '%s')" % \

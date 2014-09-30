@@ -24,4 +24,3 @@ def faz():
 
 
 	schlagzeilen.close()
-faz()
