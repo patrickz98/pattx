@@ -6,6 +6,7 @@ import data
 import conf
 
 dir = conf.dir
+text = conf.data
 
 html = open("statistik-all.html", "w")
 javascript = ['		<script>']
@@ -71,7 +72,6 @@ def date(word, text):
 	return end
 
 def main():
-	text = data.main()
 	words = []
 	
 	for wo in open(dir + time.strftime("%Y.%m.%d") + ".data", "r").readlines():

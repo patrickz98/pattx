@@ -54,13 +54,13 @@ def graph(word, text, html):
 	for z in text:
 		if z not in data and not z == '\n' and z[:z.index(":")] == word:
 			data.append(z)
-	
 	size = []
+	
 	for a in data:
 		find = re.findall(".*: (.*?) date:", a)
 		size.append(int(''.join(find)))
-
-	if len(size) >= 3:
+		
+	if len(size) >= 4:
 	
 		html.write('		<div style="width:60%">\n')
 		html.write('			<div>\n')
@@ -105,7 +105,7 @@ def main(search):
 		except OSError:
 			pass
 		
-		text = data.main()
+		text = conf.data
 		html = open(htmldir + search + ".html", "w+")
 		
 		html.write('<!doctype html>\n')

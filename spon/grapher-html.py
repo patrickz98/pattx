@@ -2,10 +2,10 @@
 import re
 import time
 
-import data
 import conf
 
 dir = conf.dir
+text = conf.data
 
 html = open("statistik.html", "w")
 javascript = ['		<script>']
@@ -71,7 +71,6 @@ def date(word, text):
 	return end
 
 def main():
-	text = data.main()
 	words = []
 	
 	for wo in open(dir + time.strftime("%Y.%m.%d") + ".data", "r").readlines():
@@ -92,8 +91,6 @@ def main():
 	html.write('			onClick="parent.location=\'aktuell.html\'" ')
 	html.write('			value=\'Aktuell\' style="height:25px; width:75px">')
 
-
-#	words.append("IS", "Ukraine", "Russland", "Merkel")
 
 	for w in words[:20]:
 		graph(w, text)

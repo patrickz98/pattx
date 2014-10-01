@@ -1,18 +1,18 @@
 #!/usr/bin/python
 import os
-import conf
+#import conf
 
 def main():
-	dir = conf.dir
+	dir = "./words/" #conf.dir
 	files = sorted(os.listdir(dir))
 	files = [x for x in files if ".data" in x]
 
 	nown = []
 	raw = []
-
+	
 	for a in files:
 		a = dir + a
-		file = open(a, "r")
+		file = open(a, "r").readlines()
 
 		for b in file:
 			name = b[:b.find(":")]
@@ -32,7 +32,7 @@ def main():
 						if name == name2:
 							raw.append(b[:-1] + " date: " + a[8:-5])
 							raw.append(d[:-1] + " date: " + c[8:-5])
-
+		
 		nown.append(name)
 		
 		for word in raw:
@@ -40,4 +40,4 @@ def main():
 				raw.remove(word)
 
 		
-		return raw
+	return raw

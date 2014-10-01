@@ -12,14 +12,14 @@ import blacklist
 import spon, zeit, welt, stern, faz, ntv, tagesspiegel, sueddeutsche
 
 
-#spon.spon()
+spon.spon()
 zeit.zeit()
-# welt.welt()
-# stern.stern()
-# faz.faz()
-# ntv.ntv()
-# tagesspiegel.tagesspiegel()
-# sueddeutsche.sueddeutsche()
+welt.welt()
+stern.stern()
+faz.faz()
+ntv.ntv()
+tagesspiegel.tagesspiegel()
+sueddeutsche.sueddeutsche()
 regex.main()
 
 dir = conf.dir
@@ -72,7 +72,7 @@ def data():
 			most.write(l + ": " + str(list[l]) + '\n')
 
 	most.close()
-	mysql.main(list)
+#	mysql.main(list)
 	
 def rawdata():
 	schlagzeilen = open(dir + "news-" + time.strftime("%Y.%m.%d") + ".txt", "w+")
@@ -84,7 +84,7 @@ def rawdata():
 			data.update({lines[:-1]:txt[5:-4]})
 	
 	schlagzeilen.close()
-	mysql.raw(data)
+#	mysql.raw(data)
 
 words()
 data()
