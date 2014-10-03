@@ -3,6 +3,7 @@
 import os
 import time
 import re
+from collections import OrderedDict
 
 import conf
 import data
@@ -30,7 +31,6 @@ def date(word, text):
 		if line == word and txt not in nown:
 			end.append(txt[-10:])
 			nown.append(txt)
-	
 	return end
 
 def title(word, html):
@@ -54,11 +54,20 @@ def graph(word, text, html):
 	for z in text:
 		if z not in data and not z == '\n' and z[:z.index(":")] == word:
 			data.append(z)
-	size = []
 	
+	size = []
+	datetxt = date(word, text)
+
 	for a in data:
 		find = re.findall(".*: (.*?) date:", a)
 		size.append(int(''.join(find)))
+	
+	sort = {}
+	for x in size:
+		sort.update({ datetxt[size.index(x)] : x })
+	
+	size = sorted(sort.iterkeys())
+
 		
 	if len(size) >= 4:
 	
@@ -72,7 +81,7 @@ def graph(word, text, html):
 		html.write( '		<script>\n' )	
 		html.write( '			var randomScalingFactor = function(){ return Math.round(Math.random()*100)};\n')
 		html.write( '			var lineChartData%s = {\n' % word )
-		html.write( '				labels : %s,\n' % (date(word, text)) )
+		html.write( '				labels : %s,\n' % size)
 		html.write( '				datasets : [\n' )
 		html.write( '					{\n' )
 		html.write( '						label: "%s",\n' % word )
@@ -82,7 +91,7 @@ def graph(word, text, html):
 		html.write( '						pointStrokeColor : "#fff",\n' )
 		html.write( '						pointHighlightFill : "#fff",\n' )
 		html.write( '						pointHighlightStroke : "rgba(151,187,205,1)",\n' )
-		html.write( '						data : %s\n' % ''.join(str(size)) )
+		html.write( '						data : %s\n' % ''.join(str([sort[x] for x in sort])) )
 		html.write( '					}\n' )
 		html.write( '				]\n' )
 		html.write( '			}\n' )
