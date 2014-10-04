@@ -22,17 +22,6 @@ def count(word):
                                 count = count + 1
         return count
 
-def date(word, text):
-	nown = []
-	end = []
-
-	for txt in text:
-		line = txt[:txt.index(":")]
-		if line == word and txt not in nown:
-			end.append(txt[-10:])
-			nown.append(txt)
-	return end
-
 def title(word, html):
         for txt in text:
                 tx = open(txt, "r").readlines()
@@ -55,19 +44,13 @@ def graph(word, text, html):
 		if z not in data and not z == '\n' and z[:z.index(":")] == word:
 			data.append(z)
 	
-	size = []
-	datetxt = date(word, text)
+	size = {}
 
 	for a in data:
-		find = re.findall(".*: (.*?) date:", a)
-		size.append(int(''.join(find)))
+		find = re.findall(".*?: (.*?) date: (.*)", a)
+		size.update( {find[0][1] : int(''.join(find[0][0]))} )
 	
-	sort = {}
-	for x in size:
-		sort.update({ datetxt[size.index(x)] : x })
-	
-	size = sorted(sort.iterkeys())
-
+	sort = sorted(size)
 		
 	if len(size) >= 4:
 	
@@ -81,7 +64,7 @@ def graph(word, text, html):
 		html.write( '		<script>\n' )	
 		html.write( '			var randomScalingFactor = function(){ return Math.round(Math.random()*100)};\n')
 		html.write( '			var lineChartData%s = {\n' % word )
-		html.write( '				labels : %s,\n' % size)
+		html.write( '				labels : %s,\n' % sort)
 		html.write( '				datasets : [\n' )
 		html.write( '					{\n' )
 		html.write( '						label: "%s",\n' % word )
@@ -91,7 +74,7 @@ def graph(word, text, html):
 		html.write( '						pointStrokeColor : "#fff",\n' )
 		html.write( '						pointHighlightFill : "#fff",\n' )
 		html.write( '						pointHighlightStroke : "rgba(151,187,205,1)",\n' )
-		html.write( '						data : %s\n' % ''.join(str([sort[x] for x in sort])) )
+		html.write( '						data : %s\n' % ''.join(str([size[x] for x in sort])) )
 		html.write( '					}\n' )
 		html.write( '				]\n' )
 		html.write( '			}\n' )

@@ -71,14 +71,14 @@ def main():
 	html.write('\n')
 	
 	### Buttons to graph sites ###
-	html.write('		<input type=button \n')
-	html.write('			onClick="parent.location=\'statistik.html\'"\n')
-	html.write('			value=\'Graphs\'\n')
-	html.write('			style="height:25px; width:75px">\n')
-	html.write('		<input type=button \n')
-	html.write('			onClick="parent.location=\'statistik-all.html\'"\n')
-	html.write('			value=\'Graphs-all\'\n')
-	html.write('			style="height:25px; width:75px">\n')
+# 	html.write('		<input type=button \n')
+# 	html.write('			onClick="parent.location=\'statistik.html\'"\n')
+# 	html.write('			value=\'Graphs\'\n')
+# 	html.write('			style="height:25px; width:75px">\n')
+# 	html.write('		<input type=button \n')
+# 	html.write('			onClick="parent.location=\'statistik-all.html\'"\n')
+# 	html.write('			value=\'Graphs-all\'\n')
+# 	html.write('			style="height:25px; width:75px">\n')
 	
 	html.write('		<p style="font-size:50px;"></p>\n')
 	 
