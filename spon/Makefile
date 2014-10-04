@@ -18,7 +18,7 @@ clean:
 	rm -rf html
 
 mysql:
-	cd ../../monitor/; python -c 'import header; header.main();';
+	cd ../../monitor/; make mysql;
 
 web: chown all mysql
 	sudo cp statistik.txt aktuell.txt statistik.html statistik-all.html aktuell.html /var/www/patrickz/
