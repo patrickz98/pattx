@@ -17,7 +17,10 @@ clean:
 	rm aktuell.html
 	rm -rf html
 
-web: chown all
+mysql:
+	cd ../../monitor/; python -c 'import header; header.main();';
+
+web: chown all mysql
 	sudo cp statistik.txt aktuell.txt statistik.html statistik-all.html aktuell.html /var/www/patrickz/
 	sudo cp statistik.txt aktuell.txt statistik.html statistik-all.html aktuell.html /var/www/odroid/
 
