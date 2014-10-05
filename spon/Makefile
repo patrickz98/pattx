@@ -3,8 +3,6 @@ uname = `uname`
 all:
 	python analytics.py > aktuell.txt
 	python grapher.py > statistik.txt
-	python grapher-html.py
-	python grapher-html2.py
 	python analytics-html.py
 
 clean:
@@ -21,8 +19,8 @@ mysql:
 	cd ../../monitor/; make mysql;
 
 web: chown all mysql
-	sudo cp statistik.txt aktuell.txt statistik.html statistik-all.html aktuell.html /var/www/patrickz/
-	sudo cp statistik.txt aktuell.txt statistik.html statistik-all.html aktuell.html /var/www/odroid/
+	sudo cp statistik.txt aktuell.txt aktuell.html /var/www/patrickz/
+	sudo cp statistik.txt aktuell.txt aktuell.html /var/www/odroid/
 
 	sudo cp -r html /var/www/patrickz/
 	sudo cp -r html /var/www/odroid/
@@ -38,16 +36,10 @@ web: chown all mysql
 
 	sudo chown www-data:www-data /var/www/patrickz/aktuell.txt
 	sudo chown www-data:www-data /var/www/odroid/aktuell.txt
-	
-	sudo chown www-data:www-data /var/www/patrickz/statistik.html
-	sudo chown www-data:www-data /var/www/odroid/statistik.html
-	
+		
 	sudo chown www-data:www-data /var/www/patrickz/aktuell.html
 	sudo chown www-data:www-data /var/www/odroid/aktuell.html
 
-	sudo chown www-data:www-data /var/www/patrickz/statistik-all.html
-	sudo chown www-data:www-data /var/www/odroid/statistik-all.html
-	
 nohup:
 	sudo nohup python web.py 1>/dev/null 2>/dev/null &
 

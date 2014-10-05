@@ -43,6 +43,13 @@ echo $((266240 * 512)) $((59733761 * 512)
 mount -o loop,offset=136314880,sizelimit=30583685632 odroid-u3.img-neu /mnt  
 
 ------------------------------------------------------------------------------------------
+SSH Tunnel
+
+ssh -R 3306:localhost:3306 odroid@odroid-u3.local
+
+netstat -an --inet | egrep '(^Proto|3306)'
+
+-------------------------------------------------------------------------------
 sudo nmap -sP 192.168.0.0/24
 
 php -f tvstart.php &
