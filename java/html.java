@@ -18,8 +18,10 @@ public class html
         	BufferedWriter output = new BufferedWriter(new FileWriter(file));
           
         	while ((inputLine = in.readLine()) != null)
+        	{
         		output.write(inputLine + "\n");
-        
+        	}
+        	
         	output.close();
         } 
         catch ( IOException e ) 
