@@ -2,52 +2,54 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class grahp extends JFrame
+public class graph extends JFrame
 {
-	CMeinCanvas m_malflaeche;
-	int aktFunktion = 0;
+	JButton test1, test2;
+	int i = 0;
+	int j = 100;
+
+	class Actionsnitch1 implements ActionListener
+	{
+		public void actionPerformed(ActionEvent e)
+		{
+			test1.setText(String.valueOf(i));
+			i++;
+		}
+	}
+
+	class Actionsnitch2 implements ActionListener
+	{
+		public void actionPerformed(ActionEvent e)
+		{
+			test2.setText(String.valueOf(j));
+			j--;
+		}
+	}
+
+	graph(String title)
+	{
+		super(title);
+		
+		test1 = new JButton("test1");
+		test2 = new JButton("test2");
+		
+		setLayout(new FlowLayout());
+
+		add(test1);
+		add(test2);
+		
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		
+		test1.addActionListener(new Actionsnitch1());
+		test2.addActionListener(new Actionsnitch2());
+	}
 	
 	public static void main(String[] args)
 	{
-		CFunkPlotter fenster = new CFunkPlotter("Bladsfadsf");
-		fenster.pack();
-		fenster.setSize(450,350);
-		fenster.setResizable(false);
-		fenster.setVisible(true);
-	}
-	
-	CFunkPlotter(String title)
-	{
-		super(title);
-		setLayout(new FlowLayout());
-		m_malflaeche = new CMeinCavas();
-		add(m_malflaeche);
+		swing window = new swing("Test window whit swing");
 		
-		JButton f1 = new JButton("tan(x)");
-		JButton f2 = new JButton("x^3");
-		add(f1);
-		add(f2);
-		
-		class CMeinActionLauscher implements ActionListener
-		{
-			public void actionPerformed(ActionEvent e)
-			{
-				String label;
-				
-				label = e.getActionCommand();
-				
-				if(label.equals("tan(x)"))
-					aktFunktion = 1;
-				else
-				aktFunktion = 2;
-				
-				m_malflaeche.repaint();
-			}
-		}
-		
-		f1.addActionListener(new CMeinActionLauscher());
-		f2.addActionListener(new CMeinActionLauscher());
-		
-		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		window.pack();
+		window.setSize(300,100);
+		window.setVisible(true);
 	}
 }

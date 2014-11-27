@@ -12,10 +12,11 @@ class test
 
 class test2 extends test
 {
-	test2(String y)
+	test2(String y, String c)
 	{
 		super(y);
 		System.out.println(y + "2");
+		System.out.println(c);
 	}
 	
 	void pat2()
@@ -34,7 +35,7 @@ public class klassen
 		
 		System.out.println();
 
-		test2 bla2 = new test2("huhu");
+		test2 bla2 = new test2("huhu", "huhu c");
 		bla2.pat2();
 	}
 }
