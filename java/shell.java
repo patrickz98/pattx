@@ -11,7 +11,7 @@ public class shell
 		String eingabe = cons.readLine();
 		System.out.print(eingabe + "\n");
 
-        Runtime r = Runtime.getRuntime();
+		Runtime r = Runtime.getRuntime();
 		Process p = r.exec(eingabe);
 		p.waitFor();
 		BufferedReader b = new BufferedReader(new InputStreamReader(p.getInputStream()));

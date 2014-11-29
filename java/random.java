@@ -23,10 +23,10 @@ public class random
 
 		System.out.println();
 
-		byte[] infoBin = null;
-        infoBin = pat.getBytes("UTF-8");
-        for (byte b : infoBin) {
-            System.out.println((char) b + "-> "
+		byte[] infoBin = pat.getBytes("UTF-8");
+        for (byte b : infoBin) 
+        {
+            System.out.println((char) b + " --> "
                     + Integer.toBinaryString(b));
         }
 		System.out.println();

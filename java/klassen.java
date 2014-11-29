@@ -21,7 +21,7 @@ class test2 extends test
 	
 	void pat2()
 	{
-		System.out.println("class2");
+		System.out.println("class2 void");
 	}
 }
 
