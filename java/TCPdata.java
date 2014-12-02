@@ -31,7 +31,8 @@ class TCPdata
 
 		int count;
 
-		while ((count = bis.read(bytes)) > 0) {
+		while ((count = bis.read(bytes)) > 0) 
+		{
 			out.write(bytes, 0, count);
 		}
 
