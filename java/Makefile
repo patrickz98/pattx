@@ -6,5 +6,4 @@ clean:
 
 git: clean
 	cp * ../pattx/java/
-	cd ../pattx/; git add java/*; git commit -a
-
+	cd ../pattx/; git add java/*; git commit -a; git push
