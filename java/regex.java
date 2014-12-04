@@ -13,7 +13,7 @@ public class regex
 
         String inputLine;
         
-        ArrayList tmp = new ArrayList();
+        ArrayList<String> tmp = new ArrayList<String>();
         
         try
         {

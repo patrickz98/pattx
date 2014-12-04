@@ -8,7 +8,7 @@ public class example
 	{
 		String pat = "Patrick";
 		
-		List bla = new ArrayList();
+		List<Integer> bla = new ArrayList<Integer>();
 		for (int x = 0; x < 10; x++)
 		{
 			bla.add(x);
