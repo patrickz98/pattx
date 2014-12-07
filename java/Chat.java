@@ -50,10 +50,12 @@ class host extends Thread
 class client extends Thread
 {
 	int host_port;
+	String host_ip;
 	
-	client(int port)
+	client(int port, String hostip)
 	{
 		host_port = port;
+		host_ip = hostip;
 	}
 	
 	public void run()
@@ -68,10 +70,10 @@ class client extends Thread
 					BufferedReader inFromUser = new BufferedReader( new InputStreamReader(System.in));
 				
 					SSLSocketFactory sslsocketfactory = (SSLSocketFactory) SSLSocketFactory.getDefault();
-					SSLSocket clientSocket = (SSLSocket) sslsocketfactory.createSocket("localhost", host_port);
+					SSLSocket clientSocket = (SSLSocket) sslsocketfactory.createSocket(host_ip, host_port);
 					DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
 	
-					BufferedReader inFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+// 					BufferedReader inFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 		
  					sentence = inFromUser.readLine();
  					outToServer.writeBytes(sentence + '\n');
@@ -100,19 +102,14 @@ public class Chat
 		
 		System.out.print("Host ip:\t");
 		BufferedReader stdin = new BufferedReader( new InputStreamReader(System.in));
-		
 		String tmp = stdin.readLine();
 
 		System.out.println("host is starting");
-
 		host server = new host(port);
 		server.start();
-		
-		Thread.sleep(2000);
 
 		System.out.println("client is starting");
-
-		client user = new client(port);
+		client user = new client(port, tmp);
 		user.start();
 	}
 }
