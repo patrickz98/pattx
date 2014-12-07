@@ -18,7 +18,7 @@ public class SSLTCPServer
         
         SSLServerSocketFactory sslserversocketfactory =
                     (SSLServerSocketFactory) SSLServerSocketFactory.getDefault();
-        SSLServerSocket welcomeSocket = (SSLServerSocket) sslserversocketfactory.createServerSocket(6789);
+        SSLServerSocket welcomeSocket = (SSLServerSocket) sslserversocketfactory.createServerSocket(7050);
 
         while(true)
         {
