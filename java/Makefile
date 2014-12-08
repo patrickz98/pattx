@@ -38,9 +38,9 @@ classes: $(CLASSES:.java=.class)
 
 clean:
 	find . -name "*.class" -delete;
-	
+
 all:
-	find . -name "*.java" -exec javac "{}" \;
+	find . -name "*.java" -exec javac -g "{}" \; -exec echo "javac "{} \;
 
 clean:
 	find . -name "*.class" -delete;

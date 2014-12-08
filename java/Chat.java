@@ -34,16 +34,14 @@ class host extends Thread
 					
 					clientSentence = inFromClient.readLine();
 					System.out.println("Received: " + clientSentence);
-
-		//             capitalizedSentence = clientSentence.toUpperCase() + "\n";
-		//             outToClient.writeBytes(capitalizedSentence);
 				}
 			}
 			catch (Exception e)
 			{
 				e.printStackTrace();
 			}
-			System.err.println("ende");
+			System.err.println("Connection closed");
+			System.exit(0);
 	}
 }
 
@@ -73,13 +71,10 @@ class client extends Thread
 					SSLSocket clientSocket = (SSLSocket) sslsocketfactory.createSocket(host_ip, host_port);
 					DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
 	
-// 					BufferedReader inFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 					System.out.print("You: ");
  					sentence = inFromUser.readLine();
  					outToServer.writeBytes(sentence + '\n');
-// 					modifiedSentence = inFromServer.readLine();
-// 					System.out.println("FROM SERVER: " + modifiedSentence);
-		
+ 							
 					clientSocket.close();
 				}
 			}
@@ -90,21 +85,31 @@ class client extends Thread
 	}
 }
 
-public class Chat
+class Chat
 {
-	public static void main(String[] arstring) throws Exception
+	public static void main(String[] args) throws Exception
 	{
 		int port = 7050;
 
 		String ip = Inet4Address.getLocalHost().getHostAddress();
 		System.out.println("port:\t\t" + port);
 		System.out.println("local ip:\t" + ip);
+	
+		Properties systemProps = System.getProperties();
 		
-		System.out.println("host is starting");
+		systemProps.put( "javax.net.ssl.keyStore", "mySrvKeystore");
+		systemProps.put( "javax.net.ssl.keyStorePassword", "123456");
+		systemProps.put( "javax.net.ssl.trustStore", "mySrvKeystore");
+		systemProps.put( "vax.net.ssl.trustStorePassword", "123456");
+
+		System.setProperties(systemProps);
+		
+		System.out.println("server is starting");
 		host server = new host(port);
 		server.start();
 		
-		System.out.print("Host ip:\t");
+		System.out.print("host ip:\t");
+		
 		BufferedReader stdin = new BufferedReader( new InputStreamReader(System.in));
 		String tmp = stdin.readLine();
 
