@@ -8,6 +8,7 @@ JC = javac
 CLASSES = \
 	./aktien.java \
 	./awt.java \
+	./Chat.java \
 	./example.java \
 	./file.java \
 	./graph.java \
@@ -21,13 +22,15 @@ CLASSES = \
 	./read.java \
 	./regex.java \
 	./shell.java \
+	./SSL.java \
 	./SSLTCPClient.java \
 	./SSLTCPServer.java \
 	./swing.java \
 	./TCPClient.java \
 	./TCPdata.java \
 	./TCPServer.java \
-	./TCPServerdata.java
+	./TCPServerdata.java \
+	./test.java 
 
 default: classes
 

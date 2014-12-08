@@ -74,7 +74,7 @@ class client extends Thread
 					DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
 	
 // 					BufferedReader inFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-		
+					System.out.print("You: ");
  					sentence = inFromUser.readLine();
  					outToServer.writeBytes(sentence + '\n');
 // 					modifiedSentence = inFromServer.readLine();
@@ -100,14 +100,15 @@ public class Chat
 		System.out.println("port:\t\t" + port);
 		System.out.println("local ip:\t" + ip);
 		
+		System.out.println("host is starting");
+		host server = new host(port);
+		server.start();
+		
 		System.out.print("Host ip:\t");
 		BufferedReader stdin = new BufferedReader( new InputStreamReader(System.in));
 		String tmp = stdin.readLine();
 
-		System.out.println("host is starting");
-		host server = new host(port);
-		server.start();
-
+		
 		System.out.println("client is starting");
 		client user = new client(port, tmp);
 		user.start();
