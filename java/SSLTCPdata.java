@@ -1,19 +1,31 @@
 import java.io.*;
 import java.net.*;
+import javax.net.ssl.*;
+import java.util.*;
 
-public class TCPdata
+public class SSLTCPdata
 {
 	public static void main(String argv[]) throws Exception
 	{
+		Properties systemProps = System.getProperties();
+		systemProps.put( "javax.net.ssl.keyStore", "mySrvKeystore");
+		systemProps.put( "javax.net.ssl.keyStorePassword", "123456");
+		systemProps.put( "javax.net.ssl.trustStore", "mySrvKeystore");
+		systemProps.put( "vax.net.ssl.trustStorePassword", "123456");
+		System.setProperties(systemProps);
+
 		System.out.println("Client:");
 
 		String ip = Inet4Address.getLocalHost().getHostAddress();
 		System.out.println("ip:\t" + ip);
 		
-		Socket socket = null;
 		String host = "127.0.0.1";
+		int port = 7051;
+		
+		SSLSocketFactory sslsocketfactory = (SSLSocketFactory) SSLSocketFactory.getDefault();
+		SSLSocket socket = (SSLSocket) sslsocketfactory.createSocket(host, port);
 
-		socket = new Socket(host, 4444);
+// 		socket = new Socket(host, 4444);
 
 		File file = new File("mandrill.jpg");
 		// Get the size of the file
