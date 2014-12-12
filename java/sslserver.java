@@ -3,11 +3,19 @@ import java.net.*;
 import javax.net.ssl.SSLServerSocket;
 import javax.net.ssl.SSLServerSocketFactory;
 import javax.net.ssl.SSLSocket;
+import java.util.*;
 
-public class SSLTCPServer
+public class sslserver
 {
 	public static void main(String[] arstring) throws Exception
 	{
+		Properties systemProps = System.getProperties();
+		systemProps.put( "javax.net.ssl.keyStore", "mySrvKeystore");
+		systemProps.put( "javax.net.ssl.keyStorePassword", "123456");
+		systemProps.put( "javax.net.ssl.trustStore", "mySrvKeystore");
+		systemProps.put( "vax.net.ssl.trustStorePassword", "123456");
+		System.setProperties(systemProps);
+
 		System.out.println("Server:");
 		
 		String ip = Inet4Address.getLocalHost().getHostAddress();

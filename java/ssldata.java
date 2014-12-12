@@ -3,7 +3,7 @@ import java.net.*;
 import javax.net.ssl.*;
 import java.util.*;
 
-public class SSLTCPdata
+public class ssldata
 {
 	public static void main(String argv[]) throws Exception
 	{

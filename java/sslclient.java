@@ -1,11 +1,19 @@
 import java.io.*;
 import java.net.*;
 import javax.net.ssl.*;
+import java.util.*;
 
-class SSLTCPClient
+class sslclient
 {
 	public static void main(String argv[]) throws Exception
 	{
+		Properties systemProps = System.getProperties();
+		systemProps.put( "javax.net.ssl.keyStore", "mySrvKeystore");
+		systemProps.put( "javax.net.ssl.keyStorePassword", "123456");
+		systemProps.put( "javax.net.ssl.trustStore", "mySrvKeystore");
+		systemProps.put( "vax.net.ssl.trustStorePassword", "123456");
+		System.setProperties(systemProps);
+
 		System.out.println("Client:");
 
 		String ip = Inet4Address.getLocalHost().getHostAddress();

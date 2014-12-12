@@ -23,8 +23,7 @@ public class FileSender
 * @return
 */
 	public SocketChannel createChannel() 
-	{
-
+	{		
 		SocketChannel socketChannel = null;
 	
 		try 
