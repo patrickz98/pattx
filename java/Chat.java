@@ -16,6 +16,7 @@ class host extends Thread
 	{
 			try 
 			{
+				boolean con = false;
 				String clientSentence;
 				String capitalizedSentence;
 		
@@ -24,10 +25,18 @@ class host extends Thread
 		
 				SSLServerSocket welcomeSocket = (SSLServerSocket) sslserversocketfactory.createServerSocket(host_port);
 
-				while(isInterrupted() == false)
+				while (isInterrupted() == false)
 				{
 					SSLSocket connectionSocket = (SSLSocket) welcomeSocket.accept();
-			
+					
+					if (con == false)
+					{
+						System.out.print("new connection:\t");
+						System.out.println(connectionSocket.getInetAddress());
+						
+						con = true;
+					}
+					
 					BufferedReader inFromClient =
 					   new BufferedReader(new InputStreamReader(connectionSocket.getInputStream()));
 					DataOutputStream outToClient = new DataOutputStream(connectionSocket.getOutputStream());
@@ -89,22 +98,30 @@ class Chat
 {
 	public static void main(String[] args) throws Exception
 	{
-		int port = 7050;
-
-		String ip = Inet4Address.getLocalHost().getHostAddress();
-		System.out.println("port:\t\t" + port);
-		System.out.println("local ip:\t" + ip);
-	
-		Properties systemProps = System.getProperties();
+		System.out.println("configure system");
 		
+		Properties systemProps = System.getProperties();
 		systemProps.put( "javax.net.ssl.keyStore", "mySrvKeystore");
 		systemProps.put( "javax.net.ssl.keyStorePassword", "123456");
 		systemProps.put( "javax.net.ssl.trustStore", "mySrvKeystore");
 		systemProps.put( "vax.net.ssl.trustStorePassword", "123456");
-
 		System.setProperties(systemProps);
+
+		InetAddress local = InetAddress.getLocalHost();
+		String localhostname = local.getHostName();
+        String ip = local.getCanonicalHostName();
+
+		int port = 7050;
 		
-		System.out.println("server is starting");
+		System.out.println("user:\t\t" + System.getProperty("user.name"));
+		System.out.println("OS:\t\t" + System.getProperty("os.name"));
+		System.out.println("system arch:\t" + System.getProperty("os.arch"));
+
+		System.out.println("hostname:\t" + localhostname);
+		System.out.println("local ip:\t" + ip);
+		System.out.println("port:\t\t" + port);
+
+// 		System.out.println("server is starting");
 		host server = new host(port);
 		server.start();
 		
@@ -114,7 +131,7 @@ class Chat
 		String tmp = stdin.readLine();
 
 		
-		System.out.println("client is starting");
+// 		System.out.println("client is starting");
 		client user = new client(port, tmp);
 		user.start();
 	}

@@ -11,6 +11,8 @@ CLASSES = \
 	./Chat.java \
 	./example.java \
 	./file.java \
+	./FileReceiver.java \
+	./FileSender.java \
 	./graph.java \
 	./hallo.java \
 	./html.java \
@@ -23,14 +25,17 @@ CLASSES = \
 	./regex.java \
 	./shell.java \
 	./SSL.java \
-	./SSLTCPClient.java \
-	./SSLTCPServer.java \
+	./sslclient.java \
+	./ssldata.java \
+	./ssldataserver.java \
+	./sslserver.java \
 	./swing.java \
 	./TCPClient.java \
 	./TCPdata.java \
 	./TCPServer.java \
 	./TCPServerdata.java \
-	./test.java 
+	./test.java \
+	./test2.java
 
 default: classes
 
@@ -46,3 +51,10 @@ git: clean
 	cp * ../pattx/java/
 	cd ../pattx/; git add java/*; git commit -a; git push
 
+list:
+	find . -name "*.java" -exec echo "{}"" \\" \;
+	
+chat:
+	javac Chat.java;
+	javac info.java;
+	jar cf chat.jar Chat.class client.class host.class info.class mySrvKeystore;
