@@ -16,14 +16,19 @@ CLASSES = \
 	./graph.java \
 	./hallo.java \
 	./html.java \
+	./info.java \
 	./keyfile.java \
 	./klassen.java \
 	./klassen2.java \
+	./klassen3.java \
 	./Multi.java \
+	./pixel.java \
+	./pixel2.java \
 	./random.java \
 	./read.java \
 	./regex.java \
 	./shell.java \
+	./spiegel.java \
 	./SSL.java \
 	./sslclient.java \
 	./ssldata.java \
@@ -34,8 +39,7 @@ CLASSES = \
 	./TCPdata.java \
 	./TCPServer.java \
 	./TCPServerdata.java \
-	./test.java \
-	./test2.java
+	./test.java
 
 default: classes
 

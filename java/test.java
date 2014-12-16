@@ -5,13 +5,7 @@ public class test
 {
 	public static void main(String[] args) throws Exception
 	{
-		System.out.print("Host ip:\t");
-		BufferedReader stdin = new BufferedReader( new InputStreamReader(System.in));
-		String tmp = stdin.readLine();
-
-		if (tmp.equals(""))
-		{
-			System.out.println("true");
-		}
+		double x = Double.valueOf("12,132");
+		System.out.println(x);
 	}
 }
