@@ -2,7 +2,7 @@
 <html>
     <head>
     	<link type='text/css' rel='stylesheet' href='style.css'/>
-	<title>Coin Flips</title>
+	<title>Points</title>
 	</head>
 	<body>
 	<?php
