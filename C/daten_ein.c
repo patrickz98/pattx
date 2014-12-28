@@ -9,7 +9,7 @@ int main()
    /* Erste Eingabe */
    printf("Anzahl eingeben: ");
    scanf("%d", &anzahl);
-    
+
    /* Zweite Eingabe */
    printf("Preis in Euro eingeben: ");
    scanf("%lf", &preis);
