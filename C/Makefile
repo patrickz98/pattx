@@ -15,6 +15,7 @@ all:
 	gcc speicher.c -o speicher
 	gcc std.c -o std
 	gcc string.c -o string
+	gcc string2.c -o string2
 	gcc test.c -o test
 
 clean:
