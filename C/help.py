@@ -17,9 +17,14 @@ def list():
 			if ".c" in x:
 				print "\tgcc " + x + " -o " + x[:-2]
 
+def gcc(file):
+	print "gcc " + file + " -o " + file[:-2]
+	os.system("gcc " + file + " -o " + file[:-2])
+
 if sys.argv[1] == "clean":
 	clean()
 elif sys.argv[1] == "list":
 	list()
 else:
-	print "NOOO"
+	gcc(sys.argv[1])
+#	print "NOOO"

@@ -1,5 +1,5 @@
 all:
-	gcc args.c -o args
+	gcc args.c -o args -std=gnu99
 	gcc ascii.c -o ascii
 	gcc char.c -o char
 	gcc client.c -o client
