@@ -10,6 +10,10 @@ int main()
 	int var = 10;
 	int *var2 = &var;
 
+    printf("0 --> %d\n", var2);
+    printf("0 --> %d\n", *var2);
+
+
 	printf("1 --> %d\n", var);
     printf("1 --> %d\n", &var);
 
