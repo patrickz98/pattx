@@ -4,11 +4,11 @@ int main()
 {
 	int zahl = 0;
 
-	while (zahl < 100)
+	while (zahl < 8)
 	{
-		printf("%d\n\a", zahl);
+		printf("%d\a", zahl);
 		zahl++;
-		sleep(1);
+//		sleep(1);
 	}
 	
 	return 0;
