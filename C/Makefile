@@ -17,6 +17,7 @@ all:
 	gcc string.c -o string
 	gcc string2.c -o string2
 	gcc test.c -o test
+	gcc include.h class.c -o class
 
 clean:
 	python help.py clean
