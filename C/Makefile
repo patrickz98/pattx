@@ -4,8 +4,6 @@ all:
 	gcc char.c -o char
 	gcc client.c -o client
 	gcc curl.c -o curl -lcurl
-	gcc daten_ein.c -o daten_ein
-	gcc daten_ein_mehrere.c -o daten_ein_mehrere
 	gcc echo.c -o echo
 	gcc filereader.c -o filereader
 	gcc filewriter.c -o filewriter
@@ -17,7 +15,8 @@ all:
 	gcc string.c -o string
 	gcc string2.c -o string2
 	gcc test.c -o test
-	gcc include.h class.c -o class
+	gcc rand.c -o rand
+	gcc -Iinclude.h class.c -o class
 
 clean:
 	python help.py clean
