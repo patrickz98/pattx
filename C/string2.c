@@ -8,17 +8,17 @@ int main()
 
 	printf("\n## 1 ## Bitte einen Satz eingeben: ");
     scanf("%9s", satz);
+    fflush(stdin);
 // 	fgets(satz, 9, stdin);
 
 	printf("## 1 ## Eingabe: %s\n", satz);
-    fflush(stdin);
 
 	printf("\n## 2 ## Bitte einen Satz eingeben: ");
 	scanf("%19s", test);
+	fflush(stdin);
 // 	fgets(test, 19, stdin);
 
 	printf("## 2 ## Eingabe: %s\n", test);
-	fflush(stdin);
 
 	return 0;
 }

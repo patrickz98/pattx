@@ -17,6 +17,7 @@ all:
 	gcc test.c -o test
 	gcc rand.c -o rand
 	gcc -Iinclude.h class.c -o class
+	gcc string3.c -o string3
 
 clean:
 	python help.py clean
