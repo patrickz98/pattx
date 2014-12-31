@@ -12,6 +12,7 @@ int main()
 // 	fgets(satz, 9, stdin);
 
 	printf("## 1 ## Eingabe: %s\n", satz);
+    printf("## 1 ## besteht aus %lu Zeichen\n", strlen(satz));
 
 
 	printf("\n## 2 ## Bitte einen Satz eingeben: ");
@@ -20,7 +21,7 @@ int main()
 // 	fgets(test, 19, stdin);
 
 	printf("## 2 ## Eingabe: %s\n", test);
-
+    printf("## 2 ## besteht aus %lu Zeichen\n", strlen(test));
 
 	return 0;
 }
