@@ -17,6 +17,8 @@ all:
 	gcc test.c -o test
 	gcc rand.c -o rand
 	gcc -Iinclude.h class.c -o class
+	gcc time.c -o time
+	gcc rwx-linux.c -o rwx-linux
 
 clean:
 	python help.py clean
