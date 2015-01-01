@@ -12,9 +12,6 @@ for x in range(0, 100000):
 sys.stdout.write("\n")
 
 def print_format_table():
-    """
-    prints table of formatted text format options
-    """
     for style in xrange(8):
         for fg in xrange(30,38):
             s1 = ''
