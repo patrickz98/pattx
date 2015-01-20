@@ -16,19 +16,15 @@ garrysmod-update:
 	cd cap_fonts; git pull; cd ..; \
 	cd spacebuild; git pull; cd ..; \
 
-wp-backup:
-
-	cd wordpress; \
-	sh wp-backup.sh; \
-
 tv-backup:
 	
 	sh tvheadend/tv-backup.sh
 
-backup: wp-backup tv-backup
+backup: tv-backup
 
 ports-update:
 
+	sudo port selfupdate
 	sudo port -v selfupdate
 	sudo port upgrade outdated
 	sudo port uninstall inactive
