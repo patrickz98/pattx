@@ -5,9 +5,15 @@ using namespace std;
 class test
 {
 	private:
-		string test = "test class";
+
+		string text;
 		int number;
+
 	public:
+		test()
+		{
+			text = "static class";
+		}
 		
 		void conf(int num, int nr = 1)
 		{
@@ -16,7 +22,27 @@ class test
 
 		void print()
 		{
-			cout << test << ": " << number << "\n";
+			cout << text << ": " << number << "\n";
+		}
+};
+
+class test2
+{
+	private:
+
+		int number0, number1;
+
+	public:
+		
+		test2(int x, int y)
+		{
+			number0 = x;
+			number1 = y;
+		}
+
+		void print()
+		{
+			cout << "new class: " << number0 + number1 << "\n";
 		}
 };
 
@@ -31,4 +57,10 @@ int main()
 	
 	pat1.print();
 	pat2.print();
+	
+	test2 *pat3;
+	
+	pat3 = new test2(120, 80);
+	(*pat3).print();
+	
 }
