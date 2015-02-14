@@ -19,8 +19,8 @@ PHPBIN=`which php`
 # Defaults
 RUN_MODE="daemons"
 
-LOGDIR=$ISPWORKDIR/log
-PIDDIR=$ISPWORKDIR/run
+LOGDIR=~/log
+PIDDIR=~/run
 TCLDPID=$PIDDIR/$ISPTASKCLIENT.pid
 
 # clear conflicting settings from the environment

@@ -19,6 +19,12 @@ all:
 	gcc -Iinclude.h class.c -o class
 	gcc time.c -o time
 	gcc rwx-linux.c -o rwx-linux
+	gcc sqlite.c -o sqlite -l sqlite3
+	gcc sqlite2.c -o sqlite2 -l sqlite3
+	gcc sqlite3.c -o sqlite3 -l sqlite3
+	gcc sqlite4.c -o sqlite4 -l sqlite3
+	gcc sqlite5.c -o sqlite5 -l sqlite3
+	gcc sqlite6.c -o sqlite6 -l sqlite3
 
 clean:
 	python help.py clean
