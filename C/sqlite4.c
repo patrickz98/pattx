@@ -2,10 +2,12 @@
 #include <stdlib.h>
 #include <sqlite3.h> 
 
-static int callback(void *data, int argc, char **argv, char **azColName){
+static int callback(void *data, int argc, char **argv, char **azColName)
+{
    int i;
-   fprintf(stderr, "%s: ", (const char*)data);
-   for(i=0; i<argc; i++){
+   fprintf(stderr, "%s:\n", (const char*)data);
+   for(i=0; i < argc; i++)
+   {
       printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
    }
    printf("\n");
@@ -34,10 +36,13 @@ int main(int argc, char* argv[])
 
    /* Execute SQL statement */
    rc = sqlite3_exec(db, sql, callback, (void*)data, &zErrMsg);
-   if( rc != SQLITE_OK ){
+   if( rc != SQLITE_OK )
+   {
       fprintf(stderr, "SQL error: %s\n", zErrMsg);
       sqlite3_free(zErrMsg);
-   }else{
+   }
+   else
+   {
       fprintf(stdout, "Operation done successfully\n");
    }
    sqlite3_close(db);
