@@ -16,15 +16,14 @@ garrysmod-update:
 	cd cap_fonts; git pull; cd ..; \
 	cd spacebuild; git pull; cd ..; \
 
-tv-backup:
-	
-	sh tvheadend/tv-backup.sh
-
-backup: tv-backup
-
 ports-update:
 
 	sudo port selfupdate
 	sudo port -v selfupdate
 	sudo port upgrade outdated
 	sudo port uninstall inactive
+
+clean:
+	cd java; make clean
+	cd C; make clean
+	cd c++; make clean
