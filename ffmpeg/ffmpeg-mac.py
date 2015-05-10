@@ -10,6 +10,11 @@ hosts = [
 			"odroid@192.168.0.28",
 			"patrick@localhost",
 			"patrick@localhost",
+			"odroid@192.168.0.28",
+			"odroid@192.168.0.28",
+			"patrick@localhost",
+			"patrick@localhost",
+
 		]
 
 #linux
