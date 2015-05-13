@@ -14,7 +14,7 @@ else:
 	print "input error:"
 	exit()
 
+
 for file in os.listdir("./"):
 	if file.endswith(data_in):
 		os.popen("ffmpeg -i " + file + " " + file[:-len(data_in)] + data_out)
-
