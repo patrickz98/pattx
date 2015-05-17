@@ -27,3 +27,6 @@ clean:
 	cd java; make clean
 	cd C; make clean
 	cd c++; make clean
+
+Bewerbung:
+	openssl aes-256-cbc -d -a -in Bewerbung.gz.crypt -out Bewerbung.gz

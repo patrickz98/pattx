@@ -6,7 +6,7 @@ public class shell
 {
 	public static void main(String args[]) throws Exception
 	{
-        Console cons = System.console();
+    Console cons = System.console();
 		cons.printf("Shell: ");
 		String eingabe = cons.readLine();
 		System.out.print(eingabe + "\n");
@@ -17,7 +17,7 @@ public class shell
 		BufferedReader b = new BufferedReader(new InputStreamReader(p.getInputStream()));
 		String line = "";
 
-		while ((line = b.readLine()) != null) 
+		while ((line = b.readLine()) != null)
 		{
 			System.out.println(line);
 		}
