@@ -16,10 +16,10 @@ garrysmod-update:
 	cd cap_fonts; git pull; cd ..; \
 	cd spacebuild; git pull; cd ..; \
 
-ports-update:
+port-update:
 
-	sudo port selfupdate
 	sudo port -v selfupdate
+	sudo port selfupdate
 	sudo port upgrade outdated
 	sudo port uninstall inactive
 
