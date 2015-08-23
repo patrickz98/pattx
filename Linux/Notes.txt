@@ -1,3 +1,10 @@
+dd if=/dev/zero of=/PATH/FILENAME bs=1024 count=SIZE
+mkswap /PATH/FILENAME
+swapon /PATH/FILENAME
+
+UUID=       none    swap    sw      0       0
+
+
 openssl rsa -in ~/.ssh/id_rsa -outform pem > id_rsa.pem
 openssl rsa -in ~/.ssh/id_rsa -pubout -outform pem > id_rsa.pub.pem
 
