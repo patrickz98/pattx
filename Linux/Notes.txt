@@ -1,10 +1,3 @@
-dd if=/dev/zero of=/PATH/FILENAME bs=1024 count=SIZE
-mkswap /PATH/FILENAME
-swapon /PATH/FILENAME
-
-UUID=       none    swap    sw      0       0
-
-
 openssl rsa -in ~/.ssh/id_rsa -outform pem > id_rsa.pem
 openssl rsa -in ~/.ssh/id_rsa -pubout -outform pem > id_rsa.pub.pem
 
@@ -32,20 +25,20 @@ private_key.pem  public_key.pem
 Next, we create some sample file called encrypt.txt with any arbitrary text:
 
 $ echo "Welcome to LinuxCareer.com" > encrypt.txt
-$ cat encrypt.txt 
+$ cat encrypt.txt
 Welcome to LinuxCareer.com
 
 Now we are ready to encrypt this file with public key:
 
-$ openssl rsautl -encrypt -inkey public_key.pem -pubin -in encrypt.txt -out encrypt.dat 
+$ openssl rsautl -encrypt -inkey public_key.pem -pubin -in encrypt.txt -out encrypt.dat
 $ ls
 encrypt.dat  encrypt.txt  private_key.pem  public_key.pem
-$ file encrypt.dat 
+$ file encrypt.dat
 encrypt.dat: data
 
 As you can see our new encrypt.dat file is no longer text files. To decrypt this file we need to use private key:
 
-$ openssl rsautl -decrypt -inkey private_key.pem -in encrypt.dat -out new_encrypt.txt 
+$ openssl rsautl -decrypt -inkey private_key.pem -in encrypt.dat -out new_encrypt.txt
 $ cat new_encrypt.txt
 Welcome to LinuxCareer.com
 
@@ -77,4 +70,3 @@ To decrypt:
 
     Decrypt file
         openssl enc -aes-256-cbc -d -pass file:key.txt < encrypted.dat > UNENCRYPTED_FILE
-

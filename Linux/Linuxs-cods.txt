@@ -1,3 +1,11 @@
+dd if=/dev/zero of=/PATH/FILENAME bs=1024 count=SIZE
+
+mkswap /PATH/FILENAME
+swapon /PATH/FILENAME
+
+UUID=       none    swap    sw      0       0
+
+------------------------------------------------------------------------------------------
 Crypto:
 
 	#dd if=/dev/zero bs=1M count=50 of=cryptodata
@@ -20,7 +28,7 @@ Crypto:
 
 
 ------------------------------------------------------------------------------------------
-Fotos wiederherstellen 
+Fotos wiederherstellen
 
 sudo photorec /d /home/pi/test /dev/sdb1
 
@@ -38,7 +46,7 @@ sudo sfdick -d odroid.img
 
 echo $((266240 * 512)) $((59733761 * 512)
 
-mount -o loop,offset=136314880,sizelimit=30583685632 odroid-u3.img-neu /mnt  
+mount -o loop,offset=136314880,sizelimit=30583685632 odroid-u3.img-neu /mnt
 
 ------------------------------------------------------------------------------------------
 SSH Tunnel
@@ -58,10 +66,10 @@ watch 'tail -n 20 /var/log/apache2/patrickz.no-ip.org-access.log'
 
 tvheadend -C &
 
-sudo update-rc.d filename defaults 
+sudo update-rc.d filename defaults
 sudo update-rc.d -f mysql defaults remove
 
-sudo nano /etc/fstab #####festplatte 
+sudo nano /etc/fstab #####festplatte
 
 UUID=00048CF5048CEECA                   /media/iVideo   ntfs    rw
 
@@ -100,7 +108,7 @@ ffmpeg -i input.wav -f mp2 output.mp3
 
 ffmpeg -i INPUT -s 640x480 -r 30000/1001 -b 200k -bt 240k -vcodec mpeg4 -vpre ipod640 -acodec libfaac -ac 2 -ar 48000 -ab 192k output.mp4
 
-sudo ntpdate -u ntp.ubuntu.com 
+sudo ntpdate -u ntp.ubuntu.com
 
 
 sudo apt-get install libncurses5-dev
@@ -136,7 +144,7 @@ psk="4patrick"
 }
 
 
-sudo modprobe -r gspca_kinect 
+sudo modprobe -r gspca_kinect
 sudo modprobe -r gspca_main
 
 
@@ -149,10 +157,10 @@ http://www.os-smart-tv.net/ebooks/smart-tv.4.epub
 
 
 tar xvf [ARCHIVNAME].tar
-auspacken 
+auspacken
 
 tar cvf [ARCHIVNAME].tar [VERZEICHNIS1] [VERZEICHNIS2] [DATEI1] [DATEI2]
-einpacken 
+einpacken
 
 tar cvzf mame0152.tgz mame0152
 einpaken +
@@ -184,17 +192,17 @@ Hier werden 4 Sekunden ab Sekunde 3 kopiert.
 disable desktop
 
 sudo nano /etc/X11/default-display-manager
-	
+
 	#/usr/sbin/gdm3
 	/bin/true
-	
+
 SSH
 
 	cd ~/.ssh
 	ssh-keygen -t rsa -C "your_email@example.com"
-	
 
-	
+
+
 open /System/Library/CoreServices/Finder.app
 
 sudo apachectl start
@@ -202,7 +210,7 @@ sudo apachectl start
 sudo launchctl load -w /System/Library/LaunchDaemons/ntalk.plist
 
 ——————————————————————————————————————————————————————
-Lights 
+Lights
 
 How to shut up the alive led.
 echo none > /sys/class/leds/led1/trigger
@@ -221,4 +229,3 @@ echo timer > /sys/class/leds/led1/trigger
 
 echo 1000 > /sys/class/leds/led1/delay_on
 echo 1000 > /sys/class/leds/led1/delay_off
-
