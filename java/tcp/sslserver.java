@@ -17,13 +17,13 @@ public class sslserver
 		System.setProperties(systemProps);
 
 		System.out.println("Server:");
-		
+
 		String ip = Inet4Address.getLocalHost().getHostAddress();
 		System.out.println("ip:\t" + ip);
-		
+
 		String clientSentence;
         String capitalizedSentence;
-        
+
         SSLServerSocketFactory sslserversocketfactory =
                     (SSLServerSocketFactory) SSLServerSocketFactory.getDefault();
         SSLServerSocket welcomeSocket = (SSLServerSocket) sslserversocketfactory.createServerSocket(7050);
@@ -31,7 +31,7 @@ public class sslserver
         while(true)
         {
         	SSLSocket connectionSocket = (SSLSocket) welcomeSocket.accept();
-        	
+
         	BufferedReader inFromClient =
                new BufferedReader(new InputStreamReader(connectionSocket.getInputStream()));
         	DataOutputStream outToClient = new DataOutputStream(connectionSocket.getOutputStream());

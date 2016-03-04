@@ -1,0 +1,26 @@
+telnet example.com 25
+
+ehlo goethe-schule-harburg.de
+
+AUTH LOGIN
+
+334 VXNlcm5hbWU6
+--> base64 user
+
+334 UGFzc3dvcmQ6
+--> base64 passwd
+
+MAIL FROM: max.burgmann@goethe-schule-harburg.de
+
+RCPT TO: patrick.zierahn@goethe-schule-harburg.de
+
+DATA
+354 Enter message, ending with "." on a line by itself
+
+Subject:Aloha
+
+.
+QUIT
+
+----------------------------------------------------------------
+https://www.base64encode.org

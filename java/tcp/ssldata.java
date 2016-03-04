@@ -1,4 +1,4 @@
-import java.io.*;
+ximport java.io.*;
 import java.net.*;
 import javax.net.ssl.*;
 import java.util.*;
@@ -18,10 +18,10 @@ public class ssldata
 
 		String ip = Inet4Address.getLocalHost().getHostAddress();
 		System.out.println("ip:\t" + ip);
-		
+
 		String host = "127.0.0.1";
 		int port = 7051;
-		
+
 		SSLSocketFactory sslsocketfactory = (SSLSocketFactory) SSLSocketFactory.getDefault();
 		SSLSocket socket = (SSLSocket) sslsocketfactory.createSocket(host, port);
 
@@ -29,13 +29,13 @@ public class ssldata
 
 		File file = new File("mandrill.jpg");
 		// Get the size of the file
-		
+
 		long length = file.length();
-		if (length > Integer.MAX_VALUE) 
+		if (length > Integer.MAX_VALUE)
 		{
 			System.out.println("File is too large.");
 		}
-		
+
 		byte[] bytes = new byte[(int) length];
 		FileInputStream fis = new FileInputStream(file);
 		BufferedInputStream bis = new BufferedInputStream(fis);
@@ -43,7 +43,7 @@ public class ssldata
 
 		int count;
 
-		while ((count = bis.read(bytes)) > 0) 
+		while ((count = bis.read(bytes)) > 0)
 		{
 			out.write(bytes, 0, count);
 		}
