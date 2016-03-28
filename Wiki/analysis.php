@@ -1,5 +1,30 @@
 <?php
 
+function splitArray($array, $split)
+{
+    $arrayCount = count($array);
+    $newArray   = array();
+
+    $level = 0;
+    $main  = 0;
+    $newArray[ $main ] = array();
+
+    for ($id = 0; $id < $arrayCount; $id++)
+    {
+        array_push($newArray[ $main ], $array[ $id ]);
+
+        if ($id == $level)
+        {
+            $level += $split;
+            $main  += 1;
+
+            $newArray[ $main ] = array();
+        }
+    }
+
+    return $newArray;
+}
+
 function getLocation($content)
 {
     // |Latitude = 40\u00b0\u200a30\u2032 N to 45\u00b0\u200a1\u2032 N\n|Longitude = 71\u00b0\u200a51\u2032 W to 79\u00b0\u200a46\u2032 W\n|
@@ -129,28 +154,29 @@ function getCoalitions($title)
     return $resultJson;
 }
 
-// $tmp = getCoalitions("New_York|"
+$startTime = time();
+
+$count = 0;
+$tmp = getCoalitions("New_York");
+// $tmp = getCoalitions("New_York|United_States|Nobel_Peace_Prize|Hillary_Clinton|GDP|"
+//     . "John_Kerry|Republican_Party_(United_States)|Bill_Clinton|United_States_Congress|"
 //     . "Barack_Obama|Harvard_Law_School|Angela_Merkel|"
 //     . "Christian_Wulff|Hamburg|Chancellor_of_Germany|Helmut_Schmidt|"
 //     . "Democratic_Party_(United_States)|White_House|Great_Recession");
-$startTime = time();
-
-// $tmp = getCoalitions("Over,_Seevetal|Barack_Obama|Linux|Angela_Merkel");
-$tmp = getCoalitions("Over,_Seevetal");
-$tmp = array_unique($tmp);
-$count = 0;
-
-// $file = fopen("./all.json", "w");
-// fwrite($file, json_encode($tmp, JSON_PRETTY_PRINT));
-// fclose($file);
 
 foreach ($tmp as $key => $value)
 {
-    foreach ($value[ "links" ] as $link)
+    $links = $value[ "links" ];
+    $links = splitArray($links, 50);
+
+    foreach ($links as $index => $link)
     {
-        $bla = getCoalitions($link);
-        $count += count($bla[ $link ][ "links" ]) + 1;
+        $link = join('|', $link);
+        getCoalitions($link);
     }
+
+    if (count($value[ "links" ]) == 0) continue;
+    $count += count($value[ "links" ]) + 1;
 }
 
 echo "count: $count\n";
