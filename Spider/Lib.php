@@ -28,4 +28,12 @@ function niceJson($json)
     return $json;
 }
 
+function getJson($url)
+{
+    $urlJson = file_get_contents($url);
+    $urlJson = niceJson($urlJson);
+
+    writeFile("out", $urlJson);
+}
+
 ?>

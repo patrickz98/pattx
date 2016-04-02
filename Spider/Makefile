@@ -1,11 +1,11 @@
 tarc:
+	cd Guardian/; make clean
+	cd Pons/; make clean
+
 	tar -cvzf Guardian.gz Guardian/
 	tar -cvzf Pons.gz     Pons/
 
 tarx:
-	rm -rf Guardian
-	rm -rf Pons
-
 	tar -xvzf Guardian.gz
 	tar -xvzf Pons.gz
 
