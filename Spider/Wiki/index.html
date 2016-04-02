@@ -1,0 +1,1291 @@
+<html>
+    <head>
+        <script type="text/javascript" src="./vis.min.js"></script>
+
+        <style type="text/css">
+            #mynetwork {
+                width: 100%;
+                height: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="mynetwork"></div>
+
+        <script type="text/javascript">
+            // create an array with nodes
+            var nodes = new vis.DataSet([
+                {
+                    "id": 0,
+                    "label": "File:Gdp-and-labour-force-by-sector.png"
+                },
+                {
+                    "id": 1,
+                    "label": "agriculture"
+                },
+                {
+                    "id": 2,
+                    "label": "services_sector"
+                },
+                {
+                    "id": 3,
+                    "label": "Production_(economics)"
+                },
+                {
+                    "id": 4,
+                    "label": "Goods_(economics)"
+                },
+                {
+                    "id": 5,
+                    "label": "Service_(economics)"
+                },
+                {
+                    "id": 6,
+                    "label": "economy"
+                },
+                {
+                    "id": 7,
+                    "label": "Europe"
+                },
+                {
+                    "id": 8,
+                    "label": "North_America"
+                },
+                {
+                    "id": 9,
+                    "label": "Industrial_Revolution"
+                },
+                {
+                    "id": 10,
+                    "label": "Mercantilism"
+                },
+                {
+                    "id": 11,
+                    "label": "Feudalism"
+                },
+                {
+                    "id": 12,
+                    "label": "steel"
+                },
+                {
+                    "id": 13,
+                    "label": "coal"
+                },
+                {
+                    "id": 14,
+                    "label": "manufacturing"
+                },
+                {
+                    "id": 15,
+                    "label": "Developed_country"
+                },
+                {
+                    "id": 16,
+                    "label": "three-sector_theory"
+                },
+                {
+                    "id": 17,
+                    "label": "economic_sector"
+                },
+                {
+                    "id": 18,
+                    "label": "primary_sector_of_the_economy"
+                },
+                {
+                    "id": 19,
+                    "label": "secondary_sector_of_the_economy"
+                },
+                {
+                    "id": 20,
+                    "label": "tertiary_sector_of_the_economy"
+                },
+                {
+                    "id": 21,
+                    "label": "quaternary_sector_of_the_economy"
+                },
+                {
+                    "id": 22,
+                    "label": "quinary_sector_of_the_economy"
+                },
+                {
+                    "id": 23,
+                    "label": "industry_classification"
+                },
+                {
+                    "id": 24,
+                    "label": "Construction"
+                },
+                {
+                    "id": 25,
+                    "label": "chemical_industry"
+                },
+                {
+                    "id": 26,
+                    "label": "petroleum_industry"
+                },
+                {
+                    "id": 27,
+                    "label": "automotive_industry"
+                },
+                {
+                    "id": 28,
+                    "label": "consumer_electronics"
+                },
+                {
+                    "id": 29,
+                    "label": "meatpacking_industry"
+                },
+                {
+                    "id": 30,
+                    "label": "hospitality_industry"
+                },
+                {
+                    "id": 31,
+                    "label": "food_industry"
+                },
+                {
+                    "id": 32,
+                    "label": "fish_industry"
+                },
+                {
+                    "id": 33,
+                    "label": "software_industry"
+                },
+                {
+                    "id": 34,
+                    "label": "paper_industry"
+                },
+                {
+                    "id": 35,
+                    "label": "entertainment_industry"
+                },
+                {
+                    "id": 36,
+                    "label": "semiconductor_industry"
+                },
+                {
+                    "id": 37,
+                    "label": "cultural_industry"
+                },
+                {
+                    "id": 38,
+                    "label": "poverty_industry"
+                },
+                {
+                    "id": 39,
+                    "label": "Market_(economics)"
+                },
+                {
+                    "id": 40,
+                    "label": "Global_Industry_Classification_Standard"
+                },
+                {
+                    "id": 41,
+                    "label": "Industry_Classification_Benchmark"
+                },
+                {
+                    "id": 42,
+                    "label": "finance"
+                },
+                {
+                    "id": 43,
+                    "label": "market_research"
+                },
+                {
+                    "id": 44,
+                    "label": "International_Standard_Industrial_Classification"
+                },
+                {
+                    "id": 45,
+                    "label": "economic_activity"
+                },
+                {
+                    "id": 46,
+                    "label": "United_Nations_Statistics_Division"
+                },
+                {
+                    "id": 47,
+                    "label": "File:InternationalPaper6413.jpg"
+                },
+                {
+                    "id": 48,
+                    "label": "Georgetown,_South_Carolina"
+                },
+                {
+                    "id": 49,
+                    "label": "industrial_revolution"
+                },
+                {
+                    "id": 50,
+                    "label": "electricity"
+                },
+                {
+                    "id": 51,
+                    "label": "electrical_grid"
+                },
+                {
+                    "id": 52,
+                    "label": "assembly_line"
+                },
+                {
+                    "id": 53,
+                    "label": "automation"
+                },
+                {
+                    "id": 54,
+                    "label": "computer"
+                },
+                {
+                    "id": 55,
+                    "label": "robot"
+                },
+                {
+                    "id": 56,
+                    "label": "File:Clark's_Sector_Model.png"
+                },
+                {
+                    "id": 57,
+                    "label": "Quaternary_sector_of_the_economy"
+                },
+                {
+                    "id": 58,
+                    "label": "carriage"
+                },
+                {
+                    "id": 59,
+                    "label": "automobile"
+                },
+                {
+                    "id": 60,
+                    "label": "post-industrial_society"
+                },
+                {
+                    "id": 61,
+                    "label": "service_sector"
+                },
+                {
+                    "id": 62,
+                    "label": "informational_revolution"
+                },
+                {
+                    "id": 63,
+                    "label": "off-shoring"
+                },
+                {
+                    "id": 64,
+                    "label": "lean_manufacturing"
+                },
+                {
+                    "id": 65,
+                    "label": "industrial_society"
+                },
+                {
+                    "id": 66,
+                    "label": "industrial_policy"
+                },
+                {
+                    "id": 67,
+                    "label": "pollution"
+                },
+                {
+                    "id": 68,
+                    "label": "financing"
+                },
+                {
+                    "id": 69,
+                    "label": "industrial_labor"
+                },
+                {
+                    "id": 70,
+                    "label": "File:Worker_9.JPG"
+                },
+                {
+                    "id": 71,
+                    "label": "semi-product"
+                },
+                {
+                    "id": 72,
+                    "label": "Byt\u010da"
+                },
+                {
+                    "id": 73,
+                    "label": "Slovakia"
+                },
+                {
+                    "id": 74,
+                    "label": "wikt:rank_and_file"
+                },
+                {
+                    "id": 75,
+                    "label": "labour_movement"
+                },
+                {
+                    "id": 76,
+                    "label": "File:Airacobra_P39_Assembly_LOC_02902u.jpg"
+                },
+                {
+                    "id": 77,
+                    "label": "Wheatfield,_New_York"
+                },
+                {
+                    "id": 78,
+                    "label": "P-39_Airacobra"
+                },
+                {
+                    "id": 79,
+                    "label": "mass-produced"
+                },
+                {
+                    "id": 80,
+                    "label": "mobilization"
+                },
+                {
+                    "id": 81,
+                    "label": "total_war"
+                },
+                {
+                    "id": 82,
+                    "label": "weapons_of_mass_destruction"
+                },
+                {
+                    "id": 83,
+                    "label": "industrial_warfare"
+                },
+                {
+                    "id": 84,
+                    "label": "Crimean_War"
+                },
+                {
+                    "id": 85,
+                    "label": "American_Civil_War"
+                },
+                {
+                    "id": 86,
+                    "label": "world_wars"
+                },
+                {
+                    "id": 87,
+                    "label": "military-industrial_complex"
+                },
+                {
+                    "id": 88,
+                    "label": "arms_industry"
+                },
+                {
+                    "id": 89,
+                    "label": "military_industry"
+                },
+                {
+                    "id": 90,
+                    "label": "modern_warfare"
+                },
+                {
+                    "id": 91,
+                    "label": "IMF"
+                },
+                {
+                    "id": 92,
+                    "label": "CIA_World_Factbook"
+                },
+                {
+                    "id": 93,
+                    "label": "USD"
+                },
+                {
+                    "id": 94,
+                    "label": "North_American_Industry_Classification_System"
+                },
+                {
+                    "id": 95,
+                    "label": "North_American_Product_Classification_System"
+                },
+                {
+                    "id": 96,
+                    "label": "Standard_Industrial_Classification"
+                },
+                {
+                    "id": 97,
+                    "label": "Industry_information"
+                },
+                {
+                    "id": 98,
+                    "label": "Industrial_revolution"
+                },
+                {
+                    "id": 99,
+                    "label": "Outline_of_industry"
+                },
+                {
+                    "id": 100,
+                    "label": "Category:Industry"
+                },
+                {
+                    "id": 101,
+                    "label": "output_(economics)"
+                },
+                {
+                    "id": 102,
+                    "label": "goods_and_services"
+                },
+                {
+                    "id": 103,
+                    "label": "value_(economics)"
+                },
+                {
+                    "id": 104,
+                    "label": "utility_(economics)"
+                },
+                {
+                    "id": 105,
+                    "label": "Public_economics"
+                },
+                {
+                    "id": 106,
+                    "label": "household_production"
+                },
+                {
+                    "id": 107,
+                    "label": "File:Interactive_contributions_of_a_company\u2019s_stakeholders.png"
+                },
+                {
+                    "id": 108,
+                    "label": "File:Main_processes_of_a_company.png"
+                },
+                {
+                    "id": 109,
+                    "label": "accounting"
+                },
+                {
+                    "id": 110,
+                    "label": "production_function"
+                },
+                {
+                    "id": 111,
+                    "label": "surplus_value"
+                },
+                {
+                    "id": 112,
+                    "label": "Productivity"
+                },
+                {
+                    "id": 113,
+                    "label": "Profit_(accounting)"
+                },
+                {
+                    "id": 114,
+                    "label": "File:Components_of_economic_growth.png"
+                },
+                {
+                    "id": 115,
+                    "label": "File:Average_and_marginal_productivity.png"
+                },
+                {
+                    "id": 116,
+                    "label": "File:Profitability_of_production_measured_by_surplus_value.png"
+                },
+                {
+                    "id": 117,
+                    "label": "File:Productivity_model.png"
+                },
+                {
+                    "id": 118,
+                    "label": "objective_function"
+                },
+                {
+                    "id": 119,
+                    "label": "Profit_maximization"
+                },
+                {
+                    "id": 120,
+                    "label": "File:Income_formation.png"
+                },
+                {
+                    "id": 121,
+                    "label": "income_statement"
+                },
+                {
+                    "id": 122,
+                    "label": "A_list_of_production_functions"
+                },
+                {
+                    "id": 123,
+                    "label": "Assembly_line"
+                },
+                {
+                    "id": 124,
+                    "label": "Johann_Heinrich_von_Th\u00fcnen"
+                },
+                {
+                    "id": 125,
+                    "label": "Division_of_labour"
+                },
+                {
+                    "id": 126,
+                    "label": "Cost-of-production_theory_of_value"
+                },
+                {
+                    "id": 127,
+                    "label": "Computer-aided_manufacturing"
+                },
+                {
+                    "id": 128,
+                    "label": "Distribution_(economics)"
+                },
+                {
+                    "id": 129,
+                    "label": "Factors_of_production"
+                },
+                {
+                    "id": 130,
+                    "label": "Outline_of_industrial_organization"
+                },
+                {
+                    "id": 131,
+                    "label": "Outline_of_production"
+                },
+                {
+                    "id": 132,
+                    "label": "Output_(economics)"
+                },
+                {
+                    "id": 133,
+                    "label": "Price"
+                },
+                {
+                    "id": 134,
+                    "label": "Prices_of_production"
+                },
+                {
+                    "id": 135,
+                    "label": "Pricing_strategies"
+                },
+                {
+                    "id": 136,
+                    "label": "Production_function"
+                },
+                {
+                    "id": 137,
+                    "label": "Production_theory_basics"
+                },
+                {
+                    "id": 138,
+                    "label": "Production_possibility_frontier"
+                },
+                {
+                    "id": 139,
+                    "label": "Productive_and_unproductive_labour"
+                },
+                {
+                    "id": 140,
+                    "label": "Productive_forces"
+                },
+                {
+                    "id": 141,
+                    "label": "Productivity_model"
+                },
+                {
+                    "id": 142,
+                    "label": "Productivity_improving_technologies_(historical)"
+                },
+                {
+                    "id": 143,
+                    "label": "Microeconomics"
+                },
+                {
+                    "id": 144,
+                    "label": "Mode_of_production"
+                },
+                {
+                    "id": 145,
+                    "label": "Mass_production"
+                },
+                {
+                    "id": 146,
+                    "label": "Second_Industrial_Revolution"
+                },
+                {
+                    "id": 147,
+                    "label": "Anwar_Shaikh_(Economist)"
+                },
+                {
+                    "id": 148,
+                    "label": "Category:Production_economics"
+                },
+                {
+                    "id": 149,
+                    "label": "Category:Production_and_manufacturing"
+                },
+                {
+                    "id": 150,
+                    "label": "ru:\u041f\u0440\u043e\u0438\u0437\u0432\u043e\u0434\u0441\u0442\u0432\u043e"
+                },
+                {
+                    "id": 151,
+                    "label": "Industry"
+                }
+            ]);
+
+            // create an array with edges
+            var edges = new vis.DataSet([
+                {
+                    "from": 3,
+                    "to": 101
+                },
+                {
+                    "from": 3,
+                    "to": 102
+                },
+                {
+                    "from": 3,
+                    "to": 103
+                },
+                {
+                    "from": 3,
+                    "to": 104
+                },
+                {
+                    "from": 3,
+                    "to": 39
+                },
+                {
+                    "from": 3,
+                    "to": 105
+                },
+                {
+                    "from": 3,
+                    "to": 106
+                },
+                {
+                    "from": 3,
+                    "to": 107
+                },
+                {
+                    "from": 3,
+                    "to": 108
+                },
+                {
+                    "from": 3,
+                    "to": 109
+                },
+                {
+                    "from": 3,
+                    "to": 110
+                },
+                {
+                    "from": 3,
+                    "to": 111
+                },
+                {
+                    "from": 3,
+                    "to": 112
+                },
+                {
+                    "from": 3,
+                    "to": 113
+                },
+                {
+                    "from": 3,
+                    "to": 114
+                },
+                {
+                    "from": 3,
+                    "to": 115
+                },
+                {
+                    "from": 3,
+                    "to": 116
+                },
+                {
+                    "from": 3,
+                    "to": 117
+                },
+                {
+                    "from": 3,
+                    "to": 118
+                },
+                {
+                    "from": 3,
+                    "to": 119
+                },
+                {
+                    "from": 3,
+                    "to": 120
+                },
+                {
+                    "from": 3,
+                    "to": 121
+                },
+                {
+                    "from": 3,
+                    "to": 122
+                },
+                {
+                    "from": 3,
+                    "to": 123
+                },
+                {
+                    "from": 3,
+                    "to": 124
+                },
+                {
+                    "from": 3,
+                    "to": 125
+                },
+                {
+                    "from": 3,
+                    "to": 9
+                },
+                {
+                    "from": 3,
+                    "to": 126
+                },
+                {
+                    "from": 3,
+                    "to": 127
+                },
+                {
+                    "from": 3,
+                    "to": 128
+                },
+                {
+                    "from": 3,
+                    "to": 129
+                },
+                {
+                    "from": 3,
+                    "to": 130
+                },
+                {
+                    "from": 3,
+                    "to": 131
+                },
+                {
+                    "from": 3,
+                    "to": 132
+                },
+                {
+                    "from": 3,
+                    "to": 133
+                },
+                {
+                    "from": 3,
+                    "to": 134
+                },
+                {
+                    "from": 3,
+                    "to": 135
+                },
+                {
+                    "from": 3,
+                    "to": 136
+                },
+                {
+                    "from": 3,
+                    "to": 137
+                },
+                {
+                    "from": 3,
+                    "to": 138
+                },
+                {
+                    "from": 3,
+                    "to": 139
+                },
+                {
+                    "from": 3,
+                    "to": 140
+                },
+                {
+                    "from": 3,
+                    "to": 112
+                },
+                {
+                    "from": 3,
+                    "to": 141
+                },
+                {
+                    "from": 3,
+                    "to": 142
+                },
+                {
+                    "from": 3,
+                    "to": 143
+                },
+                {
+                    "from": 3,
+                    "to": 144
+                },
+                {
+                    "from": 3,
+                    "to": 145
+                },
+                {
+                    "from": 3,
+                    "to": 146
+                },
+                {
+                    "from": 3,
+                    "to": 147
+                },
+                {
+                    "from": 3,
+                    "to": 147
+                },
+                {
+                    "from": 3,
+                    "to": 147
+                },
+                {
+                    "from": 3,
+                    "to": 148
+                },
+                {
+                    "from": 3,
+                    "to": 149
+                },
+                {
+                    "from": 3,
+                    "to": 150
+                },
+                {
+                    "from": 3,
+                    "to": 151
+                },
+                {
+                    "from": 151,
+                    "to": 0
+                },
+                {
+                    "from": 151,
+                    "to": 1
+                },
+                {
+                    "from": 151,
+                    "to": 2
+                },
+                {
+                    "from": 151,
+                    "to": 3
+                },
+                {
+                    "from": 151,
+                    "to": 4
+                },
+                {
+                    "from": 151,
+                    "to": 5
+                },
+                {
+                    "from": 151,
+                    "to": 6
+                },
+                {
+                    "from": 151,
+                    "to": 7
+                },
+                {
+                    "from": 151,
+                    "to": 8
+                },
+                {
+                    "from": 151,
+                    "to": 9
+                },
+                {
+                    "from": 151,
+                    "to": 10
+                },
+                {
+                    "from": 151,
+                    "to": 11
+                },
+                {
+                    "from": 151,
+                    "to": 12
+                },
+                {
+                    "from": 151,
+                    "to": 13
+                },
+                {
+                    "from": 151,
+                    "to": 9
+                },
+                {
+                    "from": 151,
+                    "to": 14
+                },
+                {
+                    "from": 151,
+                    "to": 15
+                },
+                {
+                    "from": 151,
+                    "to": 16
+                },
+                {
+                    "from": 151,
+                    "to": 17
+                },
+                {
+                    "from": 151,
+                    "to": 18
+                },
+                {
+                    "from": 151,
+                    "to": 19
+                },
+                {
+                    "from": 151,
+                    "to": 20
+                },
+                {
+                    "from": 151,
+                    "to": 21
+                },
+                {
+                    "from": 151,
+                    "to": 22
+                },
+                {
+                    "from": 151,
+                    "to": 23
+                },
+                {
+                    "from": 151,
+                    "to": 24
+                },
+                {
+                    "from": 151,
+                    "to": 25
+                },
+                {
+                    "from": 151,
+                    "to": 26
+                },
+                {
+                    "from": 151,
+                    "to": 27
+                },
+                {
+                    "from": 151,
+                    "to": 28
+                },
+                {
+                    "from": 151,
+                    "to": 29
+                },
+                {
+                    "from": 151,
+                    "to": 30
+                },
+                {
+                    "from": 151,
+                    "to": 31
+                },
+                {
+                    "from": 151,
+                    "to": 32
+                },
+                {
+                    "from": 151,
+                    "to": 33
+                },
+                {
+                    "from": 151,
+                    "to": 34
+                },
+                {
+                    "from": 151,
+                    "to": 35
+                },
+                {
+                    "from": 151,
+                    "to": 36
+                },
+                {
+                    "from": 151,
+                    "to": 37
+                },
+                {
+                    "from": 151,
+                    "to": 38
+                },
+                {
+                    "from": 151,
+                    "to": 39
+                },
+                {
+                    "from": 151,
+                    "to": 40
+                },
+                {
+                    "from": 151,
+                    "to": 41
+                },
+                {
+                    "from": 151,
+                    "to": 42
+                },
+                {
+                    "from": 151,
+                    "to": 43
+                },
+                {
+                    "from": 151,
+                    "to": 44
+                },
+                {
+                    "from": 151,
+                    "to": 45
+                },
+                {
+                    "from": 151,
+                    "to": 46
+                },
+                {
+                    "from": 151,
+                    "to": 47
+                },
+                {
+                    "from": 151,
+                    "to": 48
+                },
+                {
+                    "from": 151,
+                    "to": 49
+                },
+                {
+                    "from": 151,
+                    "to": 50
+                },
+                {
+                    "from": 151,
+                    "to": 51
+                },
+                {
+                    "from": 151,
+                    "to": 52
+                },
+                {
+                    "from": 151,
+                    "to": 53
+                },
+                {
+                    "from": 151,
+                    "to": 54
+                },
+                {
+                    "from": 151,
+                    "to": 55
+                },
+                {
+                    "from": 151,
+                    "to": 56
+                },
+                {
+                    "from": 151,
+                    "to": 57
+                },
+                {
+                    "from": 151,
+                    "to": 58
+                },
+                {
+                    "from": 151,
+                    "to": 59
+                },
+                {
+                    "from": 151,
+                    "to": 60
+                },
+                {
+                    "from": 151,
+                    "to": 61
+                },
+                {
+                    "from": 151,
+                    "to": 62
+                },
+                {
+                    "from": 151,
+                    "to": 63
+                },
+                {
+                    "from": 151,
+                    "to": 64
+                },
+                {
+                    "from": 151,
+                    "to": 65
+                },
+                {
+                    "from": 151,
+                    "to": 66
+                },
+                {
+                    "from": 151,
+                    "to": 67
+                },
+                {
+                    "from": 151,
+                    "to": 68
+                },
+                {
+                    "from": 151,
+                    "to": 69
+                },
+                {
+                    "from": 151,
+                    "to": 70
+                },
+                {
+                    "from": 151,
+                    "to": 71
+                },
+                {
+                    "from": 151,
+                    "to": 72
+                },
+                {
+                    "from": 151,
+                    "to": 73
+                },
+                {
+                    "from": 151,
+                    "to": 74
+                },
+                {
+                    "from": 151,
+                    "to": 75
+                },
+                {
+                    "from": 151,
+                    "to": 76
+                },
+                {
+                    "from": 151,
+                    "to": 77
+                },
+                {
+                    "from": 151,
+                    "to": 78
+                },
+                {
+                    "from": 151,
+                    "to": 49
+                },
+                {
+                    "from": 151,
+                    "to": 79
+                },
+                {
+                    "from": 151,
+                    "to": 80
+                },
+                {
+                    "from": 151,
+                    "to": 81
+                },
+                {
+                    "from": 151,
+                    "to": 82
+                },
+                {
+                    "from": 151,
+                    "to": 83
+                },
+                {
+                    "from": 151,
+                    "to": 84
+                },
+                {
+                    "from": 151,
+                    "to": 85
+                },
+                {
+                    "from": 151,
+                    "to": 86
+                },
+                {
+                    "from": 151,
+                    "to": 87
+                },
+                {
+                    "from": 151,
+                    "to": 88
+                },
+                {
+                    "from": 151,
+                    "to": 89
+                },
+                {
+                    "from": 151,
+                    "to": 90
+                },
+                {
+                    "from": 151,
+                    "to": 91
+                },
+                {
+                    "from": 151,
+                    "to": 92
+                },
+                {
+                    "from": 151,
+                    "to": 93
+                },
+                {
+                    "from": 151,
+                    "to": 91
+                },
+                {
+                    "from": 151,
+                    "to": 92
+                },
+                {
+                    "from": 151,
+                    "to": 94
+                },
+                {
+                    "from": 151,
+                    "to": 95
+                },
+                {
+                    "from": 151,
+                    "to": 96
+                },
+                {
+                    "from": 151,
+                    "to": 97
+                },
+                {
+                    "from": 151,
+                    "to": 98
+                },
+                {
+                    "from": 151,
+                    "to": 99
+                },
+                {
+                    "from": 151,
+                    "to": 100
+                }
+            ]);
+
+            // create a network
+            var container = document.getElementById('mynetwork');
+
+            // provide the data in the vis format
+            var data =
+            {
+                nodes: nodes,
+                edges: edges
+            };
+            var options = {};
+
+            // initialize your network!
+            var network = new vis.Network(container, data, options);
+        </script>
+    </body>
+</html>
