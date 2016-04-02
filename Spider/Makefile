@@ -17,3 +17,6 @@ encrypt: tarc
 update: encrypt
 	mv Guardian.gz.aes /Users/patrick/github/pattx/Spider
 	mv Pons.gz.aes     /Users/patrick/github/pattx/Spider
+
+	rm -rf Guardian.gz
+	rm -rf Pons.gz
