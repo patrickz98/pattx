@@ -3,6 +3,9 @@ tarc:
 	tar -cvzf Pons.gz     Pons/
 
 tarx:
+	rm -rf Guardian
+	rm -rf Pons
+
 	tar -xvzf Guardian.gz
 	tar -xvzf Pons.gz
 
@@ -15,8 +18,12 @@ encrypt: tarc
 	openssl aes-256-cbc -e -a -in Pons.gz     -out Pons.gz.aes
 
 update: encrypt
-	mv Guardian.gz.aes /Users/patrick/github/pattx/Spider
-	mv Pons.gz.aes     /Users/patrick/github/pattx/Spider
+	cp Guardian.gz.aes /Users/patrick/github/pattx/Spider
+	cp Pons.gz.aes     /Users/patrick/github/pattx/Spider
 
+clean:
 	rm -rf Guardian.gz
 	rm -rf Pons.gz
+
+	rm -rf Guardian.gz.aes
+	rm -rf Pons.gz.aes

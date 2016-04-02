@@ -6,7 +6,7 @@ function writeFileDir($dir, $destination, $content)
 
     @mkdir($dir, 0777, true);
 
-    writeFile($destination, $content, $outPut);
+    writeFile($destination, $content);
 }
 
 function writeFile($destination, $content)
