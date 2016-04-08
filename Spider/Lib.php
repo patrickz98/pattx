@@ -55,6 +55,25 @@ function deMoroniseBody($body)
     return $body;
 }
 
+function deMoroniseHtmlForPage($content)
+{
+    $content = str_replace("</p>",    "%+#</p>", $content);
+    $content = str_replace("<br>",    "%+#",     $content);
+    $content = str_replace("\n",      "%+#",     $content);
+    // $content = str_replace("%+# %+#", "%+#",     $content);
+
+    $result = deMoroniseHtml($content);
+
+    $result = str_replace("%+#%+#", "%+#", $result);
+    $result = preg_replace("/\%\+\# *\%\+\#/", "%+#", $result);
+
+    $result = str_replace("%+#", " %+# ", $result);
+
+    // echo $result;
+
+    return $result;
+}
+
 function deMoroniseHtml($content)
 {
     if (strpos($content, ">") === false) return $content;
@@ -66,6 +85,7 @@ function deMoroniseHtml($content)
 
     $result = join("", $result[ 1 ]);
     $result = str_replace("  ", " ", $result);
+    $result = str_replace("<p>", "", $result);
 
     return $result;
 }
@@ -117,6 +137,13 @@ function addJson($json, $data)
     @fclose($myfile);
 
     return true;
+}
+
+function ToJsonWrite($json)
+{
+    $json = json_encode($json, JSON_PRETTY_PRINT);
+
+    return $json;
 }
 
 function niceJson($json)

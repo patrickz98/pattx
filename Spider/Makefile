@@ -37,4 +37,4 @@ encrypt-stuff:
 
 decrypt-stuff:
 	openssl aes-256-cbc -d -a -in times.txt.aes  -out times.txt
-	openssl aes-256-cbc -d -a -in google.txt.aes -out google.txt.
+	openssl aes-256-cbc -d -a -in google.txt.aes -out google.txt
