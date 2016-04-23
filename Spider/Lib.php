@@ -51,6 +51,18 @@ function deMoroniseBody($body)
     $body = str_replace("“",  "",  $body);
     $body = str_replace("”",  "",  $body);
     $body = str_replace(":",  "",  $body);
+    $body = str_replace(";",  "",  $body);
+    $body = str_replace("(",  "",  $body);
+    $body = str_replace(")",  "",  $body);
+    $body = str_replace("[",  "",  $body);
+    $body = str_replace("]",  "",  $body);
+    $body = str_replace("@",  "",  $body);
+    $body = str_replace("|",  "",  $body);
+    $body = str_replace("/",  "",  $body);
+    $body = str_replace("\\", "",  $body);
+    $body = str_replace("#",  "",  $body);
+    $body = str_replace("?",  "",  $body);
+    $body = str_replace("!",  "",  $body);
 
     return $body;
 }
@@ -90,6 +102,15 @@ function deMoroniseHtml($content)
     return $result;
 }
 
+function removeHtmlSuffix($path)
+{
+    $dirPath = explode("/", $path);
+    // remove /.*?.html
+    unset($dirPath[ count($dirPath) - 1 ]);
+
+    return join("/", $dirPath);
+}
+
 function writeFileDir($dir, $destination, $content)
 {
     $destination = $dir . $destination;
@@ -112,7 +133,7 @@ function writeFile($destination, $content)
 
 function readJson($file)
 {
-    $myfile = @file_get_contents($file);
+    $myfile = file_get_contents($file);
     $json   = json_decode($myfile, true);
 
     return $json;
@@ -151,6 +172,13 @@ function ToJsonWrite($json)
 function niceJson($json)
 {
     $json = json_decode($json, true);
+    $json = json_encode($json, JSON_PRETTY_PRINT);
+
+    return $json;
+}
+
+function prettyJson($json)
+{
     $json = json_encode($json, JSON_PRETTY_PRINT);
 
     return $json;
