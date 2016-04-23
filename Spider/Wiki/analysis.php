@@ -246,27 +246,27 @@ function edges($json, $nodes)
     writeFile("edges.json", json_encode($result, JSON_PRETTY_PRINT));
 }
 
-$links = array();
-
-$Risk_society = getLinksRaw("Production_(economics)");
-array_push($Risk_society, "Production_(economics)");
-
-$Ulrich_Beck = getLinksRaw("Industry");
-array_push($Risk_society, "Industry");
-
-array_push($links, $Ulrich_Beck, $Risk_society);
-
-$links = joinArray($links);
-$links = array_unique($links);
-$links = array_values($links);
-
-$nodes = nodes($links);
-
-$tmp = array();
-$tmp[ "Production_(economics)" ] = $Risk_society;
-$tmp[ "Industry" ]  = $Ulrich_Beck;
-
-edges($tmp, $nodes);
+// $links = array();
+//
+// $Risk_society = getLinksRaw("Production_(economics)");
+// array_push($Risk_society, "Production_(economics)");
+//
+// $Ulrich_Beck = getLinksRaw("Industry");
+// array_push($Risk_society, "Industry");
+//
+// array_push($links, $Ulrich_Beck, $Risk_society);
+//
+// $links = joinArray($links);
+// $links = array_unique($links);
+// $links = array_values($links);
+//
+// $nodes = nodes($links);
+//
+// $tmp = array();
+// $tmp[ "Production_(economics)" ] = $Risk_society;
+// $tmp[ "Industry" ]  = $Ulrich_Beck;
+//
+// edges($tmp, $nodes);
 
 // $cloud = array();
 //
@@ -276,5 +276,8 @@ edges($tmp, $nodes);
 // }
 //
 // error_log(json_encode($cloud, JSON_PRETTY_PRINT));
+
+// print_r(getLinksRaw("Main_Page"));
+print_r(getLinksRaw("urbanization"));
 
 ?>

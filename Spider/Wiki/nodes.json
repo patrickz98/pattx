@@ -261,350 +261,358 @@
     },
     {
         "id": 65,
-        "label": "industrial_society"
+        "label": "Quality_(business)"
     },
     {
         "id": 66,
-        "label": "industrial_policy"
+        "label": "industrial_society"
     },
     {
         "id": 67,
-        "label": "pollution"
+        "label": "industrial_policy"
     },
     {
         "id": 68,
-        "label": "financing"
+        "label": "pollution"
     },
     {
         "id": 69,
-        "label": "industrial_labor"
+        "label": "financing"
     },
     {
         "id": 70,
-        "label": "File:Worker_9.JPG"
+        "label": "industrial_labor"
     },
     {
         "id": 71,
-        "label": "semi-product"
+        "label": "File:Worker_9.JPG"
     },
     {
         "id": 72,
-        "label": "Byt\u010da"
+        "label": "semi-product"
     },
     {
         "id": 73,
-        "label": "Slovakia"
+        "label": "Byt\u010da"
     },
     {
         "id": 74,
-        "label": "wikt:rank_and_file"
+        "label": "Slovakia"
     },
     {
         "id": 75,
-        "label": "labour_movement"
+        "label": "wikt:rank_and_file"
     },
     {
         "id": 76,
-        "label": "File:Airacobra_P39_Assembly_LOC_02902u.jpg"
+        "label": "labour_movement"
     },
     {
         "id": 77,
-        "label": "Wheatfield,_New_York"
+        "label": "File:Airacobra_P39_Assembly_LOC_02902u.jpg"
     },
     {
         "id": 78,
-        "label": "P-39_Airacobra"
+        "label": "Wheatfield,_New_York"
     },
     {
         "id": 79,
-        "label": "mass-produced"
+        "label": "P-39_Airacobra"
     },
     {
         "id": 80,
-        "label": "mobilization"
+        "label": "mass-produced"
     },
     {
         "id": 81,
-        "label": "total_war"
+        "label": "mobilization"
     },
     {
         "id": 82,
-        "label": "weapons_of_mass_destruction"
+        "label": "total_war"
     },
     {
         "id": 83,
-        "label": "industrial_warfare"
+        "label": "weapons_of_mass_destruction"
     },
     {
         "id": 84,
-        "label": "Crimean_War"
+        "label": "industrial_warfare"
     },
     {
         "id": 85,
-        "label": "American_Civil_War"
+        "label": "Crimean_War"
     },
     {
         "id": 86,
-        "label": "world_wars"
+        "label": "American_Civil_War"
     },
     {
         "id": 87,
-        "label": "military-industrial_complex"
+        "label": "world_wars"
     },
     {
         "id": 88,
-        "label": "arms_industry"
+        "label": "military-industrial_complex"
     },
     {
         "id": 89,
-        "label": "military_industry"
+        "label": "arms_industry"
     },
     {
         "id": 90,
-        "label": "modern_warfare"
+        "label": "military_industry"
     },
     {
         "id": 91,
-        "label": "IMF"
+        "label": "modern_warfare"
     },
     {
         "id": 92,
-        "label": "CIA_World_Factbook"
+        "label": "IMF"
     },
     {
         "id": 93,
-        "label": "USD"
+        "label": "CIA_World_Factbook"
     },
     {
         "id": 94,
-        "label": "North_American_Industry_Classification_System"
+        "label": "USD"
     },
     {
         "id": 95,
-        "label": "North_American_Product_Classification_System"
+        "label": "North_American_Industry_Classification_System"
     },
     {
         "id": 96,
-        "label": "Standard_Industrial_Classification"
+        "label": "North_American_Product_Classification_System"
     },
     {
         "id": 97,
-        "label": "Industry_information"
+        "label": "Standard_Industrial_Classification"
     },
     {
         "id": 98,
-        "label": "Industrial_revolution"
+        "label": "Industry_information"
     },
     {
         "id": 99,
-        "label": "Outline_of_industry"
+        "label": "Industrial_revolution"
     },
     {
         "id": 100,
-        "label": "Category:Industry"
+        "label": "Outline_of_industry"
     },
     {
         "id": 101,
-        "label": "output_(economics)"
+        "label": "Category:Industry"
     },
     {
         "id": 102,
-        "label": "goods_and_services"
+        "label": "output_(economics)"
     },
     {
         "id": 103,
-        "label": "value_(economics)"
+        "label": "goods_and_services"
     },
     {
         "id": 104,
-        "label": "utility_(economics)"
+        "label": "value_(economics)"
     },
     {
         "id": 105,
-        "label": "Public_economics"
+        "label": "utility_(economics)"
     },
     {
         "id": 106,
-        "label": "household_production"
+        "label": "Public_economics"
     },
     {
         "id": 107,
-        "label": "File:Interactive_contributions_of_a_company\u2019s_stakeholders.png"
+        "label": "household_production"
     },
     {
         "id": 108,
-        "label": "File:Main_processes_of_a_company.png"
+        "label": "File:Interactive_contributions_of_a_company\u2019s_stakeholders.png"
     },
     {
         "id": 109,
-        "label": "accounting"
+        "label": "File:Main_processes_of_a_company.png"
     },
     {
         "id": 110,
-        "label": "production_function"
+        "label": "accounting"
     },
     {
         "id": 111,
-        "label": "surplus_value"
+        "label": "production_function"
     },
     {
         "id": 112,
-        "label": "Productivity"
+        "label": "surplus_value"
     },
     {
         "id": 113,
-        "label": "Profit_(accounting)"
+        "label": "Productivity"
     },
     {
         "id": 114,
-        "label": "File:Components_of_economic_growth.png"
+        "label": "Profit_(accounting)"
     },
     {
         "id": 115,
-        "label": "File:Average_and_marginal_productivity.png"
+        "label": "File:Components_of_economic_growth.png"
     },
     {
         "id": 116,
-        "label": "File:Profitability_of_production_measured_by_surplus_value.png"
+        "label": "File:Average_and_marginal_productivity.png"
     },
     {
         "id": 117,
-        "label": "File:Productivity_model.png"
+        "label": "File:Profitability_of_production_measured_by_surplus_value.png"
     },
     {
         "id": 118,
-        "label": "objective_function"
+        "label": "File:Productivity_model.png"
     },
     {
         "id": 119,
-        "label": "Profit_maximization"
+        "label": "objective_function"
     },
     {
         "id": 120,
-        "label": "File:Income_formation.png"
+        "label": "Profit_maximization"
     },
     {
         "id": 121,
-        "label": "income_statement"
+        "label": "File:Income_formation.png"
     },
     {
         "id": 122,
-        "label": "A_list_of_production_functions"
+        "label": "income_statement"
     },
     {
         "id": 123,
-        "label": "Assembly_line"
+        "label": "Adaptive_strategies"
     },
     {
         "id": 124,
-        "label": "Johann_Heinrich_von_Th\u00fcnen"
+        "label": "A_list_of_production_functions"
     },
     {
         "id": 125,
-        "label": "Division_of_labour"
+        "label": "Assembly_line"
     },
     {
         "id": 126,
-        "label": "Cost-of-production_theory_of_value"
+        "label": "Johann_Heinrich_von_Th\u00fcnen"
     },
     {
         "id": 127,
-        "label": "Computer-aided_manufacturing"
+        "label": "Division_of_labour"
     },
     {
         "id": 128,
-        "label": "Distribution_(economics)"
+        "label": "Cost-of-production_theory_of_value"
     },
     {
         "id": 129,
-        "label": "Factors_of_production"
+        "label": "Computer-aided_manufacturing"
     },
     {
         "id": 130,
-        "label": "Outline_of_industrial_organization"
+        "label": "Distribution_(economics)"
     },
     {
         "id": 131,
-        "label": "Outline_of_production"
+        "label": "Factors_of_production"
     },
     {
         "id": 132,
-        "label": "Output_(economics)"
+        "label": "Outline_of_industrial_organization"
     },
     {
         "id": 133,
-        "label": "Price"
+        "label": "Outline_of_production"
     },
     {
         "id": 134,
-        "label": "Prices_of_production"
+        "label": "Output_(economics)"
     },
     {
         "id": 135,
-        "label": "Pricing_strategies"
+        "label": "Price"
     },
     {
         "id": 136,
-        "label": "Production_function"
+        "label": "Prices_of_production"
     },
     {
         "id": 137,
-        "label": "Production_theory_basics"
+        "label": "Pricing_strategies"
     },
     {
         "id": 138,
-        "label": "Production_possibility_frontier"
+        "label": "Production_function"
     },
     {
         "id": 139,
-        "label": "Productive_and_unproductive_labour"
+        "label": "Production_theory_basics"
     },
     {
         "id": 140,
-        "label": "Productive_forces"
+        "label": "Production_possibility_frontier"
     },
     {
         "id": 141,
-        "label": "Productivity_model"
+        "label": "Productive_and_unproductive_labour"
     },
     {
         "id": 142,
-        "label": "Productivity_improving_technologies_(historical)"
+        "label": "Productive_forces"
     },
     {
         "id": 143,
-        "label": "Microeconomics"
+        "label": "Productivity_model"
     },
     {
         "id": 144,
-        "label": "Mode_of_production"
+        "label": "Productivity_improving_technologies_(historical)"
     },
     {
         "id": 145,
-        "label": "Mass_production"
+        "label": "Microeconomics"
     },
     {
         "id": 146,
-        "label": "Second_Industrial_Revolution"
+        "label": "Mode_of_production"
     },
     {
         "id": 147,
-        "label": "Anwar_Shaikh_(Economist)"
+        "label": "Mass_production"
     },
     {
         "id": 148,
-        "label": "Category:Production_economics"
+        "label": "Second_Industrial_Revolution"
     },
     {
         "id": 149,
-        "label": "Category:Production_and_manufacturing"
+        "label": "Anwar_Shaikh_(Economist)"
     },
     {
         "id": 150,
-        "label": "ru:\u041f\u0440\u043e\u0438\u0437\u0432\u043e\u0434\u0441\u0442\u0432\u043e"
+        "label": "Category:Production_economics"
     },
     {
         "id": 151,
+        "label": "Category:Production_and_manufacturing"
+    },
+    {
+        "id": 152,
+        "label": "ru:\u041f\u0440\u043e\u0438\u0437\u0432\u043e\u0434\u0441\u0442\u0432\u043e"
+    },
+    {
+        "id": 153,
         "label": "Industry"
     }
 ]

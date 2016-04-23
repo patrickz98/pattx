@@ -132,6 +132,8 @@ function addJson($json, $data)
 
     array_push($jsonData, $data);
 
+    sort($jsonData);
+
     $myfile = @fopen($json, "w");
     @fwrite($myfile, json_encode($jsonData, JSON_PRETTY_PRINT));
     @fclose($myfile);
