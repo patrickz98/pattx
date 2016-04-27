@@ -69,19 +69,26 @@ function deMoroniseBody($body)
 
 function deMoroniseHtmlForPage($content)
 {
-    $content = str_replace("</p>",    "%+#</p>", $content);
-    $content = str_replace("<br>",    "%+#",     $content);
-    $content = str_replace("\n",      "%+#",     $content);
-    // $content = str_replace("%+# %+#", "%+#",     $content);
+    $breaklineID = "###";
+    $imgID       = "!!";
+
+    $content = preg_replace("/<img *src=\"(.*?)\".*?>/", "<img>$imgID$1$imgID</img>", $content);
+
+    $content = str_replace("</p>", $breaklineID, $content);
+    $content = str_replace("<br>", $breaklineID, $content);
+    $content = str_replace("\n",   $breaklineID, $content);
 
     $result = deMoroniseHtml($content);
 
-    $result = str_replace("%+#%+#", "%+#", $result);
-    $result = preg_replace("/\%\+\# *\%\+\#/", "%+#", $result);
+    $result = preg_replace("/( {1,})/", " ", $result);
+    $result = preg_replace("/(($breaklineID ){1,}$breaklineID)/", $breaklineID, $result);
 
-    $result = str_replace("%+#", " %+# ", $result);
+    $result = str_replace($breaklineID, " " . $breaklineID . " ", $result);
+    $result = preg_replace("/ {1,}($breaklineID) {1,}/", " $breaklineID ", $result);
 
-    // echo $result;
+    // Kommas
+    $result = preg_replace("/ \,/", ",", $result);
+    $result = preg_replace("/ \./", ".", $result);
 
     return $result;
 }
@@ -91,15 +98,18 @@ function deMoroniseHtml($content)
     if (strpos($content, ">") === false) return $content;
 
     $content = str_replace("\n", "", $content);
-    $content = ">" . $content . "<";
+    // $content = ">" . $content . "<";
+    //
+    // preg_match_all("/>(.*?)</", $content, $result);
+    //
+    // $result = join("", $result[ 1 ]);
+    // $result = str_replace("  ", " ", $result);
+    // $result = str_replace("<p>", "", $result);
+    $content = preg_replace("/(<.*?>)/", "", $content);
+    //
+    // echo "$$" . $content . "$$\n";
 
-    preg_match_all("/>(.*?)</", $content, $result);
-
-    $result = join("", $result[ 1 ]);
-    $result = str_replace("  ", " ", $result);
-    $result = str_replace("<p>", "", $result);
-
-    return $result;
+    return $content;
 }
 
 function removeHtmlSuffix($path)
@@ -124,7 +134,7 @@ function writeFile($destination, $content)
 {
     if ($content == null) return;
 
-    echo "--> $destination\n";
+//     echo "--> $destination\n";
 
     $myfile = @fopen($destination, "w");
     @fwrite($myfile, $content);
@@ -162,17 +172,10 @@ function addJson($json, $data)
     return true;
 }
 
-function ToJsonWrite($json)
-{
-    $json = json_encode($json, JSON_PRETTY_PRINT);
-
-    return $json;
-}
-
 function niceJson($json)
 {
     $json = json_decode($json, true);
-    $json = json_encode($json, JSON_PRETTY_PRINT);
+    $json = prettyJson($json);
 
     return $json;
 }

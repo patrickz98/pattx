@@ -32,17 +32,17 @@ function openUrl($url)
     }
 }
 
-$links = readJson("./Links.json");
+//$links = readJson("./Links.json");
 
-foreach ($links as $key => $value)
-{
-    openUrl($value);
-}
+//foreach ($links as $key => $value)
+//{
+//    openUrl($value);
+//}
 
 // openUrl("http://www.spiegel.de/");
 // openUrl("https://www.google.de/?gfe_rd=cr&ei=omQWV7T8HcGF8Qe3nIKgDA#q=Patrick+Zierahn");
 // openUrl("http://www.nytimes.com/");
 // openUrl("http://www.theguardian.com/international");
 // openUrl("http://www.latimes.com");
-
+openUrl($argv[ 1 ]);
 ?>

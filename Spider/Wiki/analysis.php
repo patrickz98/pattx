@@ -1,60 +1,55 @@
 <?php
 
-function writeFile($file, $data)
-{
-    $myfile = @fopen($file, "w");
-    @fwrite($myfile, $data);
-    @fclose($myfile);
-}
-
-function splitArray($array, $split)
-{
-    $arrayCount = count($array);
-    $newArray   = array();
-
-    $level = 0;
-    $main  = 0;
-    $newArray[ $main ] = array();
-
-    for ($id = 0; $id < $arrayCount; $id++)
-    {
-        array_push($newArray[ $main ], $array[ $id ]);
-
-        if ($id == $split)
-        {
-            $level += $split;
-            $main  += 1;
-
-            $newArray[ $main ] = array();
-        }
-    }
-
-    return $newArray;
-}
-
-function joinArray($array)
-{
-    $newArray = array();
-
-    for ($inx = 0; $inx < count($array); $inx++)
-    {
-        foreach ($array[ $inx ] as $key => $value)
-        {
-            array_push($newArray, $value);
-        }
-    }
-
-    return $newArray;
-}
+include("../Lib.php");
+include("../Elastic.php");
 
 function getLocation($content)
 {
-    preg_match_all("/\|Latitude = (.*)/",  $content, $latitude,  PREG_PATTERN_ORDER);
-    preg_match_all("/\|Longitude = (.*)/", $content, $longitude, PREG_PATTERN_ORDER);
+    // coordinates = {{Coord|40.666|-73.966|
+    preg_match_all("/coordinates = \{\{Coord\|(.*?)\|(.*?)\|/",  $content, $coordinates,  PREG_PATTERN_ORDER);
+
+    //
+    // latitude  = lat
+    // longitude = lon
+    //
 
     $location = array();
-    $location[ "latitude" ]  = $latitude[ 1 ][ 0 ];
-    $location[ "longitude" ] = $longitude[ 1 ][ 0 ];
+    $latitude  = $coordinates[ 1 ][ 0 ];
+    $longitude = $coordinates[ 2 ][ 0 ];
+
+
+    if ($latitude && $longitude)
+    {
+        $location[ "lat" ] = floatval($latitude);
+        $location[ "lon" ] = floatval($longitude);
+
+        return $location;
+    }
+
+    // preg_match_all("/\| latd = ([0-9]+)(\.[0-9]+)?/",  $content, $latitude,  PREG_PATTERN_ORDER);
+    // preg_match_all("/\| longd = ([0-9]+)(\.[0-9]+)?/", $content, $longitude, PREG_PATTERN_ORDER);
+    preg_match_all("/latd = ([0-9]+)(\.[0-9]+)?/",  $content, $latitude,  PREG_PATTERN_ORDER);
+    preg_match_all("/longd = ([0-9]+)(\.[0-9]+)?/", $content, $longitude, PREG_PATTERN_ORDER);
+
+    $location = array();
+
+    if ($latitude[ 1 ][ 0 ] && $latitude[ 1 ][ 0 ])
+    {
+        $location[ "lat" ] = floatval($latitude[ 1 ][ 0 ]);
+        $location[ "lon" ] = floatval($longitude[ 1 ][ 0 ]);
+        // echo "1: lat " . $location[ "lat" ] . " long " . $location[ "lon" ] . "\n";
+    }
+    else
+    {
+        return null;
+    }
+
+    if ($latitude[ 2 ][ 0 ] && $latitude[ 2 ][ 0 ])
+    {
+        $location[ "lat" ] = floatval("" . $latitude[ 1 ][ 0 ] . $latitude[ 2 ][ 0 ]);
+        $location[ "lon" ] = floatval("" . $longitude[ 1 ][ 0 ] . $longitude[ 2 ][ 0 ]) * -1;
+        // echo "2: lat " . $location[ "lat" ] . " long " . $location[ "lon" ] . "\n";
+    }
 
     return $location;
 }
@@ -65,10 +60,10 @@ function getFiles($links)
 
     foreach ($links as $key => $value)
     {
-        preg_match_all("/File:(.*)/", $value, $match, PREG_PATTERN_ORDER);
-        if ($match[ 0 ])
+        preg_match_all("/(File:.*)/", $value, $match, PREG_PATTERN_ORDER);
+        if ($match[ 1 ])
         {
-            array_push($files, $match[ 0 ][ 0 ]);
+            array_push($files, $match[ 1 ][ 0 ]);
         }
     }
 
@@ -129,9 +124,13 @@ function getWikiJson($title)
 {
     $resultJson = array();
 
+    //
+    //  https://en.wikipedia.org/w/api.php?action=query&titles=. $title . &prop=revisions&rvprop=content&format=json
+    //  https://en.wikipedia.org/w/api.php?action=query&titles=London&prop=revisions&rvprop=content&format=json
+    //
+
     $wiki = "https://en.wikipedia.org";
 
-    $structure = "./JSON/";
     $wikiJson = file_get_contents($wiki . "/w/api.php?action=query&titles=". $title . "&prop=revisions&rvprop=content&format=json");
     $wikiJson = json_decode($wikiJson, true);
 
@@ -145,55 +144,56 @@ function getWikiJson($title)
         $title = $value[ "title" ];
         $title = str_replace(" ", "_", $title);
 
+        $resultJson= array();
+
+        $resultJson[ "title" ] = $title;
+        $resultJson[ "api"   ] = $wiki . "/w/api.php?action=query&titles=" . $title . "&prop=revisions&rvprop=content&format=json";
+        $resultJson[ "wiki"  ] = $wiki . "/wiki/" . $title;
+        $resultJson[ "key"   ] = $key;
+
+        // echo "--> " . $title . "\n";
+
         $revisions = count($value[ "revisions" ]);
-
-        $resultJson[ $title ] = array();
-
-        $resultJson[ $title ][ "title" ] = $title;
-        $resultJson[ $title ][ "wiki"  ] = $wiki . "/wiki/" . $title;
-        $resultJson[ $title ][ "key"   ] = $key;
-
-        echo "--> " . $title . "\n";
 
         if ($revisions > 1)
         {
             echo "revisions: $revisions\n";
             echo "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n";
-            exit(0);
+            exit(-1);
         }
 
-        $content  = $value[ "revisions" ][ 0 ][ "*" ];
-        $links    = getLinks($content);
+        $content = $value[ "revisions" ][ 0 ][ "*" ];
+        $links   = getLinks($content);
 
         if (count($links) == 0) continue;
 
         $location = getLocation($content);
-        $resultJson[ $title ][ "latitude"  ] = $location[ "latitude" ];
-        $resultJson[ $title ][ "longitude" ] = $location[ "longitude" ];
 
-        if ($location[ "latitude" ] && $location[ "longitude" ])
+        if ($location)
         {
-            echo "++> location\n";
+            echo "**> latitude:  " . $location[ "lat" ] . "\n";
+            echo "**> longitude: " . $location[ "lon" ] . "\n";
+
+            $resultJson[ "location" ] = $location;
         }
 
-        // $files = getFiles($links);
-        // $resultJson[ $title ][ "files" ] = $files;
+        $files = getFiles($links);
+        $resultJson[ "files" ] = $files;
 
-        $resultJson[ $title ][ "linksCount" ] = count($links);
-        $resultJson[ $title ][ "links" ]      = $links;
+        $resultJson[ "linksCount" ] = count($links);
+        $resultJson[ "links" ]      = $links;
 
-        @mkdir($structure, 0777, true);
+        $destiantion = $title . ".json";
+        $data = prettyJson($resultJson);
 
-        $destiantion = $structure . str_replace("/", "_", $title);
-        $myfile = @fopen($destiantion . ".json", "w");
-        @fwrite($myfile, json_encode($resultJson[ $title ], JSON_PRETTY_PRINT));
-        @fclose($myfile);
+        writeFileDir("./Wiki/", $destiantion, $data);
+        // writeFileDir("./Wiki-Source/", $destiantion, prettyJson($wikiJson));
 
-        // @mkdir("./TXT/", 0777, true);
-        // $destiantion = "./TXT/" . str_replace("/", "_", $title);
-        // $myfile = @fopen($destiantion . ".txt", "w");
-        // @fwrite($myfile, $content);
-        // @fclose($myfile);
+        $server = "localhost";
+        $index  = "wiki";
+        $type   = "cloud";
+
+        putData($data, $server, $index, $type);
     }
 
     return $resultJson;
@@ -217,7 +217,7 @@ function nodes($json)
         array_push($result, $pushJSON);
     }
 
-    writeFile("nodes.json", json_encode($result, JSON_PRETTY_PRINT));
+    writeFile("nodes.json", prettyJson($result));
 
     return $nodes;
 }
@@ -243,41 +243,29 @@ function edges($json, $nodes)
         }
     }
 
-    writeFile("edges.json", json_encode($result, JSON_PRETTY_PRINT));
+    writeFile("edges.json", prettyJson($result));
 }
 
-// $links = array();
-//
-// $Risk_society = getLinksRaw("Production_(economics)");
-// array_push($Risk_society, "Production_(economics)");
-//
-// $Ulrich_Beck = getLinksRaw("Industry");
-// array_push($Risk_society, "Industry");
-//
-// array_push($links, $Ulrich_Beck, $Risk_society);
-//
-// $links = joinArray($links);
-// $links = array_unique($links);
-// $links = array_values($links);
-//
-// $nodes = nodes($links);
-//
-// $tmp = array();
-// $tmp[ "Production_(economics)" ] = $Risk_society;
-// $tmp[ "Industry" ]  = $Ulrich_Beck;
-//
-// edges($tmp, $nodes);
+function stuff($name)
+{
+    getWikiJson($name);
 
-// $cloud = array();
-//
-// foreach ($links as $key => $link)
-// {
-//     $cloud[ $link ] = array_unique(getLinksRaw($link));
-// }
-//
-// error_log(json_encode($cloud, JSON_PRETTY_PRINT));
+    $links = getLinksRaw($name);
 
-// print_r(getLinksRaw("Main_Page"));
-print_r(getLinksRaw("urbanization"));
+    foreach ($links as $key => $value)
+    {
+        getWikiJson($value);
+    }
+}
 
+
+// stuff("New_York_City");
+stuff("European_Union");
+// stuff("Ebola_virus_disease");
+// stuff("Battle_of_Long_Island");
+// getWikiJson("Battle_of_Long_Island");
+// stuff("London");
+// getWikiJson("London");
+// getWikiJson("New_York_City");
+// curl -XPUT "http://localhost:9200/wiki?pretty" -d '{"mappings": { "cloud": { "properties" : {"location" : {"type" : "geo_point"}}}}}'
 ?>
