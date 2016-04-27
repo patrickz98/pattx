@@ -43,7 +43,6 @@ update: clean encrypt encrypt-google
 
 update-dec: decrypt tarx decrypt-google clean-gz clean-aes
 
-
 clean:
 	find . -name ".*DS_Store" -delete
 
