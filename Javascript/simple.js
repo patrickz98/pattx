@@ -380,14 +380,6 @@ WebLibSimple.substring = function(str, start, ende)
     return str.substring(start, ende);
 }
 
-// WebLibSimple.createAnyTextNode = function(parent, type)
-// {
-//     var div = document.createTextNode(type);
-//     parent.appendChild(div);
-//
-//     return div;
-// }
-
 WebLibSimple.createOption = function(select, value)
 {
     // var option = WebLibSimple.createAnyAppend("option", select);
@@ -400,4 +392,33 @@ WebLibSimple.createOption = function(select, value)
     select.add(option);
 
     return option;
+}
+
+WebLibSimple.getNiceDate = function(date)
+{
+    var date = new Date(date);
+
+    var day = parseInt(date.getDate());
+    if (day < 10) day = "0" + day;
+
+    var month = parseInt(date.getMonth());
+    if (month < 10) month = "0" + month;
+
+    var year = date.getFullYear();
+
+    // 2016-04-28T12:17:56Z
+    // return year + "-" + month + "-" + day + "T02:00:00Z";
+    return year + "-" + month + "-" + day;
+}
+
+WebLibSimple.getNiceDateYMD = function(year, month, day)
+{
+    if (day   < 10) day   = "0" + day;
+    if (month < 10) month = "0" + month;
+
+    // var date = new Date(year + "-" + month + "-" + day);
+
+    // 2016-04-28T12:17:56Z
+    // return year + "-" + month + "-" + day + "T02:00:00Z";
+    return year + "-" + month + "-" + day;
 }

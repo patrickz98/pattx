@@ -20,5 +20,6 @@
         "high",
         "middel",
         "low"
-    ]
+    ],
+    "done": false
 }

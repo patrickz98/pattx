@@ -1,22 +1,58 @@
 Subjects = {
-    "Mathematics": "Mathematics",
-    "Physics": "Physics",
-	"Art": "Art",
-	"Geography": "Geography",
-	"History": "History",
-    "English": "English",
-    "German": "German",
-    "French": "French",
-    "Spanish": "Spanish",
-	"Music": "Music",
-	"Business studies": "Business studies",
-	"Drama": "Drama",
-	"Information and communication technology": "Information and communication technology",
-	"Religion": "Religion",
-	"Ancient Greek": "Ancient Greek",
-	"Biology": "Biology",
-	"Chemistry": "Chemistry",
-	"Ethic(s)": "Ethic(s)",
-	"Latin": "Latin",
-	"Psychology": "Psychology"
-}
+    "name": "Subjects",
+    "optionKey": "Subject",
+    "options": [
+        "Mathematics",
+        "Physics",
+    	"Art",
+    	"Geography",
+    	"History",
+        "English",
+        "German",
+        "Spanish",
+    	"Philosophy",
+    	"Computer Sience",
+    	"Sports",
+    	"Politics"
+    ]
+};
+
+Priority = {
+    "name": "Priority",
+    "optionKey": "Priority",
+    "options": [
+        "high",
+        "middel",
+        "low"
+    ]
+};
+
+Priority = {
+    "name": "Priority",
+    "optionKey": "Priority",
+    "options": [
+        "high",
+        "middel",
+        "low"
+    ]
+};
+
+Task = {
+    "name": "Task",
+    "optionKey": "Task"
+};
+
+Room = {
+    "name": "Room",
+    "optionKey": "Room"
+};
+
+Notes = {
+    "name": "Notes",
+    "optionKey": "Notes"
+};
+
+DestinyDate = {
+    "name": "Destiny Date",
+    "optionKey": "DestinyDate"
+};

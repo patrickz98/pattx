@@ -1,9 +1,11 @@
 DataInterface = {};
 
-// DataInterface.conf.border
+// DataInterface.conf.circleSize
 DataInterface.conf = {
     border: 10,
-    headlineHeight: 85
+    headlineHeight: 85,
+    circleSize: 200,
+    today: WebLibSimple.getNiceDate((new Date())),
 };
 
 DataInterface.opt = {
@@ -11,8 +13,10 @@ DataInterface.opt = {
     Country: "de",
     School: "GSH",
     Grade: "S2",
-    CreateDate: (new Date()).getTime(),
-    Subject: null,
+    // CreateDate: (new Date()).toString(),
+    CreateDate: DataInterface.conf.today,
+    // Subject: null,
+    Subject: "Pups",
     Course: null,
     Teacher: null,
     DestinyDate: null,
@@ -28,129 +32,6 @@ DataInterface.opt = {
     // },
 }
 
-
-// <textarea name="message" rows="10" cols="30">
-// The cat was playing in the garden.
-// </textarea>
-
-DataInterface.nukeDimmerDiv = function()
-{
-    DataInterface.dimmerDiv.style.display = "none";
-
-    if (DataInterface.opt.Subject)
-    {
-        WebLibSimple.setBGColor(DataInterface.Subject, "#ff9100");
-        DataInterface.Subject.innerHTML = DataInterface.opt.Subject;
-    }
-    else
-    {
-        WebLibSimple.setBGColor(DataInterface.Subject, "#335bc3");
-    }
-}
-
-DataInterface.createDimmerDiv = function()
-{
-    DataInterface.dimmerDiv = WebLibSimple.createDiv(0, 0, 0, 0, "dimemrDiv", document.body);
-
-    var dimmerDiv = DataInterface.dimmerDiv;
-    // dimmerDiv.onclick        = DataInterface.nukeDimmerDiv;
-
-    WebLibSimple.setBGColor(dimmerDiv, "#99000000");
-
-    var containerDiv = WebLibSimple.createDiv(50, 50, 50, 50, null, dimmerDiv);
-    containerDiv.style.border       = "1px solid black";
-    containerDiv.style.borderRadius = "25px";
-    // containerDiv.onclick            = DataInterface.event;
-    containerDiv.style.overflow = "hidden";
-
-    WebLibSimple.setBGColor(containerDiv, "#ffffff");
-
-    var contentDiv = WebLibSimple.createDiv(25, 25, 25, 25, null, containerDiv);
-
-    return contentDiv;
-}
-
-DataInterface.createCircle = function(title, top, left, size, color, parent, eventFunct)
-{
-    var div = WebLibSimple.createDivWidHei(top, left, size, size, null, parent);
-    div.style.borderRadius = "50%";
-    div.style.lineHeight   = size + "px";
-    div.style.fontSize     = (size * 0.15) + "px";
-    div.style.textAlign    = "center";
-    div.style.color        = "#ffffff";
-
-    div.onclick   = eventFunct;
-    div.innerHTML = title;
-
-    WebLibSimple.setBGColor(div, color);
-
-    return div;
-}
-
-DataInterface.createCenterCircle = function(title, size, color, parent, eventFunct)
-{
-    var center = WebLibSimple.createAnyAppend("center", parent);
-    // var span   = WebLibSimple.createAnyAppend("span", center);
-    // span.innerHTML = "Wollo";
-
-    var div = WebLibSimple.createAnyAppend("div", center);
-    div.style.borderRadius = "50%";
-    div.style.width        = size + "px";
-    div.style.height       = size + "px";
-    div.style.lineHeight   = size + "px";
-    div.style.fontSize     = (size * 0.15) + "px";
-    div.style.textAlign    = "center";
-    div.style.color        = "#ffffff";
-
-    div.onclick   = eventFunct;
-    div.innerHTML = title;
-
-    WebLibSimple.setBGColor(div, color);
-
-    return div;
-}
-
-// DataInterface.event = function(event)
-// {
-//     var target = event.target;
-//     console.log("DataInterface.event: " + target.innerHTML);
-// }
-
-DataInterface.subjectSelected = function(event)
-{
-    var target = event.target;
-    target.style.color = "#ff9100";
-
-    var choice = target.innerHTML;
-
-    console.log("Subject Selected: " + choice);
-    DataInterface.opt.Subject = choice;
-}
-
-DataInterface.subjectButton = function(event)
-{
-    console.log("DataInterface.subjectButton");
-
-    var target = event.target;
-    var dimmerDiv = DataInterface.createDimmerDiv();
-
-    for (var subject in Subjects)
-    {
-        var div = WebLibSimple.createAnyAppend("div", dimmerDiv);
-        div.innerHTML = subject;
-        div.style.textAlign = "center";
-        div.onclick = DataInterface.subjectSelected;
-    }
-
-    var div = WebLibSimple.createAnyAppend("div", dimmerDiv);
-    div.style.paddingTop = "50px";
-
-    var backButton = DataInterface.createCenterCircle("----", 50, "#000000", div, DataInterface.nukeDimmerDiv);
-
-    // var backButton = DataInterface.createCircle("-----", "50%", null, 50, "#000000", div, DataInterface.nukeDimmerDiv);
-    // backButton.style.zIndex = "50";
-}
-
 DataInterface.createHeadline = function(title, parent)
 {
     var containerDiv = WebLibSimple.createDivHeight(0, 0, 0, DataInterface.conf.headlineHeight, null, parent);
@@ -162,43 +43,6 @@ DataInterface.createHeadline = function(title, parent)
     headline.style.color     = "#ffffff";
 
     WebLibSimple.setBGColor(containerDiv, "#566b90");
-}
-
-DataInterface.createList = function(parent)
-{
-    var containerDiv = WebLibSimple.createAnyAppend("div", parent);
-    containerDiv.style.height = "30px";
-
-    WebLibSimple.setBGColor(containerDiv, "#6c3333");
-
-    var select = WebLibSimple.createAnyAppend("select", containerDiv);
-    select.style.top    = "0px";
-    select.style.bottom = "0px";
-
-    // select.name = "cars";
-
-    for (var subject in Subjects)
-    {
-        var option = WebLibSimple.createOption(select, subject);
-    }
-
-    // select.add("<option value=\"car\">BMW</option>");
-
-    console.log(select.selectedIndex);
-    console.log(select.options);
-    console.log(select.options[ select.selectedIndex ]);
-    console.log(select.value);
-
-    // <form action="action_page.php">
-    //   <select name="cars">
-    //     <option value="volvo">Volvo</option>
-    //     <option value="saab">Saab</option>
-    //     <option value="fiat">Fiat</option>
-    //     <option value="audi">Audi</option>
-    //   </select>
-    //   <br><br>
-    //   <input type="submit">
-    // </form>
 }
 
 DataInterface.frameSetup = function()
@@ -237,17 +81,161 @@ DataInterface.frameSetup = function()
     DataInterface.createHeadline("Easy Json Interface...!", DataInterface.topDiv);
 }
 
+// DataInterface.createCircle = function(title, top, left, size, color, parent, eventFunct)
+// {
+//     var div = WebLibSimple.createDivWidHei(top, left, size, size, null, parent);
+//     div.style.borderRadius = "50%";
+//     div.style.lineHeight   = size + "px";
+//     div.style.fontSize     = (size * 0.15) + "px";
+//     div.style.textAlign    = "center";
+//     div.style.color        = "#ffffff";
+//
+//     div.onclick   = eventFunct;
+//     div.innerHTML = title;
+//
+//     WebLibSimple.setBGColor(div, color);
+//
+//     return div;
+// }
+
+DataInterface.createCenterCircle = function(title, size, color, parent, eventFunct)
+{
+    var center = WebLibSimple.createAnyAppend("center", parent);
+    // var span   = WebLibSimple.createAnyAppend("span", center);
+    // span.innerHTML = "Wollo";
+
+    var div = WebLibSimple.createAnyAppend("div", center);
+    div.style.borderRadius = "50%";
+    div.style.width        = size + "px";
+    div.style.height       = size + "px";
+    div.style.lineHeight   = size + "px";
+    div.style.fontSize     = (size * 0.15) + "px";
+    div.style.textAlign    = "center";
+    div.style.color        = "#ffffff";
+
+    div.onclick   = eventFunct;
+    div.innerHTML = title;
+
+    WebLibSimple.setBGColor(div, color);
+
+    return div;
+}
+
+DataInterface.createOptionButtonList = function(conf, size, color, parent)
+{
+    var containerDiv = WebLibSimple.createAnyAppend("div", parent);
+    containerDiv.style.paddingTop = "20px";
+
+    var div = DataInterface.createCenterCircle(conf.name, size, color, containerDiv, Option.buttonEventList);
+    div.conf = conf;
+
+    return div;
+}
+
+DataInterface.createOptionButtonTextField = function(conf, size, color, parent)
+{
+    var containerDiv = WebLibSimple.createAnyAppend("div", parent);
+    containerDiv.style.paddingTop = "20px";
+
+    var div = DataInterface.createCenterCircle(conf.name, size, color, containerDiv, Option.buttonEventTextField);
+    div.conf = conf;
+
+    return div;
+}
+
+DataInterface.createOptionButtonDate = function(conf, size, color, parent)
+{
+    var containerDiv = WebLibSimple.createAnyAppend("div", parent);
+    containerDiv.style.paddingTop = "20px";
+
+    var div = DataInterface.createCenterCircle(conf.name, size, color, containerDiv, Option.buttonEventDate);
+    div.conf = conf;
+
+    return div;
+}
+
+DataInterface.log = function(response)
+{
+    console.log(response);
+}
+
+DataInterface.send = function()
+{
+    var json = JSON.stringify(DataInterface.opt)
+    console.log(json);
+
+    var xmlhttp = null;
+
+    if (window.XMLHttpRequest)
+    {
+        // code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    }
+    else
+    {
+        // code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    xmlhttp.onreadystatechange = function()
+    {
+        if ((xmlhttp.readyState == 4) && (xmlhttp.status == 200))
+        {
+            // console.log(xmlhttp.responseText);
+
+            DataInterface.log(xmlhttp.responseText);
+
+            // return xmlhttp.responseText;
+        }
+    }
+
+    json = encodeURI(json);
+
+    xmlhttp.open("GET", "http://patrick-macbook.local/homework/uploade.php?json=" + json, false);
+    xmlhttp.send();
+
+}
+
 DataInterface.main = function()
 {
     var headlineHeight = DataInterface.conf.headlineHeight;
 
     var parent = DataInterface.content;
-
+    var circleSize = DataInterface.conf.circleSize;
 
     // DataInterface.createCircle("Subject", "10%", "10%", 200, "#425db8", parent, DataInterface.event);
 
     // DataInterface.createCircle("Subject", "40%", 0, 200, "#335bc3", parent, DataInterface.subjectButton);
-    DataInterface.Subject = DataInterface.createCenterCircle("Subject", 200, "#335bc3", parent, DataInterface.subjectButton);
+    // DataInterface.Subject = DataInterface.createCenterCircle("Subject", 200, "#335bc3", parent, Option.buttonEvent);
+
+    //
+    // Content with a list
+    //
+
+    DataInterface.createOptionButtonList(Subjects, circleSize, "#335bc3", parent);
+    DataInterface.createOptionButtonList(Priority, circleSize, "#335bc3", parent);
+
+    //
+    // Content with a textField
+    //
+
+    DataInterface.createOptionButtonTextField(Task,  circleSize, "#335bc3", parent);
+    DataInterface.createOptionButtonTextField(Room,  circleSize, "#335bc3", parent);
+    DataInterface.createOptionButtonTextField(Notes, circleSize, "#335bc3", parent);
+
+    //
+    // Content with a Date
+    //
+
+    DataInterface.createOptionButtonDate(DestinyDate, circleSize, "#335bc3", parent);
+
+    //
+    // Commit
+    //
+
+    var containerDiv = WebLibSimple.createAnyAppend("div", parent);
+    containerDiv.style.paddingTop = "20px";
+    DataInterface.createCenterCircle("+", circleSize, "#335bc3", containerDiv, DataInterface.send);
 
     // for (var opt in DataInterface.opt)
     // {
@@ -264,19 +252,6 @@ DataInterface.main = function()
     // // console.log(div.offsetHeight);
     //
     // WebLibSimple.setBGColor(div, "#db4d1f");
-
-    // var input = WebLibSimple.createAnyAppend("input", containerDiv);
-    // input.style.left   = "0px";
-    // input.style.top    = "0px";
-    // input.style.right  = "0px";
-    // input.style.bottom = "0px";
-    //
-    // // input.style.height = "30px";
-    //
-    // input.type = "text";
-    // input.value = "Hello World!";
-
-    // DataInterface.createList(content);
 }
 
 DataInterface.frameSetup();
