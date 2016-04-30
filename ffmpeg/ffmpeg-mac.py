@@ -197,9 +197,9 @@ def ping():
 		host = h[h.find("@") + 1:]
 		#response = os.system("ping -c 1 " + host)
 		response = subprocess.call("ping -c 1 %s" % host,
-    			   shell=True,
-    			   stdout=open('/dev/null', 'w'),
-    			   stderr=subprocess.STDOUT)
+    			   shell = True,
+    			   stdout = open('/dev/null', 'w'),
+    			   stderr = subprocess.STDOUT)
 
 		if response == 0:
 			print host, 'is up!'

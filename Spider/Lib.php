@@ -98,16 +98,7 @@ function deMoroniseHtml($content)
     if (strpos($content, ">") === false) return $content;
 
     $content = str_replace("\n", "", $content);
-    // $content = ">" . $content . "<";
-    //
-    // preg_match_all("/>(.*?)</", $content, $result);
-    //
-    // $result = join("", $result[ 1 ]);
-    // $result = str_replace("  ", " ", $result);
-    // $result = str_replace("<p>", "", $result);
     $content = preg_replace("/(<.*?>)/", "", $content);
-    //
-    // echo "$$" . $content . "$$\n";
 
     return $content;
 }
