@@ -24,7 +24,8 @@ DataInterface.opt = {
     Task: null,
     Notes: null,
     EstimatedTime: null,
-    Priority: null
+    Priority: null,
+    Done: null
     // "teacher": {
     //     "sex": "M/W",
     //     "name": "Boom",
@@ -98,13 +99,9 @@ DataInterface.frameSetup = function()
 //     return div;
 // }
 
-DataInterface.createCenterCircle = function(title, size, color, parent, eventFunct)
+DataInterface.createCircle = function(title, size, color, parent, eventFunct)
 {
-    var center = WebLibSimple.createAnyAppend("center", parent);
-    // var span   = WebLibSimple.createAnyAppend("span", center);
-    // span.innerHTML = "Wollo";
-
-    var div = WebLibSimple.createAnyAppend("div", center);
+    var div = WebLibSimple.createAnyAppend("div", parent);
     div.style.borderRadius = "50%";
     div.style.width        = size + "px";
     div.style.height       = size + "px";
@@ -117,6 +114,14 @@ DataInterface.createCenterCircle = function(title, size, color, parent, eventFun
     div.innerHTML = title;
 
     WebLibSimple.setBGColor(div, color);
+
+    return div;
+}
+
+DataInterface.createCenterCircle = function(title, size, color, parent, eventFunct)
+{
+    var center = WebLibSimple.createAnyAppend("center", parent);
+    var div = DataInterface.createCircle(title, size, color, center, eventFunct);
 
     return div;
 }
@@ -149,6 +154,28 @@ DataInterface.createOptionButtonDate = function(conf, size, color, parent)
     containerDiv.style.paddingTop = "20px";
 
     var div = DataInterface.createCenterCircle(conf.name, size, color, containerDiv, Option.buttonEventDate);
+    div.conf = conf;
+
+    return div;
+}
+
+DataInterface.createOptionButtonNummber = function(conf, size, color, parent)
+{
+    var containerDiv = WebLibSimple.createAnyAppend("div", parent);
+    containerDiv.style.paddingTop = "20px";
+
+    var div = DataInterface.createCenterCircle(conf.name, size, color, containerDiv, Option.buttonEventNummber);
+    div.conf = conf;
+
+    return div;
+}
+
+DataInterface.createOptionButtonBool = function(conf, size, color, parent)
+{
+    var containerDiv = WebLibSimple.createAnyAppend("div", parent);
+    containerDiv.style.paddingTop = "20px";
+
+    var div = DataInterface.createCenterCircle(conf.name, size, color, containerDiv, Option.buttonEventBool);
     div.conf = conf;
 
     return div;
@@ -228,6 +255,18 @@ DataInterface.main = function()
     //
 
     DataInterface.createOptionButtonDate(DestinyDate, circleSize, "#335bc3", parent);
+
+    //
+    // Content with Numbers
+    //
+
+    DataInterface.createOptionButtonNummber(EstimatedTime, circleSize, "#335bc3", parent);
+
+    //
+    // Content with boolean
+    //
+
+    DataInterface.createOptionButtonBool(Done, circleSize, "#335bc3", parent);
 
     //
     // Commit

@@ -183,12 +183,8 @@ Option.exitDate = function()
 
     if (date != today)
     {
-
-        // target.innerHTML = date.getDate() + "." + (date.getMonth() + 1) + "." + date.getFullYear();
         target.innerHTML = date;
-
         WebLibSimple.setBGColor(target, "#ff9100");
-
         DataInterface.opt[ target.conf.optionKey ] = date;
     }
     else
@@ -271,4 +267,183 @@ Option.buttonEventDate = function(event)
     var div = WebLibSimple.createAnyAppend("div", content);
     div.style.paddingTop = "50px";
     var backButton = DataInterface.createCenterCircle("----", 50, "#000000", div, Option.exitDate);
+}
+
+//
+// Nummber picker
+//
+
+Option.exitNummber = function()
+{
+    Option.nukeDimmerDiv();
+    var target = Option.globalTarget;
+
+    console.log(target.input.value);
+
+    var value = target.input.value;
+
+    if (value)
+    {
+        WebLibSimple.setBGColor(target, "#ff9100");
+
+        target.innerHTML = "Time: " + value + "min";
+
+        DataInterface.opt[ target.conf.optionKey ] = value;
+    }
+    else
+    {
+        WebLibSimple.setBGColor(target, "#335bc3");
+    }
+}
+
+Option.buttonEventNummber = function(event)
+{
+    Option.globalTarget = event.target;
+    var target = Option.globalTarget;
+    var conf = target.conf;
+
+    Option.content = Option.createDimmerDiv();
+    var content = Option.content;
+
+    var center = WebLibSimple.createAnyAppend("center", content);
+
+    var containerDiv = WebLibSimple.createAnyAppend("div", center);
+    containerDiv.style.paddingTop = "50px";
+
+    var labelDiv = WebLibSimple.createAnyAppend("div", containerDiv);
+    labelDiv.innerHTML = "Duration:";
+    labelDiv.style.width = "200px";
+    labelDiv.style.display = "inline-block";
+
+    target.input = WebLibSimple.createAnyAppend("input", containerDiv);
+    var input = target.input;
+    input.style.width  = "100px";
+    input.style.height = "30px";
+
+    input.type = "number";
+    input.placeholder = conf.min;
+    input.min         = conf.min;
+    input.max         = conf.max;
+
+    var labelDiv = WebLibSimple.createAnyAppend("span", containerDiv);
+    labelDiv.innerHTML = "min";
+    // labelDiv.style.width = "200px";
+    // labelDiv.style.display = "inline-block";
+    labelDiv.style.paddingLeft = "10px";
+    labelDiv.style.textAlign = "left";
+
+    var div = WebLibSimple.createAnyAppend("div", content);
+    div.style.paddingTop = "50px";
+    var backButton = DataInterface.createCenterCircle("----", 50, "#000000", div, Option.exitNummber);
+}
+
+//
+// boolean picker
+//
+
+Option.exitBool = function()
+{
+    Option.nukeDimmerDiv();
+
+    var target = Option.globalTarget;
+    var value  = target.value;
+
+    DataInterface.opt[ target.conf.optionKey ] = value;
+
+    console.log("Option.exitBool: " + value);
+
+    if (value)
+    {
+        WebLibSimple.setBGColor(target, "#3dba42");
+
+    }
+    else
+    {
+        WebLibSimple.setBGColor(target, "#335bc3");
+    }
+}
+
+Option.boolSelect = function(event)
+{
+    Option.nukeDimmerDiv();
+
+    var target = Option.globalTarget;
+    var value  = event.target.innerHTML;
+
+    console.log("target.conf.optionKey: " + target.conf.optionKey);
+    console.log(value);
+
+    if (value == "Yes")
+    {
+        DataInterface.opt[ target.conf.optionKey ] = true;
+        WebLibSimple.setBGColor(target, "#33c345");
+    }
+
+    if (value == "No")
+    {
+        DataInterface.opt[ target.conf.optionKey ] = false;
+        WebLibSimple.setBGColor(target, "#c33333");
+    }
+
+    if (value == "Neutral")
+    {
+        DataInterface.opt[ target.conf.optionKey ] = null;
+        WebLibSimple.setBGColor(target, "#335bc3");
+    }
+}
+
+Option.buttonEventBool = function(event)
+{
+    console.log("PUPS");
+
+    Option.globalTarget = event.target;
+
+    Option.content = Option.createDimmerDiv();
+    var content = Option.content;
+
+    //
+    // left
+    //
+
+    var div  = WebLibSimple.createAnyAppend("div", content);
+    div.style.width   = "33%";
+    div.style.display = "inline-block";
+    // div.onclick = Option.boolSelect;
+
+    var center = WebLibSimple.createAnyAppend("center", div);
+    DataInterface.createCircle("Yes", 200, "#c39633", center, Option.boolSelect);
+
+    //
+    // middel
+    //
+
+    var div = WebLibSimple.createAnyAppend("div", content);
+    div.style.width   = "33%";
+    div.style.left    = "33%";
+    div.style.display = "inline-block";
+    // div.onclick = Option.boolSelect;
+
+    var center = WebLibSimple.createAnyAppend("center", div);
+    DataInterface.createCircle("Neutral", 200, "#33c37e", center, Option.boolSelect);
+
+    //
+    // right
+    //
+
+    var div = WebLibSimple.createAnyAppend("div", content);
+    div.style.width   = "33%";
+    div.style.left    = "66%";
+    div.style.display = "inline-block";
+    // div.onclick = Option.boolSelect;
+
+    var center = WebLibSimple.createAnyAppend("center", div);
+    DataInterface.createCircle("No", 200, "#33c37e", center, Option.boolSelect);
+
+    //
+    // exit
+    //
+
+    // var div = WebLibSimple.createAnyAppend("div", content);
+    // div.style.paddingTop = "50px";
+    // var backButton = DataInterface.createCenterCircle("----", 50, "#000000", div, Option.exitBool);
 }
