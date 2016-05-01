@@ -1,0 +1,87 @@
+{
+    "Art": {
+        "Course": "Kunst 6",
+        "Room": "AU13",
+        "School": "GSH",
+        "Teacher": "Frau Herz",
+        "TeacherSymbol": "Hz"
+    },
+    "Politics": {
+        "Course": "PGW 8",
+        "Room": "AU13",
+        "School": "GSH",
+        "Teacher": "Herr Lupp",
+        "TeacherSymbol": "Lp"
+    },
+    "Mathematics": {
+        "Course": "Mathe 3",
+        "Room": "A215",
+        "School": "GSH",
+        "Teacher": "Herr Henschen",
+        "TeacherSymbol": "Hn"
+    },
+    "Physics": {
+        "Course": "Phy 1",
+        "Room": "NU44",
+        "School": "GSH",
+        "Teacher": "Herr Seelbach",
+        "TeacherSymbol": "See"
+    },
+    "Computer Science": {
+        "Course": "Phy 1",
+        "Room": "NU44",
+        "School": "GSH",
+        "Teacher": "Herr Seelbach",
+        "TeacherSymbol": "See"
+    },
+    "English": {
+        "Course": "En 6",
+        "Room": "A120",
+        "School": "GSH",
+        "Teacher": "Frau Stemmer",
+        "TeacherSymbol": "Wd"
+    },
+    "Philosophy": {
+        "Course": "Ph 2",
+        "Room": "A015",
+        "School": "GSH",
+        "Teacher": "Frau Keakenmeister",
+        "TeacherSymbol": "Kea"
+    },
+    "Sport": {
+        "Course": null,
+        "Room": "H1",
+        "School": "GSH",
+        "Teacher": "Herr Wanagat",
+        "TeacherSymbol": "Wg"
+    },
+    "Spanish": {
+        "Course": "Sp 2",
+        "Room": "NU40",
+        "School": "GSH",
+        "Teacher": "Frau Albrecht",
+        "TeacherSymbol": "Al"
+    },
+    "German": {
+        "Course": "De 8",
+        "Room": "A113",
+        "School": "GSH",
+        "Teacher": "Herr Schmid",
+        "TeacherSymbol": "PS"
+    },
+    "History": {
+        "Course": "Ges 6",
+        "Room": "N129",
+        "School": "GSH",
+        "Teacher": "Herr Lupp",
+        "TeacherSymbol": "Lp"
+    },
+    "Seminar": {
+        "Course": "Se 6",
+        "Room": "N129",
+        "School": "GSH",
+        "Teacher": "Herr Lupp",
+        "TeacherSymbol": "Lp"
+    },
+
+}

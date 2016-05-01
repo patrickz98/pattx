@@ -1,0 +1,42 @@
+{
+    "Monday": [
+        {
+            "startTime": "8:00",
+            "endTime": "9:30",
+            "Subject": "Art"
+        },
+
+        "Art",
+        "Politics",
+        "Mathematics",
+        "Physics",
+        "Sport"
+    ],
+    "Tuesday": [
+        "Computer Science",
+        "Mathematics",
+        "English",
+        "Philosophy"
+    ],
+    "Wednesday": [
+        "Spanish",
+        "German"
+    ],
+    "Thursday": [
+        "History",
+        "Physics",
+        "Seminar"
+    ],
+    "Friday": [
+        "Spanish",
+        "English",
+        "German",
+        "Physics"
+    ],
+    "Saturday": [
+
+    ],
+    "Sunday": [
+
+    ]
+}

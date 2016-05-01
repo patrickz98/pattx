@@ -1,0 +1,54 @@
+https://www.elastic.co/guide/en/elasticsearch/guide/current/running-elasticsearch.html
+
+http://localhost:5601
+
+curl 'http://localhost:9200/?pretty'
+
+curl -XGET 'http://localhost:9200/_count?pretty' -d '
+{
+    "query": {
+        "match_all": {}
+    }
+}
+'
+
+curl -XPUT 'http://localhost:9200/megacorp/employee/1?pretty' -d '
+{
+    "first_name" : "John",
+    "last_name" :  "Smith",
+    "age" :        25,
+    "about" :      "I love to go rock climbing",
+    "interests": [ "sports", "music" ]
+}'
+
+curl -XGET 'http://localhost:9200/megacorp/employee/1?pretty'
+
+curl -XGET 'http://localhost:9200/megacorp/employee/_search?q=last_name:Smith&pretty'
+
+curl -XGET 'http://localhost:9200/megacorp/employee/_search?pretty'
+
+curl -XGET 'http://localhost:9200/megacorp/employee/_search?pretty' -d '
+{
+    "query" : {
+        "match" : {
+            "last_name" : "Smith"
+        }
+    }
+}'
+
+curl -XDELETE 'http://localhost:9200/megacorp/?pretty'
+
+curl -XPUT "http://localhost:9200/test?pretty" -d '{"mappings": { "testing": { "properties" : {"location" : {"type" : "geo_point"}}}}}'
+
+curl -XPUT "http://localhost:9200/map?pretty" -d '{"mappings": { "testing": { "properties" : {"location" : {"type" : "geo_point"}}}}}'
+curl -XDELETE 'http://localhost:9200/map/?pretty'
+
+
+curl -XGET 'http://localhost:9200/homework/test/_search?q=uuid:AVRpLAJgPkDt6iI38jVw&pretty'
+
+
+
+
+
+
+

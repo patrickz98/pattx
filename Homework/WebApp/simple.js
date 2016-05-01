@@ -1,1 +1,0 @@
-../../Javascript/simple.js

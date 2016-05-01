@@ -11,7 +11,7 @@
 	"Music": "Musik",
 	"Business studies": "Wirtschaft",
 	"Drama": "Theater",
-	"Information and communication technology (ICT)": "Informatik",
+	"Computer Science": "Informatik",
 	"Religion": "Religion",
 	"Ancient Greek": "Griechisch",
 	"Biology": "Biologie",
@@ -19,4 +19,5 @@
 	"Ethic(s)": "Ethik",
 	"Latin": "Latein",
 	"Psychology": "Psychologie",
+    "Philosophy": "Philosophie"
 }

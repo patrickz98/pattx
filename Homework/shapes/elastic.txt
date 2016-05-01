@@ -1,0 +1,12 @@
+curl -XGET 'http://localhost:9200/homework/test/_search?q=uuid:AVRpLAJgPkDt6iI38jVw&pretty'
+
+curl -XDELETE 'http://localhost:9200/homework/test/?pretty'
+
+curl -XGET 'http://localhost:9200/homework/test/_search?pretty' -d '
+{
+    "query" : {
+        "match" : {
+            "uuid" : "AVRpLAJgPkDt6iI38jVw"
+        }
+    }
+}'

@@ -96,12 +96,13 @@ Option.buttonEventList = function(event)
         div.innerHTML = opts[ index ];
         div.style.textAlign = "center";
         div.onclick = Option.selected;
+        div.style.paddingTop = "15px";
     }
 
     var div = WebLibSimple.createAnyAppend("div", content);
     div.style.paddingTop = "50px";
 
-    var backButton = DataInterface.createCenterCircle("----", 50, "#000000", div, Option.exitList);
+    var backButton = CircleButton.createCenterCircle("----", 50, "#000000", div, Option.exitList);
 }
 
 //
@@ -149,10 +150,12 @@ Option.buttonEventTextField = function(event)
 
     var input = Option.input;
     input.placeholder = "Type here..";
+    input.style.width = "500px";
+    input.style.height = "100px";
 
     var div = WebLibSimple.createAnyAppend("div", content);
     div.style.paddingTop = "50px";
-    var backButton = DataInterface.createCenterCircle("----", 50, "#000000", div, Option.exitTextField);
+    var backButton = CircleButton.createCenterCircle("----", 50, "#000000", div, Option.exitTextField);
 }
 
 //
@@ -266,7 +269,7 @@ Option.buttonEventDate = function(event)
 
     var div = WebLibSimple.createAnyAppend("div", content);
     div.style.paddingTop = "50px";
-    var backButton = DataInterface.createCenterCircle("----", 50, "#000000", div, Option.exitDate);
+    var backButton = CircleButton.createCenterCircle("----", 50, "#000000", div, Option.exitDate);
 }
 
 //
@@ -334,7 +337,7 @@ Option.buttonEventNummber = function(event)
 
     var div = WebLibSimple.createAnyAppend("div", content);
     div.style.paddingTop = "50px";
-    var backButton = DataInterface.createCenterCircle("----", 50, "#000000", div, Option.exitNummber);
+    var backButton = CircleButton.createCenterCircle("----", 50, "#000000", div, Option.exitNummber);
 }
 
 //
@@ -376,7 +379,7 @@ Option.boolSelect = function(event)
     if (value == "Yes")
     {
         DataInterface.opt[ target.conf.optionKey ] = true;
-        WebLibSimple.setBGColor(target, "#33c345");
+        WebLibSimple.setBGColor(target, "#54c333");
     }
 
     if (value == "No")
@@ -408,10 +411,9 @@ Option.buttonEventBool = function(event)
     var div  = WebLibSimple.createAnyAppend("div", content);
     div.style.width   = "33%";
     div.style.display = "inline-block";
-    // div.onclick = Option.boolSelect;
 
     var center = WebLibSimple.createAnyAppend("center", div);
-    DataInterface.createCircle("Yes", 200, "#c39633", center, Option.boolSelect);
+    CircleButton.createCircle("Yes", 200, "#54c333", center, Option.boolSelect);
 
     //
     // middel
@@ -421,10 +423,9 @@ Option.buttonEventBool = function(event)
     div.style.width   = "33%";
     div.style.left    = "33%";
     div.style.display = "inline-block";
-    // div.onclick = Option.boolSelect;
 
     var center = WebLibSimple.createAnyAppend("center", div);
-    DataInterface.createCircle("Neutral", 200, "#33c37e", center, Option.boolSelect);
+    CircleButton.createCircle("Neutral", 200, "#335bc3", center, Option.boolSelect);
 
     //
     // right
@@ -434,16 +435,15 @@ Option.buttonEventBool = function(event)
     div.style.width   = "33%";
     div.style.left    = "66%";
     div.style.display = "inline-block";
-    // div.onclick = Option.boolSelect;
 
     var center = WebLibSimple.createAnyAppend("center", div);
-    DataInterface.createCircle("No", 200, "#33c37e", center, Option.boolSelect);
+    CircleButton.createCircle("No", 200, "#c33333", center, Option.boolSelect);
 
     //
     // exit
     //
 
-    // var div = WebLibSimple.createAnyAppend("div", content);
-    // div.style.paddingTop = "50px";
-    // var backButton = DataInterface.createCenterCircle("----", 50, "#000000", div, Option.exitBool);
+    var div = WebLibSimple.createAnyAppend("div", content);
+    div.style.paddingTop = "50px";
+    var backButton = CircleButton.createCenterCircle("----", 50, "#000000", div, Option.exitBool);
 }
