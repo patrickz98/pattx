@@ -18,9 +18,12 @@ Menu.createMenuPoint = function(title, size, color, parent, event)
 
 Menu.homework = function()
 {
-    Menu.borderDiv.style.display = "none";
+    // Menu.borderDiv.style.display = "none";
 
-    AddHomework.main(document.body);
+    // AddHomework.main(document.body);
+
+    var win = window.open("index.html", "_self");
+    win.focus();
 }
 
 Menu.frameSetup = function()

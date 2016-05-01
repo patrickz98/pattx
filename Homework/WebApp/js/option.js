@@ -6,22 +6,22 @@ Option = {};
 
 Option.nukeDimmerDiv = function()
 {
-    DataInterface.dimmerDiv.style.display = "none";
+    AddHomework.dimmerDiv.style.display = "none";
 }
 
 Option.createDimmerDiv = function()
 {
-    DataInterface.dimmerDiv = WebLibSimple.createDiv(0, 0, 0, 0, "dimemrDiv", document.body);
+    AddHomework.dimmerDiv = WebLibSimple.createDiv(0, 0, 0, 0, "dimemrDiv", document.body);
 
-    var dimmerDiv = DataInterface.dimmerDiv;
-    // dimmerDiv.onclick        = DataInterface.nukeDimmerDiv;
+    var dimmerDiv = AddHomework.dimmerDiv;
+    // dimmerDiv.onclick        = AddHomework.nukeDimmerDiv;
 
     WebLibSimple.setBGColor(dimmerDiv, "#99000000");
 
     var containerDiv = WebLibSimple.createDiv(50, 50, 50, 50, null, dimmerDiv);
     containerDiv.style.border       = "1px solid black";
     containerDiv.style.borderRadius = "25px";
-    // containerDiv.onclick            = DataInterface.event;
+    // containerDiv.onclick            = AddHomework.event;
     containerDiv.style.overflow = "hidden";
 
     WebLibSimple.setBGColor(containerDiv, "#ffffff");
@@ -69,7 +69,7 @@ Option.selected = function(event)
 
     var optionKey = Option.globalTarget.conf.optionKey;
 
-    DataInterface.opt[ optionKey ] = choice;
+    AddHomework.data[ optionKey ] = choice;
 
     target.choice = choice;
 
@@ -94,15 +94,16 @@ Option.buttonEventList = function(event)
     {
         var div = WebLibSimple.createAnyAppend("div", content);
         div.innerHTML = opts[ index ];
-        div.style.textAlign = "center";
-        div.onclick = Option.selected;
+        div.style.textAlign  = "center";
+        div.onclick          = Option.selected;
         div.style.paddingTop = "15px";
+        div.style.cursor     = "pointer";
     }
 
     var div = WebLibSimple.createAnyAppend("div", content);
     div.style.paddingTop = "50px";
 
-    var backButton = CircleButton.createCenterCircle("----", 50, "#000000", div, Option.exitList);
+    var backButton = Layout.createCenterCircle("----", 50, "#000000", div, Option.exitList);
 }
 
 //
@@ -122,7 +123,7 @@ Option.exitTextField = function()
         var target = Option.globalTarget;
         WebLibSimple.setBGColor(target, "#ff9100");
 
-        DataInterface.opt[ target.conf.optionKey ] = value;
+        AddHomework.data[ target.conf.optionKey ] = value;
     }
     else
     {
@@ -155,7 +156,7 @@ Option.buttonEventTextField = function(event)
 
     var div = WebLibSimple.createAnyAppend("div", content);
     div.style.paddingTop = "50px";
-    var backButton = CircleButton.createCenterCircle("----", 50, "#000000", div, Option.exitTextField);
+    var backButton = Layout.createCenterCircle("----", 50, "#000000", div, Option.exitTextField);
 }
 
 //
@@ -188,7 +189,7 @@ Option.exitDate = function()
     {
         target.innerHTML = date;
         WebLibSimple.setBGColor(target, "#ff9100");
-        DataInterface.opt[ target.conf.optionKey ] = date;
+        AddHomework.data[ target.conf.optionKey ] = date;
     }
     else
     {
@@ -269,7 +270,7 @@ Option.buttonEventDate = function(event)
 
     var div = WebLibSimple.createAnyAppend("div", content);
     div.style.paddingTop = "50px";
-    var backButton = CircleButton.createCenterCircle("----", 50, "#000000", div, Option.exitDate);
+    var backButton = Layout.createCenterCircle("----", 50, "#000000", div, Option.exitDate);
 }
 
 //
@@ -291,7 +292,7 @@ Option.exitNummber = function()
 
         target.innerHTML = "Time: " + value + "min";
 
-        DataInterface.opt[ target.conf.optionKey ] = value;
+        AddHomework.data[ target.conf.optionKey ] = value;
     }
     else
     {
@@ -337,7 +338,7 @@ Option.buttonEventNummber = function(event)
 
     var div = WebLibSimple.createAnyAppend("div", content);
     div.style.paddingTop = "50px";
-    var backButton = CircleButton.createCenterCircle("----", 50, "#000000", div, Option.exitNummber);
+    var backButton = Layout.createCenterCircle("----", 50, "#000000", div, Option.exitNummber);
 }
 
 //
@@ -351,7 +352,7 @@ Option.exitBool = function()
     var target = Option.globalTarget;
     var value  = target.value;
 
-    DataInterface.opt[ target.conf.optionKey ] = value;
+    AddHomework.data[ target.conf.optionKey ] = value;
 
     console.log("Option.exitBool: " + value);
 
@@ -378,19 +379,19 @@ Option.boolSelect = function(event)
 
     if (value == "Yes")
     {
-        DataInterface.opt[ target.conf.optionKey ] = true;
+        AddHomework.data[ target.conf.optionKey ] = true;
         WebLibSimple.setBGColor(target, "#54c333");
     }
 
     if (value == "No")
     {
-        DataInterface.opt[ target.conf.optionKey ] = false;
+        AddHomework.data[ target.conf.optionKey ] = false;
         WebLibSimple.setBGColor(target, "#c33333");
     }
 
     if (value == "Neutral")
     {
-        DataInterface.opt[ target.conf.optionKey ] = null;
+        AddHomework.data[ target.conf.optionKey ] = null;
         WebLibSimple.setBGColor(target, "#335bc3");
     }
 }
@@ -413,7 +414,7 @@ Option.buttonEventBool = function(event)
     div.style.display = "inline-block";
 
     var center = WebLibSimple.createAnyAppend("center", div);
-    CircleButton.createCircle("Yes", 200, "#54c333", center, Option.boolSelect);
+    Layout.createCircle("Yes", 200, "#54c333", center, Option.boolSelect);
 
     //
     // middel
@@ -425,7 +426,7 @@ Option.buttonEventBool = function(event)
     div.style.display = "inline-block";
 
     var center = WebLibSimple.createAnyAppend("center", div);
-    CircleButton.createCircle("Neutral", 200, "#335bc3", center, Option.boolSelect);
+    Layout.createCircle("Neutral", 200, "#335bc3", center, Option.boolSelect);
 
     //
     // right
@@ -437,7 +438,7 @@ Option.buttonEventBool = function(event)
     div.style.display = "inline-block";
 
     var center = WebLibSimple.createAnyAppend("center", div);
-    CircleButton.createCircle("No", 200, "#c33333", center, Option.boolSelect);
+    Layout.createCircle("No", 200, "#c33333", center, Option.boolSelect);
 
     //
     // exit
@@ -445,5 +446,5 @@ Option.buttonEventBool = function(event)
 
     var div = WebLibSimple.createAnyAppend("div", content);
     div.style.paddingTop = "50px";
-    var backButton = CircleButton.createCenterCircle("----", 50, "#000000", div, Option.exitBool);
+    var backButton = Layout.createCenterCircle("----", 50, "#000000", div, Option.exitBool);
 }

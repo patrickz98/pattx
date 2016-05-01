@@ -13,24 +13,16 @@ AddHomework.data = {
     Country: "de",
     School: "GSH",
     Grade: "S2",
-    // CreateDate: (new Date()).toString(),
     CreateDate: AddHomework.conf.today,
-    // Subject: null,
-    Subject: "Pups",
+    Subject: null,
     Course: null,
     Teacher: null,
     DestinyDate: null,
-    Room: null,
     Task: null,
     Notes: null,
     EstimatedTime: null,
     Priority: null,
     Done: null
-    // "teacher": {
-    //     "sex": "M/W",
-    //     "name": "Boom",
-    //     "symbol": "BO"
-    // },
 }
 
 AddHomework.createHeadline = function(title, parent)
@@ -54,6 +46,8 @@ AddHomework.createOptionButtonList = function(conf, size, color, parent)
     var div = Layout.createCenterCircle(conf.name, size, color, containerDiv, Option.buttonEventList);
     div.conf = conf;
 
+    AddHomework.options.push(div);
+
     return div;
 }
 
@@ -64,6 +58,8 @@ AddHomework.createOptionButtonTextField = function(conf, size, color, parent)
 
     var div = Layout.createCenterCircle(conf.name, size, color, containerDiv, Option.buttonEventTextField);
     div.conf = conf;
+
+    AddHomework.options.push(div);
 
     return div;
 }
@@ -76,6 +72,8 @@ AddHomework.createOptionButtonDate = function(conf, size, color, parent)
     var div = Layout.createCenterCircle(conf.name, size, color, containerDiv, Option.buttonEventDate);
     div.conf = conf;
 
+    AddHomework.options.push(div);
+
     return div;
 }
 
@@ -86,6 +84,8 @@ AddHomework.createOptionButtonNummber = function(conf, size, color, parent)
 
     var div = Layout.createCenterCircle(conf.name, size, color, containerDiv, Option.buttonEventNummber);
     div.conf = conf;
+
+    AddHomework.options.push(div);
 
     return div;
 }
@@ -98,6 +98,8 @@ AddHomework.createOptionButtonBool = function(conf, size, color, parent)
     var div = Layout.createCenterCircle(conf.name, size, color, containerDiv, Option.buttonEventBool);
     div.conf = conf;
 
+    AddHomework.options.push(div);
+
     return div;
 }
 
@@ -108,6 +110,19 @@ AddHomework.log = function(response)
 
 AddHomework.send = function()
 {
+    var options = AddHomework.options;
+
+    console.log(options);
+
+    for (var opt in options)
+    {
+        var div = options[ opt ];
+        div.innerHTML = div.conf.name;
+        WebLibSimple.setBGColor(div, "#3688d4");
+
+        AddHomework.data[ div.conf.optionKey ] = null;
+    }
+
     var json = JSON.stringify(AddHomework.data)
     console.log(json);
 
@@ -193,6 +208,12 @@ AddHomework.main = function(topDiv)
     var circleSize = AddHomework.conf.circleSize;
 
     //
+    // Content Array
+    //
+
+    AddHomework.options = [];
+
+    //
     // Content with a list
     //
 
@@ -233,6 +254,6 @@ AddHomework.main = function(topDiv)
     Layout.createCenterCircle("+", circleSize, "#3688d4", containerDiv, AddHomework.send);
 }
 
-// AddHomework.main(document.body);
+AddHomework.main(document.body);
 
 console.log("Done...");
