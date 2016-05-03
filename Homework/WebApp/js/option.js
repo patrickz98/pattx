@@ -6,22 +6,20 @@ Option = {};
 
 Option.nukeDimmerDiv = function()
 {
-    AddHomework.dimmerDiv.style.display = "none";
+    Option.parent.dimmerDiv.style.display = "none";
 }
 
 Option.createDimmerDiv = function()
 {
-    AddHomework.dimmerDiv = WebLibSimple.createDiv(0, 0, 0, 0, "dimemrDiv", document.body);
+    Option.parent.dimmerDiv = WebLibSimple.createDiv(0, 0, 0, 0, "dimemrDiv", document.body);
 
-    var dimmerDiv = AddHomework.dimmerDiv;
-    // dimmerDiv.onclick        = AddHomework.nukeDimmerDiv;
+    var dimmerDiv = Option.parent.dimmerDiv;
 
     WebLibSimple.setBGColor(dimmerDiv, "#99000000");
 
     var containerDiv = WebLibSimple.createDiv(50, 50, 50, 50, null, dimmerDiv);
     containerDiv.style.border       = "1px solid black";
     containerDiv.style.borderRadius = "25px";
-    // containerDiv.onclick            = AddHomework.event;
     containerDiv.style.overflow = "hidden";
 
     WebLibSimple.setBGColor(containerDiv, "#ffffff");
@@ -41,12 +39,13 @@ Option.exitList = function()
 
     if (Option.target.choice)
     {
-        WebLibSimple.setBGColor(Option.globalTarget, "#ff9100");
+        WebLibSimple.setBGColor(Option.globalTarget, "#3688d4");
         Option.globalTarget.innerHTML = Option.target.choice;
     }
     else
     {
-        WebLibSimple.setBGColor(Option.globalTarget, "#335bc3");
+        WebLibSimple.setBGColor(Option.globalTarget, "#6b6b6b");
+        Option.globalTarget.innerHTML = Option.globalTarget.conf.name;
     }
 }
 
@@ -61,7 +60,7 @@ Option.selected = function(event)
         children[ inx ].style.color = "#000000";
     }
 
-    target.style.color = "#ff9100";
+    target.style.color = "#3688d4";
 
     var choice = target.innerHTML;
 
@@ -69,9 +68,16 @@ Option.selected = function(event)
 
     var optionKey = Option.globalTarget.conf.optionKey;
 
-    AddHomework.data[ optionKey ] = choice;
-
-    target.choice = choice;
+    if (choice == "None")
+    {
+        target.choice = null;
+        Option.parent.data[ optionKey ] = null;
+    }
+    else
+    {
+        target.choice = choice;
+        Option.parent.data[ optionKey ] = choice;
+    }
 
     Option.target = target;
 }
@@ -79,6 +85,7 @@ Option.selected = function(event)
 Option.buttonEventList = function(event)
 {
     Option.globalTarget = event.target;
+    Option.parent       = event.target.parent;
 
     var target = Option.globalTarget;
     var conf   = target.conf;
@@ -101,6 +108,13 @@ Option.buttonEventList = function(event)
     }
 
     var div = WebLibSimple.createAnyAppend("div", content);
+    div.innerHTML        = "None";
+    div.style.textAlign  = "center";
+    div.onclick          = Option.selected;
+    div.style.paddingTop = "15px";
+    div.style.cursor     = "pointer";
+
+    var div = WebLibSimple.createAnyAppend("div", content);
     div.style.paddingTop = "50px";
 
     var backButton = Layout.createCenterCircle("----", 50, "#000000", div, Option.exitList);
@@ -121,19 +135,20 @@ Option.exitTextField = function()
     if (value)
     {
         var target = Option.globalTarget;
-        WebLibSimple.setBGColor(target, "#ff9100");
+        WebLibSimple.setBGColor(target, "#3688d4");
 
-        AddHomework.data[ target.conf.optionKey ] = value;
+        Option.parent.data[ target.conf.optionKey ] = value;
     }
     else
     {
-        WebLibSimple.setBGColor(Option.globalTarget, "#335bc3");
+        WebLibSimple.setBGColor(Option.globalTarget, "#6b6b6b");
     }
 }
 
 Option.buttonEventTextField = function(event)
 {
     Option.globalTarget = event.target;
+    Option.parent       = event.target.parent;
 
     Option.content = Option.createDimmerDiv();
     var content = Option.content;
@@ -188,12 +203,12 @@ Option.exitDate = function()
     if (date != today)
     {
         target.innerHTML = date;
-        WebLibSimple.setBGColor(target, "#ff9100");
-        AddHomework.data[ target.conf.optionKey ] = date;
+        WebLibSimple.setBGColor(target, "#3688d4");
+        Option.parent.data[ target.conf.optionKey ] = date;
     }
     else
     {
-        WebLibSimple.setBGColor(target, "#335bc3");
+        WebLibSimple.setBGColor(target, "#6b6b6b");
         target.innerHTML = target.conf.optionKey;
     }
 }
@@ -258,6 +273,7 @@ Option.createDateInput = function(label, spec, parent)
 Option.buttonEventDate = function(event)
 {
     Option.globalTarget = event.target;
+    Option.parent       = event.target.parent;
 
     Option.content = Option.createDimmerDiv();
     var content = Option.content;
@@ -288,21 +304,23 @@ Option.exitNummber = function()
 
     if (value)
     {
-        WebLibSimple.setBGColor(target, "#ff9100");
+        WebLibSimple.setBGColor(target, "#3688d4");
 
         target.innerHTML = "Time: " + value + "min";
 
-        AddHomework.data[ target.conf.optionKey ] = value;
+        Option.parent.data[ target.conf.optionKey ] = value;
     }
     else
     {
-        WebLibSimple.setBGColor(target, "#335bc3");
+        WebLibSimple.setBGColor(target, "#6b6b6b");
     }
 }
 
 Option.buttonEventNummber = function(event)
 {
     Option.globalTarget = event.target;
+    Option.parent       = event.target.parent;
+
     var target = Option.globalTarget;
     var conf = target.conf;
 
@@ -352,7 +370,7 @@ Option.exitBool = function()
     var target = Option.globalTarget;
     var value  = target.value;
 
-    AddHomework.data[ target.conf.optionKey ] = value;
+    Option.parent.data[ target.conf.optionKey ] = value;
 
     console.log("Option.exitBool: " + value);
 
@@ -363,7 +381,7 @@ Option.exitBool = function()
     }
     else
     {
-        WebLibSimple.setBGColor(target, "#335bc3");
+        WebLibSimple.setBGColor(target, "#6b6b6b");
     }
 }
 
@@ -379,20 +397,20 @@ Option.boolSelect = function(event)
 
     if (value == "Yes")
     {
-        AddHomework.data[ target.conf.optionKey ] = true;
+        Option.parent.data[ target.conf.optionKey ] = true;
         WebLibSimple.setBGColor(target, "#54c333");
     }
 
     if (value == "No")
     {
-        AddHomework.data[ target.conf.optionKey ] = false;
+        Option.parent.data[ target.conf.optionKey ] = false;
         WebLibSimple.setBGColor(target, "#c33333");
     }
 
     if (value == "Neutral")
     {
-        AddHomework.data[ target.conf.optionKey ] = null;
-        WebLibSimple.setBGColor(target, "#335bc3");
+        Option.parent.data[ target.conf.optionKey ] = null;
+        WebLibSimple.setBGColor(target, "#6b6b6b");
     }
 }
 
@@ -401,6 +419,7 @@ Option.buttonEventBool = function(event)
     console.log("PUPS");
 
     Option.globalTarget = event.target;
+    Option.parent       = event.target.parent;
 
     Option.content = Option.createDimmerDiv();
     var content = Option.content;
@@ -426,7 +445,7 @@ Option.buttonEventBool = function(event)
     div.style.display = "inline-block";
 
     var center = WebLibSimple.createAnyAppend("center", div);
-    Layout.createCircle("Neutral", 200, "#335bc3", center, Option.boolSelect);
+    Layout.createCircle("Neutral", 200, "#6b6b6b", center, Option.boolSelect);
 
     //
     // right

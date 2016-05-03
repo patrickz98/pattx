@@ -1,11 +1,13 @@
 AddHomework = {};
 
-// AddHomework.conf.circleSize
+// AddHomework.conf.colorTrue
 AddHomework.conf = {
     border: 10,
     headlineHeight: 85,
     circleSize: 200,
     today: WebLibSimple.getNiceDate((new Date())),
+    colorTrue:  "#3688d4",
+    colorFalse: "#6b6b6b"
 };
 
 AddHomework.data = {
@@ -25,78 +27,24 @@ AddHomework.data = {
     Done: null
 }
 
-AddHomework.createHeadline = function(title, parent)
-{
-    var containerDiv = WebLibSimple.createDivHeight(0, 0, 0, AddHomework.conf.headlineHeight, null, parent);
-    containerDiv.style.borderRadius = "20px";
-
-    var headline = WebLibSimple.createAnyAppend("h1", containerDiv);
-    headline.innerHTML       = title;
-    headline.style.textAlign = "center";
-    headline.style.color     = "#ffffff";
-
-    WebLibSimple.setBGColor(containerDiv, "#566b90");
-}
-
-AddHomework.createOptionButtonList = function(conf, size, color, parent)
+AddHomework.createOptionButton = function(conf, size, color, parent)
 {
     var containerDiv = WebLibSimple.createAnyAppend("div", parent);
-    containerDiv.style.paddingTop = "20px";
+    containerDiv.style.display    = "inline-block";
+    containerDiv.style.padding    = "20px";
 
-    var div = Layout.createCenterCircle(conf.name, size, color, containerDiv, Option.buttonEventList);
+    var event = null;
+
+    if (conf.type == "List")      event = Option.buttonEventList;
+    if (conf.type == "TextField") event = Option.buttonEventTextField;
+    if (conf.type == "Date")      event = Option.buttonEventDate;
+    if (conf.type == "Nummber")   event = Option.buttonEventNummber;
+    if (conf.type == "Bool")      event = Option.buttonEventBool;
+
+
+    var div = Layout.createCenterCircle(conf.name, size, color, containerDiv, event);
     div.conf = conf;
-
-    AddHomework.options.push(div);
-
-    return div;
-}
-
-AddHomework.createOptionButtonTextField = function(conf, size, color, parent)
-{
-    var containerDiv = WebLibSimple.createAnyAppend("div", parent);
-    containerDiv.style.paddingTop = "20px";
-
-    var div = Layout.createCenterCircle(conf.name, size, color, containerDiv, Option.buttonEventTextField);
-    div.conf = conf;
-
-    AddHomework.options.push(div);
-
-    return div;
-}
-
-AddHomework.createOptionButtonDate = function(conf, size, color, parent)
-{
-    var containerDiv = WebLibSimple.createAnyAppend("div", parent);
-    containerDiv.style.paddingTop = "20px";
-
-    var div = Layout.createCenterCircle(conf.name, size, color, containerDiv, Option.buttonEventDate);
-    div.conf = conf;
-
-    AddHomework.options.push(div);
-
-    return div;
-}
-
-AddHomework.createOptionButtonNummber = function(conf, size, color, parent)
-{
-    var containerDiv = WebLibSimple.createAnyAppend("div", parent);
-    containerDiv.style.paddingTop = "20px";
-
-    var div = Layout.createCenterCircle(conf.name, size, color, containerDiv, Option.buttonEventNummber);
-    div.conf = conf;
-
-    AddHomework.options.push(div);
-
-    return div;
-}
-
-AddHomework.createOptionButtonBool = function(conf, size, color, parent)
-{
-    var containerDiv = WebLibSimple.createAnyAppend("div", parent);
-    containerDiv.style.paddingTop = "20px";
-
-    var div = Layout.createCenterCircle(conf.name, size, color, containerDiv, Option.buttonEventBool);
-    div.conf = conf;
+    div.parent = AddHomework;
 
     AddHomework.options.push(div);
 
@@ -111,6 +59,7 @@ AddHomework.log = function(response)
 AddHomework.send = function()
 {
     var options = AddHomework.options;
+    var color = AddHomework.conf.colorFalse;
 
     console.log(options);
 
@@ -118,7 +67,7 @@ AddHomework.send = function()
     {
         var div = options[ opt ];
         div.innerHTML = div.conf.name;
-        WebLibSimple.setBGColor(div, "#3688d4");
+        WebLibSimple.setBGColor(div, color);
 
         AddHomework.data[ div.conf.optionKey ] = null;
     }
@@ -203,9 +152,9 @@ AddHomework.main = function(topDiv)
     //
 
     var headlineHeight = AddHomework.conf.headlineHeight;
-
-    var parent = AddHomework.content;
-    var circleSize = AddHomework.conf.circleSize;
+    var parent         = AddHomework.content;
+    var circleSize     = AddHomework.conf.circleSize;
+    var color          = AddHomework.conf.colorFalse;
 
     //
     // Content Array
@@ -214,44 +163,53 @@ AddHomework.main = function(topDiv)
     AddHomework.options = [];
 
     //
+    // Center
+    //
+
+    var center = WebLibSimple.createAnyAppend("center", parent);
+
+    //
     // Content with a list
     //
 
-    AddHomework.createOptionButtonList(Subjects, circleSize, "#3688d4", parent);
-    AddHomework.createOptionButtonList(Priority, circleSize, "#3688d4", parent);
+    AddHomework.createOptionButton(Subjects, circleSize, color, center);
+    AddHomework.createOptionButton(Priority, circleSize, color, center);
 
     //
     // Content with a textField
     //
 
-    AddHomework.createOptionButtonTextField(Task,  circleSize, "#3688d4", parent);
-    AddHomework.createOptionButtonTextField(Notes, circleSize, "#3688d4", parent);
+    AddHomework.createOptionButton(Task,   circleSize, color, center);
+    AddHomework.createOptionButton(Notes,  circleSize, color, center);
+    AddHomework.createOptionButton(School, circleSize, color, center);
 
     //
     // Content with a Date
     //
 
-    AddHomework.createOptionButtonDate(DestinyDate, circleSize, "#3688d4", parent);
+    AddHomework.createOptionButton(DestinyDate, circleSize, color, center);
 
     //
     // Content with Numbers
     //
 
-    AddHomework.createOptionButtonNummber(EstimatedTime, circleSize, "#3688d4", parent);
+    AddHomework.createOptionButton(EstimatedTime, circleSize, color, center);
 
     //
     // Content with boolean
     //
 
-    AddHomework.createOptionButtonBool(Done, circleSize, "#3688d4", parent);
+    AddHomework.createOptionButton(Done, circleSize, color, center);
 
     //
     // Commit
     //
 
-    var containerDiv = WebLibSimple.createAnyAppend("div", parent);
-    containerDiv.style.paddingTop = "20px";
-    Layout.createCenterCircle("+", circleSize, "#3688d4", containerDiv, AddHomework.send);
+    var containerDiv = WebLibSimple.createAnyAppend("div", center);
+    containerDiv.style.padding = "20px";
+    containerDiv.style.display = "inline-block";
+
+    Layout.createCenterCircle("+", circleSize, color, containerDiv, AddHomework.send);
 }
 
 AddHomework.main(document.body);

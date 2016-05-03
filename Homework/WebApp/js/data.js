@@ -1,6 +1,7 @@
 Subjects = {
     "name": "Subjects",
     "optionKey": "Subject",
+    "type": "List",
     "options": [
         "Mathematics",
         "Physics",
@@ -20,16 +21,7 @@ Subjects = {
 Priority = {
     "name": "Priority",
     "optionKey": "Priority",
-    "options": [
-        "high",
-        "middel",
-        "low"
-    ]
-};
-
-Priority = {
-    "name": "Priority",
-    "optionKey": "Priority",
+    "type": "List",
     "options": [
         "high",
         "middel",
@@ -39,32 +31,44 @@ Priority = {
 
 Task = {
     "name": "Task",
-    "optionKey": "Task"
+    "optionKey": "Task",
+    "type": "TextField"
+};
+
+School = {
+    "name": "School",
+    "optionKey": "School",
+    "type": "TextField"
 };
 
 Room = {
     "name": "Room",
-    "optionKey": "Room"
+    "optionKey": "Room",
+    "type": "TextField"
 };
 
 Notes = {
     "name": "Notes",
-    "optionKey": "Notes"
+    "optionKey": "Notes",
+    "type": "TextField"
 };
 
 DestinyDate = {
     "name": "Destiny Date",
-    "optionKey": "DestinyDate"
+    "optionKey": "DestinyDate",
+    "type": "Date"
 };
 
 EstimatedTime = {
     "name": "Time",
     "optionKey": "EstimatedTime",
+    "type": "Nummber",
     "min": 1,
     "max": 1200
 };
 
 Done = {
     "name": "Done",
-    "optionKey": "Done"
+    "optionKey": "Done",
+    "type": "Bool"
 };

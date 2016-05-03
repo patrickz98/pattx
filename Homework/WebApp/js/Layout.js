@@ -70,3 +70,19 @@ Layout.createCenterCircle = function(title, size, color, parent, eventFunct)
 
     return div;
 }
+
+Layout.createMenuPoint = function(title, size, color, parent, event)
+{
+    var paddingDiv = WebLibSimple.createAnyAppend("div", parent);
+    paddingDiv.style.display = "inline-block";
+    paddingDiv.style.padding = "20px";
+
+    if (event == null)
+    {
+        color = "#6b6b6b";
+    }
+
+    var div = Layout.createCircle(title, size, color, paddingDiv, event);
+
+    return div;
+}

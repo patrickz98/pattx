@@ -1,28 +1,14 @@
 Menu = {};
 
-Menu.createMenuPoint = function(title, size, color, parent, event)
-{
-    var paddingDiv = WebLibSimple.createAnyAppend("div", parent);
-    paddingDiv.style.display = "inline-block";
-    paddingDiv.style.padding = "20px";
-
-    if (event == null)
-    {
-        color = "#6b6b6b";
-    }
-
-    var div = Layout.createCircle(title, size, color, paddingDiv, event);
-
-    return div;
-}
-
 Menu.homework = function()
 {
-    // Menu.borderDiv.style.display = "none";
+    var win = window.open("add.html", "_self");
+    win.focus();
+}
 
-    // AddHomework.main(document.body);
-
-    var win = window.open("index.html", "_self");
+Menu.teacher = function()
+{
+    var win = window.open("teacher.html", "_self");
     win.focus();
 }
 
@@ -52,11 +38,12 @@ Menu.frameSetup = function()
 
     var size = 200;
 
-    Menu.createMenuPoint("Subjects", size, "#3688d4", center, null);
-    Menu.createMenuPoint("Teacher",  size, "#3688d4", center, null);
-    Menu.createMenuPoint("Schedule", size, "#3688d4", center, null);
-    Menu.createMenuPoint("Homework", size, "#3688d4", center, Menu.homework);
-    Menu.createMenuPoint("Task",     size, "#3688d4", center, null);
+    Layout.createMenuPoint("Subjects", size, "#3688d4", center, null);
+    Layout.createMenuPoint("Teacher",  size, "#3688d4", center, Menu.teacher);
+    Layout.createMenuPoint("Schedule", size, "#3688d4", center, null);
+    Layout.createMenuPoint("Homework", size, "#3688d4", center, Menu.homework);
+    Layout.createMenuPoint("Task",     size, "#3688d4", center, null);
+    Layout.createMenuPoint("School",   size, "#3688d4", center, null);
 
 
     // WebLibSimple.setBGColor(row1, "#d45736");

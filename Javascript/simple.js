@@ -413,7 +413,6 @@ WebLibSimple.getNiceDate = function(date)
 
 WebLibSimple.getNiceDateYMD = function(year, month, day)
 {
-    month = month + 1;
     if (day   < 10) day   = "0" + day;
     if (month < 10) month = "0" + month;
 
