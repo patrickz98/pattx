@@ -6,8 +6,8 @@ AddHomework.conf = {
     headlineHeight: 85,
     circleSize: 200,
     today: WebLibSimple.getNiceDate((new Date())),
-    colorTrue:  "#3688d4",
-    colorFalse: "#6b6b6b"
+    colorTrue:  "#2e54e3",
+    colorFalse: "#7e7e7e"
 };
 
 AddHomework.data = {
@@ -122,6 +122,7 @@ AddHomework.frameSetup = function(topDiv)
 
     AddHomework.globalContentDiv = WebLibSimple.createDiv(0, 0, 0, 0, null, topDiv);
     AddHomework.globalContentDiv.style.overflow = "auto";
+    AddHomework.globalContentDiv.style.fontFamily = "Ubuntu, Helvetica, Arial";
 
     //
     // top div
@@ -133,13 +134,14 @@ AddHomework.frameSetup = function(topDiv)
     // Headline
     //
 
-    Layout.createHeadline("Easy Json Interface...!", headlineHeight, AddHomework.topDiv);
+    // Layout.createHeadline("Easy Json Interface...!", headlineHeight, AddHomework.topDiv);
 
     //
     // top div
     //
 
-    AddHomework.content = WebLibSimple.createDiv(0, headlineHeight + 10, 0, 0, null, AddHomework.topDiv);
+    // AddHomework.content = WebLibSimple.createDiv(0, headlineHeight + 10, 0, 0, null, AddHomework.topDiv);
+    AddHomework.content = WebLibSimple.createDiv(0, 0, 0, 0, null, AddHomework.topDiv);
     // WebLibSimple.setBGColor(AddHomework.topDiv, "#666666");
 }
 

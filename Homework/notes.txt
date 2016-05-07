@@ -1,0 +1,1 @@
+https://api.qrserver.com/v1/create-qr-code/?data=patrick&size=220x220&margin=1&color=ff0000&bgcolor=6b6b6b

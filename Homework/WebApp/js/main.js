@@ -1,5 +1,10 @@
 Menu = {};
 
+Menu.conf = {
+    colorTrue:  "#2e54e3",
+    colorFalse: "#7e7e7e"
+};
+
 Menu.homework = function()
 {
     var win = window.open("add.html", "_self");
@@ -26,6 +31,7 @@ Menu.frameSetup = function()
     //
 
     Menu.topDiv = WebLibSimple.createDiv(0, 0, 0, 0, null, Menu.borderDiv);
+    Menu.topDiv.style.fontFamily = "Ubuntu, Helvetica, Arial";
 
     //
     // rows
@@ -38,18 +44,18 @@ Menu.frameSetup = function()
 
     var size = 200;
 
-    Layout.createMenuPoint("Subjects", size, "#3688d4", center, null);
-    Layout.createMenuPoint("Teacher",  size, "#3688d4", center, Menu.teacher);
-    Layout.createMenuPoint("Schedule", size, "#3688d4", center, null);
-    Layout.createMenuPoint("Homework", size, "#3688d4", center, Menu.homework);
-    Layout.createMenuPoint("Task",     size, "#3688d4", center, null);
-    Layout.createMenuPoint("School",   size, "#3688d4", center, null);
+    Layout.createMenuPoint("Subjects", size, Menu.conf.colorTrue, center, null);
+    Layout.createMenuPoint("Teacher",  size, Menu.conf.colorTrue, center, Menu.teacher);
+    Layout.createMenuPoint("Schedule", size, Menu.conf.colorTrue, center, null);
+    Layout.createMenuPoint("Homework", size, Menu.conf.colorTrue, center, Menu.homework);
+    Layout.createMenuPoint("Task",     size, Menu.conf.colorTrue, center, null);
+    Layout.createMenuPoint("School",   size, Menu.conf.colorTrue, center, null);
 
 
     // WebLibSimple.setBGColor(row1, "#d45736");
 
     // var row2 = WebLibSimple.createDiv(0, "50%", 0, 0, null, Layout.topDiv);
-    // WebLibSimple.setBGColor(row2, "#3688d4");
+    // WebLibSimple.setBGColor(row2, Menu.conf.colorTrue);
 
     //
     // Headline

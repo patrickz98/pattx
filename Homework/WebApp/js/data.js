@@ -24,7 +24,7 @@ Priority = {
     "type": "List",
     "options": [
         "high",
-        "middel",
+        "middle",
         "low"
     ]
 };
