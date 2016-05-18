@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Fill Shapes</title>
+        <script type="text/javascript" src="js/simple.js"></script>
+
+    </head>
+    <body>
+        <script>
+            for (var inx = 0; inx < 100; inx++)
+            {
+                var div = document.createElement("div");
+                document.body.appendChild(div);
+
+                div.style.height = "100px";
+                div.style.backgroundColor = "red";
+
+                console.log(document.body.scrollTop);
+                console.log(document.body.scrollHeight);
+            }
+        </script>
+    </body>
+</html>

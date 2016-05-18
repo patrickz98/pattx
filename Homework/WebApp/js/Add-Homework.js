@@ -1,21 +1,11 @@
 AddHomework = {};
 
-// AddHomework.conf.colorTrue
-AddHomework.conf = {
-    border: 10,
-    headlineHeight: 85,
-    circleSize: 200,
-    today: WebLibSimple.getNiceDate((new Date())),
-    colorTrue:  "#2e54e3",
-    colorFalse: "#7e7e7e"
-};
-
 AddHomework.data = {
     uuid: "AVRpLAJgPkDt6iI38jVw",
     Country: "de",
     School: "GSH",
     Grade: "S2",
-    CreateDate: AddHomework.conf.today,
+    CreateDate: GlobalConf.today,
     Subject: null,
     Course: null,
     Teacher: null,
@@ -30,8 +20,8 @@ AddHomework.data = {
 AddHomework.createOptionButton = function(conf, size, color, parent)
 {
     var containerDiv = WebLibSimple.createAnyAppend("div", parent);
-    containerDiv.style.display    = "inline-block";
-    containerDiv.style.padding    = "20px";
+    containerDiv.style.display = "inline-block";
+    containerDiv.style.padding = "20px";
 
     var event = null;
 
@@ -59,7 +49,7 @@ AddHomework.log = function(response)
 AddHomework.send = function()
 {
     var options = AddHomework.options;
-    var color = AddHomework.conf.colorFalse;
+    var color = GlobalConf.colorFalse;
 
     console.log(options);
 
@@ -113,8 +103,8 @@ AddHomework.frameSetup = function(topDiv)
     // Vars
     //
 
-    var border = AddHomework.conf.border;
-    var headlineHeight = AddHomework.conf.headlineHeight;
+    var border = GlobalConf.border;
+    var headlineHeight = GlobalConf.headlineHeight;
 
     //
     // globalContentDiv
@@ -153,10 +143,10 @@ AddHomework.main = function(topDiv)
     // Vars
     //
 
-    var headlineHeight = AddHomework.conf.headlineHeight;
+    var headlineHeight = GlobalConf.headlineHeight;
     var parent         = AddHomework.content;
-    var circleSize     = AddHomework.conf.circleSize;
-    var color          = AddHomework.conf.colorFalse;
+    var circleSize     = GlobalConf.circleSize;
+    var color          = GlobalConf.colorFalse;
 
     //
     // Content Array

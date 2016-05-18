@@ -1,10 +1,5 @@
 Menu = {};
 
-Menu.conf = {
-    colorTrue:  "#2e54e3",
-    colorFalse: "#7e7e7e"
-};
-
 Menu.homework = function()
 {
     var win = window.open("add.html", "_self");
@@ -19,6 +14,8 @@ Menu.teacher = function()
 
 Menu.frameSetup = function()
 {
+    WebLibSimple.disableSelection(document.body);
+
     //
     // borderDiv
     //
@@ -44,18 +41,18 @@ Menu.frameSetup = function()
 
     var size = 200;
 
-    Layout.createMenuPoint("Subjects", size, Menu.conf.colorTrue, center, null);
-    Layout.createMenuPoint("Teacher",  size, Menu.conf.colorTrue, center, Menu.teacher);
-    Layout.createMenuPoint("Schedule", size, Menu.conf.colorTrue, center, null);
-    Layout.createMenuPoint("Homework", size, Menu.conf.colorTrue, center, Menu.homework);
-    Layout.createMenuPoint("Task",     size, Menu.conf.colorTrue, center, null);
-    Layout.createMenuPoint("School",   size, Menu.conf.colorTrue, center, null);
+    Layout.createMenuPoint("Subjects", size, GlobalConf.colorTrue, center, null);
+    Layout.createMenuPoint("Teacher",  size, GlobalConf.colorTrue, center, Menu.teacher);
+    Layout.createMenuPoint("Schedule", size, GlobalConf.colorTrue, center, null);
+    Layout.createMenuPoint("Homework", size, GlobalConf.colorTrue, center, Menu.homework);
+    Layout.createMenuPoint("Task",     size, GlobalConf.colorTrue, center, null);
+    Layout.createMenuPoint("School",   size, GlobalConf.colorTrue, center, null);
 
 
     // WebLibSimple.setBGColor(row1, "#d45736");
 
     // var row2 = WebLibSimple.createDiv(0, "50%", 0, 0, null, Layout.topDiv);
-    // WebLibSimple.setBGColor(row2, Menu.conf.colorTrue);
+    // WebLibSimple.setBGColor(row2, GlobalConf.colorTrue);
 
     //
     // Headline

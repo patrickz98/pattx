@@ -422,3 +422,24 @@ WebLibSimple.getNiceDateYMD = function(year, month, day)
     // return year + "-" + month + "-" + day + "T02:00:00Z";
     return year + "-" + month + "-" + day;
 }
+
+WebLibSimple.disableSelection = function(target)
+{
+    if (typeof target.onselectstart != "undefined") //IE route
+        target.onselectstart=function()
+        {
+            return false;
+        }
+    else if (typeof target.style.MozUserSelect != "undefined")
+    {
+        target.style.MozUserSelect = "none";
+    }
+    else
+    {
+        target.onmousedown = function()
+        {
+            return false;
+        }
+    }
+    target.style.cursor = "default";
+}

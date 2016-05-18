@@ -18,10 +18,10 @@ Layout.createHeadline = function(title, height, parent)
 
 Layout.createLabelCircle = function(title, size, color, parent, eventFunct)
 {
-    // var fontWeight = "lighter";
     var fontWeight = "normal";
 
     var div = Layout.createCircle(title, size, color, parent, eventFunct);
+    div.style.fontWeight = fontWeight;
 
     var span = WebLibSimple.createAnyAppend("span", div);
     span.innerHTML          = title;
@@ -29,18 +29,24 @@ Layout.createLabelCircle = function(title, size, color, parent, eventFunct)
     span.style.fontWeight   = fontWeight;
 
     var spansize = 2;
-    var border = 50;
+    var border   = 50;
 
-    while ((span.offsetWidth + border) < size && (span.offsetHeight + border) < size)
+    console.log("title:" + title);
+
+    while (((span.offsetWidth + border) < size) && ((span.offsetHeight + border) < size))
     {
+        // console.log("size: " + size);
+        // console.log("spansize: " + spansize);
+        // console.log("span.offsetWidth:  " + span.offsetWidth);
+        // console.log("span.offsetHeight: " + span.offsetHeight);
+        //
         span.style.fontSize = spansize + "px";
         spansize++;
+
+        if (spansize > 1000) break;
     }
 
-    // console.log("spansize:  " + spansize);
-
     div.style.fontSize   = spansize + "px";
-    div.style.fontWeight = fontWeight;
     div.style.lineHeight = size + "px";
 
     //

@@ -10,3 +10,22 @@ curl -XGET 'http://localhost:9200/homework/test/_search?pretty' -d '
         }
     }
 }'
+
+curl -XPOST 'http://localhost:9200/homework/teacher/?pretty' -d '{"Name": "Mr. Boom", "ShortName": "Bo", "Subjects": "PGW", "Notes": "Smug", "School": "GSH"}'
+
+curl -XGET 'http://localhost:9200/homework/teacher/AVSWj2xko5mAlnT1UTek?pretty'
+
+curl -XPOST 'http://localhost:9200/homework/teacher/AVSWj2xko5mAlnT1UTek?pretty' -d '{"Name": "Mr. Boom", "ShortName": "Bo", "Subjects": "PGW", "Notes": "Smug", "School": "GSH"}'
+
+{
+  "_index" : "homework",
+  "_type" : "teacher",
+  "_id" : "AVSWj2xko5mAlnT1UTek",
+  "_version" : 1,
+  "_shards" : {
+    "total" : 2,
+    "successful" : 1,
+    "failed" : 0
+  },
+  "created" : true
+}

@@ -1,36 +1,5 @@
 Data = {};
 
-Data.position = {
-    "Name": {
-        "x": 0,
-        "y": 0,
-        "holeLine": false
-    },
-    "ShortName": {
-        "x": 1,
-        "y": 0,
-        "holeLine": false
-    },
-
-    "Notes": {
-        "x": 0,
-        "y": 1,
-        "holeLine": false
-    },
-
-    "School": {
-        "x": 1,
-        "y": 1,
-        "holeLine": false
-    },
-
-    "Subjects": {
-        "x": 0,
-        "y": 2,
-        "holeLine": true
-    }
-};
-
 Data.translations = {
     "Name": "Name",
     "ShortName": "Short Name",
@@ -41,7 +10,6 @@ Data.translations = {
 
 Data.entrys = [
     {
-        "uuid": "Teacher1",
         "Name": "Mr. Boom",
         "ShortName": "Bo",
         "Subjects": "PGW",
@@ -49,9 +17,22 @@ Data.entrys = [
         "School": "GSH"
     },
     {
-        "uuid": "Teacher2",
         "Name": "Mr. Pups",
         "ShortName": "Pu",
+        "Subjects": "PGW",
+        "Notes": "...",
+        "School": "GSH"
+    },
+    {
+        "Name": "Mr. Huhps",
+        "ShortName": "Hu",
+        "Subjects": "PGW",
+        "Notes": "...",
+        "School": "GSH"
+    },
+    {
+        "Name": "Mr. Lups",
+        "ShortName": "Lu",
         "Subjects": "PGW",
         "Notes": "...",
         "School": "GSH"
