@@ -58,8 +58,8 @@ Teacher.main = function(topDiv)
     parent.style.overflow = "auto";
     parent.style.fontFamily = GlobalConf.fontFamily;
 
-    console.log(parent.scrollTop);
-    console.log(parent.scrollHeight);
+    // console.log(parent.scrollTop);
+    // console.log(parent.scrollHeight);
 
     var headlineHeight = GlobalConf.headlineHeight;
     var circleSize     = GlobalConf.circleSize;

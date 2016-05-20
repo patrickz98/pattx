@@ -75,11 +75,14 @@ Elastic.postByUuid = function(type, uuid, json)
 
 Elastic.updateById = function(type, id, json)
 {
+    console.log("updateById: " + json.id);
+    console.log("updateById: " + JSON.stringify(json));
+
     var action = "u";
 
     delete json.id;
 
-    var json = JSON.stringify(json);
+    var json = encodeURI(JSON.stringify(json));
 
     var url = Elastic.baseUrl + "action=" + action + "&type=" + type + "&id=" + id + "&json=" + json;
     Elastic.getData(url, Elastic.log);
@@ -88,16 +91,16 @@ Elastic.updateById = function(type, id, json)
 Elastic.getByUuid("teacher", "PATpLAJgPkDt6iI38jVw");
 
 var json = {
-    "Name": "Mr. Shoot",
-    "ShortName": "Sh",
-    "Subjects": "Pistols",
-    "Notes": "",
-    "School": "Avh",
+    "Name": "Mr. Zoluu",
+    "ShortName": "Zo",
+    "Subjects": "Space",
+    "Notes": "Cool",
+    "School": "GSH",
     "uuid": "PATpLAJgPkDt6iI38jVw",
-    "id": "AVTNvhCakm7_y62aR-SV"
+    "id": "AVTK_TiEBE-ZAybXntx0"
 };
 
-// Elastic.updateById("teacher", "AVTNvhCakm7_y62aR-SV", json);
+// Elastic.updateById("teacher", "AVTK_TiEBE-ZAybXntx0", json);
 
 // Elastic.postByUuid("teacher", "PATpLAJgPkDt6iI38jVw", json);
 // Elastic.getById("teacher", "AVTIlMRbYnkdd7Ja7TUV");

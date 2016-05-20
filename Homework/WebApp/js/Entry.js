@@ -1,48 +1,5 @@
 Entry = {};
 
-Entry.nukeDimmerDiv = function()
-{
-    Entry.dimmerDiv.style.display = "none";
-}
-
-Entry.createDimmerDiv = function()
-{
-    console.log("create dimmer");
-    var parent = Entry.parent;
-    parent.style.overflow = "hidden";
-
-    console.log("scrollTop:" + parent.scrollTop);
-
-    Entry.dimmerDiv = WebLibSimple.createDivHeight(0, parent.scrollTop, 0, "100%", "dimemrDiv", parent);
-
-    WebLibSimple.setBGColor(Entry.dimmerDiv, "#99000000");
-
-    return Entry.dimmerDiv;
-}
-
-Entry.createDimmerCircleInput = function()
-{
-    var dimmerDiv = Entry.createDimmerDiv();
-
-    var center = WebLibSimple.createAnyAppend("center", dimmerDiv);
-
-    var containerDiv = WebLibSimple.createAnyAppend("div", center);
-    containerDiv.style.height       = "600px";
-    containerDiv.style.width        = "100px";
-
-    containerDiv.style.border       = "1px solid black";
-    containerDiv.style.borderRadius = "900px";
-    // containerDiv.style.overflow     = "hidden";
-    containerDiv.style.fontFamily   = "Ubuntu, Helvetica, Arial";
-
-    WebLibSimple.setBGColor(containerDiv, "#ffffff");
-
-    var border = 25;
-    var contentDiv = WebLibSimple.createDiv(border, border, border, border, null, containerDiv);
-
-    return contentDiv;
-}
-
 //
 // Triangle
 //
@@ -74,26 +31,6 @@ Entry.createTriangle = function(left, top, width, height, color, parent)
     }
 }
 
-Entry.exitInput = function(event)
-{
-    Option.nukeDimmerDiv();
-
-    var target = event.target.target;
-    var value  = Entry.input.value;
-    console.log(value);
-
-    if (value)
-    {
-        // WebLibSimple.setBGColor(target, "#3688d4");
-        target.titleSpan.innerHTML = value;
-        // Option.parent.data[ target.conf.optionKey ] = value;
-    }
-    else
-    {
-        // WebLibSimple.setBGColor(target, GlobalConf.colorGrey);
-    }
-}
-
 Entry.editEntry = function(event)
 {
     // Teacher.topDiv.style.overflow = null;
@@ -105,7 +42,9 @@ Entry.editEntry = function(event)
         target = target.root;
     }
 
-    Edit.createEdit(target, Entry.parent.jsonBranch, Entry.parent);
+    var json = target.jsonBranch;
+
+    Edit.createEdit(target, json, Entry.parent);
 }
 
 Entry.nextEntryStart = 0;
@@ -151,6 +90,7 @@ Entry.createEntryTag = function(tag, title, tagSize, index, parent, virgin)
     text.tag                = tag;
     text.title              = title;
     text.virgin             = virgin;
+    text.jsonBranch         = Entry.parent.jsonBranch;
     text.onclick            = Entry.editEntry;
 
     // text.style.textAlign    = "center";
@@ -234,7 +174,7 @@ Entry.createBubble = function(flagPosition, flagWidth, flagSize, color, bubbleRa
 
 Entry.createEntry = function(data, parent, virgin)
 {
-    console.log("nextEntryStart:" + Entry.nextEntryStart);
+    console.log("New Entry: " + JSON.stringify(data));
 
     Entry.parent = parent;
     Entry.parent.jsonBranch = data;

@@ -7,9 +7,11 @@ Edit.edit = function(event)
     var choice = event.target.choice;
     console.log("Choice: " + choice);
 
-    var editInfo  = Edit.editInfo;
-    var oldTarget = editInfo.oldTarget;
-    var change    = editInfo.input.value;
+    var editInfo   = Edit.editInfo;
+    var oldTarget  = editInfo.oldTarget;
+    var change     = editInfo.input.value;
+    var jsonBranch = editInfo.jsonBranch;
+    var tag        = editInfo.tag;
 
     console.log("Change: " + change);
     console.log("oldTarget.title: " + oldTarget.title);
@@ -18,18 +20,11 @@ Edit.edit = function(event)
     {
         oldTarget.titleSpan.innerHTML = change;
         oldTarget.title               = change;
+        jsonBranch[ tag ]             = change;
 
-        console.log(JSON.stringify(editInfo.jsonBranch));
-
+        Elastic.updateById("teacher", jsonBranch.id, jsonBranch);
         Edit.nukeEdit();
     }
-
-    // editInfo.oldTarget  = target;
-    // editInfo.oldEvent   = oldEvent;
-    // editInfo.jsonBranch = jsonBranch;
-    // editInfo.virgin     = target.virgin;
-    // editInfo.contentDiv = borderDiv;
-    // editInfo.input      = input.input;
 }
 
 Edit.createOkNoButton = function(parent, size)
@@ -105,6 +100,8 @@ Edit.nukeEdit = function()
 
 Edit.createEdit = function(target, jsonBranch, parent)
 {
+    // console.log("## " + JSON.stringify(jsonBranch));
+
     if (Edit.editInfo !== undefined)
     {
         Edit.nukeEdit();
@@ -124,14 +121,15 @@ Edit.createEdit = function(target, jsonBranch, parent)
 
     var containerDiv = WebLibSimple.createDiv(0, 0, 0, 0, null, borderDiv);
 
-    var title = target.title;
-    var input = Edit.createInput(containerDiv, title);
-
+    var title   = target.title;
+    var input   = Edit.createInput(containerDiv, title);
     var buttons = Edit.createOkNoButton(containerDiv);
 
     var editInfo = {};
     editInfo.oldTarget  = target;
     editInfo.oldEvent   = oldEvent;
+    editInfo.tag        = target.tag;
+
     editInfo.jsonBranch = jsonBranch;
     editInfo.virgin     = target.virgin;
     editInfo.contentDiv = borderDiv;
