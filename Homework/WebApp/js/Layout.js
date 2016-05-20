@@ -12,7 +12,6 @@ Layout.createHeadline = function(title, height, parent)
     // headline.style.color     = "#ffffff";
     headline.style.color     = "#000000";
 
-
     // WebLibSimple.setBGColor(containerDiv, "#6b6b6b");
 }
 
@@ -108,6 +107,7 @@ Layout.createQrCircle = function(size, color, bgcolor, data, parent)
     img.style.top    = border + "%";
     img.style.bottom = border + "%";
     img.style.position = "absolute";
+    // img.style.cursor = "none";
 
     var qrcolor  = color.substring(1, 7);
     var qrbcolor = bgcolor.substring(1, 7);

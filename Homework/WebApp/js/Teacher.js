@@ -9,61 +9,6 @@ Teacher.data = {
     Name: null
 }
 
-Teacher.log = function(response)
-{
-    console.log(response);
-}
-
-Teacher.send = function()
-{
-    var options = Teacher.options;
-    // var color = GlobalConf.colorFalse;
-
-    console.log(options);
-
-    for (var opt in options)
-    {
-        var div = options[ opt ];
-        div.innerHTML = div.conf.name;
-        // WebLibSimple.setBGColor(div, color);
-
-        Teacher.data[ div.conf.optionKey ] = null;
-    }
-
-    var json = JSON.stringify(Teacher.data)
-    console.log(json);
-
-    var xmlhttp = null;
-
-    if (window.XMLHttpRequest)
-    {
-        // code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp = new XMLHttpRequest();
-    }
-    else
-    {
-        // code for IE6, IE5
-        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-    }
-
-    xmlhttp.onreadystatechange = function()
-    {
-        if ((xmlhttp.readyState == 4) && (xmlhttp.status == 200))
-        {
-            // console.log(xmlhttp.responseText);
-
-            Teacher.log(xmlhttp.responseText);
-
-            // return xmlhttp.responseText;
-        }
-    }
-
-    json = encodeURI(json);
-
-    xmlhttp.open("GET", "http://patrick-macbook.local/homework/uploade.php?json=" + json, false);
-    xmlhttp.send();
-}
-
 Teacher.frameSetup = function(parent)
 {
     //
@@ -127,7 +72,7 @@ Teacher.main = function(topDiv)
 
     for (var index in Data.entrys)
     {
-        Entry.createEntry(Data.entrys[ index ], parent);
+        Entry.createEntry(Data.entrys[ index ], parent, false);
     }
 
     // var marginSize  = circleSize + (margin * 2);
@@ -138,4 +83,5 @@ Teacher.main = function(topDiv)
     // backButton.topDiv = parent;
 }
 
+window.ondragstart = function() { return false; }
 Teacher.main(document.body);

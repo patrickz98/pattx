@@ -1,5 +1,5 @@
 GlobalConf = {
-    uuid: "AVRpLAJgPkDt6iI38jVw",
+    uuid: "PATpLAJgPkDt6iI38jVw",
 
     // blueColor: "#1ED760",
     // greyColor: "#282828",

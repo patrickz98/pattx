@@ -1,6 +1,6 @@
 curl -XGET 'http://localhost:9200/homework/test/_search?q=uuid:AVRpLAJgPkDt6iI38jVw&pretty'
 
-curl -XDELETE 'http://localhost:9200/homework/test/?pretty'
+curl -XDELETE 'http://localhost:9200/homework/teacher/?pretty'
 
 curl -XGET 'http://localhost:9200/homework/test/_search?pretty' -d '
 {
@@ -11,11 +11,11 @@ curl -XGET 'http://localhost:9200/homework/test/_search?pretty' -d '
     }
 }'
 
-curl -XPOST 'http://localhost:9200/homework/teacher/?pretty' -d '{"Name": "Mr. Boom", "ShortName": "Bo", "Subjects": "PGW", "Notes": "Smug", "School": "GSH"}'
+curl -XPOST 'http://localhost:9200/homework/teacher/?pretty' -d '{"uuid": "PATpLAJgPkDt6iI38jVw","Name": "Mr. Boom","ShortName": "Bo","Subjects": "History","Notes": "...","School": "GSH"}'
 
 curl -XGET 'http://localhost:9200/homework/teacher/AVSWj2xko5mAlnT1UTek?pretty'
 
-curl -XPOST 'http://localhost:9200/homework/teacher/AVSWj2xko5mAlnT1UTek?pretty' -d '{"Name": "Mr. Boom", "ShortName": "Bo", "Subjects": "PGW", "Notes": "Smug", "School": "GSH"}'
+curl -XPOST 'http://localhost:9200/homework/teacher/AVTLAnFkBE-ZAybXntx3?pretty' -d '{"Name": "Mr. Boom", "ShortName": "Bo", "Subjects": "PGW", "Notes": "Smug", "School": "GSH", "uuid": "PATpLAJgPkDt6iI38jVw"}'
 
 {
   "_index" : "homework",

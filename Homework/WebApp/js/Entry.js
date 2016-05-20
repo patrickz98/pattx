@@ -94,34 +94,6 @@ Entry.exitInput = function(event)
     }
 }
 
-Entry.openDialog = function(target)
-{
-    var dimmer = Edit.createDimmerCircleInput(target, null, Entry.parent);
-
-    // var value = target.titleSpan.innerHTML;
-    //
-    // var center = WebLibSimple.createAnyAppend("center", dimmer);
-    //
-    // Entry.input = WebLibSimple.createAnyAppend("input", center);
-    //
-    // var input = Entry.input;
-    // input.style.width        = "300px";
-    // input.style.height       = "30px";
-    // input.type               = "text";
-    // input.value              = value;
-    // input.style.textAlign    = "center";
-    // input.style.borderRadius = "30px";
-    // // WebLibSimple.setBGColor(input, "#9f9f9f");
-    //
-    // var div = WebLibSimple.createAnyAppend("div", dimmer);
-    // div.style.paddingTop = "50px";
-    //
-    // var center = WebLibSimple.createAnyAppend("center", div);
-    //
-    // var backButton = Layout.createLabelCircle("Ok", 80, "#000000", center, Entry.exitInput);
-    // backButton.target = target;
-}
-
 Entry.editEntry = function(event)
 {
     // Teacher.topDiv.style.overflow = null;
@@ -133,7 +105,7 @@ Entry.editEntry = function(event)
         target = target.root;
     }
 
-    Entry.openDialog(target);
+    Edit.createEdit(target, Entry.parent.jsonBranch, Entry.parent);
 }
 
 Entry.nextEntryStart = 0;
@@ -150,6 +122,7 @@ Entry.addEntry = function(event)
 	var parent = target.topDiv;
 
     var tmp = {
+        "uuid": GlobalConf.uuid,
         "Name": "",
         "ShortName": "",
         "Subjects": "",
@@ -161,7 +134,7 @@ Entry.addEntry = function(event)
     target.root.style.top = Entry.nextEntryStart + "px";
 }
 
-Entry.createEntryTag = function(tag, title, tagSize, index, parent)
+Entry.createEntryTag = function(tag, title, tagSize, index, parent, virgin)
 {
     var paddingLeft = GlobalConf.tagMarginLeft
 
@@ -169,19 +142,19 @@ Entry.createEntryTag = function(tag, title, tagSize, index, parent)
     // WebLibSimple.setBGColor(div, "#4877a8");
 
     var text = WebLibSimple.createDiv(0, 0, 0, 0, null, div);
-    // text.style.borderRadius = "30px";
     text.style.lineHeight   = div.offsetHeight + "px";
     text.style.fontSize     = GlobalConf.fontSize + "px";
     text.style.overflow     = "hidden";
     text.style.color        = "#ffffff";
+    text.style.cursor       = "pointer";
+
     text.tag                = tag;
     text.title              = title;
-
-    // text.style.textAlign    = "center";
-    text.style.cursor       = "pointer";
+    text.virgin             = virgin;
     text.onclick            = Entry.editEntry;
 
-    // WebLibSimple.setBGColor(text, "#4877a8");
+    // text.style.textAlign    = "center";
+    // text.style.borderRadius = "30px";
 
     var span = WebLibSimple.createAnyAppend("span", text);
     span.innerHTML = tag + ": ";
@@ -191,6 +164,7 @@ Entry.createEntryTag = function(tag, title, tagSize, index, parent)
     span.style.fontWeight = "lighter";
     span.innerHTML        = title;
     span.root             = text;
+    text.titleSpan        = span;
 
     div.text = text;
 
@@ -263,6 +237,7 @@ Entry.createEntry = function(data, parent, virgin)
     console.log("nextEntryStart:" + Entry.nextEntryStart);
 
     Entry.parent = parent;
+    Entry.parent.jsonBranch = data;
 
     //
     // vars
@@ -280,7 +255,9 @@ Entry.createEntry = function(data, parent, virgin)
     var bubbleRadius = GlobalConf.bubbleRadius;
     var tagSize      = GlobalConf.tagSize;
 
-    var entrySize = Object.keys(data).length * tagSize + bubbleRadius + borderB;
+    // remove id & uuid --> -2
+    var tagCount = Object.keys(data).length - 2;
+    var entrySize = tagCount * tagSize + bubbleRadius + borderB;
 
     var marginDiv = WebLibSimple.createDivHeight
     (
@@ -303,7 +280,7 @@ Entry.createEntry = function(data, parent, virgin)
     // Circle Stuff
     //
 
-    var CircleDiv = Entry.createCircleDiv(circleSize, data.ShortName, "QrData", entry);
+    var CircleDiv = Entry.createCircleDiv(circleSize, data.ShortName, data.id, entry);
 
     //
     // Bubble
@@ -328,7 +305,10 @@ Entry.createEntry = function(data, parent, virgin)
         var tag   = option;
         var title = data[ option ];
 
-        var entryTag = Entry.createEntryTag(tag, title, tagSize, index, bubble.content);
+        if (tag == "uuid" || tag == "id") continue;
+
+        var entryTag = Entry.createEntryTag(tag, title, tagSize, index, bubble.content, false);
+
         index++;
     }
 
