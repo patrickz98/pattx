@@ -33,7 +33,10 @@ function postByUuid($server, $index, $type, $uuid, $json)
     $json[ "uuid" ] = $uuid;
 
     $json = json_encode($json);
-    postData($json, $server, $index, $type);
+    $response = postData($json, $server, $index, $type);
+    $response = json_decode($response, true);
+
+    return $response[ "_id" ];
 }
 
 function updateById($server, $index, $type, $id, $json)

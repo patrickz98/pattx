@@ -30,7 +30,7 @@ Layout.createLabelCircle = function(title, size, color, parent, eventFunct)
     var spansize = 2;
     var border   = 50;
 
-    console.log("title:" + title);
+    // console.log("title:" + title);
 
     while (((span.offsetWidth + border) < size) && ((span.offsetHeight + border) < size))
     {

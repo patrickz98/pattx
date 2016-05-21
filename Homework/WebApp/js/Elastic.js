@@ -4,91 +4,72 @@ Elastic.baseUrl = "http://patrick-macbook.local/homework/data.php?";
 
 Elastic.getData = function(url, endPoint)
 {
-    var xmlhttp = null;
-
-    if (window.XMLHttpRequest)
-    {
-        // code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp = new XMLHttpRequest();
-    }
-    else
-    {
-        // code for IE6, IE5
-        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-    }
-
-    xmlhttp.onreadystatechange = function()
-    {
-        console.log("xmlhttp.readyState: " + xmlhttp.readyState);
-
-        if ((xmlhttp.readyState == 4) && (xmlhttp.status == 200))
-        {
-            var response = xmlhttp.responseText;
-            var funct = endPoint;
-
-            funct(response);
-            // return xmlhttp.responseText;
-        }
-    }
-
-    // json = encodeURI(json);
-
-    xmlhttp.open("GET", url, false);
-    xmlhttp.send();
-}
-
-Elastic.setEntrys = function(response)
-{
-    console.log("--> Elastic.loaded - response: " + response);
-    Data.entrys = JSON.parse(response);
-}
-
-Elastic.getByUuid = function(type, uuid)
-{
-    var action = "f";
-
-    var url = Elastic.baseUrl + "action=" + action + "&type=" + type + "&uuid=" + uuid;
-    Elastic.getData(url, Elastic.setEntrys);
+    var script = WebLibSimple.createAnyAppend("script", document.body);
+    script.src = url + "&endPoint=" + endPoint;
 }
 
 Elastic.log = function(response)
 {
-    console.log("--> Elastic.log - response: " + response);
+    console.log("--> Elastic.log - response: " + JSON.stringify(response));
 }
 
-Elastic.getById = function(type, id)
+//
+// Data by Uuid
+// atcion --> f
+//
+
+Elastic.getByUuid = function(type, uuid, callback)
+{
+    var action = "f";
+
+    var url = Elastic.baseUrl + "action=" + action + "&type=" + type + "&uuid=" + uuid;
+    Elastic.getData(url, callback);
+}
+
+//
+// Data by id
+// atcion --> g
+//
+
+Elastic.getById = function(type, id, callback)
 {
     var action = "g";
 
     var url = Elastic.baseUrl + "action=" + action + "&type=" + type + "&id=" + id;
-    Elastic.getData(url, Elastic.log);
+    Elastic.getData(url, callback);
 }
 
-Elastic.postByUuid = function(type, uuid, json)
+//
+// post data --> uuid
+// atcion --> p
+//
+
+Elastic.postByUuid = function(type, uuid, json, callback)
 {
     var action = "p";
     var json = JSON.stringify(json);
 
     var url = Elastic.baseUrl + "action=" + action + "&type=" + type + "&uuid=" + uuid + "&json=" + json;
-    Elastic.getData(url, Elastic.log);
+    // Elastic.getData(url, "Elastic.log");
+    Elastic.getData(url, callback);
 }
+
+//
+// put/update data --> id
+// atcion --> u
+//
 
 Elastic.updateById = function(type, id, json)
 {
-    console.log("updateById: " + json.id);
-    console.log("updateById: " + JSON.stringify(json));
+    console.log("updateById: " + id);
 
     var action = "u";
-
-    delete json.id;
 
     var json = encodeURI(JSON.stringify(json));
 
     var url = Elastic.baseUrl + "action=" + action + "&type=" + type + "&id=" + id + "&json=" + json;
-    Elastic.getData(url, Elastic.log);
+    Elastic.getData(url, "Elastic.log");
 }
-
-Elastic.getByUuid("teacher", "PATpLAJgPkDt6iI38jVw");
 
 var json = {
     "Name": "Mr. Zoluu",

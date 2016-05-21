@@ -33,9 +33,13 @@ Entry.createTriangle = function(left, top, width, height, color, parent)
 
 Entry.editEntry = function(event)
 {
-    // Teacher.topDiv.style.overflow = null;
-
     var target = event.target;
+
+    if (target.control === undefined)
+    {
+        console.log("++> Entry.editEntry stopped by control");
+        return;
+    }
 
     if (target.root)
     {
@@ -49,11 +53,6 @@ Entry.editEntry = function(event)
 
 Entry.nextEntryStart = 0;
 
-Entry.getNextEntryStart = function()
-{
-    return Entry.nextEntryStart;
-}
-
 Entry.addEntry = function(event)
 {
 	var target = event.target;
@@ -61,6 +60,7 @@ Entry.addEntry = function(event)
 	var parent = target.topDiv;
 
     var tmp = {
+        "id": null,
         "uuid": GlobalConf.uuid,
         "Name": "",
         "ShortName": "",
@@ -69,7 +69,9 @@ Entry.addEntry = function(event)
         "School": ""
     };
 
-    Entry.createEntry(tmp, parent, true);
+    Data.entrys.push(tmp);
+
+    Entry.createEntry(Data.entrys[ Data.entrys.length - 1 ], parent, true);
     target.root.style.top = Entry.nextEntryStart + "px";
 }
 
@@ -92,6 +94,7 @@ Entry.createEntryTag = function(tag, title, tagSize, index, parent, virgin)
     text.virgin             = virgin;
     text.jsonBranch         = Entry.parent.jsonBranch;
     text.onclick            = Entry.editEntry;
+    text.control            = "control";
 
     // text.style.textAlign    = "center";
     // text.style.borderRadius = "30px";
@@ -139,7 +142,10 @@ Entry.createCircleDiv = function(size, Label, QrData, parent)
     QrDiv.style.top = null;
     QrDiv.style.bottom = "0px";
 
-    Layout.createQrCircle(size, GlobalConf.qrColor, GlobalConf.qrColorBG, QrData, QrDiv);
+    if (QrData != null)
+    {
+        Layout.createQrCircle(size, GlobalConf.qrColor, GlobalConf.qrColorBG, QrData, QrDiv);
+    }
 
     return circleDiv;
 }
@@ -170,6 +176,20 @@ Entry.createBubble = function(flagPosition, flagWidth, flagSize, color, bubbleRa
     bubble.content = content;
 
     return bubble;
+}
+
+Entry.createAddButton = function(parent)
+{
+    var circleSize  = GlobalConf.circleSize;
+    var margin      = GlobalConf.margin;
+
+    var marginSize  = circleSize + (margin * 2);
+    var addEntry    = WebLibSimple.createDivHeight(0, Entry.nextEntryStart, 0, marginSize, null, parent);
+
+    var center      = WebLibSimple.createAnyAppend("center", addEntry);
+    var button      = Layout.createLabelCircle("+", circleSize, GlobalConf.addButtonColor, center, Entry.addEntry);
+    button.root   = addEntry;
+    button.topDiv = parent;
 }
 
 Entry.createEntry = function(data, parent, virgin)
@@ -220,7 +240,14 @@ Entry.createEntry = function(data, parent, virgin)
     // Circle Stuff
     //
 
-    var CircleDiv = Entry.createCircleDiv(circleSize, data.ShortName, data.id, entry);
+    if (virgin)
+    {
+        var CircleDiv = Entry.createCircleDiv(circleSize, "New", null, entry);
+    }
+    else
+    {
+        var CircleDiv = Entry.createCircleDiv(circleSize, data.ShortName, data.id, entry);
+    }
 
     //
     // Bubble
@@ -247,7 +274,7 @@ Entry.createEntry = function(data, parent, virgin)
 
         if (tag == "uuid" || tag == "id") continue;
 
-        var entryTag = Entry.createEntryTag(tag, title, tagSize, index, bubble.content, false);
+        var entryTag = Entry.createEntryTag(tag, title, tagSize, index, bubble.content, virgin);
 
         index++;
     }

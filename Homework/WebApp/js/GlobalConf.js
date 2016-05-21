@@ -16,6 +16,7 @@ GlobalConf = {
     bodyColor:      "#ffffff",
     qrColor:        "#ffffff",
     qrColorBG:      "#292C36",
+    addButtonColor: "#7C25F8",
 
     dimmerDivColor: "#99000000",
     editColor:      "#7C25F8",
@@ -39,4 +40,4 @@ GlobalConf = {
     today: WebLibSimple.getNiceDate((new Date()))
 };
 
-// GlobalConf.qrColor
+// GlobalConf.addButtonColor

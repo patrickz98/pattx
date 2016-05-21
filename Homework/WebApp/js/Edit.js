@@ -1,20 +1,47 @@
 Edit = {};
 
+Edit.nukeEdit = function()
+{
+    console.log("--> Edit.nukeEdit");
+
+    var editInfo = Edit.editInfo;
+    // console.log(JSON.stringify(editInfo));
+
+    var oldTarget     = editInfo.oldTarget;
+    oldTarget.onclick = editInfo.oldEvent;
+
+    var changeDiv = editInfo.contentDiv;
+    changeDiv.style.display = "none";
+    changeDiv.onclick       = null;
+    changeDiv.innerHTML     = "";
+
+    // Error
+    Edit.editInfo = null;
+}
+
+Edit.finishNewEntry = function(id)
+{
+    console.log("New id: " + id);
+
+    Edit.newJson[ "id" ] = id;
+}
+
 Edit.edit = function(event)
 {
-    console.log("Edit.edit");
+    console.log("--> Edit.edit");
 
     var choice = event.target.choice;
-    console.log("Choice: " + choice);
+    // console.log("Choice: " + choice);
 
     var editInfo   = Edit.editInfo;
     var oldTarget  = editInfo.oldTarget;
     var change     = editInfo.input.value;
     var jsonBranch = editInfo.jsonBranch;
     var tag        = editInfo.tag;
+    var virgin     = editInfo.virgin;
 
-    console.log("Change: " + change);
-    console.log("oldTarget.title: " + oldTarget.title);
+    // console.log("Change: " + change);
+    // console.log("oldTarget.title: " + oldTarget.title);
 
     if (choice)
     {
@@ -22,7 +49,43 @@ Edit.edit = function(event)
         oldTarget.title               = change;
         jsonBranch[ tag ]             = change;
 
-        Elastic.updateById("teacher", jsonBranch.id, jsonBranch);
+        // if (jsonBranch.id === undefined)
+        // {
+        //     console.log("undefined id???");
+        //     console.log("??" + JSON.stringify(jsonBranch));
+        // }
+        //
+        // if (jsonBranch.id == null)
+        // {
+        //     console.log("Null id");
+        // }
+
+        if (jsonBranch.id == null)
+        {
+            console.log("Create New Entry");
+
+            var callback = "Edit.finishNewEntry";
+
+            Edit.newJson = jsonBranch;
+
+            Elastic.postByUuid("teacher", GlobalConf.uuid, jsonBranch, callback);
+
+            Edit.nukeEdit();
+
+            return;
+        }
+
+        if (jsonBranch.id != null && jsonBranch.id != undefined)
+        {
+            console.log("Update Entry");
+
+            var id = jsonBranch.id;
+            delete jsonBranch.id;
+
+            Elastic.updateById("teacher", id, jsonBranch);
+            jsonBranch.id = id;
+        }
+
         Edit.nukeEdit();
     }
 }
@@ -81,28 +144,11 @@ Edit.createInput = function(parent, text)
     return container;
 }
 
-Edit.nukeEdit = function()
-{
-    var editInfo = Edit.editInfo;
-    // console.log(JSON.stringify(editInfo));
-
-    var oldTarget     = editInfo.oldTarget;
-    oldTarget.onclick = editInfo.oldEvent;
-
-    var changeDiv = editInfo.contentDiv;
-    changeDiv.style.display = "none";
-    changeDiv.onclick       = null;
-    changeDiv.innerHTML     = "";
-
-    // Error
-    // Edit.editInfo = null;
-}
-
 Edit.createEdit = function(target, jsonBranch, parent)
 {
-    // console.log("## " + JSON.stringify(jsonBranch));
+    console.log("--> New Edit: " + JSON.stringify(jsonBranch));
 
-    if (Edit.editInfo !== undefined)
+    if (Edit.editInfo)
     {
         Edit.nukeEdit();
     }
@@ -115,7 +161,7 @@ Edit.createEdit = function(target, jsonBranch, parent)
     var oldEvent = target.onclick;
     target.onclick = function()
     {
-        console.log("Do Nothing");
+        console.log("++> Do Nothing");
         return false;
     };
 

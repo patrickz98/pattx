@@ -43,45 +43,36 @@ Teacher.frameSetup = function(parent)
     // WebLibSimple.setBGColor(Teacher.topDiv, "#666666");
 }
 
-Teacher.main = function(topDiv)
+Teacher.dataCallback = function(response)
 {
-    WebLibSimple.disableSelection(topDiv);
-    WebLibSimple.setBGColor(topDiv, GlobalConf.bodyColor);
-
-    //
-    // Vars
-    //
-    // var parent = topDiv;
-    var parent = WebLibSimple.createDiv(0, 0, 0, 0, null, topDiv);
-    // parent.style.height = "100%";
-
+    var parent = WebLibSimple.createDiv(0, 0, 0, 0, null, Teacher.topDiv);
     parent.style.overflow = "auto";
     parent.style.fontFamily = GlobalConf.fontFamily;
 
-    // console.log(parent.scrollTop);
-    // console.log(parent.scrollHeight);
-
-    var headlineHeight = GlobalConf.headlineHeight;
-    var circleSize     = GlobalConf.circleSize;
-    var margin         = 40;
-
-    //
-    // Center
-    //
-    // Entry.createEntry(Data.entrys[ 0 ], parent);
+    console.log("--> load: " + JSON.stringify(response));
+    Data.entrys = response;
 
     for (var index in Data.entrys)
     {
         Entry.createEntry(Data.entrys[ index ], parent, false);
     }
 
-    // var marginSize  = circleSize + (margin * 2);
-    // var addEntry    = WebLibSimple.createDivHeight(0, Entry.getNextEntryStart(), 0, marginSize, null, parent);
-    // var center      = WebLibSimple.createAnyAppend("center", addEntry);
-    // var backButton  = Layout.createLabelCircle("+", circleSize, GlobalConf.colorFalse, center, Entry.addEntry);
-    // backButton.root = addEntry;
-    // backButton.topDiv = parent;
+    Entry.createAddButton(parent);
 }
 
-window.ondragstart = function() { return false; }
+Teacher.main = function(topDiv)
+{
+    Teacher.topDiv = topDiv;
+
+    window.ondragstart = function() { return false; }
+    WebLibSimple.disableSelection(topDiv);
+    WebLibSimple.setBGColor(topDiv, GlobalConf.bodyColor);
+
+    //
+    // Content
+    //
+
+    Elastic.getByUuid("teacher", "PATpLAJgPkDt6iI38jVw", "Teacher.dataCallback");
+}
+
 Teacher.main(document.body);
