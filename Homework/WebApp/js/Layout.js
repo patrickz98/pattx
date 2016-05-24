@@ -109,6 +109,7 @@ Layout.createQrCircle = function(size, color, bgcolor, data, parent)
     img.style.position = "absolute";
     // img.style.cursor = "none";
 
+    // remove #
     var qrcolor  = color.substring(1, 7);
     var qrbcolor = bgcolor.substring(1, 7);
 

@@ -114,6 +114,33 @@ Entry.createEntryTag = function(tag, title, tagSize, index, parent, virgin)
     return div;
 }
 
+Entry.createOptionDiv = function(size, parent)
+{
+    var margin = 30;
+    var optionHeight = size / 2;
+    var circleSize = optionHeight - margin * 2;
+    var color = GlobalConf.labelColor;
+
+    var topDiv    = WebLibSimple.createDiv(0, 0, 0, optionHeight, null, parent);
+
+    var container = WebLibSimple.createDiv(0, margin, 0, margin, null, topDiv);
+    Layout.createLabelCircle("Yes", circleSize, GlobalConf.labelColor, container, null);
+
+    WebLibSimple.setBGColor(container, "#3ed436");
+
+    var bottomDiv = WebLibSimple.createDiv(0, optionHeight, 0, 0, null, parent);
+    var container = WebLibSimple.createDiv(0, margin, 0, margin, null, bottomDiv);
+    // Layout.createLabelCircle("X", circleSize, GlobalConf.labelColor, container, null);
+
+    var cLabel = Layout.createCircle("X", circleSize, color, container, null);
+    cLabel.style.fontSize = circleSize * 0.8 + "px"
+    cLabel.style.fontWeight = "100";
+
+    WebLibSimple.setBGColor(container, "#d43636");
+
+    // Layout.createQrCircle(circleSize, GlobalConf.qrColor, GlobalConf.qrColorBG, "QrData", container);
+}
+
 Entry.createCircleDiv = function(size, Label, QrData, parent)
 {
     var margin = GlobalConf.circleDivMargin;
@@ -134,19 +161,30 @@ Entry.createCircleDiv = function(size, Label, QrData, parent)
     // WebLibSimple.setBGColor(div, "#af36d4");
 
     //
+    // Option div
+    //
+
+    var optionDiv = WebLibSimple.createDivWidHei(0, 0, size, size, null, circleDiv);
+    optionDiv.style.top = null;
+    optionDiv.style.bottom = "0px";
+
+    WebLibSimple.setBGColor(optionDiv, "#af36d4");
+
+    Entry.createOptionDiv(size, optionDiv);
+
+    //
     // qr div
     //
 
-    // Fehler beim Verarbeiten des Wertes für 'top'.  Deklaration ignoriert.
-    var QrDiv = WebLibSimple.createDivWidHei(0, 0, size, size, null, circleDiv);
-    QrDiv.style.top = null;
-    QrDiv.style.bottom = "0px";
-
-    if (QrData != null)
-    {
-        Layout.createQrCircle(size, GlobalConf.qrColor, GlobalConf.qrColorBG, QrData, QrDiv);
-    }
-
+    // var QrDiv = WebLibSimple.createDivWidHei(0, 0, size, size, null, circleDiv);
+    // QrDiv.style.top = null;
+    // QrDiv.style.bottom = "0px";
+    //
+    // if (QrData != null)
+    // {
+    //     Layout.createQrCircle(size, GlobalConf.qrColor, GlobalConf.qrColorBG, QrData, QrDiv);
+    // }
+    //
     return circleDiv;
 }
 
