@@ -48,4 +48,9 @@ function updateById($server, $index, $type, $id, $json)
     putData($json, $server, $index, $type, $id);
 }
 
+function deleteById($server, $index, $type, $id)
+{
+    return deleteDataById($server, $index, $type, $id);
+}
+
 ?>

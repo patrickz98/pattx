@@ -71,15 +71,25 @@ Elastic.updateById = function(type, id, json)
     Elastic.getData(url, "Elastic.log");
 }
 
-var json = {
-    "Name": "Mr. Zoluu",
-    "ShortName": "Zo",
-    "Subjects": "Space",
-    "Notes": "Cool",
-    "School": "GSH",
-    "uuid": "PATpLAJgPkDt6iI38jVw",
-    "id": "AVTK_TiEBE-ZAybXntx0"
-};
+Elastic.delteById = function(type, id)
+{
+    console.log("delteById: " + id);
+
+    var action = "d";
+
+    var url = Elastic.baseUrl + "action=" + action + "&type=" + type + "&id=" + id;
+    Elastic.getData(url, "Elastic.log");
+}
+
+// var json = {
+//     "Name": "Mr. Zoluu",
+//     "ShortName": "Zo",
+//     "Subjects": "Space",
+//     "Notes": "Cool",
+//     "School": "GSH",
+//     "uuid": "PATpLAJgPkDt6iI38jVw",
+//     "id": "AVTK_TiEBE-ZAybXntx0"
+// };
 
 // Elastic.updateById("teacher", "AVTK_TiEBE-ZAybXntx0", json);
 

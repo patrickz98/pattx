@@ -95,6 +95,7 @@ Edit.createOkNoButton = function(parent, size)
     var size = parent.offsetHeight;
     var margin = 10;
     var width = size * 2 + margin * 2
+    var border = GlobalConf.optionCircleBorder;
 
     parent.inputContainer.style.right = width + "px";
 
@@ -104,7 +105,8 @@ Edit.createOkNoButton = function(parent, size)
 
     var okButton = WebLibSimple.createDiv(margin, 0, size, 0, null, container);
 
-    var button = Layout.createCircle("Ok", size, "#04ee85", okButton, Edit.edit);
+    // var button = Layout.createCircle("Ok", size, "#04ee85", okButton, Edit.edit);
+    var button = Layout.createBorderCircle("Ok", size, "#ffffff", border, okButton, Edit.edit);
     button.choice = true;
     // button.style.border = "1px solid #04ee85";
 
@@ -112,7 +114,8 @@ Edit.createOkNoButton = function(parent, size)
     noButton.style.left  = null;
     noButton.style.right = 0;
 
-    var button = Layout.createCircle("No", size, "#22252B", noButton, Edit.nukeEdit);
+    // var button = Layout.createCircle("No", size, "#22252B", noButton, Edit.nukeEdit);
+    var button = Layout.createBorderCircle("Abort", size, "#ffffff", border, noButton, Edit.nukeEdit);
     button.choice = false;
     // button.style.border = "1px solid #ee6604";
 }

@@ -123,6 +123,17 @@ Layout.createQrCircle = function(size, color, bgcolor, data, parent)
     // WebLibSimple.setBGColor(div, "#c90386");
 }
 
+Layout.createBorderCircle = function(title, size, color, border, parent, eventFunct)
+{
+    var div = Layout.createCircle(title, size, "#000000", parent, eventFunct);
+    div.style.backgroundColor = null;
+    div.style.color  = color;
+    div.style.border = border;
+    div.style.fontWeight = "100";
+
+    return div;
+}
+
 Layout.createCenterCircle = function(title, size, color, parent, eventFunct)
 {
     var center = WebLibSimple.createAnyAppend("center", parent);

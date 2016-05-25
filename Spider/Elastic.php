@@ -99,4 +99,23 @@ function getDataById($server, $index, $type, $id)
 
     return $output;
 }
+
+function deleteDataById($server, $index, $type, $id)
+{
+    $url = "http://$server:9200/$index/$type/$id";
+
+    $chlead = curl_init();
+
+    curl_setopt($chlead, CURLOPT_URL, $url);
+    curl_setopt($chlead, CURLOPT_CUSTOMREQUEST, "DELETE");
+    curl_setopt($chlead, CURLOPT_RETURNTRANSFER, 1);
+
+    $output = curl_exec($chlead);
+    curl_close($chlead);
+
+    echo $output;
+
+    return $output;
+}
+
 ?>

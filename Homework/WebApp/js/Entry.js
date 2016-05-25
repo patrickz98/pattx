@@ -35,11 +35,11 @@ Entry.editEntry = function(event)
 {
     var target = event.target;
 
-    if (target.control === undefined)
-    {
-        console.log("++> Entry.editEntry stopped by control");
-        return;
-    }
+    // if (target.control === undefined)
+    // {
+    //     console.log("++> Entry.editEntry stopped by control");
+    //     return;
+    // }
 
     if (target.root)
     {
@@ -75,7 +75,7 @@ Entry.addEntry = function(event)
     target.root.style.top = Entry.nextEntryStart + "px";
 }
 
-Entry.createEntryTag = function(tag, title, tagSize, index, parent, virgin)
+Entry.createEntryTag = function(tag, title, tagSize, index, parent)
 {
     var paddingLeft = GlobalConf.tagMarginLeft
 
@@ -85,63 +85,133 @@ Entry.createEntryTag = function(tag, title, tagSize, index, parent, virgin)
     var text = WebLibSimple.createDiv(0, 0, 0, 0, null, div);
     text.style.lineHeight   = div.offsetHeight + "px";
     text.style.fontSize     = GlobalConf.fontSize + "px";
-    text.style.overflow     = "hidden";
+    // border to big
+    // text.style.overflow     = "hidden";
     text.style.color        = "#ffffff";
     text.style.cursor       = "pointer";
 
     text.tag                = tag;
     text.title              = title;
-    text.virgin             = virgin;
     text.jsonBranch         = Entry.parent.jsonBranch;
     text.onclick            = Entry.editEntry;
     text.control            = "control";
 
-    // text.style.textAlign    = "center";
-    // text.style.borderRadius = "30px";
+    var div = WebLibSimple.createDiv(0, 0, "50%", 0, null, text);
+    div.style.fontWeight = "lighter";
+    div.innerHTML        = tag + ": ";
+    div.root             = text;
 
-    var span = WebLibSimple.createAnyAppend("span", text);
-    span.innerHTML = tag + ": ";
-    span.root      = text;
+    var div = WebLibSimple.createDiv("50%", 0, 0, 0, null, text);
+    div.style.fontWeight = "bold";
+    div.innerHTML        = title;
+    div.root             = text;
 
-    var span = WebLibSimple.createAnyAppend("span", text);
-    span.style.fontWeight = "lighter";
-    span.innerHTML        = title;
-    span.root             = text;
-    text.titleSpan        = span;
+    // var span = WebLibSimple.createAnyAppend("span", text);
+    // span.innerHTML = tag + ": ";
+    // span.root      = text;
+    //
+    // var span = WebLibSimple.createAnyAppend("span", text);
+    // span.style.fontWeight = "lighter";
+    // span.innerHTML        = title;
+    // span.root             = text;
 
-    div.text = text;
+    text.titleSpan = div;
+    div.text       = text;
 
     return div;
 }
 
-Entry.createOptionDiv = function(size, parent)
+Entry.createOptionLabel = function(title, size, parent)
+{
+    var textColor = GlobalConf.optionCircleColor;
+    var margin = GlobalConf.optionCircleMargin;
+
+    var div = WebLibSimple.createDiv(size + margin, 0, 0, 0, null, parent);
+    div.innerHTML        = title;
+    div.style.fontSize   = size * 0.8 + "px";
+    div.style.lineHeight = size + "px";
+    div.style.color      = textColor;
+    div.style.overflow   = "hidden";
+    div.style.fontWeight = "lighter";
+
+    return div;
+}
+
+Entry.openScan = function(event)
+{
+    var target = event.target;
+
+    if (target.root) target = target.root;
+
+    console.log("--> Open Qr id: " + target.id);
+}
+
+Entry.deleteEntry = function(event)
+{
+    var target = event.target;
+
+    if (target.root) target = target.root;
+
+    console.log("--> Delete Entry id: " + target.id);
+
+    Elastic.delteById("teacher", target.id);
+}
+
+Entry.createOptionDivStd = function(size, id, parent)
 {
     var margin = 30;
-    var optionHeight = size / 2;
-    var circleSize = optionHeight - margin * 2;
-    var color = GlobalConf.labelColor;
+    var circleSize = GlobalConf.optionCircleSize;
+    var optionHeight = circleSize + margin * 2;
 
-    var topDiv    = WebLibSimple.createDiv(0, 0, 0, optionHeight, null, parent);
+    var color  = GlobalConf.optionCircleColor;
+    var border = GlobalConf.optionCircleBorder;
 
-    var container = WebLibSimple.createDiv(0, margin, 0, margin, null, topDiv);
-    Layout.createLabelCircle("Yes", circleSize, GlobalConf.labelColor, container, null);
+    //
+    // topDiv
+    //
 
-    WebLibSimple.setBGColor(container, "#3ed436");
+    var topDiv = WebLibSimple.createDivHeight(0, margin, 0, circleSize, null, parent);
+    topDiv.onclick      = Entry.openScan;
+    topDiv.style.cursor = "pointer";
+    topDiv.id           = id;
 
-    var bottomDiv = WebLibSimple.createDiv(0, optionHeight, 0, 0, null, parent);
-    var container = WebLibSimple.createDiv(0, margin, 0, margin, null, bottomDiv);
-    // Layout.createLabelCircle("X", circleSize, GlobalConf.labelColor, container, null);
+    var containerDiscription = Entry.createOptionLabel("Scan", circleSize, topDiv);
+    containerDiscription.root = topDiv;
 
-    var cLabel = Layout.createCircle("X", circleSize, color, container, null);
+    var containerLabel  = WebLibSimple.createDiv(0, 0, circleSize, 0, null, topDiv);
+    containerLabel.root = topDiv;
+
+    var cLabel = Layout.createBorderCircle("S", circleSize, color, border, containerLabel, null);
     cLabel.style.fontSize = circleSize * 0.8 + "px"
-    cLabel.style.fontWeight = "100";
+    cLabel.root = topDiv;
 
-    WebLibSimple.setBGColor(container, "#d43636");
+    // WebLibSimple.setBGColor(topDiv, "#3ed436");
+
+    //
+    // bottomDiv
+    //
+
+    var bottomDiv = WebLibSimple.createDivHeight(0, optionHeight, 0, circleSize, null, parent);
+    bottomDiv.onclick      = Entry.deleteEntry;
+    bottomDiv.style.cursor = "pointer";
+    bottomDiv.id           = id;
+
+    var containerLabel = WebLibSimple.createDiv(0, 0, circleSize, 0, null, bottomDiv);
+    containerLabel.root = bottomDiv;
+
+    var cLabel = Layout.createBorderCircle("X", circleSize, color, border, containerLabel, null);
+    cLabel.style.fontSize = circleSize * 0.8 + "px";
+    cLabel.root = bottomDiv;
+
+    var containerDiscription = Entry.createOptionLabel("Delete", circleSize, bottomDiv);
+    containerDiscription.root = bottomDiv;
+
+    // WebLibSimple.setBGColor(bottomDiv, "#d43636");
 
     // Layout.createQrCircle(circleSize, GlobalConf.qrColor, GlobalConf.qrColorBG, "QrData", container);
 }
 
-Entry.createCircleDiv = function(size, Label, QrData, parent)
+Entry.createCircleDiv = function(size, Label, id, parent)
 {
     var margin = GlobalConf.circleDivMargin;
 
@@ -156,8 +226,12 @@ Entry.createCircleDiv = function(size, Label, QrData, parent)
     // Label div
     //
 
-    var Labeldiv = WebLibSimple.createDivWidHei(0, 0, size, size, null, circleDiv);
-    Layout.createLabelCircle(Label, size, GlobalConf.labelColor, Labeldiv, null);
+    var labelDiv = WebLibSimple.createDivWidHei(0, 0, size, size, null, circleDiv);
+    // var lable = Layout.createLabelCircle(Label, size, GlobalConf.labelColor, labelDiv, null);
+    var lable = Layout.createLabelCircle(Label, size, GlobalConf.labelColor, labelDiv, null);
+    lable.style.fontSize = "20px";
+    lable.style.border = "1px solid #1ED760";
+
     // WebLibSimple.setBGColor(div, "#af36d4");
 
     //
@@ -168,9 +242,9 @@ Entry.createCircleDiv = function(size, Label, QrData, parent)
     optionDiv.style.top = null;
     optionDiv.style.bottom = "0px";
 
-    WebLibSimple.setBGColor(optionDiv, "#af36d4");
+    // WebLibSimple.setBGColor(optionDiv, "#af36d4");
 
-    Entry.createOptionDiv(size, optionDiv);
+    Entry.createOptionDivStd(size, id, optionDiv);
 
     //
     // qr div
@@ -190,7 +264,7 @@ Entry.createCircleDiv = function(size, Label, QrData, parent)
 
 Entry.createBubble = function(flagPosition, flagWidth, flagSize, color, bubbleRadius, parent)
 {
-    var bubble = WebLibSimple.createDiv(0, 0, 0, 0, null, parent);
+    var bubble = WebLibSimple.createDiv(2, 0, 0, 0, null, parent);
 
     //
     // Triangle
@@ -209,7 +283,10 @@ Entry.createBubble = function(flagPosition, flagWidth, flagSize, color, bubbleRa
 
     WebLibSimple.setBGColor(contentDiv, color);
 
-    var content = WebLibSimple.createDiv(20, 20, 20, 20, null, contentDiv);
+    var border  = bubbleRadius / 2;
+    var content = WebLibSimple.createDiv(border, border, border, border, null, contentDiv);
+    content.style.overflow = "hidden";
+    // WebLibSimple.setBGColor(content, "#e85620");
 
     bubble.content = content;
 
@@ -253,9 +330,9 @@ Entry.createEntry = function(data, parent, virgin)
     var bubbleRadius = GlobalConf.bubbleRadius;
     var tagSize      = GlobalConf.tagSize;
 
-    // remove id & uuid --> -2
+    // remove id & uuid --> - 2
     var tagCount = Object.keys(data).length - 2;
-    var entrySize = tagCount * tagSize + bubbleRadius + borderB;
+    var entrySize = tagCount * tagSize + bubbleRadius + margin;
 
     var marginDiv = WebLibSimple.createDivHeight
     (
@@ -284,7 +361,7 @@ Entry.createEntry = function(data, parent, virgin)
     }
     else
     {
-        var CircleDiv = Entry.createCircleDiv(circleSize, data.ShortName, data.id, entry);
+        var CircleDiv = Entry.createCircleDiv(circleSize, data.Name, data.id, entry);
     }
 
     //
@@ -312,7 +389,7 @@ Entry.createEntry = function(data, parent, virgin)
 
         if (tag == "uuid" || tag == "id") continue;
 
-        var entryTag = Entry.createEntryTag(tag, title, tagSize, index, bubble.content, virgin);
+        var entryTag = Entry.createEntryTag(tag, title, tagSize, index, bubble.content);
 
         index++;
     }
