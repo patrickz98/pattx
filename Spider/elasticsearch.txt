@@ -27,11 +27,11 @@ curl -XGET 'http://localhost:9200/megacorp/employee/_search?q=last_name:Smith&pr
 
 curl -XGET 'http://localhost:9200/megacorp/employee/_search?pretty'
 
-curl -XGET 'http://localhost:9200/megacorp/employee/_search?pretty' -d '
+curl -XGET 'http://localhost:9200/calendar/test/_search?pretty' -d '
 {
     "query" : {
         "match" : {
-            "last_name" : "Smith"
+            "user-id" : "user1181"
         }
     }
 }'
@@ -47,8 +47,19 @@ curl -XDELETE 'http://localhost:9200/map/?pretty'
 curl -XGET 'http://localhost:9200/homework/test/_search?q=uuid:AVRpLAJgPkDt6iI38jVw&pretty'
 
 
+curl -XPUT "http://localhost:9200/calendar?pretty" -d '
+{
+  "mappings": {
+    "test": {
+      "properties": {
+        "start": {
+          "type":   "date",
+          "format": "yyyy-MM-dd"
+        }
+      }
+    }
+  }
+}'
 
-
-
-
-
+curl -XGET 'http://localhost:9200/_cat/indices?v'
+curl -XGET 'http://localhost:9200/_mapping?pretty'

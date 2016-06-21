@@ -442,4 +442,27 @@ WebLibSimple.disableSelection = function(target)
         }
     }
     target.style.cursor = "default";
+
+    window.ondragstart = function()
+    {
+        return false;
+    }
+}
+
+WebLibSimple.removeValFromArray = function(value, array)
+{
+    array.splice(array.indexOf(value), 1);
+}
+
+WebLibSimple.setOpacity = function(div, hexColor, percent)
+{
+    if (percent < 0.3) percent = 0.3;
+
+    var hlsColor = tinycolor(hexColor).toHslString();
+
+    var res = hlsColor.split(",");
+
+    var darkPercent = parseInt(res[ 2 ]) * percent;
+    var hlsColor = res[ 0 ] + "," + res[ 1 ] + "," + darkPercent + "%)";
+    div.style.backgroundColor = hlsColor;
 }

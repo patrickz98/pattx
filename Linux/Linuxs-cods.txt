@@ -1,3 +1,20 @@
+
+odroid-u4.local:/mnt/nfs                   /media/Network   nfs     rw,sync  0     0
+patrick-raspberry.local:/mnt/nfs           /media/Network   nfs     rw,sync,hard,intr  0     0
+
+patrick-raspberry.local:/mnt/nfs                   /media/Network   nfs     rw,sync  0     0
+
+
+mount -t nfs -o nfsvers=3 10.1.1.50:/home/nfs /home/nfs_local
+sudo mount.nfs patrick-raspberry.local:/mnt/nfs /media/Network
+
+sudo mount -t nfs -o nfsvers=3 patrick-raspberry.local:/mnt/nfs /media/Network
+
+UUID=131747f8-67f2-4ff7-8fc5-3cb26452b18a  /media/hyper     ext4    rw
+
+131747f8-67f2-4ff7-8fc5-3cb26452b18a
+------------------------------------------------------------------------------------------
+
 dd if=/dev/zero of=/PATH/FILENAME bs=1024 count=SIZE
 
 mkswap /PATH/FILENAME
@@ -122,6 +139,7 @@ sudo apt-get install libssl-dev
 alias ll='ls -alh'
 alias psg='ps -eaf | grep -v grep | grep'
 alias df='df -h'
+alias du='du -h -s'
 
 
 network={
@@ -173,7 +191,6 @@ sudo dpkg -i linux-headers linux-image
 odroid ALL=(ALL) NOPASSWD: ALL
 
 sudo dpkg-reconfigure tzdata
-
 
 
 deb http://ftp.debian.org/debian testing main contrib non-free

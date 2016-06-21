@@ -1,9 +1,4 @@
 <?php
-function brockePa()
-{
-    echo "test987";
-    return "test";
-}
 
 function putData($json, $server, $index, $type, $id = false)
 {
@@ -48,24 +43,8 @@ function postData($json, $server, $index, $type)
     $chleadapierr = curl_errno($chlead);
     $chleaderrmsg = curl_error($chlead);
     curl_close($chlead);
-}
 
-// function getDataById($server, $index, $type, $id)
-function brocke()
-{
-    // $url = "http://$server:9200/$index/$type/$id";
-    //
-    // $chlead = curl_init();
-    //
-    // curl_setopt($chlead, CURLOPT_URL, $url);
-    // curl_setopt($chlead, CURLOPT_CUSTOMREQUEST, "GET");
-    // curl_setopt($chlead, CURLOPT_RETURNTRANSFER, 1);
-    //
-    // $output = curl_exec($chlead);
-    // curl_close($chlead);
-
-    // return $output;
-    return "end";
+    return $chleadresult;
 }
 
 function getDataByUuid($server, $index, $type, $uuid)
@@ -112,8 +91,6 @@ function deleteDataById($server, $index, $type, $id)
 
     $output = curl_exec($chlead);
     curl_close($chlead);
-
-    echo $output;
 
     return $output;
 }
