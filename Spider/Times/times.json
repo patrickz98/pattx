@@ -1,0 +1,733 @@
+{
+    "response": {
+        "meta": {
+            "hits": 15166798,
+            "time": 123,
+            "offset": 0
+        },
+        "docs": [
+            {
+                "snippet": "The world\u2019s biggest beverage company said on Thursday that it spent more on health research and partnerships than it previously disclosed, as part of its push to be more transparent.",
+                "abstract": null,
+                "lead_paragraph": "The world\u2019s biggest beverage company said on Thursday that it spent more on health research and partnerships than it previously disclosed, as part of its push to be more transparent.",
+                "headline": {
+                    "main": "Coke Discloses More Spending on Health-Related Efforts",
+                    "content_kicker": "Business Briefing",
+                    "kicker": "Business Briefing"
+                },
+                "type_of_material": "News",
+                "news_desk": "Business",
+                "section_name": {
+                    "content": "business",
+                    "url": "http:\/\/www.nytimes.com\/pages\/business\/index.html",
+                    "display_name": "Business Day"
+                },
+                "subsection_name": [],
+                "pub_date": "2016-04-24T00:00:00Z",
+                "created": "2016-03-24T19:36:10Z",
+                "updated": "2016-03-25T00:08:22Z",
+                "source": "The New York Times",
+                "print_section": null,
+                "print_page": null,
+                "nytddes": "",
+                "web_url": "http:\/\/www.nytimes.com\/2016\/04\/19\/business\/coke-discloses-more-spending-on-health-related-efforts.html",
+                "taxonomy_nodes": null,
+                "keywords": [
+                    {
+                        "rank": "1",
+                        "is_major": "N",
+                        "name": "organizations",
+                        "value": "Coca-Cola Company"
+                    }
+                ],
+                "byline": "By THE ASSOCIATED PRESS",
+                "pay": "N",
+                "multimedia": [],
+                "document_type": "article",
+                "asset_id": "100000004291812",
+                "_id": "56f479ed38f0d81726914f6b",
+                "timesmachine_url": null
+            },
+            {
+                "snippet": "Jim Harrison, who died at 78 last month, has hit the print edition of the Times best-seller list for the first time.",
+                "abstract": null,
+                "lead_paragraph": "Jim Harrison, who died at 78 last month, has hit the print edition of the Times best-seller list for the first time.",
+                "headline": {
+                    "main": "Inside the List"
+                },
+                "type_of_material": "News",
+                "news_desk": "BookReview",
+                "section_name": {
+                    "content": "books",
+                    "url": "http:\/\/www.nytimes.com\/section\/books",
+                    "display_name": "Books"
+                },
+                "subsection_name": {
+                    "content": "review",
+                    "url": "http:\/\/www.nytimes.com\/section\/books\/review",
+                    "display_name": "Book Review"
+                },
+                "pub_date": "2016-04-17T00:00:00Z",
+                "created": "2016-04-08T11:15:15Z",
+                "updated": "2016-04-08T15:15:15Z",
+                "source": "The New York Times",
+                "print_section": "BR",
+                "print_page": "22",
+                "nytddes": "Books and Literature",
+                "web_url": "http:\/\/www.nytimes.com\/2016\/04\/17\/books\/review\/inside-the-list.html",
+                "taxonomy_nodes": null,
+                "keywords": [
+                    {
+                        "rank": "1",
+                        "is_major": "N",
+                        "name": "persons",
+                        "value": "Harrison, Jim"
+                    },
+                    {
+                        "rank": "2",
+                        "is_major": "N",
+                        "name": "subject",
+                        "value": "Books and Literature"
+                    }
+                ],
+                "byline": "By GREGORY COWLES",
+                "pay": "N",
+                "multimedia": [
+                    {
+                        "width": 190,
+                        "url": "images\/2016\/04\/10\/books\/review\/10list-harrison\/10list-harrison-thumbWide.jpg",
+                        "height": 126,
+                        "subtype": "wide",
+                        "legacy": {
+                            "wide": "images\/2016\/04\/10\/books\/review\/10list-harrison\/10list-harrison-thumbWide.jpg",
+                            "wideheight": "126",
+                            "widewidth": "190"
+                        },
+                        "type": "image"
+                    },
+                    {
+                        "width": 75,
+                        "url": "images\/2016\/04\/10\/books\/review\/10list-harrison\/10list-harrison-thumbStandard.jpg",
+                        "height": 75,
+                        "subtype": "thumbnail",
+                        "legacy": {
+                            "thumbnailheight": "75",
+                            "thumbnail": "images\/2016\/04\/10\/books\/review\/10list-harrison\/10list-harrison-thumbStandard.jpg",
+                            "thumbnailwidth": "75"
+                        },
+                        "type": "image"
+                    }
+                ],
+                "document_type": "article",
+                "asset_id": "100000004313788",
+                "_id": "5707cb0f38f0d80c575951d4",
+                "timesmachine_url": null
+            },
+            {
+                "snippet": "Hanut Singh\u2019s crystal and pearl earrings recall royal jewels, spinning tops and a maharaja\u2019s turbans.",
+                "abstract": null,
+                "lead_paragraph": "Hanut Singh\u2019s crystal and pearl earrings recall royal jewels, spinning tops and a maharaja\u2019s turbans.",
+                "headline": {
+                    "main": "A Jeweler\u2019s Ode to His Glamorous Grandparents"
+                },
+                "type_of_material": "News",
+                "news_desk": "TStyle",
+                "section_name": {
+                    "content": "t-magazine",
+                    "url": "http:\/\/www.nytimes.com\/section\/t-magazine",
+                    "display_name": "T Magazine"
+                },
+                "subsection_name": {
+                    "content": "fashion",
+                    "url": "http:\/\/www.nytimes.com\/section\/t-magazine\/fashion",
+                    "display_name": "Fashion & Beauty"
+                },
+                "pub_date": "2016-04-17T00:00:00Z",
+                "created": "2016-04-04T14:55:42Z",
+                "updated": "2016-04-06T14:38:03Z",
+                "source": "The New York Times",
+                "print_section": "M2",
+                "print_page": "66",
+                "nytddes": "Jewels and Jewelry",
+                "web_url": "http:\/\/www.nytimes.com\/2016\/04\/17\/t-magazine\/fashion\/hanut-singh-jewelry.html",
+                "taxonomy_nodes": null,
+                "keywords": [
+                    {
+                        "rank": "1",
+                        "is_major": "N",
+                        "name": "glocations",
+                        "value": "Mumbai (India)"
+                    },
+                    {
+                        "rank": "2",
+                        "is_major": "N",
+                        "name": "glocations",
+                        "value": "New Delhi (India)"
+                    },
+                    {
+                        "rank": "3",
+                        "is_major": "N",
+                        "name": "glocations",
+                        "value": "Los Angeles (Calif)"
+                    },
+                    {
+                        "rank": "4",
+                        "is_major": "N",
+                        "name": "subject",
+                        "value": "Jewels and Jewelry"
+                    }
+                ],
+                "byline": "By NANCY HASS",
+                "pay": "N",
+                "multimedia": [
+                    {
+                        "width": 190,
+                        "url": "images\/2016\/04\/05\/t-magazine\/earrings\/earrings-thumbWide.jpg",
+                        "height": 126,
+                        "subtype": "wide",
+                        "legacy": {
+                            "wide": "images\/2016\/04\/05\/t-magazine\/earrings\/earrings-thumbWide.jpg",
+                            "wideheight": "126",
+                            "widewidth": "190"
+                        },
+                        "type": "image"
+                    },
+                    {
+                        "width": 600,
+                        "url": "images\/2016\/04\/05\/t-magazine\/earrings\/earrings-articleLarge.jpg",
+                        "height": 908,
+                        "subtype": "xlarge",
+                        "legacy": {
+                            "xlargewidth": "600",
+                            "xlarge": "images\/2016\/04\/05\/t-magazine\/earrings\/earrings-articleLarge.jpg",
+                            "xlargeheight": "908"
+                        },
+                        "type": "image"
+                    },
+                    {
+                        "width": 75,
+                        "url": "images\/2016\/04\/05\/t-magazine\/earrings\/earrings-thumbStandard.jpg",
+                        "height": 75,
+                        "subtype": "thumbnail",
+                        "legacy": {
+                            "thumbnailheight": "75",
+                            "thumbnail": "images\/2016\/04\/05\/t-magazine\/earrings\/earrings-thumbStandard.jpg",
+                            "thumbnailwidth": "75"
+                        },
+                        "type": "image"
+                    }
+                ],
+                "document_type": "article",
+                "asset_id": "100000004286140",
+                "_id": "5702b8b338f0d828b0bfac87",
+                "timesmachine_url": null
+            },
+            {
+                "snippet": "We\u2019re in a Golden Age of specialty produce (and that\u2019s a good thing).",
+                "abstract": null,
+                "lead_paragraph": "We\u2019re in a Golden Age of specialty produce (and that\u2019s a good thing).",
+                "headline": {
+                    "main": "Strange Fruits",
+                    "print_headline": "Strange Fruits"
+                },
+                "type_of_material": "News",
+                "news_desk": "TStyle",
+                "section_name": {
+                    "content": "t-magazine",
+                    "url": "http:\/\/www.nytimes.com\/section\/t-magazine",
+                    "display_name": "T Magazine"
+                },
+                "subsection_name": {
+                    "content": "food",
+                    "url": "http:\/\/www.nytimes.com\/section\/t-magazine\/food",
+                    "display_name": "Food"
+                },
+                "pub_date": "2016-04-17T00:00:00Z",
+                "created": "2016-03-29T17:17:46Z",
+                "updated": "2016-04-08T19:00:16Z",
+                "source": "The New York Times",
+                "print_section": "M2",
+                "print_page": "120",
+                "nytddes": "Fruit",
+                "web_url": "http:\/\/www.nytimes.com\/2016\/04\/17\/t-magazine\/food\/hybrid-fruits.html",
+                "taxonomy_nodes": null,
+                "keywords": [
+                    {
+                        "rank": "1",
+                        "is_major": "N",
+                        "name": "subject",
+                        "value": "Fruit"
+                    }
+                ],
+                "byline": null,
+                "pay": "N",
+                "multimedia": [
+                    {
+                        "width": 190,
+                        "url": "images\/2016\/03\/31\/t-magazine\/hybrid-fruit\/hybrid-fruit-thumbWide.jpg",
+                        "height": 126,
+                        "subtype": "wide",
+                        "legacy": {
+                            "wide": "images\/2016\/03\/31\/t-magazine\/hybrid-fruit\/hybrid-fruit-thumbWide.jpg",
+                            "wideheight": "126",
+                            "widewidth": "190"
+                        },
+                        "type": "image"
+                    },
+                    {
+                        "width": 600,
+                        "url": "images\/2016\/03\/31\/t-magazine\/hybrid-fruit\/hybrid-fruit-articleLarge.jpg",
+                        "height": 424,
+                        "subtype": "xlarge",
+                        "legacy": {
+                            "xlargewidth": "600",
+                            "xlarge": "images\/2016\/03\/31\/t-magazine\/hybrid-fruit\/hybrid-fruit-articleLarge.jpg",
+                            "xlargeheight": "424"
+                        },
+                        "type": "image"
+                    },
+                    {
+                        "width": 75,
+                        "url": "images\/2016\/03\/31\/t-magazine\/hybrid-fruit\/hybrid-fruit-thumbStandard.jpg",
+                        "height": 75,
+                        "subtype": "thumbnail",
+                        "legacy": {
+                            "thumbnailheight": "75",
+                            "thumbnail": "images\/2016\/03\/31\/t-magazine\/hybrid-fruit\/hybrid-fruit-thumbStandard.jpg",
+                            "thumbnailwidth": "75"
+                        },
+                        "type": "image"
+                    }
+                ],
+                "document_type": "article",
+                "asset_id": "100000004286146",
+                "_id": "56faf0fc38f0d816b6b7e219",
+                "timesmachine_url": null
+            },
+            {
+                "snippet": "For this modern take on traditional boiled beef, a beef fillet is very gently simmered (never boiled) with root vegetables in stock, then sliced up rosy rare and dolloped with a homemade horseradish aioli and some flaky sea salt. It\u2019s piquant,...",
+                "abstract": null,
+                "lead_paragraph": "For this modern take on traditional boiled beef, a beef fillet is very gently simmered (never boiled) with root vegetables in stock, then sliced up rosy rare and dolloped with a homemade horseradish aioli and some flaky sea salt. It\u2019s piquant, juicy and on the lighter side of a beefy main course.\u00a0Tenderloin works best here, but it's not generally considered kosher, so if you are making it for Passover, Rosh Hashana or another Jewish holiday, use a boneless rib roast or center cut London broil.  The magenta-colored beet horseradish keeps in the fridge for weeks, and it's also great on roast beef sandwiches.",
+                "headline": {
+                    "main": "Beef Tenderloin Gets a Tweak for Passover",
+                    "name": "Beef With Horseradish-Beet Aioli"
+                },
+                "type_of_material": "Recipe",
+                "news_desk": null,
+                "section_name": [],
+                "subsection_name": [],
+                "pub_date": "2016-04-13T00:00:00Z",
+                "created": "2016-04-13T00:00:00Z",
+                "updated": "2016-04-08T19:11:00Z",
+                "source": "du_recipe",
+                "print_section": null,
+                "print_page": null,
+                "nytddes": null,
+                "web_url": "http:\/\/cooking.nytimes.com\/recipes\/1018048-beef-with-horseradish-beet-aioli",
+                "taxonomy_nodes": null,
+                "keywords": [],
+                "byline": "Melissa Clark",
+                "pay": null,
+                "multimedia": [
+                    {
+                        "caption": "Make your own horseradish for this festive beef tenderloin.",
+                        "url": "images\/2016\/04\/08\/multimedia\/clark-beef-tenderloin\/clark-beef-tenderloin-thumbStandard.jpg",
+                        "rank": "1",
+                        "height": 75,
+                        "subtype": "thumbnail",
+                        "legacy": [],
+                        "type": "image",
+                        "width": 75
+                    },
+                    {
+                        "caption": "Make your own horseradish for this festive beef tenderloin.",
+                        "url": "images\/2016\/04\/08\/multimedia\/clark-beef-tenderloin\/clark-beef-tenderloin-articleLarge.jpg",
+                        "rank": "1",
+                        "height": 400,
+                        "subtype": "large",
+                        "legacy": [],
+                        "type": "image",
+                        "width": 600
+                    }
+                ],
+                "document_type": "recipe",
+                "asset_id": "1018048",
+                "_id": "5707d05c38f0d80c575951e5",
+                "timesmachine_url": null
+            },
+            {
+                "snippet": "Any salmon, especially the deep red wild sockeye, will benefit from a generous dollop of this smoked salmon butter. The smoky-velvet taste lends a robust character, so little other embellishment is needed. Make it in advance and keep in the freezer,...",
+                "abstract": null,
+                "lead_paragraph": "Any salmon, especially the deep red wild sockeye, will benefit from a generous dollop of this smoked salmon butter. The smoky-velvet taste lends a robust character, so little other embellishment is needed. Make it in advance and keep in the freezer, and you have an uncommonly elegant dinner in no time. The butter will lift a fillet of arctic char, butterflied trout, seasonal shad or other white-fleshed fish.",
+                "headline": {
+                    "main": "Fleurie and Morgon: Greatness if Not Gravitas",
+                    "name": "Salmon With Smoked Salmon Butter"
+                },
+                "type_of_material": "Recipe",
+                "news_desk": null,
+                "section_name": [],
+                "subsection_name": [],
+                "pub_date": "2016-04-13T00:00:00Z",
+                "created": "2016-04-13T00:00:00Z",
+                "updated": "2016-04-07T16:25:26Z",
+                "source": "du_recipe",
+                "print_section": null,
+                "print_page": null,
+                "nytddes": null,
+                "web_url": "http:\/\/cooking.nytimes.com\/recipes\/1018054-salmon-with-smoked-salmon-butter",
+                "taxonomy_nodes": null,
+                "keywords": [],
+                "byline": "Eric Asimov",
+                "pay": null,
+                "multimedia": [
+                    {
+                        "credit": "Lisa Nicklin for The New York Times",
+                        "url": "images\/2016\/04\/13\/dining\/13PAIRING\/13PAIRING-thumbStandard.jpg",
+                        "rank": "1",
+                        "height": 75,
+                        "subtype": "thumbnail",
+                        "legacy": [],
+                        "caption": "Smoked-salmon butter makes this fish a natural pairing with Morgon or Fleurie.",
+                        "type": "image",
+                        "width": 75
+                    },
+                    {
+                        "credit": "Lisa Nicklin for The New York Times",
+                        "url": "images\/2016\/04\/13\/dining\/13PAIRING\/13PAIRING-articleLarge.jpg",
+                        "rank": "1",
+                        "height": 400,
+                        "subtype": "large",
+                        "legacy": [],
+                        "caption": "Smoked-salmon butter makes this fish a natural pairing with Morgon or Fleurie.",
+                        "type": "image",
+                        "width": 600
+                    }
+                ],
+                "document_type": "recipe",
+                "asset_id": "1018054",
+                "_id": "57068a1b38f0d80c57594e1b",
+                "timesmachine_url": null
+            },
+            {
+                "snippet": "This Passover, try pairing beef fillet with beets, horseradish and aioli.",
+                "abstract": null,
+                "lead_paragraph": "This Passover, try pairing beef fillet with beets, horseradish and aioli.",
+                "headline": {
+                    "main": "For Juicy Beef for Your Seder Table, Look Beyond Brisket",
+                    "content_kicker": "A Good Appetite",
+                    "kicker": "A Good Appetite",
+                    "print_headline": "Tweak a Classic Beef Dish for the Modern Passover Table"
+                },
+                "type_of_material": "News",
+                "news_desk": "Dining",
+                "section_name": {
+                    "content": "dining",
+                    "url": "http:\/\/www.nytimes.com\/pages\/dining\/index.html",
+                    "display_name": "Food"
+                },
+                "subsection_name": [],
+                "pub_date": "2016-04-13T00:00:00Z",
+                "created": "2016-04-08T11:58:16Z",
+                "updated": "2016-04-08T19:18:15Z",
+                "source": "The New York Times",
+                "print_section": null,
+                "print_page": null,
+                "nytddes": "Cooking and Cookbooks; Jews; Food; Holidays and Special Occasions; Religion and Churches; Passover; Passover",
+                "web_url": "http:\/\/www.nytimes.com\/2016\/04\/13\/dining\/passover-beef-recipe.html",
+                "taxonomy_nodes": null,
+                "keywords": [
+                    {
+                        "rank": "1",
+                        "is_major": "N",
+                        "name": "subject",
+                        "value": "Cooking and Cookbooks"
+                    },
+                    {
+                        "rank": "2",
+                        "is_major": "N",
+                        "name": "subject",
+                        "value": "Passover"
+                    },
+                    {
+                        "rank": "3",
+                        "is_major": "N",
+                        "name": "subject",
+                        "value": "Beef"
+                    },
+                    {
+                        "rank": "4",
+                        "is_major": "N",
+                        "name": "subject",
+                        "value": "Horseradish"
+                    }
+                ],
+                "byline": "By MELISSA CLARK",
+                "pay": "N",
+                "multimedia": [
+                    {
+                        "width": 190,
+                        "url": "images\/2016\/04\/13\/dining\/13APPE2\/13APPE2-thumbWide.jpg",
+                        "height": 126,
+                        "subtype": "wide",
+                        "legacy": {
+                            "wide": "images\/2016\/04\/13\/dining\/13APPE2\/13APPE2-thumbWide.jpg",
+                            "wideheight": "126",
+                            "widewidth": "190"
+                        },
+                        "type": "image"
+                    },
+                    {
+                        "width": 600,
+                        "url": "images\/2016\/04\/13\/dining\/13APPE2\/13APPE2-articleLarge.jpg",
+                        "height": 400,
+                        "subtype": "xlarge",
+                        "legacy": {
+                            "xlargewidth": "600",
+                            "xlarge": "images\/2016\/04\/13\/dining\/13APPE2\/13APPE2-articleLarge.jpg",
+                            "xlargeheight": "400"
+                        },
+                        "type": "image"
+                    },
+                    {
+                        "width": 75,
+                        "url": "images\/2016\/04\/13\/dining\/13APPE2\/13APPE2-thumbStandard.jpg",
+                        "height": 75,
+                        "subtype": "thumbnail",
+                        "legacy": {
+                            "thumbnailheight": "75",
+                            "thumbnail": "images\/2016\/04\/13\/dining\/13APPE2\/13APPE2-thumbStandard.jpg",
+                            "thumbnailwidth": "75"
+                        },
+                        "type": "image"
+                    }
+                ],
+                "document_type": "article",
+                "asset_id": "100000004311099",
+                "_id": "5707d51d38f0d80c575951f9",
+                "timesmachine_url": null
+            },
+            {
+                "snippet": "The crus of Beaujolais have come a long way in 25 years. The wine panel finds excellent wines in the 2014 vintage of Fleurie and Morgon.",
+                "abstract": null,
+                "lead_paragraph": "The crus of Beaujolais have come a long way in 25 years. The wine panel finds excellent wines in the 2014 vintage of Fleurie and Morgon.",
+                "headline": {
+                    "main": "Fleurie and Morgon: Greatness if Not Gravitas",
+                    "content_kicker": "Wines of The Times"
+                },
+                "type_of_material": "News",
+                "news_desk": "Dining",
+                "section_name": {
+                    "content": "dining",
+                    "url": "http:\/\/www.nytimes.com\/pages\/dining\/index.html",
+                    "display_name": "Food"
+                },
+                "subsection_name": [],
+                "pub_date": "2016-04-13T00:00:00Z",
+                "created": "2016-04-07T12:30:45Z",
+                "updated": "2016-04-07T16:30:45Z",
+                "source": "The New York Times",
+                "print_section": null,
+                "print_page": null,
+                "nytddes": "Wines",
+                "web_url": "http:\/\/www.nytimes.com\/2016\/04\/13\/dining\/wine-review-beaujolais.html",
+                "taxonomy_nodes": null,
+                "keywords": [
+                    {
+                        "rank": "1",
+                        "is_major": "N",
+                        "name": "subject",
+                        "value": "Wines"
+                    },
+                    {
+                        "rank": "2",
+                        "is_major": "N",
+                        "name": "subject",
+                        "value": "Beaujolais Wine"
+                    },
+                    {
+                        "rank": "3",
+                        "is_major": "N",
+                        "name": "glocations",
+                        "value": "France"
+                    }
+                ],
+                "byline": "By ERIC ASIMOV",
+                "pay": "N",
+                "multimedia": [
+                    {
+                        "width": 190,
+                        "url": "images\/2016\/04\/13\/dining\/13WINE\/13WINE-thumbWide.jpg",
+                        "height": 126,
+                        "subtype": "wide",
+                        "legacy": {
+                            "wide": "images\/2016\/04\/13\/dining\/13WINE\/13WINE-thumbWide.jpg",
+                            "wideheight": "126",
+                            "widewidth": "190"
+                        },
+                        "type": "image"
+                    },
+                    {
+                        "width": 600,
+                        "url": "images\/2016\/04\/13\/dining\/13WINE\/13WINE-articleLarge.jpg",
+                        "height": 400,
+                        "subtype": "xlarge",
+                        "legacy": {
+                            "xlargewidth": "600",
+                            "xlarge": "images\/2016\/04\/13\/dining\/13WINE\/13WINE-articleLarge.jpg",
+                            "xlargeheight": "400"
+                        },
+                        "type": "image"
+                    },
+                    {
+                        "width": 75,
+                        "url": "images\/2016\/04\/13\/dining\/13WINE\/13WINE-thumbStandard.jpg",
+                        "height": 75,
+                        "subtype": "thumbnail",
+                        "legacy": {
+                            "thumbnailheight": "75",
+                            "thumbnail": "images\/2016\/04\/13\/dining\/13WINE\/13WINE-thumbStandard.jpg",
+                            "thumbnailwidth": "75"
+                        },
+                        "type": "image"
+                    }
+                ],
+                "document_type": "article",
+                "asset_id": "100000004310679",
+                "_id": "57068b3938f0d80c57594e23",
+                "timesmachine_url": null
+            },
+            {
+                "snippet": "Pakistani barbecue in Bushwick, Brooklyn.",
+                "abstract": null,
+                "lead_paragraph": "Pakistani barbecue in Bushwick, Brooklyn.",
+                "headline": {
+                    "main": "BK Jani"
+                },
+                "type_of_material": "Slideshow",
+                "news_desk": "Food",
+                "section_name": {
+                    "content": "dining",
+                    "url": "http:\/\/www.nytimes.com\/pages\/dining\/index.html",
+                    "display_name": "Food"
+                },
+                "subsection_name": [],
+                "pub_date": "2016-04-13T00:00:00Z",
+                "created": "2016-04-07T08:21:36Z",
+                "updated": "2016-04-07T12:21:39Z",
+                "source": "The New York Times",
+                "print_section": null,
+                "print_page": null,
+                "nytddes": null,
+                "web_url": "http:\/\/www.nytimes.com\/slideshow\/2016\/04\/13\/dining\/bk-jani-restaurant.html",
+                "taxonomy_nodes": null,
+                "keywords": [
+                    {
+                        "rank": "1",
+                        "is_major": "N",
+                        "name": "subject",
+                        "value": "Restaurants"
+                    },
+                    {
+                        "rank": "2",
+                        "is_major": "N",
+                        "name": "glocations",
+                        "value": "Bushwick (Brooklyn, NY)"
+                    }
+                ],
+                "byline": null,
+                "pay": "N",
+                "multimedia": [
+                    {
+                        "width": 190,
+                        "url": "images\/2016\/04\/13\/dining\/13HUNGRY-BK-JANI-slide-MGX2\/13HUNGRY-BK-JANI-slide-MGX2-thumbWide.jpg",
+                        "height": 126,
+                        "subtype": "wide",
+                        "legacy": {
+                            "wide": "images\/2016\/04\/13\/dining\/13HUNGRY-BK-JANI-slide-MGX2\/13HUNGRY-BK-JANI-slide-MGX2-thumbWide.jpg",
+                            "wideheight": "126",
+                            "widewidth": "190"
+                        },
+                        "type": "image"
+                    },
+                    {
+                        "width": 600,
+                        "url": "images\/2016\/04\/13\/dining\/13HUNGRY-BK-JANI-slide-MGX2\/13HUNGRY-BK-JANI-slide-MGX2-articleLarge.jpg",
+                        "height": 398,
+                        "subtype": "xlarge",
+                        "legacy": {
+                            "xlargewidth": "600",
+                            "xlarge": "images\/2016\/04\/13\/dining\/13HUNGRY-BK-JANI-slide-MGX2\/13HUNGRY-BK-JANI-slide-MGX2-articleLarge.jpg",
+                            "xlargeheight": "398"
+                        },
+                        "type": "image"
+                    },
+                    {
+                        "width": 75,
+                        "url": "images\/2016\/04\/13\/dining\/13HUNGRY-BK-JANI-slide-MGX2\/13HUNGRY-BK-JANI-slide-MGX2-thumbStandard.jpg",
+                        "height": 75,
+                        "subtype": "thumbnail",
+                        "legacy": {
+                            "thumbnailheight": "75",
+                            "thumbnail": "images\/2016\/04\/13\/dining\/13HUNGRY-BK-JANI-slide-MGX2\/13HUNGRY-BK-JANI-slide-MGX2-thumbStandard.jpg",
+                            "thumbnailwidth": "75"
+                        },
+                        "type": "image"
+                    }
+                ],
+                "document_type": "multimedia",
+                "asset_id": "100000004311344",
+                "_id": "570650d138f0d86865ca548e",
+                "timesmachine_url": null
+            },
+            {
+                "snippet": "Art and diners\u2019 recommendations fill the walls of this small Pakistani barbecue restaurant in Brooklyn.",
+                "abstract": null,
+                "lead_paragraph": "Art and diners\u2019 recommendations fill the walls of this small Pakistani barbecue restaurant in Brooklyn.",
+                "headline": {
+                    "main": "A Midas of Meat at BK Jani in Bushwick",
+                    "content_kicker": "Hungry City"
+                },
+                "type_of_material": "Review",
+                "news_desk": "Dining",
+                "section_name": {
+                    "content": "dining",
+                    "url": "http:\/\/www.nytimes.com\/pages\/dining\/index.html",
+                    "display_name": "Food"
+                },
+                "subsection_name": [],
+                "pub_date": "2016-04-13T00:00:00Z",
+                "created": "2016-04-07T08:21:36Z",
+                "updated": "2016-04-07T12:21:36Z",
+                "source": "The New York Times",
+                "print_section": null,
+                "print_page": null,
+                "nytddes": "Restaurants",
+                "web_url": "http:\/\/www.nytimes.com\/2016\/04\/13\/dining\/bk-jani-pakistani-restaurant-brooklyn.html",
+                "taxonomy_nodes": null,
+                "keywords": [
+                    {
+                        "rank": "1",
+                        "is_major": "N",
+                        "name": "subject",
+                        "value": "Restaurants"
+                    },
+                    {
+                        "rank": "3",
+                        "is_major": "N",
+                        "name": "glocations",
+                        "value": "Bushwick (Brooklyn, NY)"
+                    }
+                ],
+                "byline": "By LIGAYA MISHAN",
+                "pay": "N",
+                "multimedia": [],
+                "document_type": "article",
+                "asset_id": "100000004312267",
+                "_id": "570650d438f0d86865ca5490",
+                "timesmachine_url": null
+            }
+        ]
+    },
+    "status": "OK",
+    "copyright": "Copyright (c) 2013 The New York Times Company.  All Rights Reserved."
+}

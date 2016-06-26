@@ -1,0 +1,2279 @@
+{
+  "navigation": [
+    {
+      "title": "home",
+      "followUp": {
+        "type": "front",
+        "uri": "http://mobile-apps.guardianapis.com/uk/fronts/home"
+      },
+      "style": {
+        "primaryColour": "#005689",
+        "secondaryColour": "#4bc6df",
+        "overlayColour": "#183f5d",
+        "backgroundColour": "#ffffff"
+      },
+      "id": "uk/fronts/home",
+      "visibility": "all",
+      "webUri": "http://www.theguardian.com/uk",
+      "subNavigation": [],
+      "subNav": []
+    },
+    {
+      "title": "UK",
+      "followUp": {
+        "type": "front",
+        "uri": "http://mobile-apps.guardianapis.com/uk/fronts/uk-news"
+      },
+      "style": {
+        "primaryColour": "#005689",
+        "secondaryColour": "#4bc6df",
+        "overlayColour": "#183f5d",
+        "backgroundColour": "#ffffff"
+      },
+      "id": "uk/fronts/uk-news",
+      "visibility": "all",
+      "webUri": "http://www.theguardian.com/uk-news",
+      "subNavigation": [
+        {
+          "title": "politics",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/politics"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/politics",
+          "webUri": "http://www.theguardian.com/politics"
+        },
+        {
+          "title": "education",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/education"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/education",
+          "webUri": "http://www.theguardian.com/education"
+        },
+        {
+          "title": "media",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/media"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/media",
+          "webUri": "http://www.theguardian.com/uk/media"
+        },
+        {
+          "title": "society",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/society"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/society",
+          "webUri": "http://www.theguardian.com/society"
+        },
+        {
+          "title": "law",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/uk/lists/section/law"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/lists/section/law",
+          "webUri": "http://www.theguardian.com/law"
+        },
+        {
+          "title": "scotland",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/uk/scotland"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/uk/scotland",
+          "webUri": "http://www.theguardian.com/uk/scotland"
+        },
+        {
+          "title": "wales",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/uk/wales"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/uk/wales",
+          "webUri": "http://www.theguardian.com/uk/wales"
+        },
+        {
+          "title": "northern ireland",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/uk/northernireland"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/uk/northernireland",
+          "webUri": "http://www.theguardian.com/uk/northernireland"
+        }
+      ],
+      "subNav": [
+        {
+          "title": "politics",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/politics"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/politics",
+          "webUri": "http://www.theguardian.com/politics"
+        },
+        {
+          "title": "education",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/education"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/education",
+          "webUri": "http://www.theguardian.com/education"
+        },
+        {
+          "title": "media",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/media"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/media",
+          "webUri": "http://www.theguardian.com/uk/media"
+        },
+        {
+          "title": "society",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/society"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/society",
+          "webUri": "http://www.theguardian.com/society"
+        },
+        {
+          "title": "law",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/uk/lists/section/law"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/lists/section/law",
+          "webUri": "http://www.theguardian.com/law"
+        },
+        {
+          "title": "scotland",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/uk/scotland"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/uk/scotland",
+          "webUri": "http://www.theguardian.com/uk/scotland"
+        },
+        {
+          "title": "wales",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/uk/wales"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/uk/wales",
+          "webUri": "http://www.theguardian.com/uk/wales"
+        },
+        {
+          "title": "northern ireland",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/uk/northernireland"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/uk/northernireland",
+          "webUri": "http://www.theguardian.com/uk/northernireland"
+        }
+      ]
+    },
+    {
+      "title": "world",
+      "followUp": {
+        "type": "front",
+        "uri": "http://mobile-apps.guardianapis.com/uk/fronts/world"
+      },
+      "style": {
+        "primaryColour": "#005689",
+        "secondaryColour": "#4bc6df",
+        "overlayColour": "#183f5d",
+        "backgroundColour": "#ffffff"
+      },
+      "id": "uk/fronts/world",
+      "visibility": "all",
+      "webUri": "http://www.theguardian.com/world",
+      "subNavigation": [
+        {
+          "title": "europe",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/world/europe-news"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/world/europe-news",
+          "webUri": "http://www.theguardian.com/world/europe-news"
+        },
+        {
+          "title": "US",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/us-news"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/us-news",
+          "webUri": "http://www.theguardian.com/us-news"
+        },
+        {
+          "title": "americas",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/world/americas"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/world/americas",
+          "webUri": "http://www.theguardian.com/world/americas"
+        },
+        {
+          "title": "asia",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/world/asia"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/world/asia",
+          "webUri": "http://www.theguardian.com/world/asia"
+        },
+        {
+          "title": "australia",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/australia-news"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/australia-news",
+          "webUri": "http://www.theguardian.com/australia-news"
+        },
+        {
+          "title": "africa",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/world/africa"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/world/africa",
+          "webUri": "http://www.theguardian.com/world/africa"
+        },
+        {
+          "title": "middle east",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/world/middleeast"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/world/middleeast",
+          "webUri": "http://www.theguardian.com/world/middleeast"
+        },
+        {
+          "title": "cities",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/cities"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/cities",
+          "webUri": "http://www.theguardian.com/cities"
+        },
+        {
+          "title": "development",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/global-development"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/global-development",
+          "webUri": "http://www.theguardian.com/global-development"
+        }
+      ],
+      "subNav": [
+        {
+          "title": "europe",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/world/europe-news"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/world/europe-news",
+          "webUri": "http://www.theguardian.com/world/europe-news"
+        },
+        {
+          "title": "US",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/us-news"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/us-news",
+          "webUri": "http://www.theguardian.com/us-news"
+        },
+        {
+          "title": "americas",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/world/americas"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/world/americas",
+          "webUri": "http://www.theguardian.com/world/americas"
+        },
+        {
+          "title": "asia",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/world/asia"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/world/asia",
+          "webUri": "http://www.theguardian.com/world/asia"
+        },
+        {
+          "title": "australia",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/australia-news"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/australia-news",
+          "webUri": "http://www.theguardian.com/australia-news"
+        },
+        {
+          "title": "africa",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/world/africa"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/world/africa",
+          "webUri": "http://www.theguardian.com/world/africa"
+        },
+        {
+          "title": "middle east",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/world/middleeast"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/world/middleeast",
+          "webUri": "http://www.theguardian.com/world/middleeast"
+        },
+        {
+          "title": "cities",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/cities"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/cities",
+          "webUri": "http://www.theguardian.com/cities"
+        },
+        {
+          "title": "development",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/global-development"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/global-development",
+          "webUri": "http://www.theguardian.com/global-development"
+        }
+      ]
+    },
+    {
+      "title": "sport",
+      "followUp": {
+        "type": "front",
+        "uri": "http://mobile-apps.guardianapis.com/uk/fronts/sport"
+      },
+      "style": {
+        "primaryColour": "#005689",
+        "secondaryColour": "#4bc6df",
+        "overlayColour": "#183f5d",
+        "backgroundColour": "#ffffff"
+      },
+      "id": "uk/fronts/sport",
+      "visibility": "all",
+      "webUri": "http://www.theguardian.com/uk/sport",
+      "subNavigation": [
+        {
+          "title": "football",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/football"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/football",
+          "webUri": "http://www.theguardian.com/football"
+        },
+        {
+          "title": "cricket",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/sport/cricket"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/sport/cricket",
+          "webUri": "http://www.theguardian.com/sport/cricket"
+        },
+        {
+          "title": "rugby union",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/sport/rugby-union"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/sport/rugby-union",
+          "webUri": "http://www.theguardian.com/sport/rugby-union"
+        },
+        {
+          "title": "F1",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/sport/formulaone"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/sport/formulaone",
+          "webUri": "http://www.theguardian.com/sport/formulaone"
+        },
+        {
+          "title": "tennis",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/sport/tennis"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/sport/tennis",
+          "webUri": "http://www.theguardian.com/sport/tennis"
+        },
+        {
+          "title": "golf",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/sport/golf"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/sport/golf",
+          "webUri": "http://www.theguardian.com/sport/golf"
+        },
+        {
+          "title": "cycling",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/sport/cycling"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/sport/cycling",
+          "webUri": "http://www.theguardian.com/sport/cycling"
+        },
+        {
+          "title": "boxing",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/sport/boxing"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/sport/boxing",
+          "webUri": "http://www.theguardian.com/sport/boxing"
+        },
+        {
+          "title": "racing",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/sport/horse-racing"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/sport/horse-racing",
+          "webUri": "http://www.theguardian.com/sport/horse-racing"
+        },
+        {
+          "title": "rugby league",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/sport/rugbyleague"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/sport/rugbyleague",
+          "webUri": "http://www.theguardian.com/sport/rugbyleague"
+        },
+        {
+          "title": "US sports",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/sport/us-sport"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/sport/us-sport",
+          "webUri": "http://www.theguardian.com/sport/us-sport"
+        }
+      ],
+      "subNav": [
+        {
+          "title": "football",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/football"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/football",
+          "webUri": "http://www.theguardian.com/football"
+        },
+        {
+          "title": "cricket",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/sport/cricket"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/sport/cricket",
+          "webUri": "http://www.theguardian.com/sport/cricket"
+        },
+        {
+          "title": "rugby union",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/sport/rugby-union"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/sport/rugby-union",
+          "webUri": "http://www.theguardian.com/sport/rugby-union"
+        },
+        {
+          "title": "F1",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/sport/formulaone"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/sport/formulaone",
+          "webUri": "http://www.theguardian.com/sport/formulaone"
+        },
+        {
+          "title": "tennis",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/sport/tennis"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/sport/tennis",
+          "webUri": "http://www.theguardian.com/sport/tennis"
+        },
+        {
+          "title": "golf",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/sport/golf"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/sport/golf",
+          "webUri": "http://www.theguardian.com/sport/golf"
+        },
+        {
+          "title": "cycling",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/sport/cycling"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/sport/cycling",
+          "webUri": "http://www.theguardian.com/sport/cycling"
+        },
+        {
+          "title": "boxing",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/sport/boxing"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/sport/boxing",
+          "webUri": "http://www.theguardian.com/sport/boxing"
+        },
+        {
+          "title": "racing",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/sport/horse-racing"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/sport/horse-racing",
+          "webUri": "http://www.theguardian.com/sport/horse-racing"
+        },
+        {
+          "title": "rugby league",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/sport/rugbyleague"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/sport/rugbyleague",
+          "webUri": "http://www.theguardian.com/sport/rugbyleague"
+        },
+        {
+          "title": "US sports",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/sport/us-sport"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/sport/us-sport",
+          "webUri": "http://www.theguardian.com/sport/us-sport"
+        }
+      ]
+    },
+    {
+      "title": "football",
+      "followUp": {
+        "type": "front",
+        "uri": "http://mobile-apps.guardianapis.com/uk/fronts/football"
+      },
+      "style": {
+        "primaryColour": "#005689",
+        "secondaryColour": "#4bc6df",
+        "overlayColour": "#183f5d",
+        "backgroundColour": "#ffffff"
+      },
+      "id": "uk/fronts/football",
+      "visibility": "all",
+      "webUri": "http://www.theguardian.com/football",
+      "subNavigation": [
+        {
+          "title": "matches",
+          "followUp": {
+            "type": "football-matches",
+            "uri": "http://football.mobile-apps.guardianapis.com/football/competitions"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "football/matches",
+          "webUri": "http://www.theguardian.com/football/live"
+        },
+        {
+          "title": "tables",
+          "followUp": {
+            "type": "football-tables",
+            "uri": "http://football.mobile-apps.guardianapis.com/football/competitions"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "football/tables",
+          "webUri": "http://www.theguardian.com/football/tables"
+        }
+      ],
+      "subNav": []
+    },
+    {
+      "title": "opinion",
+      "followUp": {
+        "type": "front",
+        "uri": "http://mobile-apps.guardianapis.com/uk/fronts/commentisfree"
+      },
+      "style": {
+        "primaryColour": "#005689",
+        "secondaryColour": "#4bc6df",
+        "overlayColour": "#183f5d",
+        "backgroundColour": "#ffffff"
+      },
+      "id": "uk/fronts/commentisfree",
+      "visibility": "all",
+      "webUri": "http://www.theguardian.com/uk/commentisfree",
+      "subNavigation": [],
+      "subNav": []
+    },
+    {
+      "title": "culture",
+      "followUp": {
+        "type": "front",
+        "uri": "http://mobile-apps.guardianapis.com/uk/fronts/culture"
+      },
+      "style": {
+        "primaryColour": "#005689",
+        "secondaryColour": "#4bc6df",
+        "overlayColour": "#183f5d",
+        "backgroundColour": "#ffffff"
+      },
+      "id": "uk/fronts/culture",
+      "visibility": "all",
+      "webUri": "http://www.theguardian.com/uk/culture",
+      "subNavigation": [
+        {
+          "title": "film",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/film"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/film",
+          "webUri": "http://www.theguardian.com/uk/film"
+        },
+        {
+          "title": "tv & radio",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/tv-and-radio"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/tv-and-radio",
+          "webUri": "http://www.theguardian.com/tv-and-radio"
+        },
+        {
+          "title": "music",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/music"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/music",
+          "webUri": "http://www.theguardian.com/music"
+        },
+        {
+          "title": "games",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/technology/games"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/technology/games",
+          "webUri": "http://www.theguardian.com/technology/games"
+        },
+        {
+          "title": "books",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/books"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/books",
+          "webUri": "http://www.theguardian.com/books"
+        },
+        {
+          "title": "art & design",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/artanddesign"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/artanddesign",
+          "webUri": "http://www.theguardian.com/artanddesign"
+        },
+        {
+          "title": "stage",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/stage"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/stage",
+          "webUri": "http://www.theguardian.com/stage"
+        },
+        {
+          "title": "classical",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/music/classicalmusicandopera"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/music/classicalmusicandopera",
+          "webUri": "http://www.theguardian.com/music/classicalmusicandopera"
+        }
+      ],
+      "subNav": [
+        {
+          "title": "film",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/film"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/film",
+          "webUri": "http://www.theguardian.com/uk/film"
+        },
+        {
+          "title": "tv & radio",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/tv-and-radio"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/tv-and-radio",
+          "webUri": "http://www.theguardian.com/tv-and-radio"
+        },
+        {
+          "title": "music",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/music"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/music",
+          "webUri": "http://www.theguardian.com/music"
+        },
+        {
+          "title": "games",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/technology/games"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/technology/games",
+          "webUri": "http://www.theguardian.com/technology/games"
+        },
+        {
+          "title": "books",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/books"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/books",
+          "webUri": "http://www.theguardian.com/books"
+        },
+        {
+          "title": "art & design",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/artanddesign"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/artanddesign",
+          "webUri": "http://www.theguardian.com/artanddesign"
+        },
+        {
+          "title": "stage",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/stage"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/stage",
+          "webUri": "http://www.theguardian.com/stage"
+        },
+        {
+          "title": "classical",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/music/classicalmusicandopera"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/music/classicalmusicandopera",
+          "webUri": "http://www.theguardian.com/music/classicalmusicandopera"
+        }
+      ]
+    },
+    {
+      "title": "business",
+      "followUp": {
+        "type": "front",
+        "uri": "http://mobile-apps.guardianapis.com/uk/fronts/business"
+      },
+      "style": {
+        "primaryColour": "#005689",
+        "secondaryColour": "#4bc6df",
+        "overlayColour": "#183f5d",
+        "backgroundColour": "#ffffff"
+      },
+      "id": "uk/fronts/business",
+      "visibility": "all",
+      "webUri": "http://www.theguardian.com/uk/business",
+      "subNavigation": [
+        {
+          "title": "economics",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/business/economics"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/business/economics",
+          "webUri": "http://www.theguardian.com/business/economics"
+        },
+        {
+          "title": "banking",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/business/banking"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/business/banking",
+          "webUri": "http://www.theguardian.com/business/banking"
+        },
+        {
+          "title": "retail",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/business/retail"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/business/retail",
+          "webUri": "http://www.theguardian.com/business/retail"
+        },
+        {
+          "title": "markets",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/business/stock-markets"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/business/stock-markets",
+          "webUri": "http://www.theguardian.com/business/stock-markets"
+        },
+        {
+          "title": "eurozone",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/business/eurozone"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/business/eurozone",
+          "webUri": "http://www.theguardian.com/business/eurozone"
+        }
+      ],
+      "subNav": [
+        {
+          "title": "economics",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/business/economics"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/business/economics",
+          "webUri": "http://www.theguardian.com/business/economics"
+        },
+        {
+          "title": "banking",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/business/banking"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/business/banking",
+          "webUri": "http://www.theguardian.com/business/banking"
+        },
+        {
+          "title": "retail",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/business/retail"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/business/retail",
+          "webUri": "http://www.theguardian.com/business/retail"
+        },
+        {
+          "title": "markets",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/business/stock-markets"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/business/stock-markets",
+          "webUri": "http://www.theguardian.com/business/stock-markets"
+        },
+        {
+          "title": "eurozone",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/business/eurozone"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/business/eurozone",
+          "webUri": "http://www.theguardian.com/business/eurozone"
+        }
+      ]
+    },
+    {
+      "title": "lifestyle",
+      "followUp": {
+        "type": "front",
+        "uri": "http://mobile-apps.guardianapis.com/uk/fronts/lifeandstyle"
+      },
+      "style": {
+        "primaryColour": "#005689",
+        "secondaryColour": "#4bc6df",
+        "overlayColour": "#183f5d",
+        "backgroundColour": "#ffffff"
+      },
+      "id": "uk/fronts/lifeandstyle",
+      "visibility": "all",
+      "webUri": "http://www.theguardian.com/lifeandstyle",
+      "subNavigation": [
+        {
+          "title": "food",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/lifeandstyle/food-and-drink"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/lifeandstyle/food-and-drink",
+          "webUri": "http://www.theguardian.com/lifeandstyle/food-and-drink"
+        },
+        {
+          "title": "health & fitness",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/lifeandstyle/health-and-wellbeing"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/lifeandstyle/health-and-wellbeing",
+          "webUri": "http://www.theguardian.com/lifeandstyle/health-and-wellbeing"
+        },
+        {
+          "title": "love & sex",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/lifeandstyle/love-and-sex"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/lifeandstyle/love-and-sex",
+          "webUri": "http://www.theguardian.com/lifeandstyle/love-and-sex"
+        },
+        {
+          "title": "family",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/lifeandstyle/family"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/lifeandstyle/family",
+          "webUri": "http://www.theguardian.com/lifeandstyle/family"
+        },
+        {
+          "title": "women",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/lifeandstyle/women"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/lifeandstyle/women",
+          "webUri": "http://www.theguardian.com/lifeandstyle/women"
+        },
+        {
+          "title": "home & garden",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/lifeandstyle/home-and-garden"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/lifeandstyle/home-and-garden",
+          "webUri": "http://www.theguardian.com/lifeandstyle/home-and-garden"
+        }
+      ],
+      "subNav": [
+        {
+          "title": "food",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/lifeandstyle/food-and-drink"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/lifeandstyle/food-and-drink",
+          "webUri": "http://www.theguardian.com/lifeandstyle/food-and-drink"
+        },
+        {
+          "title": "health & fitness",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/lifeandstyle/health-and-wellbeing"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/lifeandstyle/health-and-wellbeing",
+          "webUri": "http://www.theguardian.com/lifeandstyle/health-and-wellbeing"
+        },
+        {
+          "title": "love & sex",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/lifeandstyle/love-and-sex"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/lifeandstyle/love-and-sex",
+          "webUri": "http://www.theguardian.com/lifeandstyle/love-and-sex"
+        },
+        {
+          "title": "family",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/lifeandstyle/family"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/lifeandstyle/family",
+          "webUri": "http://www.theguardian.com/lifeandstyle/family"
+        },
+        {
+          "title": "women",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/lifeandstyle/women"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/lifeandstyle/women",
+          "webUri": "http://www.theguardian.com/lifeandstyle/women"
+        },
+        {
+          "title": "home & garden",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/lifeandstyle/home-and-garden"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/lifeandstyle/home-and-garden",
+          "webUri": "http://www.theguardian.com/lifeandstyle/home-and-garden"
+        }
+      ]
+    },
+    {
+      "title": "fashion",
+      "followUp": {
+        "type": "front",
+        "uri": "http://mobile-apps.guardianapis.com/uk/fronts/fashion"
+      },
+      "style": {
+        "primaryColour": "#005689",
+        "secondaryColour": "#4bc6df",
+        "overlayColour": "#183f5d",
+        "backgroundColour": "#ffffff"
+      },
+      "id": "uk/fronts/fashion",
+      "visibility": "all",
+      "webUri": "http://www.theguardian.com/fashion",
+      "subNavigation": [],
+      "subNav": []
+    },
+    {
+      "title": "environment",
+      "followUp": {
+        "type": "front",
+        "uri": "http://mobile-apps.guardianapis.com/uk/fronts/environment"
+      },
+      "style": {
+        "primaryColour": "#005689",
+        "secondaryColour": "#4bc6df",
+        "overlayColour": "#183f5d",
+        "backgroundColour": "#ffffff"
+      },
+      "id": "uk/fronts/environment",
+      "visibility": "all",
+      "webUri": "http://www.theguardian.com/uk/environment",
+      "subNavigation": [
+        {
+          "title": "climate change",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/environment/climate-change"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/environment/climate-change",
+          "webUri": "http://www.theguardian.com/environment/climate-change"
+        },
+        {
+          "title": "wildlife",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/environment/wildlife"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/environment/wildlife",
+          "webUri": "http://www.theguardian.com/environment/wildlife"
+        },
+        {
+          "title": "energy",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/environment/energy"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/environment/energy",
+          "webUri": "http://www.theguardian.com/environment/energy"
+        },
+        {
+          "title": "pollution",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/environment/pollution"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/environment/pollution",
+          "webUri": "http://www.theguardian.com/environment/pollution"
+        }
+      ],
+      "subNav": [
+        {
+          "title": "climate change",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/environment/climate-change"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/environment/climate-change",
+          "webUri": "http://www.theguardian.com/environment/climate-change"
+        },
+        {
+          "title": "wildlife",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/environment/wildlife"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/environment/wildlife",
+          "webUri": "http://www.theguardian.com/environment/wildlife"
+        },
+        {
+          "title": "energy",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/environment/energy"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/environment/energy",
+          "webUri": "http://www.theguardian.com/environment/energy"
+        },
+        {
+          "title": "pollution",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/environment/pollution"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/environment/pollution",
+          "webUri": "http://www.theguardian.com/environment/pollution"
+        }
+      ]
+    },
+    {
+      "title": "tech",
+      "followUp": {
+        "type": "front",
+        "uri": "http://mobile-apps.guardianapis.com/uk/fronts/technology"
+      },
+      "style": {
+        "primaryColour": "#005689",
+        "secondaryColour": "#4bc6df",
+        "overlayColour": "#183f5d",
+        "backgroundColour": "#ffffff"
+      },
+      "id": "uk/fronts/technology",
+      "visibility": "all",
+      "webUri": "http://www.theguardian.com/uk/technology",
+      "subNavigation": [],
+      "subNav": []
+    },
+    {
+      "title": "travel",
+      "followUp": {
+        "type": "front",
+        "uri": "http://mobile-apps.guardianapis.com/uk/fronts/travel"
+      },
+      "style": {
+        "primaryColour": "#005689",
+        "secondaryColour": "#4bc6df",
+        "overlayColour": "#183f5d",
+        "backgroundColour": "#ffffff"
+      },
+      "id": "uk/fronts/travel",
+      "visibility": "all",
+      "webUri": "http://www.theguardian.com/travel",
+      "subNavigation": [
+        {
+          "title": "UK",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/travel/uk"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/travel/uk",
+          "webUri": "http://www.theguardian.com/travel/uk"
+        },
+        {
+          "title": "europe",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/travel/europe"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/travel/europe",
+          "webUri": "http://www.theguardian.com/travel/europe"
+        },
+        {
+          "title": "US",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/travel/usa"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/travel/usa",
+          "webUri": "http://www.theguardian.com/travel/usa"
+        },
+        {
+          "title": "skiing",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/travel/skiing"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/travel/skiing",
+          "webUri": "http://www.theguardian.com/travel/skiing"
+        }
+      ],
+      "subNav": [
+        {
+          "title": "UK",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/travel/uk"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/travel/uk",
+          "webUri": "http://www.theguardian.com/travel/uk"
+        },
+        {
+          "title": "europe",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/travel/europe"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/travel/europe",
+          "webUri": "http://www.theguardian.com/travel/europe"
+        },
+        {
+          "title": "US",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/travel/usa"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/travel/usa",
+          "webUri": "http://www.theguardian.com/travel/usa"
+        },
+        {
+          "title": "skiing",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/travel/skiing"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/travel/skiing",
+          "webUri": "http://www.theguardian.com/travel/skiing"
+        }
+      ]
+    },
+    {
+      "title": "money",
+      "followUp": {
+        "type": "front",
+        "uri": "http://mobile-apps.guardianapis.com/uk/fronts/money"
+      },
+      "style": {
+        "primaryColour": "#005689",
+        "secondaryColour": "#4bc6df",
+        "overlayColour": "#183f5d",
+        "backgroundColour": "#ffffff"
+      },
+      "id": "uk/fronts/money",
+      "visibility": "all",
+      "webUri": "http://www.theguardian.com/uk/money",
+      "subNavigation": [
+        {
+          "title": "property",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/money/property"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/money/property",
+          "webUri": "http://www.theguardian.com/money/property"
+        },
+        {
+          "title": "savings",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/money/savings"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/money/savings",
+          "webUri": "http://www.theguardian.com/money/savings"
+        },
+        {
+          "title": "pensions",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/money/pensions"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/money/pensions",
+          "webUri": "http://www.theguardian.com/money/pensions"
+        },
+        {
+          "title": "borrowing",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/money/debt"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/money/debt",
+          "webUri": "http://www.theguardian.com/money/debt"
+        },
+        {
+          "title": "careers",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/money/work-and-careers"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/money/work-and-careers",
+          "webUri": "http://www.theguardian.com/money/work-and-careers"
+        }
+      ],
+      "subNav": [
+        {
+          "title": "property",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/money/property"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/money/property",
+          "webUri": "http://www.theguardian.com/money/property"
+        },
+        {
+          "title": "savings",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/money/savings"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/money/savings",
+          "webUri": "http://www.theguardian.com/money/savings"
+        },
+        {
+          "title": "pensions",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/money/pensions"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/money/pensions",
+          "webUri": "http://www.theguardian.com/money/pensions"
+        },
+        {
+          "title": "borrowing",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/money/debt"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/money/debt",
+          "webUri": "http://www.theguardian.com/money/debt"
+        },
+        {
+          "title": "careers",
+          "followUp": {
+            "type": "list",
+            "uri": "http://mobile-apps.guardianapis.com/lists/tag/money/work-and-careers"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "lists/tag/money/work-and-careers",
+          "webUri": "http://www.theguardian.com/money/work-and-careers"
+        }
+      ]
+    },
+    {
+      "title": "science",
+      "followUp": {
+        "type": "front",
+        "uri": "http://mobile-apps.guardianapis.com/uk/fronts/science"
+      },
+      "style": {
+        "primaryColour": "#005689",
+        "secondaryColour": "#4bc6df",
+        "overlayColour": "#183f5d",
+        "backgroundColour": "#ffffff"
+      },
+      "id": "uk/fronts/science",
+      "visibility": "all",
+      "webUri": "http://www.theguardian.com/science",
+      "subNavigation": [],
+      "subNav": []
+    },
+    {
+      "title": "education",
+      "followUp": {
+        "type": "front",
+        "uri": "http://mobile-apps.guardianapis.com/uk/fronts/education"
+      },
+      "style": {
+        "primaryColour": "#005689",
+        "secondaryColour": "#4bc6df",
+        "overlayColour": "#183f5d",
+        "backgroundColour": "#ffffff"
+      },
+      "id": "uk/fronts/education",
+      "visibility": "all",
+      "webUri": "http://www.theguardian.com/education",
+      "subNavigation": [
+        {
+          "title": "students",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/education/students"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/education/students",
+          "webUri": "http://www.theguardian.com/education/students"
+        }
+      ],
+      "subNav": [
+        {
+          "title": "students",
+          "followUp": {
+            "type": "front",
+            "uri": "http://mobile-apps.guardianapis.com/uk/fronts/education/students"
+          },
+          "style": {
+            "primaryColour": "#005689",
+            "secondaryColour": "#4bc6df",
+            "overlayColour": "#183f5d",
+            "backgroundColour": "#ffffff"
+          },
+          "id": "uk/fronts/education/students",
+          "webUri": "http://www.theguardian.com/education/students"
+        }
+      ]
+    },
+    {
+      "title": "media",
+      "followUp": {
+        "type": "front",
+        "uri": "http://mobile-apps.guardianapis.com/uk/fronts/media"
+      },
+      "style": {
+        "primaryColour": "#005689",
+        "secondaryColour": "#4bc6df",
+        "overlayColour": "#183f5d",
+        "backgroundColour": "#ffffff"
+      },
+      "id": "uk/fronts/media",
+      "visibility": "all",
+      "webUri": "http://www.theguardian.com/uk/media",
+      "subNavigation": [],
+      "subNav": []
+    },
+    {
+      "title": "video",
+      "followUp": {
+        "type": "front",
+        "uri": "http://mobile-apps.guardianapis.com/uk/fronts/video"
+      },
+      "style": {
+        "primaryColour": "#005689",
+        "secondaryColour": "#4bc6df",
+        "overlayColour": "#183f5d",
+        "backgroundColour": "#ffffff"
+      },
+      "id": "uk/fronts/video",
+      "visibility": "all",
+      "webUri": "http://www.theguardian.com/video",
+      "subNavigation": [],
+      "subNav": []
+    },
+    {
+      "title": "the observer",
+      "followUp": {
+        "type": "front",
+        "uri": "http://mobile-apps.guardianapis.com/uk/fronts/observer"
+      },
+      "style": {
+        "primaryColour": "#005689",
+        "secondaryColour": "#4bc6df",
+        "overlayColour": "#183f5d",
+        "backgroundColour": "#ffffff"
+      },
+      "id": "uk/fronts/observer",
+      "visibility": "all",
+      "webUri": "http://www.theguardian.com/observer",
+      "subNavigation": [],
+      "subNav": []
+    },
+    {
+      "title": "membership",
+      "followUp": {
+        "type": "front",
+        "uri": "http://mobile-apps.guardianapis.com/uk/fronts/membership"
+      },
+      "style": {
+        "primaryColour": "#005689",
+        "secondaryColour": "#4bc6df",
+        "overlayColour": "#183f5d",
+        "backgroundColour": "#ffffff"
+      },
+      "id": "uk/fronts/membership",
+      "visibility": "all",
+      "webUri": "http://www.theguardian.com/membership",
+      "subNavigation": [],
+      "subNav": []
+    },
+    {
+      "title": "premium content",
+      "followUp": {
+        "type": "list",
+        "uri": "http://mobile-apps.guardianapis.com/lists/tag/news/series/looking-back"
+      },
+      "style": {
+        "primaryColour": "#005689",
+        "secondaryColour": "#4bc6df",
+        "overlayColour": "#183f5d",
+        "backgroundColour": "#ffffff"
+      },
+      "id": "lists/tag/news/series/looking-back",
+      "visibility": "premium-visible",
+      "subNavigation": [],
+      "subNav": []
+    },
+    {
+      "title": "crosswords",
+      "followUp": {
+        "type": "app",
+        "uri": "x-gu://startcrosswords"
+      },
+      "style": {
+        "primaryColour": "#005689",
+        "secondaryColour": "#4bc6df",
+        "overlayColour": "#183f5d",
+        "backgroundColour": "#ffffff"
+      },
+      "id": "uk/app/startcrosswords",
+      "visibility": "premium-visible",
+      "subNavigation": [],
+      "subNav": []
+    }
+  ]
+}

@@ -25,15 +25,19 @@ GlobalConf = {
     optionCircleMargin: 20,
     optionCircleColor: "#ffffff",
     optionCircleBorder: "1px solid #ffffff",
+    optionCircleBorderMouse: "1px solid #1ED760",
+    optionCircleMouse: "#1ED760",
 
     fontFamily: "Ubuntu, Arial, Helvetica",
     fontSize: 30,
+
+    tagColor: "#7A7A7A",
     tagSize: 80,
     tagMarginLeft: 20,
 
-    borderLeft:   150,
+    borderLeft:   175,
     borderTop:    15,
-    borderRight:  150,
+    borderRight:  175,
     borderBottom: 30,
     circleDivMargin: 5,
     circleSize: 200,

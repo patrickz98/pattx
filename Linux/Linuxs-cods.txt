@@ -246,3 +246,11 @@ echo timer > /sys/class/leds/led1/trigger
 
 echo 1000 > /sys/class/leds/led1/delay_on
 echo 1000 > /sys/class/leds/led1/delay_off
+
+-----------------------------------------------------
+We trust you have received the usual lecture from the local System
+Administrator. It usually boils down to these three things:
+
+    #1) Respect the privacy of others.
+    #2) Think before you type.
+    #3) With great power comes great responsibility.

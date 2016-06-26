@@ -1,7 +1,7 @@
 <?php
 
-include("../../../Spider/Lib.php");
-include("../../../Spider/Elastic.php");
+include("../../Spider/Lib.php");
+include("../../Spider/Elastic.php");
 
 function getByUuid($server, $index, $type, $uuid)
 {
@@ -31,8 +31,8 @@ function postByUuid($server, $index, $type, $uuid, $json)
 {
     $json = json_decode($json, true);
     $json[ "uuid" ] = $uuid;
-
     $json = json_encode($json);
+
     $response = postData($json, $server, $index, $type);
     $response = json_decode($response, true);
 
@@ -50,7 +50,8 @@ function updateById($server, $index, $type, $id, $json)
 
 function deleteById($server, $index, $type, $id)
 {
-    return deleteDataById($server, $index, $type, $id);
+    $result = deleteDataById($server, $index, $type, $id);
+    return niceJson($result);
 }
 
 ?>

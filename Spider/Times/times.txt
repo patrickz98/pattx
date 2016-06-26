@@ -1,0 +1,28 @@
+d4dd5d5a79ffa12cdab072868756d660:1:72331915
+
+http://api.nytimes.com/svc/books/v3/lists/best-sellers/history.json?api-key=d4dd5d5a79ffa12cdab072868756d660%3A1%3A72331915
+
+http://query.nytimes.com/svc/add/v1/sitesearch.json?q=Trump
+http://query.nytimes.com/svc/add/v1/sitesearch.json?q=Trump&page=1
+
+http://query.nytimes.com/svc/add/v1/sitesearch.json
+
+https://www.nytimes.com/svc/oembed/json/?url=http%3A%2F%2Fwww.nytimes.com%2F2016%2F04%2F17%2Fopinion%2Fsunday%2Fwhy-americans-cant-vote.html
+
+<div class="user-tools">
+    <div id="sharetools-masthead" aria-label="tools" role="group" class="sharetools theme-classic  sharetools-masthead  "
+data-shares="facebook,twitter,email,show-all,save"
+data-url="http://www.nytimes.com/2016/04/17/opinion/sunday/why-americans-cant-vote.html"
+data-title="Why Americans Can’t Vote"
+data-author="By THE EDITORIAL BOARD"
+data-media="https://static01.nyt.com/images/2016/04/17/opinion/sunday/17sun1/17sun1-jumbo.jpg"
+data-description="Arizona’s primary problems are a good early warning of troubles to come in deeply flawed voting systems everywhere in the country."
+data-publish-date="April 16, 2016"
+>
+<div class="ad sharetools-inline-article-ad hidden nocontent robots-nocontent">
+</div>
+</div><!-- close shareTools -->
+
+https://static01.nyt.com/services/json/sectionfronts/opinion/index.json
+
+"licenseKey":"b5bcf2eba4","applicationID":"4491951","transactionName":"YwFXZhRYVhAEVUZcX1pLYEAPFlkTFRhCXUA=","queueTime":0,"applicationTime":133,"ttGuid":"","agentToken":"","userAttributes":"","errorBeacon":"bam.nr-data.net","agent":""}

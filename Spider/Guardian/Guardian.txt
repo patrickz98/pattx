@@ -1,0 +1,26 @@
+https://www.googleapis.com/customsearch/v1element?key=AIzaSyCVAXiUzRYsML1Pv6RwSG1gunmMikTzQqY&rsz=10&num=10&hl=en&prettyPrint=true&cx=007466294097402385199:m2ealvuxh1i&q=Trump
+
+https://www.googleapis.com/customsearch/v1element?key=AIzaSyCVAXiUzRYsML1Pv6RwSG1gunmMikTzQqY&hl=en&prettyPrint=true&cx=007466294097402385199:m2ealvuxh1i&q=Trump
+
+http://mobile-apps.guardianapis.com
+http://mobile-apps.guardianapis.com/uk/fronts/home
+
+http://www.theguardian.com/world/video/2016/feb/26/former-mexican-president-vicente-fox-trump-we-wont-pay-for-the-wall-video
+http://mobile-apps.guardianapis.com/items/world/video/2016/feb/26/former-mexican-president-vicente-fox-trump-we-wont-pay-for-the-wall-video
+
+// getHeadlines("http://mobile-apps.guardianapis.com/uk/fronts/home");
+// getHeadlines("http://mobile-apps.guardianapis.com/uk/groups/collections/uk-alpha/news/regular-stories");
+getHeadlines("http://mobile-apps.guardianapis.com/lists/tag/us-news/donaldtrump");
+
+
+// getJson("http://mobile-apps.guardianapis.com/uk/groups/collections/uk-alpha/news/regular-stories");
+// getArticle("world/video/2016/feb/26/former-mexican-president-vicente-fox-trump-we-wont-pay-for-the-wall-video");
+
+// http://mobile-apps.guardianapis.com
+// http://mobile-apps.guardianapis.com/uk/fronts/home
+
+// http://www.theguardian.com/world/video/2016/feb/26/former-mexican-president-vicente-fox-trump-we-wont-pay-for-the-wall-video
+// http://mobile-apps.guardianapis.com/items/world/video/2016/feb/26/former-mexican-president-vicente-fox-trump-we-wont-pay-for-the-wall-video
+
+// getJson($argv[ 1 ]);
+// getJson("http://mobile-apps.guardianapis.com/uk/fronts/home");

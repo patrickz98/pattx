@@ -1,5 +1,66 @@
 Entry = {};
 
+Entry.mouseHandler = function(elem)
+{
+    elem.addEventListener("mouseover", mouseOver);
+    elem.addEventListener("mouseout", mouseOut);
+
+    function mouseOver()
+    {
+        // console.log(elem.innerHTML);
+
+        var root = elem;
+        if (elem.root) root = elem.root;
+
+        var color = GlobalConf.optionCircleMouse;
+
+        // root.Label.style.textDecoration = "underline";
+        // root.Label.style.color = color;
+        // root.Label.style.textDecorationColor = color;
+
+        root.Label.style.border = "1px solid " + color;
+
+        if (root.tagLabel)
+        {
+            root.tagLabel.style.color = "#ffffff";
+        }
+
+        if (root.circle)
+        {
+            root.circle.style.border = GlobalConf.optionCircleBorderMouse;
+        }
+        // root.Label.style.color  = color;
+        // root.circle.style.color = color;
+    }
+
+    function mouseOut()
+    {
+        // console.log(elem.innerHTML);
+
+        var root = elem;
+        if (elem.root) root = elem.root;
+
+        var color = GlobalConf.optionCircleColor;
+
+        root.Label.style.textDecoration = null;
+
+        if (root.tagLabel)
+        {
+            var tagColor = GlobalConf.tagColor;
+
+            root.tagLabel.style.color = tagColor;
+        }
+
+        if (root.circle)
+        {
+            root.circle.style.border = GlobalConf.optionCircleBorder;
+        }
+
+        // root.Label.style.color  = color;
+        // root.circle.style.color = color;
+    }
+}
+
 //
 // Triangle
 //
@@ -96,15 +157,25 @@ Entry.createEntryTag = function(tag, title, tagSize, index, parent)
     text.onclick            = Entry.editEntry;
     text.control            = "control";
 
+    var tagColor = GlobalConf.tagColor;
+
     var div = WebLibSimple.createDiv(0, 0, "50%", 0, null, text);
     div.style.fontWeight = "lighter";
+    div.style.color      = tagColor;
     div.innerHTML        = tag + ": ";
     div.root             = text;
+
+    text.tagLabel = div;
 
     var div = WebLibSimple.createDiv("50%", 0, 0, 0, null, text);
     div.style.fontWeight = "bold";
     div.innerHTML        = title;
     div.root             = text;
+    div.style.overflow   = "hidden";
+
+    text.Label = div;
+
+    Entry.mouseHandler(text);
 
     // var span = WebLibSimple.createAnyAppend("span", text);
     // span.innerHTML = tag + ": ";
@@ -174,6 +245,7 @@ Entry.createOptionDivStd = function(size, id, parent)
     topDiv.onclick      = Entry.openScan;
     topDiv.style.cursor = "pointer";
     topDiv.id           = id;
+    Entry.mouseHandler(topDiv);
 
     var containerDiscription = Entry.createOptionLabel("Scan", circleSize, topDiv);
     containerDiscription.root = topDiv;
@@ -185,6 +257,9 @@ Entry.createOptionDivStd = function(size, id, parent)
     cLabel.style.fontSize = circleSize * 0.8 + "px"
     cLabel.root = topDiv;
 
+    topDiv.Label  = containerDiscription;
+    topDiv.circle = cLabel;
+
     // WebLibSimple.setBGColor(topDiv, "#3ed436");
 
     //
@@ -195,6 +270,7 @@ Entry.createOptionDivStd = function(size, id, parent)
     bottomDiv.onclick      = Entry.deleteEntry;
     bottomDiv.style.cursor = "pointer";
     bottomDiv.id           = id;
+    Entry.mouseHandler(bottomDiv);
 
     var containerLabel = WebLibSimple.createDiv(0, 0, circleSize, 0, null, bottomDiv);
     containerLabel.root = bottomDiv;
@@ -205,6 +281,9 @@ Entry.createOptionDivStd = function(size, id, parent)
 
     var containerDiscription = Entry.createOptionLabel("Delete", circleSize, bottomDiv);
     containerDiscription.root = bottomDiv;
+
+    bottomDiv.Label  = containerDiscription;
+    bottomDiv.circle = cLabel;
 
     // WebLibSimple.setBGColor(bottomDiv, "#d43636");
 
@@ -229,8 +308,9 @@ Entry.createCircleDiv = function(size, Label, id, parent)
     var labelDiv = WebLibSimple.createDivWidHei(0, 0, size, size, null, circleDiv);
     // var lable = Layout.createLabelCircle(Label, size, GlobalConf.labelColor, labelDiv, null);
     var lable = Layout.createLabelCircle(Label, size, GlobalConf.labelColor, labelDiv, null);
-    lable.style.fontSize = "20px";
+    lable.style.fontSize = "25px";
     lable.style.border = "1px solid #1ED760";
+    lable.style.fontWeight = "bold";
 
     // WebLibSimple.setBGColor(div, "#af36d4");
 

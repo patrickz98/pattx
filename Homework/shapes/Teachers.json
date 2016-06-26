@@ -1,15 +1,11 @@
 [
     {
-        "Teacher": "Frau Herz",
-        "TeacherSymbol": "Hz"
-    },
-    {
-        "Teacher": "Herr Lupp",
-        "TeacherSymbol": "Lp"
-    },
-    {
-        "Teacher": "Herr Henschen",
-        "TeacherSymbol": "Hn"
-    },
-
+        "Name":"Mr. Black",
+        "ShortName":"Br",
+        "Subjects":"Sport",
+        "Notes":"",
+        "School":"GSH",
+        "uuid":"PATpLAJgPkDt6iI38jVw",
+        "id":null
+    }
 ]
