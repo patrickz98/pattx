@@ -1,3 +1,6 @@
+sudo mount -t nfs -o resvport,rw 192.168.3.1:/mp3 /private/nfs
+
+------------------------------------------------------------------------------------------
 
 odroid-u4.local:/mnt/nfs                   /media/Network   nfs     rw,sync  0     0
 patrick-raspberry.local:/mnt/nfs           /media/Network   nfs     rw,sync,hard,intr  0     0
@@ -107,9 +110,7 @@ usermod -a -G groupName userName
 
 sudo mount -t cifs -o username=pi,password=jabba123 //192.168.0.198/iTunes /mnt/Raspberry/
 
-
-
-
+sudo bash -c 'pv </dev/sda  >/dev/sdb`
 
 [www]
         path = /var/www
