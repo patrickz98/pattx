@@ -465,4 +465,5 @@ WebLibSimple.setOpacity = function(div, hexColor, percent)
     var darkPercent = parseInt(res[ 2 ]) * percent;
     var hlsColor = res[ 0 ] + "," + res[ 1 ] + "," + darkPercent + "%)";
     div.style.backgroundColor = hlsColor;
+    div.color = hexColor;
 }
