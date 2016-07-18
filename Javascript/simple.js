@@ -458,7 +458,8 @@ WebLibSimple.setOpacity = function(div, hexColor, percent)
 {
     if (percent < 0.3) percent = 0.3;
 
-    var hlsColor = tinycolor(hexColor).toHslString();
+    // var hlsColor = tinycolor(hexColor).toHslString();
+    var hlsColor = color2color(hexColor, "hsl");
 
     var res = hlsColor.split(",");
 
