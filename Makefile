@@ -17,7 +17,6 @@ garrysmod-update:
 	cd spacebuild; git pull; cd ..; \
 
 port-update:
-
 	sudo port -v selfupdate
 	sudo port selfupdate
 	sudo port upgrade outdated

@@ -468,3 +468,50 @@ WebLibSimple.setOpacity = function(div, hexColor, percent)
     div.style.backgroundColor = hlsColor;
     div.color = hexColor;
 }
+
+WebLibSimple.includes = function(array, key)
+{
+    for (var index in array)
+    {
+        var value = array[ index ];
+        if (value == key) return true;
+    }
+
+    return false;
+}
+
+WebLibSimple.hasKey = function(array, key)
+{
+    for (var aKey in array)
+    {
+        if (aKey == key) return true;
+    }
+
+    return false;
+}
+
+WebLibSimple.nuke = function(obj)
+{
+    obj.style.display = "none";
+    obj.innerHTML = "";
+    obj = null;
+}
+
+WebLibSimple.circ = function(progress)
+{
+    return 1 - Math.sin(Math.acos(progress));
+}
+
+WebLibSimple.base64Encode = function(str)
+{
+    return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, function(match, p1) {
+        return String.fromCharCode('0x' + p1);
+    }));
+}
+
+WebLibSimple.base64Decode = function(str)
+{
+    return decodeURIComponent(Array.prototype.map.call(atob(str), function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+}
