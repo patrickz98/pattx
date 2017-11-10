@@ -131,7 +131,6 @@ sudo ntpdate -u ntp.ubuntu.com
 
 sudo apt-get install libncurses5-dev
 
-
 sudo apt-get install libavahi-client-dev libavahi-client3 libcurl4-openssl-dev
 
 sudo apt-get install libssl-dev
@@ -166,12 +165,6 @@ psk="4patrick"
 sudo modprobe -r gspca_kinect
 sudo modprobe -r gspca_main
 
-
-
-git clone https://github.com/dezi/raspi.git; \
-git clone -b "release/3.4" https://github.com/tvheadend/tvheadend.git; \
-
-
 http://www.os-smart-tv.net/ebooks/smart-tv.4.epub
 
 
@@ -187,19 +180,10 @@ einpaken +
 tar xvzf
 auspaken +
 
-sudo dpkg -i linux-headers linux-image
-
 odroid ALL=(ALL) NOPASSWD: ALL
 
 sudo dpkg-reconfigure tzdata
-
-
-deb http://ftp.debian.org/debian testing main contrib non-free
-
-python -m py_compile script.py
-
 sudo apt-get install usbutils wireless-tools
-
 
 du -a -c -h
 
@@ -220,10 +204,6 @@ SSH
 	ssh-keygen -t rsa -C "your_email@example.com"
 
 
-
-open /System/Library/CoreServices/Finder.app
-
-sudo apachectl start
 
 sudo launchctl load -w /System/Library/LaunchDaemons/ntalk.plist
 
