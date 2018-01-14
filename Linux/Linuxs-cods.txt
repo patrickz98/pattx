@@ -143,6 +143,13 @@ alias du='du -s -c -h'
 alias ldd='otool -L'
 alias gitmsg='php -r "date_default_timezone_set(\"Europe/Berlin\"); echo \"Check in. \" . date(\"Y-m-d H:i\") . \"\n\";"'
 
+function encrypt() {
+    tar --create --file - --gzip -- "$@" | openssl aes-256-cbc -salt -out out.crypt
+}
+
+function decrypt() {
+    openssl aes-256-cbc -d -salt -in "$1" | tar -v --extract --gzip --file -
+}
 
 network={
 ssid="Family-Airport"
