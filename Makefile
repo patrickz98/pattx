@@ -16,11 +16,17 @@ garrysmod-update:
 	cd cap_fonts; git pull; cd ..; \
 	cd spacebuild; git pull; cd ..; \
 
-port-update:
+update:
 	sudo port -v selfupdate
 	sudo port selfupdate
 	sudo port upgrade outdated
 	sudo port uninstall inactive
+	sudo composer self-update
+	brew update
+	brew outdated
+	brew upgrade
+	brew cleanup
+	npm update -g
 
 clean:
 	cd java; make clean
