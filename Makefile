@@ -1,3 +1,5 @@
+default: update
+
 garrysmod:
 
 	cd /Users/patrick/Library/Application\ Support/Steam/SteamApps/common/GarrysMod/garrysmod/addons; \
@@ -17,21 +19,18 @@ garrysmod-update:
 	cd spacebuild; git pull; cd ..; \
 
 update:
-	sudo port -v selfupdate
-	sudo port selfupdate
-	sudo port upgrade outdated
-	sudo port uninstall inactive
-	sudo composer self-update
 	brew update
 	brew outdated
 	brew upgrade
 	brew cleanup
 	npm update -g
+	sudo port -v selfupdate
+	sudo port selfupdate
+	sudo port upgrade outdated
+	sudo port uninstall inactive
+	sudo composer self-update
 
 clean:
 	cd java; make clean
 	cd C; make clean
 	cd c++; make clean
-
-Bewerbung:
-	openssl aes-256-cbc -d -a -in Bewerbung.gz.crypt -out Bewerbung.gz

@@ -2,13 +2,10 @@
 
 $var1 = exec('ps ax | grep "noip"| wc -l');
 
-	if ( $var1 == 2 )
-        {
-                exec('sudo noip2');
-        }
-
-
-
+if ($var1 == 2)
+{
+	exec('sudo noip2');
+}
 
 
 # $log = fopen ("../log/initscript.log", "a+");
@@ -22,9 +19,5 @@ $var1 = exec('ps ax | grep "noip"| wc -l');
 #	fclose ($log);
 #	sleep (5);
 #}
-
-
-
-
 
 ?>

@@ -76,29 +76,17 @@ ssh -R 3306:localhost:3306 odroid@odroid-u3.local
 netstat -an --inet | egrep '(^Proto|3306)'
 
 -------------------------------------------------------------------------------
-sudo nmap -sP 192.168.0.0/24
 
 talk xbian@localhost pts/2
-
-df -h ###festplatenspeicher
-
-watch 'tail -n 20 /var/log/apache2/patrickz.no-ip.org-access.log'
-
-tvheadend -C &
 
 sudo update-rc.d filename defaults
 sudo update-rc.d -f mysql defaults remove
 
-sudo nano /etc/fstab #####festplatte
+#### festplatte
+
+sudo nano /etc/fstab
 
 UUID=00048CF5048CEECA                   /media/iVideo   ntfs    rw
-
-ps -ax | less #####prossese
-
-eject  /dev/sr0  (auswerfen)
-lsdvd  /dev/sr0
-
-odroid ALL=(ALL) NOPASSWD: ALL
 
 sudo fdisk /dev/sdb
 
@@ -106,11 +94,10 @@ sudo resize2fs /dev/sdb2
 
 sudo e2fsck -f /dev/sdb2
 
-usermod -a -G groupName userName
-
-sudo mount -t cifs -o username=pi,password=jabba123 //192.168.0.198/iTunes /mnt/Raspberry/
-
 sudo bash -c 'pv </dev/sda  >/dev/sdb`
+
+##### processes
+ps -ax | less
 
 [www]
         path = /var/www
@@ -120,128 +107,15 @@ sudo bash -c 'pv </dev/sda  >/dev/sdb`
         printable = no
         guest ok = yes
 
-
-ffmpeg -i input.wav -f mp2 output.mp3
-
-
-ffmpeg -i INPUT -s 640x480 -r 30000/1001 -b 200k -bt 240k -vcodec mpeg4 -vpre ipod640 -acodec libfaac -ac 2 -ar 48000 -ab 192k output.mp4
-
-sudo ntpdate -u ntp.ubuntu.com
-
-
-sudo apt-get install libncurses5-dev
-
-sudo apt-get install libavahi-client-dev libavahi-client3 libcurl4-openssl-dev
-
-sudo apt-get install libssl-dev
-
-
-alias ll='ls -alh'
-alias psg='ps -eaf | grep -v grep | grep'
-alias df='df -hl'
-alias du='du -s -c -h'
-alias ldd='otool -L'
-alias gitmsg='echo Check in. `date -u +"%Y-%m-%dT%H:%M:%SZ"`'
-alias gitcheckin='git commit -a -m "`gitmsg`"; git push'
-
-function encrypt() {
-    tar --create --file - --gzip -- "$@" | openssl aes-256-cbc -salt -out out.crypt
-}
-
-function decrypt() {
-    openssl aes-256-cbc -d -salt -in "$1" | tar -v --extract --gzip --file -
-}
-
-network={
-ssid="Family-Airport"
-scan_ssid=1
-proto=RSN
-key_mgmt=WPA-PSK
-pairwise=CCMP TKIP
-group=CCMP TKIP
-psk="jimmy-hendrix"
-}
-network={
-ssid="Patrick"
-scan_ssid=1
-proto=RSN
-key_mgmt=WPA-PSK
-pairwise=CCMP
-group=TKIP
-psk="4patrick"
-}
-
-
-sudo modprobe -r gspca_kinect
-sudo modprobe -r gspca_main
-
 http://www.os-smart-tv.net/ebooks/smart-tv.4.epub
 
-
-tar xvf [ARCHIVNAME].tar
-auspacken
-
-tar cvf [ARCHIVNAME].tar [VERZEICHNIS1] [VERZEICHNIS2] [DATEI1] [DATEI2]
-einpacken
-
-tar cvzf mame0152.tgz mame0152
-einpaken +
-
-tar xvzf
-auspaken +
-
-odroid ALL=(ALL) NOPASSWD: ALL
-
-sudo dpkg-reconfigure tzdata
-sudo apt-get install usbutils wireless-tools
-
-du -a -c -h
+#### Hier werden 4 Sekunden ab Sekunde 3 kopiert.
 
 ffmpeg -i infile.MP4 -ss 2 -acodec copy -vcodec copy -t 4 outfile.mp4
 
-Hier werden 4 Sekunden ab Sekunde 3 kopiert.
-
-disable desktop
+#### disable desktop
 
 sudo nano /etc/X11/default-display-manager
 
 	#/usr/sbin/gdm3
 	/bin/true
-
-SSH
-
-	cd ~/.ssh
-	ssh-keygen -t rsa -C "your_email@example.com"
-
-
-
-sudo launchctl load -w /System/Library/LaunchDaemons/ntalk.plist
-
-——————————————————————————————————————————————————————
-Lights
-
-How to shut up the alive led.
-echo none > /sys/class/leds/led1/trigger
-
-How to make it stop blinking:
-echo default-on > /sys/class/leds/led1/trigger
-
-How to make it show the eMMC activity:
-echo mmc1 > /sys/class/leds/led1/trigger
-
-How to make it show the SD activity:
-echo mmc0 > /sys/class/leds/led1/trigger
-
-How to make it blink as you want to:
-echo timer > /sys/class/leds/led1/trigger
-
-echo 1000 > /sys/class/leds/led1/delay_on
-echo 1000 > /sys/class/leds/led1/delay_off
-
------------------------------------------------------
-We trust you have received the usual lecture from the local System
-Administrator. It usually boils down to these three things:
-
-    #1) Respect the privacy of others.
-    #2) Think before you type.
-    #3) With great power comes great responsibility.
