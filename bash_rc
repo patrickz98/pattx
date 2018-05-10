@@ -1,0 +1,45 @@
+alias ll='ls -alh'
+alias psg='ps -eaf | grep -v grep | grep'
+alias df='df -hl'
+alias du='du -s -c -h'
+alias ldd='otool -L'
+alias gitmsg='echo Check in. `date +"%Y-%m-%d %H:%M"`'
+alias gitcheckin='git commit -a -m "`gitmsg`"; git push'
+alias cleanDS_Store='find . -name ".DS_Store" -delete'
+alias python='python3'
+
+function encrypt()
+{
+	tar --create --file - --gzip -- "$@" | openssl aes-256-cbc -salt -out out.crypt
+}
+
+function decrypt()
+{
+	openssl aes-256-cbc -d -salt -in "$1" | tar -v --extract --gzip --file -
+}
+
+function printuni()
+{
+	file=$1
+	printer=$2
+
+	echo "--> file=$file printer=$printer"
+	cat $file | ssh 7zierahn@rzssh1.informatik.uni-hamburg.de lpr -P$printer -o sides=one-sided
+}
+
+export FLUTTER_ROOT=/Users/patrick/github/flutter
+export ANDROID_HOME=/Users/patrick/Library/Android/sdk/
+export GRADLE_HOME=/opt/local/share/java/gradle/bin/gradle
+export REACT_EDITOR=atom
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/
+
+export PATH="/opt/local/bin:/opt/local/sbin:/Users/patrick/Library/Android/sdk/platform-tools/:$FLUTTER_ROOT/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$PATH:/opt/local/share/java/gradle/bin/gradle"
+
+# export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+
+# Setting PATH for Python 3.6
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
+export PATH

@@ -1,0 +1,14 @@
+#!/bin/sh
+
+brew update
+brew outdated
+brew upgrade
+brew cleanup
+npm update -g
+sudo port -v selfupdate
+sudo port selfupdate
+sudo port upgrade outdated
+sudo port uninstall inactive
+sudo composer self-update
+pip install -U pip
+

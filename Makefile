@@ -19,16 +19,7 @@ garrysmod-update:
 	cd spacebuild; git pull; cd ..; \
 
 update:
-	brew update
-	brew outdated
-	brew upgrade
-	brew cleanup
-	npm update -g
-	sudo port -v selfupdate
-	sudo port selfupdate
-	sudo port upgrade outdated
-	sudo port uninstall inactive
-	sudo composer self-update
+	sh update-mac.sh
 
 clean:
 	cd java; make clean
