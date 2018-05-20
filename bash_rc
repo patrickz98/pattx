@@ -5,6 +5,7 @@ alias du='du -s -c -h'
 alias ldd='otool -L'
 alias gitmsg='echo Check in. `date +"%Y-%m-%d %H:%M"`'
 alias gitcheckin='git commit -a -m "`gitmsg`"; git push'
+alias gitcheckinuser='git commit -a -m "$USER: `gitmsg`"; git push'
 alias cleanDS_Store='find . -name ".DS_Store" -delete'
 alias python='python3'
 
