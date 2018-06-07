@@ -33,10 +33,12 @@ export ANDROID_HOME=/Users/patrick/Library/Android/sdk/
 export GRADLE_HOME=/opt/local/share/java/gradle/bin/gradle
 export REACT_EDITOR=atom
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/
+export GOPATH=/Users/patrick/go
 
 export PATH="/opt/local/bin:/opt/local/sbin:/Users/patrick/Library/Android/sdk/platform-tools/:$FLUTTER_ROOT/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$PATH:/opt/local/share/java/gradle/bin/gradle"
+export PATH=$GOPATH/bin:$PATH
 
 # export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 
