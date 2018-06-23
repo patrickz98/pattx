@@ -28,10 +28,10 @@ function printuni()
 	cat $file | ssh 7zierahn@rzssh1.informatik.uni-hamburg.de lpr -P$printer -o sides=one-sided
 }
 
-export FLUTTER_ROOT=/Users/patrick/github/flutter
+export FLUTTER_ROOT=/Users/patrick/Tools/flutter
 export ANDROID_HOME=/Users/patrick/Library/Android/sdk/
 export GRADLE_HOME=/opt/local/share/java/gradle/bin/gradle
-export REACT_EDITOR=atom
+export REACT_EDITOR=PhpStorm
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/
 export GOPATH=/Users/patrick/go
 
@@ -39,6 +39,7 @@ export PATH="/opt/local/bin:/opt/local/sbin:/Users/patrick/Library/Android/sdk/p
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$PATH:/opt/local/share/java/gradle/bin/gradle"
 export PATH=$GOPATH/bin:$PATH
+export PATH=$FLUTTER_ROOT/bin:$PATH
 
 # export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 
