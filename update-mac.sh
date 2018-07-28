@@ -12,4 +12,5 @@ sudo port upgrade outdated
 sudo port uninstall inactive
 sudo composer self-update
 pip install -U pip
-
+flutter upgrade
+rustup update stable
