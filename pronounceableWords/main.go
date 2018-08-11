@@ -2,8 +2,9 @@ package main
 
 import (
 	"math/rand"
-	"fmt"
 	"strings"
+	"time"
+	"fmt"
 )
 
 const maxLength = 8
@@ -11,25 +12,25 @@ const words = 50
 const contains = "x"
 
 func genWord(vocals []string, consonances []string, s []string) string {
-	// s1 := rand.NewSource(time.Now().UnixNano())
-	// r1 := rand.New(s1)
-	nbr := (rand.Int() % (maxLength / 2)) + 1
+	s1 := rand.NewSource(time.Now().UnixNano())
+	r1 := rand.New(s1)
+	nbr := r1.Intn(10) + 1
 
-	startVowel := rand.Int() % 2
-	endConsonant := rand.Int() % 2
+	startVowel := r1.Intn(2)
+	endConsonant := r1.Intn(2)
 
 	var word = ""
 
 	for inx := 0; inx <= nbr; inx++ {
-		word += s[ rand.Int() % len(s) ]
+		word += s[ r1.Int() % len(s) ]
 	}
 
 	if startVowel == 1 {
-		word = consonances[ rand.Int() % len(consonances) ] + word
+		word = consonances[ r1.Int() % len(consonances) ] + word
 	}
 
 	if endConsonant == 1 {
-		word += vocals[ rand.Int() % len(vocals) ]
+		word += vocals[ r1.Int() % len(vocals) ]
 	}
 
 	return word
