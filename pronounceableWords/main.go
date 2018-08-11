@@ -2,19 +2,19 @@ package main
 
 import (
 	"math/rand"
-	"strings"
 	"time"
+	"strings"
 	"fmt"
 )
 
 const maxLength = 8
-const words = 50
-const contains = "x"
+const words = 300
+const contains = "qu"
 
 func genWord(vocals []string, consonances []string, s []string) string {
 	s1 := rand.NewSource(time.Now().UnixNano())
 	r1 := rand.New(s1)
-	nbr := r1.Intn(10) + 1
+	nbr := r1.Intn(maxLength) + 1
 
 	startVowel := r1.Intn(2)
 	endConsonant := r1.Intn(2)
@@ -54,15 +54,23 @@ func main() {
 	for {
 		word := genWord(vocals, consonances, s)
 
+		// fmt.Println(word)
+		// count++
+
 		// if word[ 0 ] == 'x' {
 		// 	fmt.Println(word)
 		// 	count++
 		// }
 
-		if strings.Contains(word, contains) {
+		if strings.HasPrefix(word, contains) && strings.Contains(word, "z"){
 			fmt.Println(word)
 			count++
 		}
+
+		// if strings.Contains(word, contains) {
+		// 	fmt.Println(word)
+		// 	count++
+		// }
 
 		if count >= words {
 			break
