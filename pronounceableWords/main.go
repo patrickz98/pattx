@@ -8,11 +8,12 @@ import (
 
 const maxLength = 8
 const words = 50
+const contains = "x"
 
 func genWord(vocals []string, consonances []string, s []string) string {
 	// s1 := rand.NewSource(time.Now().UnixNano())
 	// r1 := rand.New(s1)
-	nbr := (rand.Int() % maxLength) + 1
+	nbr := (rand.Int() % (maxLength / 2)) + 1
 
 	startVowel := rand.Int() % 2
 	endConsonant := rand.Int() % 2
@@ -57,7 +58,7 @@ func main() {
 		// 	count++
 		// }
 
-		if strings.Contains(word, "x") {
+		if strings.Contains(word, contains) {
 			fmt.Println(word)
 			count++
 		}
