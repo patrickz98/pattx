@@ -14,3 +14,5 @@ sudo composer self-update
 pip install -U pip
 flutter upgrade
 rustup update stable
+pip3 install --upgrade pip
+
