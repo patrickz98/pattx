@@ -3,7 +3,6 @@ package main
 import (
 	"math/rand"
 	"time"
-	"strings"
 	"fmt"
 )
 
@@ -37,6 +36,7 @@ func genWord(vocals []string, consonances []string, s []string) string {
 }
 
 func main() {
+
 	vocals := []string{"b","c","d","f","g","h","j","k","l","m","n","p","q","r","s","t","v","w","x","y","z"}
 	consonances := []string{"a","e","i","o","u"}
 
@@ -62,7 +62,12 @@ func main() {
 		// 	count++
 		// }
 
-		if strings.HasPrefix(word, contains) && strings.Contains(word, "z"){
+		// if strings.HasPrefix(word, contains) {
+		// 	fmt.Println(word)
+		// 	count++
+		// }
+
+		if Levenshtein(word, "android") <= 2 {
 			fmt.Println(word)
 			count++
 		}
