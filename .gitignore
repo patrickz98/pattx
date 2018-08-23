@@ -1,3 +1,4 @@
 *.DS_Store
 Spider/google.txt
 Spider/passwd.txt
+.idea
