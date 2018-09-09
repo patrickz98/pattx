@@ -12,6 +12,6 @@ npm install -g npm
 #sudo port uninstall inactive
 #sudo composer self-update
 pip install -U pip
+pip3 install --upgrade pip
 flutter upgrade
 rustup update stable
-pip3 install --upgrade pip
