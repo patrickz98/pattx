@@ -44,6 +44,7 @@ export PATH=$GOPATH/bin:$PATH
 export PATH=$FLUTTER_ROOT/bin:$PATH
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 export PATH="/Volumes/Fuchsia/fuchsia/.jiri_root/bin:$PATH"
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 # export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 
