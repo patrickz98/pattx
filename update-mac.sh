@@ -14,4 +14,4 @@ npm install -g npm
 pip install -U pip
 pip3 install --upgrade pip
 flutter upgrade
-rustup update stable
+#rustup update stable
