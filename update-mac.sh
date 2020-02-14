@@ -4,8 +4,8 @@ brew update
 brew outdated
 brew upgrade
 brew cleanup
-npm update -g
-npm install -g npm
+#npm update -g
+#npm install -g npm
 #sudo port -v selfupdate
 #sudo port selfupdate
 #sudo port upgrade outdated
